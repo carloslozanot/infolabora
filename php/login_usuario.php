@@ -1,68 +1,82 @@
 <?php
+
 session_start();
 
-/* 1. incluye la conexión (ajusta la ruta según tu estructura) */
-include '../conexion.php';   // usa $conn
+include 'conexion.php';
 
-/* 2. valida que lleguen los datos */
-if (!isset($_POST['cedula'], $_POST['contrasena'])) {
-    exit('❌ Falta cédula o contraseña');
-}
-
-$cedula     = $_POST['cedula'];
+$cedula = $_POST['cedula'];
 $contrasena = $_POST['contrasena'];
 
-/* 3. consulta segura */
-$sql = "SELECT u.cedula, u.contrasena, u.id_rol AS rol,
-               e.nombres, e.apellidos, e.imagen, e.edad, e.eps, e.arl,
-               e.correo, e.fecha_ingreso, e.cargo, e.area, e.jefe_inmediato,
-               e.caja, e.pensiones, e.cesantias, e.celular,
-               v.dias_total, v.dias_disfrutados
-        FROM usuarios  u
-        JOIN empleados e   ON u.cedula = e.cedula
-        LEFT JOIN vacaciones v ON u.cedula = v.cedula
-        WHERE u.cedula = ? AND u.contrasena = ?";
 
-$stmt = $conn->prepare($sql);
-$stmt->bind_param('ss', $cedula, $contrasena);
-$stmt->execute();
-$res = $stmt->get_result();
+$validar_login = mysqli_query($conn, "SELECT usuarios.cedula as cedula, usuarios.contrasena as contrasena, usuarios.id_rol as rol, empleados.nombres as nombres, empleados.apellidos as apellidos, empleados.imagen as imagen,
+    empleados.edad as edad, empleados.eps as eps, empleados.arl as arl, empleados.correo as correo, empleados.fecha_ingreso as fecha_ingreso, empleados.cargo as cargo, empleados.area as area, empleados.jefe_inmediato as jefe_inmediato,
+    empleados.caja as caja, empleados.pensiones as pensiones, empleados.cesantias as cesantias, empleados.celular as celular, vacaciones.dias_total as dias_total, vacaciones.dias_disfrutados as dias_disfrutados
+    FROM usuarios 
+    INNER JOIN empleados ON usuarios.cedula = empleados.cedula
+    LEFT OUTER JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
+    WHERE usuarios.cedula='$cedula' and usuarios.contrasena = '$contrasena'");
 
-if ($res->num_rows === 0) {
-    exit('❌ Usuario o contraseña incorrectos');
+print_r($validar_login);
+
+if (mysqli_num_rows($validar_login) > 0) {
+    $row = mysqli_fetch_assoc($validar_login);
+    $rol = $row['rol'];
+    print_r($_rol);
+    $nombreUsuario = $row['nombres'];
+    $apellidosUsuario = $row['apellidos'];
+    $imagen = $row['imagen'];
+    $celular = $row['celular'];
+    $edad = $row['edad'];
+    $correo = $row['correo'];
+    $fecha_ingreso = $row['fecha_ingreso'];
+    $cargo = $row['cargo'];
+    $area = $row['area'];
+    $jefe_inmediato = $row['jefe_inmediato'];
+    $caja = $row['caja'];
+    $eps = $row['eps'];
+    $arl = $row['arl'];
+    $pensiones = $row['pensiones'];
+    $cesantias = $row['cesantias'];
+    $dias_total = $row['dias_total'];
+    $dias_disfrutados = $row['dias_disfrutados'];
+    $diferencia_dias = $row['dias_total'] - $row['dias_disfrutados'];
+    //Iniciar sesión y redirigir a la página principal
+    $_SESSION['rol'] = $rol;
+    $_SESSION['usuario'] = $cedula;
+    $_SESSION['nombreUsuario'] = $nombreUsuario;
+    $_SESSION['apellidoUsuario'] = $apellidosUsuario;
+    $_SESSION['imagen'] = $imagen;
+    $_SESSION['celular'] = $celular;
+    $_SESSION['edad'] = $edad;
+    $_SESSION['correo'] = $correo;
+    $_SESSION['fecha_ingreso'] = $fecha_ingreso;
+    $_SESSION['cargo'] = $cargo;
+    $_SESSION['area'] = $area;
+    $_SESSION['jefe_inmediato'] = $jefe_inmediato;
+    $_SESSION['caja'] = $caja;
+    $_SESSION['eps'] = $eps;
+    $_SESSION['arl'] = $arl;
+    $_SESSION['pensiones'] = $pensiones;
+    $_SESSION['cesantias'] = $cesantias;
+    $_SESSION['dias_total'] = $dias_total;
+    $_SESSION['dias_disfrutados'] = $dias_disfrutados;
+    $_SESSION['diferencia_dias'] = $diferencia_dias;
+
+
+    if ($_SESSION['rol'] == 1) {
+        header("location:../index_admin.php");
+        exit;
+    } else if ($_SESSION['rol'] == 2) {
+        header("location:../index_usuario.php");
+    } else {
+        header("location:../index_rrhh.php");
+    }
+} else {
+   
+    exit;
 }
 
-$row = $res->fetch_assoc();
+mysqli_close($conn);
 
-/* 4. llena variables de sesión */
-$_SESSION = [
-    'rol'             => $row['rol'],
-    'usuario'         => $cedula,
-    'nombreUsuario'   => $row['nombres'],
-    'apellidoUsuario' => $row['apellidos'],
-    'imagen'          => $row['imagen'],
-    'celular'         => $row['celular'],
-    'edad'            => $row['edad'],
-    'correo'          => $row['correo'],
-    'fecha_ingreso'   => $row['fecha_ingreso'],
-    'cargo'           => $row['cargo'],
-    'area'            => $row['area'],
-    'jefe_inmediato'  => $row['jefe_inmediato'],
-    'caja'            => $row['caja'],
-    'eps'             => $row['eps'],
-    'arl'             => $row['arl'],
-    'pensiones'       => $row['pensiones'],
-    'cesantias'       => $row['cesantias'],
-    'dias_total'      => $row['dias_total'],
-    'dias_disfrutados'=> $row['dias_disfrutados'],
-    'diferencia_dias' => $row['dias_total'] - $row['dias_disfrutados']
-];
 
-/* 5. redirección según rol */
-switch ($_SESSION['rol']) {
-    case 1: header('Location: ../index_admin.php');  break;
-    case 2: header('Location: ../index_usuario.php'); break;
-    default: header('Location: ../index_rrhh.php');   break;
-}
-exit;
 ?>

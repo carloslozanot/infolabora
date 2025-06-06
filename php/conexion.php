@@ -8,14 +8,14 @@ $contrasena = "D4t4b1z.2025";
 $bd = "infolabora";
 
 // Crear conexión
-$conexion = @new mysqli($host, $usuario, $contrasena, $bd);
+$conn = @new mysqli($host, $usuario, $contrasena, $bd);
 
 // Verificar conexión
-if ($conexion->connect_error) {
-    die("❌ Conexión fallida: " . $conexion->connect_error);
+if ($conn->connect_error) {
+    die("❌ Conexión fallida: " . $conn->connect_error);
 } else {
     echo "✅ Conexión exitosa a la base de datos";
 }
 
-$conexion->close();
+$conn->close();
 ?>
