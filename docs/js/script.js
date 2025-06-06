@@ -116,7 +116,7 @@ window.addEventListener("resize", anchoPage);
 // Si el ancho de la página es menor a 760px, ocultará el menú al recargar la página
 if (window.innerWidth < 760) {
     body.classList.add("body_move");
-    menuSide.classList.add("menuside_move");
+    menuSide.classList.add("menu_side_move");
 }
 
 // Haciendo el menú responsive (adaptable)
