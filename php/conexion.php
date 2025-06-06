@@ -1,15 +1,19 @@
 <?php
+// Mostrar errores
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+// Datos de conexión
 $host = "infolaboradbsvr.mysql.database.azure.com";
 $usuario = "adminlabora";
 $contrasena = "D4t4b1z.2025";
 $bd = "infolabora";
 
-$conn = new mysqli($host, $usuario, $contrasena, $bd);
+// Crear conexión
+$conexion = new mysqli($host, $usuario, $contrasena, $bd);
 
-if ($conn->connect_error) {
-    die("❌ Conexión fallida: " . $conn->connect_error);
+// Verificar conexión
+if ($conexion->connect_error) {
+    die("❌ Conexión fallida: " . $conexion->connect_error);
 }
-
-// No cierres la conexión aquí 👇
-// $conn->close();
 ?>

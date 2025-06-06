@@ -1,7 +1,11 @@
 <?php
 session_start();
 
-include '../conexion.php'; // Asegúrate que la ruta sea correcta
+include '/conexion.php'; // Asegúrate que la ruta sea correcta
+
+// Mostrar errores
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 if (!isset($_POST['cedula'], $_POST['contrasena'])) {
     die("❌ Faltan datos del formulario.");
