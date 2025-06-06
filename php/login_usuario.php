@@ -64,7 +64,7 @@ if (mysqli_num_rows($validar_login) > 0) {
 
 
     if ($_SESSION['rol'] == 1) {
-        header("location:../index_admin.php");
+        header("/index_admin.php");
         exit;
     } else if ($_SESSION['rol'] == 2) {
         header("location:../index_usuario.php");
