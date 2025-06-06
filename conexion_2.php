@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 $host = "infolaboradbsvr.mysql.database.azure.com";
-$usuario = "adminlabora@infolaboradbsvr";
+$usuario = "adminlabora";
 $contrasena = "D4t4b1z.2025";
 $bd = "infolabora";
 
