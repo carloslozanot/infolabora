@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario'])) {
     echo '
             <script>
                 alert("Debe iniciar sesión");
-                window.location = "login.php";
+                window.location = "index.php";
             </script>
         ';
     exit;
@@ -60,12 +60,10 @@ if (!isset($_SESSION['usuario'])) {
                     <h4>Inicio</h4>
                 </div>
             </a>
-            <a href="#">
-                <div class="option" data-pagina="usuarios">
-                    <i class="bi bi-person" title="Usuarios"></i>
-                    <h4>Usuarios</h4>
-                </div>
-            </a>
+            <a href="#" class="option" data-pagina="usuarios">
+    <i class="bi bi-person" title="Usuarios"></i>
+    <h4>Usuarios</h4>
+</a>
             <a href="#">
                 <div class="option" data-pagina="colaboradores">
                     <i class="bi bi-person-raised-hand" title="Colaboradores"></i>
