@@ -1,13 +1,19 @@
 <?php
+$host = "infolabora.azurewebsites.net"; // o la IP/host de tu servidor de BD
+$usuario = "adminlabora";
+$contrasena = "D4t4b1z.2025";
+$bd = "infolabora";
 
-    $conexion = mysqli_connect("localhost", "root", "", "proyecto_db");
+// Crear conexión
+$conn = new mysqli($host, $usuario, $contrasena, $bd);
 
-    /*if($conexion){
-        echo 'Conectado a la bd';
-    }else{
-        echo 'No conectado a la bd';
-    }*/
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+} else {
+    echo "✅ Conexión exitosa a la base de datos";
+}
 
-
-
+// Cerrar conexión (opcional aquí)
+$conn->close();
 ?>
