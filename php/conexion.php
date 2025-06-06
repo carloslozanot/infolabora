@@ -14,8 +14,7 @@ $conn = @new mysqli($host, $usuario, $contrasena, $bd);
 if ($conn->connect_error) {
     die("❌ Conexión fallida: " . $conn->connect_error);
 } else {
-    echo "✅ Conexión exitosa a la base de datos";
+    // Puedes comentar esta línea si no quieres mostrar mensaje cada vez
+    // echo "✅ Conexión exitosa a la base de datos";
 }
-
-$conn->close();
 ?>
