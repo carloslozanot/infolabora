@@ -28,7 +28,7 @@
                 <!--Formulario de Login y registro-->
                 <div class="contenedor_login-register">
                     <!--Login-->
-                    <form action="php/login_usuario.php" method="POST" class="formulario_login">
+                    <form action="login_usuario.php" method="POST" class="formulario_login">
                         <h2>Iniciar Sesión</h2>
                         <input type="text" placeholder="Numero de cedula" name="cedula">
                         <input type="password" placeholder="Contraseña" name="contrasena">
