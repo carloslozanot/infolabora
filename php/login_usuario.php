@@ -1,41 +1,45 @@
 <?php
 session_start();
-
-include '/conexion.php'; // Asegúrate que la ruta sea correcta
-
-// Mostrar errores
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-if (!isset($_POST['cedula'], $_POST['contrasena'])) {
-    die("❌ Faltan datos del formulario.");
+include 'conexion.php';  // Importante que use la variable $conexion definida ahí
+
+// Obtener datos POST
+$cedula = $_POST['cedula'] ?? '';
+$contrasena = $_POST['contrasena'] ?? '';
+
+// Validar que se enviaron datos
+if (!$cedula || !$contrasena) {
+    die("Error: faltan datos de login.");
 }
 
-$cedula = mysqli_real_escape_string($conn, $_POST['cedula']);
-$contrasena = mysqli_real_escape_string($conn, $_POST['contrasena']);
+// Evitar inyección SQL con consultas preparadas
+$stmt = $conexion->prepare("SELECT 
+    usuarios.cedula, usuarios.contrasena, usuarios.id_rol as rol, 
+    empleados.nombres, empleados.apellidos, empleados.imagen,
+    empleados.edad, empleados.eps, empleados.arl, empleados.correo, empleados.fecha_ingreso,
+    empleados.cargo, empleados.area, empleados.jefe_inmediato, empleados.caja, empleados.pensiones,
+    empleados.cesantias, empleados.celular,
+    vacaciones.dias_total, vacaciones.dias_disfrutados
+FROM usuarios 
+INNER JOIN empleados ON usuarios.cedula = empleados.cedula
+LEFT OUTER JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
+WHERE usuarios.cedula = ? AND usuarios.contrasena = ?");
 
-$validar_login = mysqli_query($conn, "
-    SELECT usuarios.cedula, usuarios.contrasena, usuarios.id_rol AS rol,
-           empleados.nombres, empleados.apellidos, empleados.imagen, empleados.edad,
-           empleados.eps, empleados.arl, empleados.correo, empleados.fecha_ingreso,
-           empleados.cargo, empleados.area, empleados.jefe_inmediato, empleados.caja,
-           empleados.pensiones, empleados.cesantias, empleados.celular,
-           vacaciones.dias_total, vacaciones.dias_disfrutados
-    FROM usuarios
-    INNER JOIN empleados ON usuarios.cedula = empleados.cedula
-    LEFT JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
-    WHERE usuarios.cedula='$cedula' AND usuarios.contrasena = '$contrasena'
-");
-
-if (!$validar_login) {
-    die("❌ Error en la consulta: " . mysqli_error($conn));
+if (!$stmt) {
+    die("Error en la consulta: " . $conexion->error);
 }
 
-if (mysqli_num_rows($validar_login) > 0) {
-    $row = mysqli_fetch_assoc($validar_login);
-    
+$stmt->bind_param('ss', $cedula, $contrasena);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    // Guardar datos en sesión
     $_SESSION['rol'] = $row['rol'];
-    $_SESSION['usuario'] = $cedula;
+    $_SESSION['usuario'] = $row['cedula'];
     $_SESSION['nombreUsuario'] = $row['nombres'];
     $_SESSION['apellidoUsuario'] = $row['apellidos'];
     $_SESSION['imagen'] = $row['imagen'];
@@ -55,18 +59,22 @@ if (mysqli_num_rows($validar_login) > 0) {
     $_SESSION['dias_disfrutados'] = $row['dias_disfrutados'];
     $_SESSION['diferencia_dias'] = $row['dias_total'] - $row['dias_disfrutados'];
 
+    // Redireccionar según rol
     if ($_SESSION['rol'] == 1) {
         header("Location: ../index_admin.php");
+        exit;
     } elseif ($_SESSION['rol'] == 2) {
         header("Location: ../index_usuario.php");
+        exit;
     } else {
         header("Location: ../index_rrhh.php");
+        exit;
     }
-    exit;
+
 } else {
-    echo "❌ Usuario o contraseña incorrectos";
-    exit;
+    echo "Usuario o contraseña incorrectos.";
 }
 
-mysqli_close($conn);
+$stmt->close();
+$conexion->close();
 ?>
