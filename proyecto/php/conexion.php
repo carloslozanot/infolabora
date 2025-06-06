@@ -1,13 +1,17 @@
 <?php
 
-    $conexion = mysqli_connect("localhost", "root", "", "proyecto_db");
+// Parámetros de conexión para Azure MySQL
+$server = "infolabora.azurewebsites.net"; // usualmente termina en .mysql.database.azure.com
+$user = "adminlabora@infolabora.azurewebsites.net"; // el usuario incluye @nombre del servidor
+$password = "d4T4B1Z.2025";
+$database = "infolabora"; // o el nombre de tu BD
 
-    /*if($conexion){
-        echo 'Conectado a la bd';
-    }else{
-        echo 'No conectado a la bd';
-    }*/
+$conexion = mysqli_connect($server, $user, $password, $database);
 
-
+if ($conexion) {
+    echo 'Conectado a la base de datos';
+} else {
+    echo 'Error de conexión: ' . mysqli_connect_error();
+}
 
 ?>
