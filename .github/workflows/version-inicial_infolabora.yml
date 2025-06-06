@@ -65,4 +65,4 @@ jobs:
           app-name: 'infolabora'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4313216EF5414D5BA8AA7FB434072CFC }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_73D5847D00C645419B31BF3DBF8DF090 }}
