@@ -4,8 +4,12 @@ session_start();
 
 include 'conexion.php';
 
+
 $cedula = mysqli_real_escape_string($conexion, $_POST['cedula']);
 $contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
+
+print_r($cedula);
+print_r($contrasena);
 
 
 $validar_login = mysqli_query($conexion, "SELECT usuarios.cedula as cedula, usuarios.contrasena as contrasena, usuarios.id_rol as rol, empleados.nombres as nombres, empleados.apellidos as apellidos, empleados.imagen as imagen,
