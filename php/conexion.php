@@ -1,20 +1,15 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 $host = "infolaboradbsvr.mysql.database.azure.com";
 $usuario = "adminlabora";
 $contrasena = "D4t4b1z.2025";
 $bd = "infolabora";
 
-// Crear conexión
-$conn = @new mysqli($host, $usuario, $contrasena, $bd);
+$conn = new mysqli($host, $usuario, $contrasena, $bd);
 
-// Verificar conexión
 if ($conn->connect_error) {
     die("❌ Conexión fallida: " . $conn->connect_error);
-} else {
-    // Puedes comentar esta línea si no quieres mostrar mensaje cada vez
-    // echo "✅ Conexión exitosa a la base de datos";
 }
+
+// No cierres la conexión aquí 👇
+// $conn->close();
 ?>
