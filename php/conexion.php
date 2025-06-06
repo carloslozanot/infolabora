@@ -1,6 +1,6 @@
 <?php
-$host = "infolabora.azurewebsites.net"; // o la IP/host de tu servidor de BD
-$usuario = "adminlabora";
+$host = "infolaboradbsvr.mysql.database.azure.com"; // o la IP/host de tu servidor de BD
+$usuario = "adminlabora@infolaboradbsvr.mysql.database.azure.com";
 $contrasena = "D4t4b1z.2025";
 $bd = "infolabora";
 
