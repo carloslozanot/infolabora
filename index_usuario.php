@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario'])) {
     echo '
             <script>
                 alert("Debe iniciar sesión");
-                window.location = "login.php";
+                window.location = "index.php";
             </script>
         ';
     exit;
