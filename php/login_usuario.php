@@ -4,8 +4,8 @@ session_start();
 
 include 'conexion.php';
 
-$cedula = $_POST['cedula'];
-$contrasena = $_POST['contrasena'];
+$cedula = mysqli_real_escape_string($conexion, $_POST['cedula']);
+$contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
 
 
 $validar_login = mysqli_query($conexion, "SELECT usuarios.cedula as cedula, usuarios.contrasena as contrasena, usuarios.id_rol as rol, empleados.nombres as nombres, empleados.apellidos as apellidos, empleados.imagen as imagen,
@@ -64,7 +64,7 @@ if (mysqli_num_rows($validar_login) > 0) {
 
 
     if ($_SESSION['rol'] == 1) {
-        header("../index_admin.php");
+        header("location:../index_admin.php");
         exit;
     } else if ($_SESSION['rol'] == 2) {
         header("location:../index_usuario.php");
