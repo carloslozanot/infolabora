@@ -2,7 +2,7 @@
 
 session_start();
 
-include '../conexion.php';
+include 'conexion.php';
 
 $cedula = $_POST['cedula'];
 $contrasena = $_POST['contrasena'];
@@ -64,12 +64,12 @@ if (mysqli_num_rows($validar_login) > 0) {
 
 
     if ($_SESSION['rol'] == 1) {
-        header("../index_admin.php");
+        header("index_admin.php");
         exit;
     } else if ($_SESSION['rol'] == 2) {
-        header("../index_usuario.php");
+        header("index_usuario.php");
     } else {
-        header("../index_rrhh.php");
+        header("index_rrhh.php");
     }
 } else {
    
