@@ -368,6 +368,12 @@ include("php/conexion.php");
 
     <!-- Incluye el archivo JavaScript -->
     <script src="docs/js/script.js"></script>
+    <script>
+        function mostrarFormulario() {
+            var formulario = document.getElementById("formulario");
+            formulario.style.display = "block";
+        }
+    </script>
 
 </body>
 
