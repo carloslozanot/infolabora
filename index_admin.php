@@ -120,7 +120,7 @@ if (!isset($_SESSION['usuario'])) {
 
                     <?php
 
-                    $conexion = mysqli_connect("localhost", "root", "", "proyecto_db");
+include("php/conexion.php");
                     $SQL = "SELECT * FROM usuarios u, roles r WHERE u.id_rol = r.id AND u.cedula != '123'";
                     $dato = mysqli_query($conexion, $SQL);
 
@@ -187,7 +187,7 @@ if (!isset($_SESSION['usuario'])) {
 
                     <?php
 
-                    $conexion = mysqli_connect("localhost", "root", "", "proyecto_db");
+include("php/conexion.php");
                     $SQL = "SELECT * FROM empleados e WHERE e.cedula != '123'";
                     $dato = mysqli_query($conexion, $SQL);
 
@@ -262,7 +262,7 @@ if (!isset($_SESSION['usuario'])) {
 
                     <?php
 
-                    $conexion = mysqli_connect("localhost", "root", "", "proyecto_db");
+include("php/conexion.php");
                     $SQL_1 = "SELECT * FROM vacaciones";
                     $dato_1 = mysqli_query($conexion, $SQL_1);
 
@@ -319,7 +319,7 @@ if (!isset($_SESSION['usuario'])) {
 
                     <?php
 
-                    $conexion = mysqli_connect("localhost", "root", "", "proyecto_db");
+include("php/conexion.php");
                     $SQL_1 = "SELECT * FROM roles ";
                     $dato_1 = mysqli_query($conexion, $SQL_1);
 
