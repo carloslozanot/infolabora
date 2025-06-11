@@ -75,7 +75,7 @@ $pdf->MultiCell(0, 10, 'Para un total de ($' . $neto_pagar . ') .', 0, 'L');
 $pdf->Ln(5);
 $pdf->MultiCell(0, 10, 'Este certificado se expide el dia del mes de del .', 0, 'L');
 $pdf->Ln(14);
-$pdf->MultiCell(0, 10, 'Sin otro particular, .', 0, 'L');
+$pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
 $pdf->Ln(14);
 $pdf->SetFont('montserrat', 'B', 11); // Negrilla
 $pdf->Cell(0, 10, 'Lorena Acostaa', 0, 'L');
