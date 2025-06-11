@@ -42,6 +42,7 @@ if ($consulta_info->num_rows > 0) {
    $fecha_ingreso   = $d->fecha_ingreso;
    $tipo_contrato   = mb_strtoupper($d->tipo_contrato, 'UTF-8');
    $salario = isset($d->salario) ? floatval(str_replace('.', '', $d->salario)) : 0;
+   $salario_letras = mb_strtoupper(numero_a_letras($salario), 'UTF-8');
    $auxilio = isset($d->auxilio) ? floatval(str_replace('.', '', $d->auxilio)) : 0;
    $neto_pagar = $salario + $auxilio;
 
@@ -138,7 +139,7 @@ $pdf->Write(10,utf8_decode(', devengando un salario básico mensual de '));
 
 $pdf->SetFont('montserrat','B',11);
 /* Salario en números y letras */
-$pdf->Write(10,utf8_decode(''.ucfirst(numero_a_letras($salario)).' pesos M/cte.'));
+$pdf->Write(10, utf8_decode($salario_letras . ' PESOS M/CTE.'));
 $pdf->Write(10,utf8_decode('($'.number_format($salario,0,',','.').') '));
 
 $pdf->SetFont('montserrat','',11);
