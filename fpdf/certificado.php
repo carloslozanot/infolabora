@@ -131,7 +131,7 @@ $pdf->SetFont('montserrat','B',11);
 $pdf->Write(10,utf8_decode($tipo_contrato));
 
 $pdf->SetFont('montserrat','',11);
-$pdf->Write(10,utf8_decode(', devengando un salario básico mensual de '));
+$pdf->Write(10,utf8_decode(', devengando un salario mensual de '));
 
 $pdf->SetFont('montserrat','',11);
 /* Salario en números y letras */
