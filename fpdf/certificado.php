@@ -1,162 +1,178 @@
 <?php
 require('fpdf.php');
 
-$cedula = $_POST['id'] ?? '';
-$destinatario = $_POST['destinatario'] ?? '';
-
-include("../php/conexion.php");
-$consulta_info = $conexion->query("select * from empleados a, info_empleados b where a.cedula = b.cedula and a.cedula = '$cedula'");
-
-$meses = array(
-   '01' => 'enero',
-   '02' => 'febrero',
-   '03' => 'marzo',
-   '04' => 'abril',
-   '05' => 'mayo',
-   '06' => 'junio',
-   '07' => 'julio',
-   '08' => 'agosto',
-   '09' => 'septiembre',
-   '10' => 'octubre',
-   '11' => 'noviembre',
-   '12' => 'diciembre'
-);
-
-if ($consulta_info->num_rows > 0) {
-   $dato_info = $consulta_info->fetch_object();
-   $nombre_completo = mb_strtoupper($dato_info->nombres . ' ' . $dato_info->apellidos, 'UTF-8');
-   $cargo = mb_strtoupper($dato_info->cargo, 'UTF-8');
-   $neto_pagar = $dato_info->total;
-   $fecha_ingreso = $dato_info->fecha_ingreso;
-   $tipo_contrato = mb_strtoupper($dato_info->tipo_contrato, 'UTF-8');
-   $salario = $dato_info->salario;
-   $auxilio = $dato_info->auxilio;
-   $fecha_actual = date('d') . ' de ' . $meses[date('m')] . ' del ' . date('Y');
-} else {
-   $nombre_completo = "No disponible";
-   $cargo = "No disponible";
-   $neto_pagar = "No disponible";
-   $fecha_ingreso = "No disponible";
+/* ───────  FUNCIÓN: número a letras  ───────
+   Requiere la extensión intl de PHP      */
+function numero_a_letras($numero)
+{
+    if (class_exists('NumberFormatter')) {
+        $fmt = new NumberFormatter('es', NumberFormatter::SPELLOUT);
+        return $fmt->format($numero);
+    }
+    // Fallback muy básico (solo miles) si intl no está disponible
+    return $numero;
 }
 
-// Clase personalizada
+/* ───────  ENTRADAS  ─────── */
+$cedula       = $_POST['id']          ?? '';
+$destinatario = $_POST['destinatario']?? '';
+
+include("../php/conexion.php");
+$consulta_info = $conexion->query("
+    SELECT * FROM empleados a
+    JOIN info_empleados b ON a.cedula = b.cedula
+    WHERE a.cedula = '$cedula'
+");
+
+/* Meses en español */
+$meses = [
+  '01'=>'enero','02'=>'febrero','03'=>'marzo','04'=>'abril','05'=>'mayo','06'=>'junio',
+  '07'=>'julio','08'=>'agosto','09'=>'septiembre','10'=>'octubre','11'=>'noviembre','12'=>'diciembre'
+];
+
+/* ───────  DATOS DEL EMPLEADO  ─────── */
+if ($consulta_info->num_rows > 0) {
+    $d             = $consulta_info->fetch_object();
+    $nombre_completo = mb_strtoupper($d->nombres.' '.$d->apellidos,'UTF-8');
+    $cargo           = mb_strtoupper($d->cargo,'UTF-8');
+    $neto_pagar      = $d->total;
+    $fecha_ingreso   = $d->fecha_ingreso;
+    $tipo_contrato   = mb_strtoupper($d->tipo_contrato,'UTF-8');
+    $salario         = $d->salario;
+    $auxilio         = $d->auxilio;
+    $fecha_actual    = date('d').' de '.$meses[date('m')].' del '.date('Y');
+} else {
+    $nombre_completo = $cargo = $neto_pagar = $fecha_ingreso = $tipo_contrato = $salario = $auxilio = 'No disponible';
+    $fecha_actual    = date('d').' de '.$meses[date('m')].' del '.date('Y');
+}
+
+/* ───────  CLASE PDF  ─────── */
 class PDF extends FPDF
 {
-    function __construct($header_img, $footer_img) {
+    function __construct($header_img, $footer_img)
+    {
         parent::__construct();
         $this->header_img = $header_img;
         $this->footer_img = $footer_img;
         $this->AddFont('montserrat', '', 'Montserrat-Regular.php');
         $this->AddFont('montserrat', 'B', 'Montserrat-Bold.php');
     }
-
     function Header()
     {
-        $this->Image($this->header_img, 0, 0, 210); // Ajusta el ancho si es necesario
-        $this->SetY(45); // Baja el cursor para no sobreponer
+        $this->Image($this->header_img, 0, 0, 210);
+        $this->SetY(45);
     }
-
     function Footer()
     {
-        $this->Image($this->footer_img, 0, $this->GetPageHeight() - 23, 210); // Imagen al pie, ajustar si es necesario
+        $this->Image($this->footer_img, 0, $this->GetPageHeight()-23, 210);
         $this->SetY(-15);
-        $this->SetFont('montserrat', '', 8);
+        $this->SetFont('montserrat','',8);
     }
 }
 
-// Crear PDF
+/* ───────  GENERAR PDF  ─────── */
 $pdf = new PDF('membrete.png', 'membrete_2.png');
-$pdf->AddPage('P', 'A4');
+$pdf->AddPage('P','A4');
 
-$pdf->SetFont('montserrat', 'B', 12);
-$pdf->Cell(0, 10, utf8_decode('CERTIFICACIÓN LABORAL'), 0, 1, 'C');
+/* Título */
+$pdf->SetFont('montserrat','B',12);
+$pdf->Cell(0,10,utf8_decode('CERTIFICACIÓN LABORAL'),0,1,'C');
 $pdf->Ln(10);
 
+/* Destinatario */
 if (!empty($destinatario)) {
-   $pdf->SetFont('montserrat', '', 11);
-   $pdf->MultiCell(0, 10, utf8_decode('Señores: ' . $destinatario), 0, 'L');
-   $pdf->Ln(4);
-} else {
-   
+    $pdf->SetFont('montserrat','',11);
+    $pdf->MultiCell(0,10,utf8_decode('Señores: '.$destinatario),0,'L');
+    $pdf->Ln(4);
 }
 
-$pdf->SetFont('montserrat', 'B', 11);
-$pdf->Cell(0, 10, 'DATABIZ S.A.S', 0, 1, 'C');
-$pdf->SetFont('montserrat', '', 11);
-$pdf->Cell(0, 10, 'NIT 900641482-1', 0, 1, 'C');
+/* Encabezado empresa */
+$pdf->SetFont('montserrat','B',11);
+$pdf->Cell(0,10,'DATABIZ S.A.S',0,1,'C');
+$pdf->SetFont('montserrat','',11);
+$pdf->Cell(0,10,'NIT 900641482-1',0,1,'C');
 $pdf->Ln(2);
 
-$pdf->SetFont('montserrat', 'B', 11);
-$pdf->Cell(0, 10, 'HACE CONSTAR', 0, 1, 'C');
+/* Subtítulo */
+$pdf->SetFont('montserrat','B',11);
+$pdf->Cell(0,10,'HACE CONSTAR',0,1,'C');
 $pdf->Ln(4);
 
-$pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode('Que '));
+/* Cuerpo */
+$pdf->SetFont('montserrat','',11);
+$pdf->Write(10,utf8_decode('Que '));
 
-$pdf->SetFont('montserrat', 'B', 11);
-$pdf->Write(10, utf8_decode($nombre_completo));
+$pdf->SetFont('montserrat','B',11);
+$pdf->Write(10,utf8_decode($nombre_completo));
 
-$pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode(' identificado(a) con cédula de ciudadanía N° '));
+$pdf->SetFont('montserrat','',11);
+$pdf->Write(10,utf8_decode(' identificado(a) con cédula de ciudadanía N° '));
 
-$pdf->SetFont('montserrat', 'B', 11);
-$pdf->Write(10, utf8_decode($cedula));
+$pdf->SetFont('montserrat','B',11);
+$pdf->Write(10,utf8_decode($cedula));
 
-$pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode(' labora en nuestra compañía desde el '));
+$pdf->SetFont('montserrat','',11);
+$pdf->Write(10,utf8_decode(' labora en nuestra compañía desde el '));
 
-$pdf->SetFont('montserrat', 'B', 11);
-$pdf->Write(10, utf8_decode($fecha_ingreso));
+$pdf->SetFont('montserrat','B',11);
+$pdf->Write(10,utf8_decode($fecha_ingreso));
 
-$pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode(' desempeñando el cargo de '));
+$pdf->SetFont('montserrat','',11);
+$pdf->Write(10,utf8_decode(' desempeñando el cargo de '));
 
-$pdf->SetFont('montserrat', 'B', 11);
-$pdf->Write(10, utf8_decode($cargo));
+$pdf->SetFont('montserrat','B',11);
+$pdf->Write(10,utf8_decode($cargo));
 
-$pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode(', con un contrato a término '));
+$pdf->SetFont('montserrat','',11);
+$pdf->Write(10,utf8_decode(', con un contrato a término '));
 
-$pdf->SetFont('montserrat', 'B', 11);
-$pdf->Write(10, utf8_decode($tipo_contrato));
+$pdf->SetFont('montserrat','B',11);
+$pdf->Write(10,utf8_decode($tipo_contrato));
 
-$pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode(', devengando un salario básico mensual de ' ));
+$pdf->SetFont('montserrat','',11);
+$pdf->Write(10,utf8_decode(', devengando un salario básico mensual de '));
 
-$pdf->SetFont('montserrat', 'B', 11);
-$pdf->Write(10, utf8_decode('($' . $salario . ')'));
+$pdf->SetFont('montserrat','B',11);
+/* Salario en números y letras */
+$pdf->Write(10,utf8_decode('($'.number_format($salario,0,',','.').') '));
+$pdf->Write(10,utf8_decode('('.ucfirst(numero_a_letras($salario)).' pesos)'));
 
-$pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
-
-$pdf->Ln(15);
-$pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode('          * Un auxilio mensual no salarial de '));
-
-$pdf->SetFont('montserrat', 'B', 11);
-$pdf->Write(10, utf8_decode('($' . $auxilio . ')'));
+$pdf->SetFont('montserrat','',11);
+$pdf->Write(10,utf8_decode(', más todas las prestaciones de ley.'));
 
 $pdf->Ln(15);
+/* Auxilio */
+$pdf->SetFont('montserrat','',11);
+$pdf->Write(10,utf8_decode('          * Un auxilio mensual no salarial de '));
 
-$pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode('Para un total de '));
-
-$pdf->SetFont('montserrat', 'B', 11);
-$pdf->Write(10, utf8_decode('($' . $neto_pagar . ')'));
+$pdf->SetFont('montserrat','B',11);
+$pdf->Write(10,utf8_decode('($'.number_format($auxilio,0,',','.').')'));
 
 $pdf->Ln(15);
+/* Neto pagar total */
+$pdf->SetFont('montserrat','',11);
+$pdf->Write(10,utf8_decode('Para un total de '));
 
-$pdf->SetFont('montserrat', '', 11);
-$pdf->MultiCell(0, 10, utf8_decode('Este certificadoo se expide el día ' . $fecha_actual . '.'), 0, 'L');
+$pdf->SetFont('montserrat','B',11);
+$pdf->Write(10,utf8_decode('($'.number_format($neto_pagar,0,',','.').')'));
+
+$pdf->Ln(15);
+/* Fecha y cierre */
+$pdf->SetFont('montserrat','',11);
+$pdf->MultiCell(0,10,utf8_decode('Este certificado se expide el día '.$fecha_actual.'.'),0,'L');
 $pdf->Ln(10);
-$pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
+$pdf->MultiCell(0,10,'Sin otro particular,',0,'L');
 $pdf->Ln(14);
-$pdf->SetFont('montserrat', 'B', 11); // Negrilla
-$pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
-$pdf->Ln(-4);
-$pdf->MultiCell(0, 10, utf8_decode('Líder de Talento Humano'), 0, 'L');
-$pdf->Ln(-4);
-$pdf->MultiCell(0, 10, 'DATABIZ S.A.S', 0, 'L');
 
-$pdf->Output($nombre_completo . ' ' . $cedula . '.pdf', 'I');
+/* Firma */
+$pdf->SetFont('montserrat','B',11);
+$pdf->Cell(0,10,'Lorena Acosta',0,'L');
+$pdf->Ln(-4);
+$pdf->SetFont('montserrat','',11);
+$pdf->MultiCell(0,10,utf8_decode('Líder de Talento Humano'),0,'L');
+$pdf->Ln(-4);
+$pdf->MultiCell(0,10,'DATABIZ S.A.S',0,'L');
+
+/* Salida */
+$pdf->Output($nombre_completo.' '.$cedula.'.pdf','I');
 ?>
