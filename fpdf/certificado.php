@@ -84,7 +84,26 @@ $pdf->Write(10, utf8_decode('labora en nuestra compañía desde el '));
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Write(10, utf8_decode($fecha_ingreso));
 
-$pdf->MultiCell(0, 10, ', desempeñando el cargo de ' . $cargo . ', con un contrato a término ' . $tipo_contrato . ', devengando un salario básico mensual de ($' . $salario . '), más todas las prestaciones de ley.');
+$pdf->SetFont('montserrat', '', 11);
+$pdf->Write(10, utf8_decode('desempeñando el cargo de '));
+
+$pdf->SetFont('montserrat', 'B', 11);
+$pdf->Write(10, utf8_decode($cargo));
+
+$pdf->SetFont('montserrat', '', 11);
+$pdf->Write(10, utf8_decode(', con un contrato a término '));
+
+$pdf->SetFont('montserrat', 'B', 11);
+$pdf->Write(10, utf8_decode($tipo_contrato));
+
+$pdf->SetFont('montserrat', '', 11);
+$pdf->Write(10, utf8_decode(', devengando un salario básico mensual de' ));
+
+$pdf->SetFont('montserrat', 'B', 11);
+$pdf->Write(10, utf8_decode($ $neto_pagar));
+
+$pdf->SetFont('montserrat', '', 11);
+$pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
 
 $pdf->Ln(20);
 $pdf->MultiCell(0, 10, '     * Un auxilio mensual no salarial de ($' . $auxilio . ') .', 0, 'L');
