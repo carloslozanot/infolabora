@@ -90,7 +90,7 @@ $pdf->SetFont('montserrat', '', 11);
 $pdf->Write(10, utf8_decode('Que '));
 
 $pdf->SetFont('montserrat', 'B', 11);
-$pdf->Write(10, utf8_decode($nombre_completo));
+$nombre_completo = mb_strtoupper($dato_info->nombres . ' ' . $dato_info->apellidos, 'UTF-8');
 
 $pdf->SetFont('montserrat', '', 11);
 $pdf->Write(10, utf8_decode(' identificado(a) con cédula de ciudadanía No. '));
