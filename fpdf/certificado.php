@@ -67,7 +67,14 @@ $pdf->Cell(0, 10, 'HACE CONSTAR', 0, 1, 'C');
 $pdf->Ln(4);
 
 $pdf->SetFont('montserrat', '', 11);
-$pdf->MultiCell(0, 10, utf8_decode('Que ' . $nombre_completo . ' identificado(a) con cédula de ciudadanía No. ' . $cedula . ', labora en nuestra compañía desde el ' . $fecha_ingreso . ', desempeñando el cargo de ' . $cargo . ', con un contrato a término ' . $tipo_contrato . ', devengando un salario básico mensual de ($' . $salario . '),  más todas las prestaciones de ley.'), 0, 'L');
+$pdf->Write(10, utf8_decode('Que '));
+
+$pdf->SetFont('montserrat', 'B', 11);
+$pdf->Write(10, utf8_decode($nombre_completo));
+
+$pdf->SetFont('montserrat', '', 11);
+$pdf->Write(10, utf8_decode(' identificado(a) con cédula de ciudadanía No. ' . $cedula . ', labora en nuestra compañía desde el ' . $fecha_ingreso . ', desempeñando el cargo de ' . $cargo . ', con un contrato a término ' . $tipo_contrato . ', devengando un salario básico mensual de ($' . $salario . '), más todas las prestaciones de ley.'));
+
 $pdf->Ln(5);
 $pdf->MultiCell(0, 10, '     * Un auxilio mensual no salarial de ($' . $auxilio . ') .', 0, 'L');
 $pdf->Ln(5);
