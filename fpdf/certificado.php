@@ -162,7 +162,7 @@ $pdf->Write(10,utf8_decode('($'.number_format($neto_pagar,0,',','.').')'));
 $pdf->Ln(15);
 /* Fecha y cierre */
 $pdf->SetFont('montserrat','',11);
-$pdf->MultiCell(0,10,utf8_decode('Este certificado se expide el día '.$fecha_actual.'.'),0,'L');
+$pdf->MultiCell(0,10,utf8_decode('Esta certificación se expide el día '.$fecha_actual.'.'),0,'L');
 $pdf->Ln(10);
 $pdf->MultiCell(0,10,'Sin otro particular,',0,'L');
 $pdf->Ln(14);
