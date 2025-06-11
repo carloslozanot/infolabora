@@ -52,6 +52,13 @@
     color: #ec7c26;
 }
 
+.contenedor_login-register form h3 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000;
+}
+
 .contenedor_login-register form input {
     width: 100%;
     margin-top: 20px;
@@ -558,6 +565,12 @@ header {
 
 h2 {
     font-size: 32px;
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+
+h3 {
+    font-size: 40px;
     font-weight: bold;
     margin: 0 0 10px;
 }
