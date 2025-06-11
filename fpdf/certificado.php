@@ -78,7 +78,7 @@ $pdf->Ln(14);
 $pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
 $pdf->Ln(14);
 $pdf->SetFont('montserrat', 'B', 11); // Negrilla
-$pdf->Cell(0, 10, 'Lorena Acostaa', 0, 'L');
+$pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
 $pdf->Ln(-4);
 $pdf->MultiCell(0, 10, utf8_decode('Líder de Talento Humano'), 0, 'L');
 $pdf->Ln(-4);
