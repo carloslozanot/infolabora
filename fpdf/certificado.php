@@ -16,7 +16,7 @@ if ($consulta_info->num_rows > 0) {
    $tipo_contrato = $dato_info->tipo_contrato;
    $salario = $dato_info->salario;
    $auxilio = $dato_info->auxilio;
-   $dia = date('d');
+   $fecha_actual = date('d') . ' de ' . date('F') . ' del ' . date('Y');
 } else {
    $nombre_completo = "No disponible";
    $cargo = "No disponible";
