@@ -16,6 +16,7 @@ if ($consulta_info->num_rows > 0) {
    $tipo_contrato = $dato_info->tipo_contrato;
    $salario = $dato_info->salario;
    $auxilio = $dato_info->auxilio;
+   $dia = date('d');
 } else {
    $nombre_completo = "No disponible";
    $cargo = "No disponible";
@@ -127,7 +128,7 @@ $pdf->Write(10, utf8_decode('($' . $neto_pagar . ')'));
 $pdf->Ln(15);
 
 $pdf->SetFont('montserrat', '', 11);
-$pdf->MultiCell(0, 10, 'Este certificado se expide el dia del mes del .', 0, 'L');
+$pdf->MultiCell(0, 10, 'Este certificado se expide el dia '.$dia.' del mes del .', 0, 'L');
 $pdf->Ln(10);
 $pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
 $pdf->Ln(14);
