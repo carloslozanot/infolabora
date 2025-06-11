@@ -32,20 +32,20 @@ $meses = [
 
 /* ───────  DATOS DEL EMPLEADO  ─────── */
 if ($consulta_info->num_rows > 0) {
-    $d               = $consulta_info->fetch_object();
-    $nombre_completo = mb_strtoupper($d->nombres.' '.$d->apellidos,'UTF-8');
-    $cargo           = mb_strtoupper($d->cargo,'UTF-8');
-    $neto_pagar      = floatval(str_replace('.', '', $total));
-    $fecha_ingreso   = $d->fecha_ingreso;
-    $tipo_contrato   = mb_strtoupper($d->tipo_contrato,'UTF-8');
-    $salario         = floatval(str_replace('.', '', $salario));
-    $auxilio         = floatval(str_replace('.', '', $auxilio));
-    $fecha_actual    = date('d').' de '.$meses[date('m')].' del '.date('Y');
-} else {
-    $nombre_completo = $cargo = $neto_pagar = $fecha_ingreso = $tipo_contrato = $salario = $auxilio = 'No disponible';
-    $fecha_actual    = date('d').' de '.$meses[date('m')].' del '.date('Y');
-}
+   $d               = $consulta_info->fetch_object();
+   $nombre_completo = mb_strtoupper($d->nombres.' '.$d->apellidos, 'UTF-8');
+   $cargo           = mb_strtoupper($d->cargo, 'UTF-8');
+   $fecha_ingreso   = $d->fecha_ingreso;
+   $tipo_contrato   = mb_strtoupper($d->tipo_contrato, 'UTF-8');
+   $salario = isset($d->salario) ? floatval(str_replace('.', '', $d->salario)) : 0;
+   $auxilio = isset($d->auxilio) ? floatval(str_replace('.', '', $d->auxilio)) : 0;
+   $neto_pagar = $salario + $auxilio;
 
+   $fecha_actual = date('d').' de '.$meses[date('m')].' del '.date('Y');
+} else {
+   $nombre_completo = $cargo = $neto_pagar = $fecha_ingreso = $tipo_contrato = $salario = $auxilio = 'No disponible';
+   $fecha_actual    = date('d').' de '.$meses[date('m')].' del '.date('Y');
+}
 /* ───────  CLASE PDF  ─────── */
 class PDF extends FPDF
 {
@@ -174,5 +174,6 @@ $pdf->Ln(-4);
 $pdf->MultiCell(0,10,'DATABIZ S.A.S',0,'L');
 
 /* Salida */
+ob_end_clean();
 $pdf->Output($nombre_completo.' '.$cedula.'.pdf','I');
 ?>
