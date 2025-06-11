@@ -7,6 +7,21 @@ $destinatario = $_POST['destinatario'] ?? '';
 include("../php/conexion.php");
 $consulta_info = $conexion->query("select * from empleados a, info_empleados b where a.cedula = b.cedula and a.cedula = '$cedula'");
 
+$meses = array(
+   '01' => 'enero',
+   '02' => 'febrero',
+   '03' => 'marzo',
+   '04' => 'abril',
+   '05' => 'mayo',
+   '06' => 'junio',
+   '07' => 'julio',
+   '08' => 'agosto',
+   '09' => 'septiembre',
+   '10' => 'octubre',
+   '11' => 'noviembre',
+   '12' => 'diciembre'
+);
+
 if ($consulta_info->num_rows > 0) {
    $dato_info = $consulta_info->fetch_object();
    $nombre_completo = $dato_info->nombres . ' ' . $dato_info->apellidos;
@@ -16,7 +31,7 @@ if ($consulta_info->num_rows > 0) {
    $tipo_contrato = $dato_info->tipo_contrato;
    $salario = $dato_info->salario;
    $auxilio = $dato_info->auxilio;
-   $fecha_actual = date('d') . ' de ' . date('m') . ' del ' . date('Y');
+   $fecha_actual = date('d') . ' de ' . $meses[date('m')] . ' del ' . date('Y');
 } else {
    $nombre_completo = "No disponible";
    $cargo = "No disponible";
