@@ -75,10 +75,10 @@ $pdf->Ln(10);
 if (!empty($destinatario)) {
    $pdf->SetFont('montserrat', '', 11);
    $pdf->MultiCell(0, 10, utf8_decode('Señores: ' . $destinatario), 0, 'L');
+   $pdf->Ln(4);
 } else {
-   $pdf->MultiCell(0, 10, utf8_decode(''), 0, 'L');
+   
 }
-$pdf->Ln(4);
 
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Cell(0, 10, 'DATABIZ S.A.S', 0, 1, 'C');
