@@ -77,7 +77,6 @@ class PDF extends FPDF
     }
 }
 
-/* ───────  GENERAR PDF  ─────── */
 $pdf = new PDF('membrete.png', 'membrete_2.png');
 $pdf->AddPage('P','A4');
 
@@ -86,10 +85,12 @@ if (!empty($destinatario)) {
     $pdf->SetFont('montserrat','',11);
     $pdf->MultiCell(0,10,utf8_decode('Señores: '.$destinatario),0,'L');
     $pdf->Ln(4);
+}else{
+   $pdf->Ln(8);
 }
 
 /* Encabezado empresa */
-$pdf->SetFont('montserrat','B',11);
+$pdf->SetFont('montserrat','B',12);
 $pdf->Cell(0,10,'DATABIZ S.A.S',0,1,'C');
 $pdf->SetFont('montserrat','',11);
 $pdf->Cell(0,10,'NIT 900641482-1',0,1,'C');
