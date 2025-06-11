@@ -24,11 +24,11 @@ $meses = array(
 
 if ($consulta_info->num_rows > 0) {
    $dato_info = $consulta_info->fetch_object();
-   $nombre_completo = $dato_info->nombres . ' ' . $dato_info->apellidos;
-   $cargo = $dato_info->cargo;
+   $nombre_completo = mb_strtoupper($dato_info->nombres . ' ' . $dato_info->apellidos, 'UTF-8');
+   $cargo = mb_strtoupper($dato_info->cargo, 'UTF-8');
    $neto_pagar = $dato_info->total;
    $fecha_ingreso = $dato_info->fecha_ingreso;
-   $tipo_contrato = $dato_info->tipo_contrato;
+   $tipo_contrato = mb_strtoupper($dato_info->tipo_contrato, 'UTF-8');
    $salario = $dato_info->salario;
    $auxilio = $dato_info->auxilio;
    $fecha_actual = date('d') . ' de ' . $meses[date('m')] . ' del ' . date('Y');
@@ -90,7 +90,7 @@ $pdf->SetFont('montserrat', '', 11);
 $pdf->Write(10, utf8_decode('Que '));
 
 $pdf->SetFont('montserrat', 'B', 11);
-$nombre_completo = mb_strtoupper($dato_info->nombres . ' ' . $dato_info->apellidos, 'UTF-8');
+$pdf->Write(10, utf8_decode($nombre_completo));
 
 $pdf->SetFont('montserrat', '', 11);
 $pdf->Write(10, utf8_decode(' identificado(a) con cédula de ciudadanía No. '));
@@ -99,7 +99,7 @@ $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Write(10, utf8_decode($cedula));
 
 $pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode('labora en nuestra compañía desde el '));
+$pdf->Write(10, utf8_decode(' labora en nuestra compañía desde el '));
 
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Write(10, utf8_decode($fecha_ingreso));
