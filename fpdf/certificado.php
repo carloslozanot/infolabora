@@ -72,9 +72,14 @@ $pdf->SetFont('montserrat', 'B', 12);
 $pdf->Cell(0, 10, utf8_decode('CERTIFICACIÓN LABORAL'), 0, 1, 'C');
 $pdf->Ln(10);
 
-$pdf->SetFont('montserrat', '', 11);
-$pdf->MultiCell(0, 10, utf8_decode('Señores: ' . $destinatario), 0, 'L');
+if (!empty($destinatario)) {
+   $pdf->SetFont('montserrat', '', 11);
+   $pdf->MultiCell(0, 10, utf8_decode('Señores: ' . $destinatario), 0, 'L');
+} else {
+   $pdf->MultiCell(0, 10, utf8_decode(''), 0, 'L');
+}
 $pdf->Ln(8);
+
 
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Cell(0, 10, 'DATABIZ S.A.S', 0, 1, 'C');
@@ -93,7 +98,7 @@ $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Write(10, utf8_decode($nombre_completo));
 
 $pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode(' identificado(a) con cédula de ciudadanía No. '));
+$pdf->Write(10, utf8_decode(' identificado(a) con cédula de ciudadanía N° '));
 
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Write(10, utf8_decode($cedula));
