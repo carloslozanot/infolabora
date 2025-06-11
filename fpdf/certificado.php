@@ -85,7 +85,7 @@ $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Write(10, utf8_decode($fecha_ingreso));
 
 $pdf->SetFont('montserrat', '', 11);
-$pdf->Write(10, utf8_decode('desempeñando el cargo de '));
+$pdf->Write(10, utf8_decode(' desempeñando el cargo de '));
 
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Write(10, utf8_decode($cargo));
@@ -105,8 +105,13 @@ $pdf->Write(10, utf8_decode($neto_pagar));
 $pdf->SetFont('montserrat', '', 11);
 $pdf->Write(10, utf8_decode('), más todas las prestaciones de ley.'));
 
-$pdf->Ln(20);
-$pdf->MultiCell(0, 10, '     * Un auxilio mensual no salarial de ($' . $auxilio . ') .', 0, 'L');
+$pdf->Ln(15);
+$pdf->SetFont('montserrat', '', 11);
+$pdf->Write(10, utf8_decode('          * Un auxilio mensual no salarial de'));
+
+$pdf->SetFont('montserrat', 'B', 11);
+$pdf->Write(10, utf8_decode($auxilio));
+
 $pdf->Ln(5);
 $pdf->MultiCell(0, 10, 'Para un total de ($' . $neto_pagar . ') .', 0, 'L');
 $pdf->Ln(5);
