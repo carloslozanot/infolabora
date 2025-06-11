@@ -10,7 +10,7 @@
         <div class="contenedor_todo">
             <div class="contenedor_login-register">
                 <form action="php/login_usuario.php" method="POST" class="formulario_login">
-                    <h2>INFOLABORA</h2>
+                    <h3>INFOLABORA</h3>
                     <h2>Iniciar Sesión</h2>
                     <input type="text" placeholder="Número de cédula" name="cedula" required>
                     <input type="password" placeholder="Contraseña" name="contrasena" required>
