@@ -118,7 +118,8 @@ $pdf->Write(10, utf8_decode('Para un total de ($'));
 
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Write(10, utf8_decode($neto_pagar));
-
+$pdf->Ln(5);
+$pdf->SetFont('montserrat', '', 11);
 $pdf->Ln(5);
 $pdf->MultiCell(0, 10, 'Este certificado se expide el dia del mes de del .', 0, 'L');
 $pdf->Ln(14);
