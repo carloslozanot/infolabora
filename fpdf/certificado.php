@@ -5,13 +5,13 @@ $cedula = $_POST['id'] ?? '';
 $destinatario = $_POST['destinatario'] ?? '';
 
 include("../php/conexion.php");
-$consulta_info = $conexion->query("select * from desprendibles a, info_empleados b where a.cedula = b.cedula and a.cedula = '$cedula'");
+$consulta_info = $conexion->query("select * from empleados a, info_empleados b where a.cedula = b.cedula and a.cedula = '$cedula'");
 
 if ($consulta_info->num_rows > 0) {
    $dato_info = $consulta_info->fetch_object();
    $nombre_completo = $dato_info->nombre_completo;
    $cargo = $dato_info->cargo;
-   $neto_pagar = $dato_info->neto_pagar;
+   $neto_pagar = $dato_info->total;
    $fecha_ingreso = $dato_info->fecha_ingreso;
    $tipo_contrato = $dato_info->tipo_contrato;
    $salario = $dato_info->salario;
