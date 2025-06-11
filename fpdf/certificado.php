@@ -9,7 +9,7 @@ $consulta_info = $conexion->query("select * from empleados a, info_empleados b w
 
 if ($consulta_info->num_rows > 0) {
    $dato_info = $consulta_info->fetch_object();
-   $nombre_completo = $dato_info->nombre_completo;
+   $nombre_completo = $dato_info->nombres . ' ' . $dato_info->apellidos;
    $cargo = $dato_info->cargo;
    $neto_pagar = $dato_info->total;
    $fecha_ingreso = $dato_info->fecha_ingreso;
