@@ -85,8 +85,6 @@ if (!empty($destinatario)) {
     $pdf->SetFont('montserrat','',11);
     $pdf->MultiCell(0,10,utf8_decode('Señores: '.$destinatario),0,'L');
     $pdf->Ln(4);
-}else{
-   $pdf->Ln(8);
 }
 
 /* Encabezado empresa */
@@ -94,7 +92,7 @@ $pdf->SetFont('montserrat','B',12);
 $pdf->Cell(0,10,'DATABIZ S.A.S',0,1,'C');
 $pdf->SetFont('montserrat','',11);
 $pdf->Cell(0,10,'NIT 900641482-1',0,1,'C');
-$pdf->Ln(2);
+$pdf->Ln(6);
 
 /* Subtítulo */
 $pdf->SetFont('montserrat','B',11);
