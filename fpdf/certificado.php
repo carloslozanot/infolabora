@@ -81,11 +81,6 @@ class PDF extends FPDF
 $pdf = new PDF('membrete.png', 'membrete_2.png');
 $pdf->AddPage('P','A4');
 
-/* Título */
-$pdf->SetFont('montserrat','B',12);
-$pdf->Cell(0,10,utf8_decode('CERTIFICACIÓN LABORAL'),0,1,'C');
-$pdf->Ln(10);
-
 /* Destinatario */
 if (!empty($destinatario)) {
     $pdf->SetFont('montserrat','',11);
@@ -139,7 +134,7 @@ $pdf->Write(10,utf8_decode($tipo_contrato));
 $pdf->SetFont('montserrat','',11);
 $pdf->Write(10,utf8_decode(', devengando un salario básico mensual de '));
 
-$pdf->SetFont('montserrat','B',11);
+$pdf->SetFont('montserrat','',11);
 /* Salario en números y letras */
 $pdf->Write(10, utf8_decode($salario_letras . ' PESOS M/CTE. '));
 $pdf->Write(10,utf8_decode('($'.number_format($salario,0,',','.').') '));
@@ -152,7 +147,7 @@ $pdf->Ln(15);
 $pdf->SetFont('montserrat','',11);
 $pdf->Write(10,utf8_decode('          * Un auxilio mensual no salarial de '));
 
-$pdf->SetFont('montserrat','B',11);
+$pdf->SetFont('montserrat','',11);
 $pdf->Write(10, utf8_decode($auxilio_letras . ' PESOS M/CTE. '));
 $pdf->Write(10,utf8_decode('($'.number_format($auxilio,0,',','.').')'));
 
