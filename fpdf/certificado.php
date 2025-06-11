@@ -138,8 +138,8 @@ $pdf->Write(10,utf8_decode(', devengando un salario básico mensual de '));
 
 $pdf->SetFont('montserrat','B',11);
 /* Salario en números y letras */
+$pdf->Write(10,utf8_decode(''.ucfirst(numero_a_letras($salario)).' pesos M/cte.'));
 $pdf->Write(10,utf8_decode('($'.number_format($salario,0,',','.').') '));
-$pdf->Write(10,utf8_decode('('.ucfirst(numero_a_letras($salario)).' pesos)'));
 
 $pdf->SetFont('montserrat','',11);
 $pdf->Write(10,utf8_decode(', más todas las prestaciones de ley.'));
