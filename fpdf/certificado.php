@@ -1,4 +1,8 @@
 <?php
+ob_start();
+error_reporting(0);
+ini_set('display_errors', 0);
+
 require('fpdf.php');
 
 /* ───────  FUNCIÓN: número a letras  ───────
@@ -174,6 +178,6 @@ $pdf->Ln(-4);
 $pdf->MultiCell(0,10,'DATABIZ S.A.S',0,'L');
 
 /* Salida */
-ob_end_clean();
+ob_end_flush();
 $pdf->Output($nombre_completo.' '.$cedula.'.pdf','I');
 ?>
