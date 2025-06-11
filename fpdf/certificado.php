@@ -44,7 +44,9 @@ if ($consulta_info->num_rows > 0) {
    $salario = isset($d->salario) ? floatval(str_replace('.', '', $d->salario)) : 0;
    $salario_letras = mb_strtoupper(numero_a_letras($salario), 'UTF-8');
    $auxilio = isset($d->auxilio) ? floatval(str_replace('.', '', $d->auxilio)) : 0;
+   $auxilio_letras = mb_strtoupper(numero_a_letras($auxilio), 'UTF-8');
    $neto_pagar = $salario + $auxilio;
+   $neto_letras = mb_strtoupper(numero_a_letras($neto_pagar), 'UTF-8');
 
    $fecha_actual = date('d').' de '.$meses[date('m')].' del '.date('Y');
 } else {
@@ -139,7 +141,7 @@ $pdf->Write(10,utf8_decode(', devengando un salario básico mensual de '));
 
 $pdf->SetFont('montserrat','B',11);
 /* Salario en números y letras */
-$pdf->Write(10, utf8_decode($salario_letras . ' PESOS M/CTE.'));
+$pdf->Write(10, utf8_decode($salario_letras . ' PESOS M/CTE. '));
 $pdf->Write(10,utf8_decode('($'.number_format($salario,0,',','.').') '));
 
 $pdf->SetFont('montserrat','',11);
@@ -151,6 +153,7 @@ $pdf->SetFont('montserrat','',11);
 $pdf->Write(10,utf8_decode('          * Un auxilio mensual no salarial de '));
 
 $pdf->SetFont('montserrat','B',11);
+$pdf->Write(10, utf8_decode($auxilio_letras . ' PESOS M/CTE. '));
 $pdf->Write(10,utf8_decode('($'.number_format($auxilio,0,',','.').')'));
 
 $pdf->Ln(15);
@@ -159,6 +162,7 @@ $pdf->SetFont('montserrat','',11);
 $pdf->Write(10,utf8_decode('Para un total de '));
 
 $pdf->SetFont('montserrat','B',11);
+$pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
 $pdf->Write(10,utf8_decode('($'.number_format($neto_pagar,0,',','.').')'));
 
 $pdf->Ln(15);
