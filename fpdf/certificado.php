@@ -1,10 +1,9 @@
 <?php
 require('fpdf.php');
 
-$cedula = isset($_POST['id']) ? $_POST['id'] : '';
-$destinatario = isset($_POST['destinatario']) ? $_POST['destinatario'] : '';
+$cedula = $_POST['id'] ?? '';
+$destinatario = $_POST['destinatario'] ?? '';
 
-// Realizar la consulta a la base de datos
 include("../php/conexion.php");
 $consulta_info = $conexion->query("select * from desprendibles where cedula = '$cedula'");
 
@@ -14,79 +13,68 @@ if ($consulta_info->num_rows > 0) {
    $cargo = $dato_info->cargo;
    $neto_pagar = $dato_info->neto_pagar;
    $fecha_ingreso = $dato_info->fecha_ingreso;
-
 } else {
    $nombre_completo = "No disponible";
-   $cargo = "No disponible"; // O proporciona un valor predeterminado si no se encontraron resultados
+   $cargo = "No disponible";
+   $neto_pagar = "No disponible";
+   $fecha_ingreso = "No disponible";
 }
 
+// Clase personalizada
 class PDF extends FPDF
 {
-   function NoResultsMessage()
-   {
-      $this->SetFont('Arial', 'B', 14);
-      $this->SetTextColor(255, 0, 0);
-      $this->Cell(0, 20, utf8_decode('No se encontraron resultados para la consulta.'), 0, 1, 'C');
-   }
+    function __construct($header_img, $footer_img) {
+        parent::__construct();
+        $this->header_img = $header_img;
+        $this->footer_img = $footer_img;
+        $this->AddFont('montserrat', '', 'Montserrat-Regular.php');
+        $this->AddFont('montserrat', 'B', 'Montserrat-Bold.php');
+    }
 
-   // Cabecera de página
-   function Header()
-   {
-      global $cedula;
-      global $destinatario;
-      global $nombre_completo;
-      global $fecha_ingreso;
-      global $neto_pagar;
-      global $cargo;
+    function Header()
+    {
+        $this->Image($this->header_img, 0, 0, 210); // Ajusta el ancho si es necesario
+        $this->SetY(45); // Baja el cursor para no sobreponer
+    }
 
-    $this->SetFont('Arial', '', 11);  
-
-    $this->MultiCell(0, 10, 'Senores '.$destinatario, 0, 'L');
-    $this->Ln(10); 
-
-    $this->SetFont('Arial', 'B', 11);
-    $this->SetTextColor(0); // Establece el color del texto a negro
-    $this->Cell(0, 10, 'DATABIZ S.A.S', 0, 1, 'C'); // Alinea el texto al centro
-    $this->Ln(-4); // Reducido el espacio entre líneas
-    $this->SetFont('Arial', '', 11); // Cambia la fuente a normal
-    $this->Cell(0, 10, 'NIT 12345678-9', 0, 1, 'C');
-    $this->Ln(2);
-
-      // Configuración de la fuente y alineación
-    $this->SetFont('Arial', 'B', 11);
-    $this->SetTextColor(0); // Establece el color del texto a negro
-    $this->Cell(0, 10, 'HACE CONSTAR', 0, 1, 'C'); // Alinea el texto al centro
-    $this->Ln(4); 
-
-    // Restaurar la configuración predeterminada de la fuente
-    $this->SetFont('Arial', '', 11);
-
-    $this->MultiCell(0, 10, 'Que '.$nombre_completo.' identificado(a) con cedula de ciudadania No. '.$cedula.', labora en nuestra compania desde el '.$fecha_ingreso.', desempenando el cargo de '.$cargo.', con un contrato a termino '.$cargo.', mas todas las prestaciones de ley. ', 0, 'L');
-    $this->MultiCell(0, 10, '*  Devengando un salario total neto de '.$neto_pagar.'', 0, 'L');
-    $this->Ln(5);
-    $this->MultiCell(0, 10, 'Este certificado se expide a solicitud del interesado para los fines que estime conveniente.', 0, 'L');
-    $this->Ln(14);
-
-    $this->MultiCell(0, 10, 'Carlos Andres Lozano Torres', 0, 'L');
-    $this->Ln(-4);
-    $this->MultiCell(0, 10, 'Lider de Talento Humano', 0, 'L');
-    $this->Ln(-4);
-    $this->MultiCell(0, 10, 'DATABIZ S.A.S', 0, 'L');
-
-   }
-
-   // Pie de página
-   function Footer()
-   {
-      $this->SetY(-15);
-      $this->SetFont('Arial', 'I', 8);
-      $this->Cell(0, 10, 'Página ' . $this->PageNo(), 0, 0, 'C');
-   }
+    function Footer()
+    {
+        $this->Image($this->footer_img, 0, $this->GetPageHeight() - 23, 210); // Imagen al pie, ajustar si es necesario
+        $this->SetY(-15);
+        $this->SetFont('montserrat', '', 8);
+    }
 }
 
-// Crear una instancia de PDF
-$pdf = new PDF();
-$pdf->AddPage('P', array(160, 200));
+// Crear PDF
+$pdf = new PDF('membrete.png', 'membrete_2.png');
+$pdf->AddPage('P', 'A4');
 
-$pdf->Output($nombre_completo.'  '.$cedula.'.pdf', 'I');
+$pdf->SetFont('montserrat', '', 11);
+$pdf->MultiCell(0, 10, utf8_decode('Señores ' . $destinatario), 0, 'L');
+$pdf->Ln(10);
+
+$pdf->SetFont('montserrat', 'B', 11);
+$pdf->Cell(0, 10, 'DATABIZ S.A.S', 0, 1, 'C');
+$pdf->SetFont('montserrat', '', 11);
+$pdf->Cell(0, 10, 'NIT 900641482-1', 0, 1, 'C');
+$pdf->Ln(2);
+
+$pdf->SetFont('montserrat', 'B', 11);
+$pdf->Cell(0, 10, 'HACE CONSTAR', 0, 1, 'C');
+$pdf->Ln(4);
+
+$pdf->SetFont('montserrat', '', 11);
+$pdf->MultiCell(0, 10, utf8_decode('Que ' . $nombre_completo . ' identificado(a) con cédula de ciudadanía No. ' . $cedula . ', labora en nuestra compañía desde el ' . $fecha_ingreso . ', desempeñando el cargo de ' . $cargo . ', con un contrato a término indefinido, más todas las prestaciones de ley.'), 0, 'L');
+$pdf->MultiCell(0, 10, '* Devengando un salario total neto de ' . $neto_pagar . '.', 0, 'L');
+$pdf->Ln(5);
+$pdf->MultiCell(0, 10, 'Este certificado se expide a solicitud del interesado para los fines que estime convenientes.', 0, 'L');
+$pdf->Ln(14);
+
+$pdf->MultiCell(0, 10, 'Lorena Acosta', 0, 'L');
+$pdf->Ln(-4);
+$pdf->MultiCell(0, 10, utf8_decode('Líder de Talento Humano'), 0, 'L');
+$pdf->Ln(-4);
+$pdf->MultiCell(0, 10, 'DATABIZ S.A.S', 0, 'L');
+
+$pdf->Output($nombre_completo . ' ' . $cedula . '.pdf', 'I');
 ?>
