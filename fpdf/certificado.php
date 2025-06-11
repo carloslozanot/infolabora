@@ -32,14 +32,14 @@ $meses = [
 
 /* ───────  DATOS DEL EMPLEADO  ─────── */
 if ($consulta_info->num_rows > 0) {
-    $d             = $consulta_info->fetch_object();
+    $d               = $consulta_info->fetch_object();
     $nombre_completo = mb_strtoupper($d->nombres.' '.$d->apellidos,'UTF-8');
     $cargo           = mb_strtoupper($d->cargo,'UTF-8');
-    $neto_pagar      = $d->total;
+    $neto_pagar      = floatval(str_replace('.', '', $total));
     $fecha_ingreso   = $d->fecha_ingreso;
     $tipo_contrato   = mb_strtoupper($d->tipo_contrato,'UTF-8');
-    $salario         = $d->salario;
-    $auxilio         = $d->auxilio;
+    $salario         = floatval(str_replace('.', '', $salario));
+    $auxilio         = floatval(str_replace('.', '', $auxilio));
     $fecha_actual    = date('d').' de '.$meses[date('m')].' del '.date('Y');
 } else {
     $nombre_completo = $cargo = $neto_pagar = $fecha_ingreso = $tipo_contrato = $salario = $auxilio = 'No disponible';
