@@ -13,7 +13,7 @@ if ($consulta_info->num_rows > 0) {
    $cargo = $dato_info->cargo;
    $neto_pagar = $dato_info->neto_pagar;
    $fecha_ingreso = $dato_info->fecha_ingreso;
-   $tipo_contrato = $dato_info->contrato;
+   $tipo_contrato = $dato_info->tipo_contrato;
 } else {
    $nombre_completo = "No disponible";
    $cargo = "No disponible";
