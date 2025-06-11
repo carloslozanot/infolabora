@@ -65,7 +65,7 @@ $pdf->Cell(0, 10, 'HACE CONSTAR', 0, 1, 'C');
 $pdf->Ln(4);
 
 $pdf->SetFont('montserrat', '', 11);
-$pdf->MultiCell(0, 10, utf8_decode('Que ' . $nombre_completo . ' identificado(a) con cédula de ciudadanía No. ' . $cedula . ', labora en nuestra compañía desde el ' . $fecha_ingreso . ', desempeñando el cargo de ' . $cargo . ', con un contrato a término ' . $cargo . ', más todas las prestaciones de ley.'), 0, 'L');
+$pdf->MultiCell(0, 10, utf8_decode('Que ' . $nombre_completo . ' identificado(a) con cédula de ciudadanía No. ' . $cedula . ', labora en nuestra compañía desde el ' . $fecha_ingreso . ', desempeñando el cargo de ' . $cargo . ', con un contrato a término ' . $tipo_contrato . ', más todas las prestaciones de ley.'), 0, 'L');
 $pdf->MultiCell(0, 10, '* Devengando un salario total neto de ' . $neto_pagar . '.', 0, 'L');
 $pdf->Ln(5);
 $pdf->MultiCell(0, 10, 'Este certificado se expide a solicitud del interesado para los fines que estime convenientes.', 0, 'L');
