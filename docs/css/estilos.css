@@ -26,7 +26,7 @@ html, body {
 
 .contenedor_login-register {
     display: flex;
-    width: 100%;
+    width: 95%;
     max-width: 380px;
     top: -185px;
     left: 10px;
@@ -61,7 +61,7 @@ html, body {
 }
 
 .contenedor_login-register form input {
-    width: 100%;
+    width: 95%;
     margin-top: 20px;
     padding: 10px;
     border: none;
