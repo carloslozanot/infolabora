@@ -14,6 +14,16 @@ if (!isset($_SESSION['usuario'])) {
 // Obtén el ID del usuario desde la variable de sesión
 $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del usuario
 
+
+$consulta = "SELECT integral FROM info_empleados WHERE cedula = '$cedula'";
+$resultado = mysqli_query($conexion, $consulta);
+
+if ($resultado && $fila = mysqli_fetch_assoc($resultado)) {
+    if (strtoupper(trim($fila['integral'])) === 'SI') {
+        $archivo_certificado = 'fpdf/certificado_integral.php';
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
