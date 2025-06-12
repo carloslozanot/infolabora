@@ -345,7 +345,7 @@ header {
     /* Crea un círculo para la foto */
     overflow: hidden;
     margin-right: 40px;
-    border: 5px solid rgba(255, 102, 0, 0.5);
+    border: 5px solid rgba(24, 46, 89);
 }
 
 .empleado-foto img {
