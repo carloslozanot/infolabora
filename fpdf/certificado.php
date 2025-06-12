@@ -45,7 +45,7 @@ if ($consulta_info->num_rows > 0) {
    $salario_letras = mb_strtoupper(numero_a_letras($salario), 'UTF-8');
    $auxilio = isset($d->auxilio) ? floatval(str_replace('.', '', $d->auxilio)) : 0;
    $auxilio_letras = mb_strtoupper(numero_a_letras($auxilio), 'UTF-8');
-   $neto_pagar = $salario + $auxilio;
+   $neto_pagar = $d->total;
    $neto_letras = mb_strtoupper(numero_a_letras($neto_pagar), 'UTF-8');
    $integral = $d->integral;
 
@@ -161,6 +161,14 @@ $pdf->SetFont('montserrat','B',11);
 $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
 $pdf->Write(10,utf8_decode('($'.number_format($neto_pagar,0,',','.').')'));
 $pdf->Ln(15);
+}else {
+
+$pdf->SetFont('montserrat','',11);
+$pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
+$pdf->Write(10,utf8_decode('($'.number_format($neto_pagar,0,',','.').') '));
+
+$pdf->SetFont('montserrat','',11);
+$pdf->Write(10,utf8_decode(', más todas las prestaciones de ley.'));
 }
 /* Fecha y cierre */
 $pdf->SetFont('montserrat','',11);
