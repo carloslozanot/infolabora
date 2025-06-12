@@ -40,7 +40,9 @@ $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del us
     <div class="contenido-certificado">
         <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">CERTIFICADO LABORAL</h2><br>
 
-        <label style="font-weight: 600;">Título personal:</label>
+        <form method="post" action="fpdf/certificado.php">
+            <!-- Título personal -->
+            <label style="font-weight: 600;">Título personal:</label><br>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="titulo" id="senor" value="Señor" required>
                 <label class="form-check-label" for="senor">Señor</label>
@@ -50,15 +52,20 @@ $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del us
                 <label class="form-check-label" for="senora">Señora</label>
             </div>
 
-        <form method="post" action="fpdf/certificado.php">
-        <label style="font-weight: 600;">Dirigigo a:</label>
-        <input type="text" name="destinatario" class="form-control" aria-label="Destinatario" style="width: 450px; height: 30px;" placeholder="Escriba a quién va dirigido">
+            <br><br>
 
+            <!-- Campo destinatario -->
+            <label style="font-weight: 600;">Dirigido a:</label>
+            <input type="text" name="destinatario" class="form-control" aria-label="Destinatario" style="width: 350px; height: 30px;" placeholder="Escriba a quién va dirigido" required>
 
+            <!-- Campo oculto con la cédula -->
             <input type="hidden" name="id" value="<?php echo $cedula; ?>">
 
-            <button type="submit" class="btn boton-certificado"><i class="fa-solid fa-file"></i> GENERAR
-                CERTIFICADO</button>
+            <br>
+            <!-- Botón para generar -->
+            <button type="submit" class="btn boton-certificado">
+                <i class="fa-solid fa-file"></i> GENERAR CERTIFICADO
+            </button>
         </form>
     </div>
 </body>
