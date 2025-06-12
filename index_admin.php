@@ -94,7 +94,7 @@ if (!isset($_SESSION['usuario'])) {
 
     <main>
         <div id="contenido-inicio" class="contenido" style="display: block;">
-            <p style="font-size: 32px; font-weight:1000;">¡¡BIENVENIDO, ADMINISTRADOR!!<br><br></p>
+            <p style="font-size: 32px; font-weight:1000;">¡BIENVENIDO, ADMINISTRADOR!<br><br></p>
             <p style="font-size: 20px; font-weight:800;">ESTE ES ES PORTAL ADMINISTRATIVO EN EL CUAL PODRÁ REALIZAR LAS
                 SIGUIENTES ACCIONES:<br><br></p>
             <p style="font-size: 16px;">Agregar y editar usuarios</p>

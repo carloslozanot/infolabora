@@ -94,8 +94,8 @@ $result = mysqli_query($conexion, $sql);
 
     <main>
         <div id="contenido-inicio" class="contenido" style="display: block;">
-            <p style="font-size: 32px; font-weight:1000;">¡¡Bienvenido,
-                <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!!'; ?><br><br>
+            <p style="font-size: 32px; font-weight:1000;">¡Bienvenido,
+                <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br>
             </p>
             <p style="font-size: 20px; font-weight:800;">Este es el portal de Recursos Humanos en el cual podrá realizar
                 las siguientes acciones:<br><br></p>
