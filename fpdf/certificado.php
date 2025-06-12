@@ -163,7 +163,7 @@ $pdf->Ln(15);
 /* Fecha y cierre */
 $pdf->SetFont('montserrat','',11);
 $pdf->MultiCell(0,10,utf8_decode('Esta certificación se expide el día '.$fecha_actual.'.'),0,'L');
-$pdf->Ln(10);
+$pdf->Ln(14);
 $pdf->MultiCell(0,10,'Sin otro particular,',0,'L');
 $pdf->Ln(14);
 
@@ -171,7 +171,6 @@ $pdf->Ln(14);
 $pdf->SetFont('montserrat','B',11);
 $pdf->Cell(0,10,'Lorena Acosta',0,'L');
 $pdf->Ln(-4);
-$pdf->SetFont('montserrat','',11);
 $pdf->MultiCell(0,10,utf8_decode('Líder de Talento Humano'),0,'L');
 $pdf->Ln(-4);
 $pdf->MultiCell(0,10,'DATABIZ S.A.S',0,'L');
