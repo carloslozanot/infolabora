@@ -242,7 +242,7 @@ if (!isset($_SESSION['usuario'])) {
             <p style="text-align: center;">
                 <a href="docs/documents/GH.AUS.FO.01.Solicitud.de.Ausentismo.docx"
                     download="GH.AUS.FO.01.Solicitud.de.Ausentismo.docx" onclick="mostrarFormulario()">
-                    <button type="button" class="btn boton-naranja"> <i class="fa-solid fa-file-excel"></i> FORMATO
+                    <button type="button" class="btn boton-azul"> <i class="fa-solid fa-file-excel"></i> FORMATO
                         AUSENTISMO</button>
                 </a>
 
@@ -255,7 +255,7 @@ if (!isset($_SESSION['usuario'])) {
                 <input class="form-control" type="file" id="documento" name="documento">
                 <!-- Agregado el atributo name="documento" -->
                 <br>
-                <button type="submit" class="btn boton-naranja" style="display: block; margin: 0 auto;"><i
+                <button type="submit" class="btn boton-azul" style="display: block; margin: 0 auto;"><i
                         class="fa fa-upload"></i> SUBIR</button>
                 </p>
 

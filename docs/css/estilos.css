@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Monserrat', sans-serif;
 }
 
 .body_index_login {
@@ -616,9 +616,8 @@ ul li {
     transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
-.orange-text {
+.blue-text {
     color: #150940;
-    /* Cambia este valor al color naranja que desees */
 }
 
 .boton-azul {
