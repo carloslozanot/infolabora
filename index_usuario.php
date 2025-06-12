@@ -264,7 +264,7 @@ if (!isset($_SESSION['usuario'])) {
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <br>
-            <h1>¿Esta seguro de cerrar sesion?</h1><br>
+            <label style="display: block; text-align: center;font-weight: 800; font-size: 40px">¿Esta seguro de cerrar sesion?</label><br>
             <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
                 SESION</a>
         </div>
