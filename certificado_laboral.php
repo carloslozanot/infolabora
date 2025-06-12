@@ -24,7 +24,7 @@ $resultado = mysqli_query($conexion, $consulta);
 
 if ($resultado && $fila = mysqli_fetch_assoc($resultado)) {
     if (strtoupper(trim($fila['integral'])) === 'SI') {
-        $archivo_certificado = 'fpdf/certificado_integral.php';
+        $archivo_certificado = 'fpdf/certificado.php';
     }
 }
 ?>
