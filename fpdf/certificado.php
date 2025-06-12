@@ -20,6 +20,7 @@ function numero_a_letras($numero)
 /* ───────  ENTRADAS  ─────── */
 $cedula       = $_POST['id']          ?? '';
 $destinatario = $_POST['destinatario']?? '';
+$titulo = $_POST['titulo'] ?? '';
 
 include("../php/conexion.php");
 $consulta_info = $conexion->query("
@@ -84,7 +85,7 @@ $pdf->AddPage('P','A4');
 /* Destinatario */
 if (!empty($destinatario)) {
     $pdf->SetFont('montserrat','',11);
-    $pdf->MultiCell(0,10,utf8_decode('Señores: '.$destinatario),0,'L');
+    $pdf->MultiCell(0, 10, utf8_decode($titulo . ' ' . $destinatario), 0, 'L');
     $pdf->Ln(4);
 }
 
