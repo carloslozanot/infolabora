@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Login</title>
     <link rel="stylesheet" href="docs/css/estilos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body class="body_index_login">
     <main>
