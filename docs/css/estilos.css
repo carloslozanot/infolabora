@@ -121,7 +121,7 @@ header {
     /* Espaciado interno */
     border-radius: 10px;
     /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     /* Sombra */
     max-width: 700px;
     /* Ancho máximo */
@@ -144,7 +144,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     max-height: 700px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -156,7 +156,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     max-height: 700px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -168,7 +168,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     max-height: 700px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -180,7 +180,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     max-height: 700px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -192,7 +192,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 550px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -204,14 +204,14 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px #150940 ;
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 70%;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
 
 .boton-descargas {
-    background-color: #ff8c00;
+    background-color: #150940;
     color: #000;
     font-weight: bold;
     box-shadow: 2px 2px 4px #000;
@@ -236,7 +236,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -257,7 +257,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 70%;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -289,7 +289,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 78%;
     display: flex;
     flex-direction: column;
@@ -310,7 +310,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 550px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -322,7 +322,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 550px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -393,7 +393,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -415,7 +415,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -437,7 +437,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -459,7 +459,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -481,7 +481,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -503,7 +503,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -525,7 +525,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -547,7 +547,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 0 10px rgba(24,46,89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -617,7 +617,7 @@ ul li {
 }
 
 .orange-text {
-    color: #ff6600;
+    color: #150940;
     /* Cambia este valor al color naranja que desees */
 }
 
