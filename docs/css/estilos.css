@@ -264,8 +264,8 @@ header {
 }
 
 .boton-vacantes {
-    background-color: #ff8c00;
-    color: #000;
+    background-color: #150940;
+    color: #fff;
     font-weight: bold;
     box-shadow: 2px 2px 4px #000;
     border: none;
@@ -277,7 +277,7 @@ header {
 
 .boton-vacantes:hover {
     background-color: #fff;
-    color: #ff8c00;
+    color: #150940;
     transform: scale(1.05);
     box-shadow: 4px 4px 8px #000;
 }
