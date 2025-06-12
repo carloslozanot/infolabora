@@ -7,10 +7,10 @@ html, body {
 
 .body_index_login {
     background-image: url(../images/fondos/image3.png);
-    background-size: cover;            
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    background-attachment: fixed;
+    background-attachment: scroll; 
 }
 
 
@@ -797,30 +797,23 @@ a.selected {
     border-color: #f5c6cb; /* Borde para mensajes de error */
 }
 
-@media screen and (max-width: 850px) {
-
-    main {
-        margin-top: 50px;
+@media (max-width: 768px) {
+    .body_index_login {
+        background-size: cover;
+        background-attachment: scroll;
     }
 
-    /*Formularios*/
-
     .contenedor_login-register {
-        top: -10px;
-        left: -5px;
-        margin: auto;
+        margin-left: 0;
+        left: 0;
+        top: 0;
+        flex-direction: column;
+        align-items: center;
     }
 
     .contenedor_login-register form {
+        width: 100%;
         position: relative;
-    }
-
-    .body_move {
-        margin-left: 0px;
-    }
-
-    .menu_side_move {
-        width: 80px;
-        left: -80px;
+        padding: 40px 20px;
     }
 }
