@@ -73,7 +73,7 @@ class PDF extends FPDF
     }
     function Footer()
     {
-        $this->Image($this->footer_img, 0, $this->GetPageHeight()-23, 210);
+        $this->Image($this->footer_img, 0, $this->GetPageHeight()-20, 210);
         $this->SetY(-15);
         $this->SetFont('montserrat','',8);
     }
