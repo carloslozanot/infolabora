@@ -246,7 +246,7 @@ $result = mysqli_query($conexion, $sql);
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados:
                 <?php echo $_SESSION['dias_disfrutados'] . ' días'; ?>
             </p>
-            <p style="font-size: 100px; font-weight: bold; text-align: center;margin-bottom: 0px;color:#ff6600">
+            <p style="font-size: 100px; font-weight: bold; text-align: center;margin-bottom: 0px;color:#150940">
                 <?php echo $_SESSION['diferencia_dias']; ?>
             </p>
             <p style="font-size: 25px; font-weight: bold; text-align: center;">Dias pendientes por disfrutar
@@ -254,7 +254,7 @@ $result = mysqli_query($conexion, $sql);
             <p style="text-align: center;">
                 <a href="docs/documents/GH.AUS.FO.01.Solicitud.de.Ausentismo.docx"
                     download="GH.AUS.FO.01.Solicitud.de.Ausentismo.docx" onclick="mostrarFormulario()">
-                    <button type="button" class="btn boton-naranja"> <i class="fa-solid fa-file-excel"></i> FORMATO
+                    <button type="button" class="btn boton-azul"> <i class="fa-solid fa-file-excel"></i> FORMATO
                         AUSENTISMO</button>
                 </a>
 
@@ -267,7 +267,7 @@ $result = mysqli_query($conexion, $sql);
                 <input class="form-control" type="file" id="documento" name="documento">
                 <!-- Agregado el atributo name="documento" -->
                 <br>
-                <button type="submit" class="btn boton-naranja" style="display: block; margin: 0 auto;"><i
+                <button type="submit" class="btn boton-azul" style="display: block; margin: 0 auto;"><i
                         class="fa fa-upload"></i> SUBIR</button>
                 </p>
 

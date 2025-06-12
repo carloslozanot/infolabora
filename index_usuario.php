@@ -234,7 +234,7 @@ if (!isset($_SESSION['usuario'])) {
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados:
                 <?php echo $_SESSION['dias_disfrutados'] . ' días'; ?>
             </p>
-            <p style="font-size: 100px; font-weight: bold; text-align: center;margin-bottom: 0px;color:#ff6600">
+            <p style="font-size: 100px; font-weight: bold; text-align: center;margin-bottom: 0px;color:#150940">
                 <?php echo $_SESSION['diferencia_dias']; ?>
             </p>
             <p style="font-size: 25px; font-weight: bold; text-align: center;">Dias pendientes por disfrutar
