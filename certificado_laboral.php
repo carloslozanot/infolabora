@@ -40,6 +40,16 @@ $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del us
     <div class="contenido-certificado">
         <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">CERTIFICADO LABORAL</h2><br>
 
+        <label style="font-weight: 600;">Título personal:</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="titulo" id="senor" value="Señor" required>
+                <label class="form-check-label" for="senor">Señor</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="titulo" id="senora" value="Señora">
+                <label class="form-check-label" for="senora">Señora</label>
+            </div>
+
         <form method="post" action="fpdf/certificado.php">
         <input type="text" name="destinatario" class="form-control" aria-label="Destinatario" style="width: 450px; height: 30px;" placeholder="Escriba a quién va dirigido">
 
