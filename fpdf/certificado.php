@@ -45,7 +45,7 @@ if ($consulta_info->num_rows > 0) {
    $salario_letras = mb_strtoupper(numero_a_letras($salario), 'UTF-8');
    $auxilio = isset($d->auxilio) ? floatval(str_replace('.', '', $d->auxilio)) : 0;
    $auxilio_letras = mb_strtoupper(numero_a_letras($auxilio), 'UTF-8');
-   $neto_pagar = $d->total;
+   $neto_pagar = isset($d->total) ? floatval(str_replace('.', '', $d->total)) : 0;
    $neto_letras = mb_strtoupper(numero_a_letras($neto_pagar), 'UTF-8');
    $integral = $d->integral;
 
