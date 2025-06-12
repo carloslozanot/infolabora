@@ -166,8 +166,9 @@ $pdf->Ln(15);
 $pdf->SetFont('montserrat','B',11);
 $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
 $pdf->Write(10,utf8_decode('($'.number_format($neto_pagar,0,',','.').') '));
+$pdf->SetFont('montserrat','',11);
 $pdf->Write(10,utf8_decode(', más todas las prestaciones de ley.'));
-$pdf->Ln(15);
+$pdf->Ln(20);
 }
 /* Fecha y cierre */
 $pdf->SetFont('montserrat','',11);
