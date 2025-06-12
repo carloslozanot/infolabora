@@ -641,7 +641,7 @@ ul li {
 
 .boton-pruebas {
     background-color: #150940;
-    color: #000;
+    color: #fff;
     font-weight: bold;
     box-shadow: 2px 2px 4px #000;
     border: none;
@@ -676,7 +676,7 @@ ul li {
 
 .boton-certificado {
     background-color: #150940;
-    color: #000;
+    color: #fff;
     font-weight: bold;
     box-shadow: 2px 2px 4px #000;
     border: none;
