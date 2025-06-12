@@ -1,10 +1,10 @@
 * {
-    height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Monserrat';
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 .body_index_login {
@@ -95,7 +95,7 @@
 body {
     margin-left: 80px;
     margin-top: 80px;
-    font-family: 'Roboto Slab', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
@@ -566,14 +566,14 @@ header {
 }
 
 h2 {
-    font-family: 'Monserrat';
+    font-family: 'Montserrat', sans-serif;
     font-size: 32px;
     font-weight: bold;
     margin: 0 0 10px;
 }
 
 h3 {
-    font-family: 'Monserrat';
+    font-family: 'Montserrat', sans-serif;
     font-size: 40px;
     font-weight: bold;
     margin: 0 0 10px;
