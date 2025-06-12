@@ -47,6 +47,7 @@ if ($consulta_info->num_rows > 0) {
    $auxilio_letras = mb_strtoupper(numero_a_letras($auxilio), 'UTF-8');
    $neto_pagar = $salario + $auxilio;
    $neto_letras = mb_strtoupper(numero_a_letras($neto_pagar), 'UTF-8');
+   $integral = $d->integral;
 
    $fecha_actual = date('d').' de '.$meses[date('m')].' del '.date('Y');
 } else {
@@ -128,7 +129,7 @@ $pdf->SetFont('montserrat','',11);
 $pdf->Write(10,utf8_decode(', con un contrato a término '));
 
 $pdf->SetFont('montserrat','B',11);
-$pdf->Write(10,utf8_decode($tipo_contrato));
+$pdf->Write(10,utf8_decode($integral));
 
 $pdf->SetFont('montserrat','',11);
 $pdf->Write(10,utf8_decode(', devengando un salario mensual de '));
