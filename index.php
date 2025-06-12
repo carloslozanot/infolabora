@@ -11,8 +11,8 @@
         <div class="contenedor_todo">
             <div class="contenedor_login-register">
                 <form action="php/login_usuario.php" method="POST" class="formulario_login">
-                <label style="font-weight: 600;">INFOLABORA</label><br>
-                    <label style="font-weight: 400;">INICIAR SESIÓN</label><br>
+                <label style="display: block; text-align: center;font-weight: 1000; font-size: 50px">INFOLABORA</label><br>
+                    <label style="display: block; text-align: center;font-weight: 700; font-size: 30px">INICIAR SESIÓN</label><br>
                     <input type="text" placeholder="Número de cédula" name="cedula" required>
                     <input type="password" placeholder="Contraseña" name="contrasena" required>
                     <button>Entrar</button>
