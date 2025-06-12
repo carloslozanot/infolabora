@@ -1,14 +1,11 @@
-* {
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-
 }
 
 .body_index_login {
-    min-height: 100vh;
+    min-height: 100%;
     background-image: url(../images/fondos/image3.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -92,13 +89,6 @@
 
 .formulario_register {
     display: none;
-}
-
-body {
-    margin-left: 80px;
-    margin-top: 80px;
-    font-family: 'Montserrat', sans-serif;
-    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 main {
