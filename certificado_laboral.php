@@ -11,25 +11,22 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-// Obtén el ID del usuario desde la variable de sesión
-$cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del usuario
-
+$cedula = $_SESSION['usuario'];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificado Laboral</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="docs/css/estilos.css">
@@ -44,19 +41,19 @@ $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del us
             <!-- Título personal -->
             <label style="font-weight: 600;">Título personal:</label><br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="titulo" id="senor" value="Señor" required>
+                <input class="form-check-input" type="radio" name="titulo" id="senor" value="Señor" required onchange="toggleDestinatario()">
                 <label class="form-check-label" for="senor">Señor</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="titulo" id="senora" value="Señora">
+                <input class="form-check-input" type="radio" name="titulo" id="senora" value="Señora" onchange="toggleDestinatario()">
                 <label class="form-check-label" for="senora">Señora</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="titulo" id="senores" value="Señores">
+                <input class="form-check-input" type="radio" name="titulo" id="senores" value="Señores" onchange="toggleDestinatario()">
                 <label class="form-check-label" for="senores">Señores</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="titulo" id="blanco" value="Blanco">
+                <input class="form-check-input" type="radio" name="titulo" id="blanco" value="En blanco" onchange="toggleDestinatario()">
                 <label class="form-check-label" for="blanco">En blanco</label>
             </div>
 
@@ -64,7 +61,8 @@ $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del us
 
             <!-- Campo destinatario -->
             <label style="font-weight: 600;">Dirigido a:</label>
-            <input type="text" name="destinatario" class="form-control" aria-label="Destinatario" style="width: 350px; height: 30px;" placeholder="Escriba a quién va dirigido" required>
+            <input type="text" id="destinatario" name="destinatario" class="form-control"
+                   style="width: 350px; height: 30px;" placeholder="Escriba a quién va dirigido" required>
 
             <!-- Campo oculto con la cédula -->
             <input type="hidden" name="id" value="<?php echo $cedula; ?>">
@@ -76,6 +74,30 @@ $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del us
             </button>
         </form>
     </div>
+
+    <script>
+        function toggleDestinatario() {
+            const radios = document.getElementsByName('titulo');
+            const destinatario = document.getElementById('destinatario');
+            
+            let seleccionado = '';
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    seleccionado = radios[i].value;
+                    break;
+                }
+            }
+
+            if (seleccionado === 'En blanco') {
+                destinatario.value = '';
+                destinatario.disabled = true;
+                destinatario.removeAttribute('required');
+            } else {
+                destinatario.disabled = false;
+                destinatario.setAttribute('required', 'required');
+            }
+        }
+    </script>
 </body>
 
 </html>
