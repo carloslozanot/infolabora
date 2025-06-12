@@ -1,12 +1,14 @@
 * {
+    height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Monserrat', sans-serif;
+    font-family: 'Monserrat';
 }
 
 .body_index_login {
+    min-height: 100vh;
     background-image: url(../images/fondos/image3.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -564,12 +566,14 @@ header {
 }
 
 h2 {
+    font-family: 'Monserrat';
     font-size: 32px;
     font-weight: bold;
     margin: 0 0 10px;
 }
 
 h3 {
+    font-family: 'Monserrat';
     font-size: 40px;
     font-weight: bold;
     margin: 0 0 10px;
