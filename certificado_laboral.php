@@ -55,6 +55,10 @@ $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del us
                 <input class="form-check-input" type="radio" name="titulo" id="senores" value="Señores">
                 <label class="form-check-label" for="senores">Señores</label>
             </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="titulo" id="blanco" value="Blanco">
+                <label class="form-check-label" for="blanco">En blanco</label>
+            </div>
 
             <br><br>
 
