@@ -10,8 +10,8 @@
     background-image: url(../images/fondos/image3.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: scroll; 
+    background-position: center;
+    background-attachment: fixed; 
 }
 
 
@@ -27,7 +27,7 @@
 
 .contenedor_login-register {
     display: flex;
-    width: 95%;
+    width: 100%;
     max-width: 380px;
     top: -185px;
     left: 10px;
