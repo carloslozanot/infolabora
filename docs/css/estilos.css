@@ -797,24 +797,3 @@ a.selected {
     color: #721c24; /* Color del texto para mensajes de error */
     border-color: #f5c6cb; /* Borde para mensajes de error */
 }
-
-@media (max-width: 768px) {
-    .body_index_login {
-        background-size: cover;
-        background-attachment: scroll;
-    }
-
-    .contenedor_login-register {
-        margin-left: 0;
-        left: 0;
-        top: 0;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contenedor_login-register form {
-        width: 100%;
-        position: relative;
-        padding: 40px 20px;
-    }
-}
