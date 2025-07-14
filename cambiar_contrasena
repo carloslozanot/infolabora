@@ -3,7 +3,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cedula = $_POST['cedula'];
     $nueva = $_POST['nueva'];
 
-    include 'conexion.php';
+    include 'php/conexion.php';
 
     $hashed = password_hash($nueva, PASSWORD_DEFAULT);
 

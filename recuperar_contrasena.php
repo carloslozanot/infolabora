@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cedula = $_POST["cedula"] ?? '';
 
-    include 'conexion.php';
+    include 'php/conexion.php';
 
     $stmt = $conexion->prepare("SELECT correo FROM empleados WHERE cedula = ?");
     $stmt->bind_param("s", $cedula);
