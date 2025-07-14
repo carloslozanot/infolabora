@@ -28,7 +28,7 @@ if (!isset($_SESSION['usuario'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="docs/css/estilos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -91,126 +91,50 @@ if (!isset($_SESSION['usuario'])) {
             <p style="font-size: 16px;text-align: left;margin-left: 10%;">* Descargar documentos corporativos</p>
             <p style="font-size: 16px;text-align: left;margin-left: 10%;">* Consultar y validar los días de vacaciones pendientes por tomar.</p>
         </div>
-        <div id="contenido-datos" class="contenido" style="display: none;">
-            <div class="empleado-info">
-                <div class="empleado-foto">
-                    <img src="<?php echo $_SESSION['imagen'] ?>" alt="Foto del empleado">
+        <div id="contenido-datos" class="container py-4" style="display: none;">
+    <div class="card shadow-lg p-4">
+        <div class="row g-4">
+            <div class="col-md-3 text-center">
+                <img src="<?php echo $_SESSION['imagen'] ?>" alt="Foto del empleado" class="img-fluid rounded-circle border border-3 border-primary">
+            </div>
+            <div class="col-md-9">
+                <div class="mb-4">
+                    <h4 class="fw-bold text-primary">Información Personal</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>NOMBRES:</strong> <?php echo $_SESSION['nombreUsuario'] ?></li>
+                        <li class="list-group-item"><strong>APELLIDOS:</strong> <?php echo $_SESSION['apellidoUsuario'] ?></li>
+                        <li class="list-group-item"><strong>DOCUMENTO:</strong> <?php echo $_SESSION['usuario'] ?></li>
+                        <li class="list-group-item"><strong>NUMERO CELULAR:</strong> <?php echo $_SESSION['celular'] ?></li>
+                        <li class="list-group-item"><strong>EDAD:</strong> <?php echo $_SESSION['edad'] ?></li>
+                    </ul>
                 </div>
-                <div class="empleado-datos">
-                    <div class="arriba">
-                        <div class="informacion-personal">
-                            <p style="font-size: 27px; font-weight:800;">INFORMACION PERSONAL</>
-                            <ul>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">NOMBRES:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['nombreUsuario'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">APELLIDOS:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['apellidoUsuario'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">DOCUMENTO:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['usuario'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">NUMERO CELULAR:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['celular'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">EDAD:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['edad'] ?>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="informacion-laboral">
-                            <p style="font-size: 27px; font-weight:800;">INFORMACION LABORAL</>
-                            <ul>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CORREO ELECTRONICO:
-                                    </p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['correo'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">FECHA INGRESO:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['fecha_ingreso'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CARGO:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['cargo'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">AREA:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['area'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">JEFE INMEDIATO:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['jefe_inmediato'] ?>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="abajo">
-                        <div class="beneficios">
-                            <p style="font-size: 27px; font-weight:800;">BENEFICIOS</>
-                            <ul>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CAJA DE COMPENSACION:
-                                    </p>
-                                    <span style="font-size: 18px;font-weight:300;display: inline;">
-                                        <?php echo $_SESSION['caja'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">EPS:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['eps'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">ARL:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['arl'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">PENSIONES:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['pensiones'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CESANTIAS:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['cesantias'] ?>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+
+                <div class="mb-4">
+                    <h4 class="fw-bold text-success">Información Laboral</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>CORREO ELECTRÓNICO:</strong> <?php echo $_SESSION['correo'] ?></li>
+                        <li class="list-group-item"><strong>FECHA INGRESO:</strong> <?php echo $_SESSION['fecha_ingreso'] ?></li>
+                        <li class="list-group-item"><strong>CARGO:</strong> <?php echo $_SESSION['cargo'] ?></li>
+                        <li class="list-group-item"><strong>ÁREA:</strong> <?php echo $_SESSION['area'] ?></li>
+                        <li class="list-group-item"><strong>JEFE INMEDIATO:</strong> <?php echo $_SESSION['jefe_inmediato'] ?></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="fw-bold text-info">Beneficios</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>CAJA DE COMPENSACIÓN:</strong> <?php echo $_SESSION['caja'] ?></li>
+                        <li class="list-group-item"><strong>EPS:</strong> <?php echo $_SESSION['eps'] ?></li>
+                        <li class="list-group-item"><strong>ARL:</strong> <?php echo $_SESSION['arl'] ?></li>
+                        <li class="list-group-item"><strong>PENSIONES:</strong> <?php echo $_SESSION['pensiones'] ?></li>
+                        <li class="list-group-item"><strong>CESANTÍAS:</strong> <?php echo $_SESSION['cesantias'] ?></li>
+                    </ul>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
         <div id="contenido-descargas" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">DESCARGAS</h2><br>
             <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar desprendibles
