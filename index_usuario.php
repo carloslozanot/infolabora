@@ -1,6 +1,22 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    echo '
+            <script>
+                alert("Debe iniciar sesión");
+                window.location = "index.php";
+            </script>
+        ';
+    exit;
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,14 +32,6 @@
 </head>
 
 <body>
-    <?php
-    session_start();
-    if (!isset($_SESSION['usuario'])) {
-        echo '<script>alert("Debe iniciar sesi\u00f3n"); window.location = "index.php";</script>';
-        exit;
-    }
-    ?>
-
     <div class="container mt-5">
         <div class="card shadow p-4">
             <h2 class="text-primary font-weight-bold mb-3">Bienvenido, <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario']; ?>!</h2>
@@ -138,5 +146,4 @@
         });
     </script>
 </body>
-
 </html>
