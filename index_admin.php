@@ -107,12 +107,11 @@ if (!isset($_SESSION['usuario'])) {
             <br>
             <table class="table table-striped table-bordered table-hover" id="table_id">
                 <thead>
-                    <tr>
-                        <th>Usuario</th>
+                    <tr>                        
                         <th>Nombres</th>
                         <th>Apellidos</th>
+                        <th>Usuario</th>
                         <th>Contraseña</th>
-                        <th>Fecha Creacion</th>
                         <th>Rol</th>
                     </tr>
                 </thead>
@@ -127,10 +126,7 @@ include("php/conexion.php");
                     if ($dato->num_rows > 0) {
                         while ($fila = mysqli_fetch_array($dato)) {
                             ?>
-                            <tr>
-                                <td>
-                                    <?php echo $fila['cedula']; ?>
-                                </td>
+                            <tr>                                
                                 <td>
                                     <?php echo $fila['nombres']; ?>
                                 </td>
@@ -138,10 +134,10 @@ include("php/conexion.php");
                                     <?php echo $fila['apellidos']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $fila['contrasena']; ?>
+                                    <?php echo $fila['cedula']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $fila['fecha_diligenciamiento']; ?>
+                                    <?php echo $fila['contrasena']; ?>
                                 </td>
                                 <td>
                                     <?php echo $fila['descripcion']; ?>
