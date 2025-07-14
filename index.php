@@ -25,6 +25,7 @@
                     padding: 10px 20px;
                     text-align: center;
                     font-size: 16px;
+                    border-radius: 6px;
                     cursor: pointer;
                     font-weight: bold;">
                         Entrar
