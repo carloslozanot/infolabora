@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cedula = $_POST["cedula"] ?? '';
 
@@ -12,8 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($row = $result->fetch_assoc()) {
         $correo = $row['correo'];
         $token = bin2hex(random_bytes(16));
-        $enlace = "cambiar_contrasena.php?cedula=$cedula&token=$token";
-        echo "<script>alert('Se envió un enlace de recuperación al correo: $correo'); window.location.href='index.php';</script>";
+        echo "<script>window.location.href='cambiar_contrasena.php?cedula=$cedula&token=$token';</script>";
     } else {
         echo "<script>alert('No se encontró un usuario con esa cédula.'); window.location.href='recuperar_contrasena.php';</script>";
     }
@@ -34,10 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <div class="contenedor_todo">
             <div class="contenedor_login-register">
-                <form action="recuperar_contrasena.php" method="POST" class="formulario_login">
+                <form method="POST" class="formulario_login">
                     <label style="display: block; text-align: center;font-weight: 800; font-size: 30px">Recuperar Contraseña</label><br>
                     <input type="text" name="cedula" placeholder="Ingresa tu número de cédula" required>
-                    <button>Enviar enlace</button>
+                    <button type="submit">Enviar enlace</button>
                 </form>
             </div>
         </div>
