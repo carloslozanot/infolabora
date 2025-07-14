@@ -11,21 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($row = $result->fetch_assoc()) {
         $correo = $row['correo'];
-
-        // Simular token 
         $token = bin2hex(random_bytes(16));
-
-        // Guardar token en la base de datos si quieres hacerlo más seguro (opcional)
-
-        // Enlace de recuperación (simulado)
         $enlace = "cambiar_contrasena.php?cedula=$cedula&token=$token";
-
-        // Simulación de correo
         echo "<script>alert('Se envió un enlace de recuperación al correo: $correo'); window.location.href='index.php';</script>";
-
-        // Si quieres usar mail():
-        // mail($correo, "Recuperación de contraseña", "Haz clic aquí para restablecer: $enlace");
-
     } else {
         echo "<script>alert('No se encontró un usuario con esa cédula.'); window.location.href='recuperar_contrasena.php';</script>";
     }
@@ -46,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <div class="contenedor_todo">
             <div class="contenedor_login-register">
-                <form method="POST" class="formulario_login">
+                <form action="recuperar_contrasena.php" method="POST" class="formulario_login">
                     <label style="display: block; text-align: center;font-weight: 800; font-size: 30px">Recuperar Contraseña</label><br>
                     <input type="text" name="cedula" placeholder="Ingresa tu número de cédula" required>
                     <button>Enviar enlace</button>
