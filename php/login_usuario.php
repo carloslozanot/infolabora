@@ -1,85 +1,41 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+include 'php/conexion.php';
 
-include 'conexion.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $cedula = $_POST['cedula'] ?? '';
+    $contrasena = $_POST['contrasena'] ?? '';
 
-// Obtener datos POST
-$cedula = $_POST['cedula'] ?? '';
-$contrasena = $_POST['contrasena'] ?? '';
+    if ($cedula && $contrasena) {
+        $stmt = $conexion->prepare("SELECT cedula, contrasena, id_rol FROM usuarios WHERE cedula = ?");
+        $stmt->bind_param("s", $cedula);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
 
-// Validar que se enviaron datos
-if (!$cedula || !$contrasena) {
-    die("Error: faltan datos de login.");
-}
+        if ($resultado->num_rows > 0) {
+            $usuario = $resultado->fetch_assoc();
 
-// Consulta solo por cédula (sin comparar la contraseña aquí)
-$stmt = $conexion->prepare("SELECT 
-    usuarios.cedula, usuarios.contrasena, usuarios.id_rol as rol, 
-    empleados.nombres, empleados.apellidos, empleados.imagen,
-    empleados.edad, empleados.eps, empleados.arl, empleados.correo, empleados.fecha_ingreso,
-    empleados.cargo, empleados.area, empleados.jefe_inmediato, empleados.caja, empleados.pensiones,
-    empleados.cesantias, empleados.celular,
-    vacaciones.dias_total, vacaciones.dias_disfrutados
-FROM usuarios 
-INNER JOIN empleados ON usuarios.cedula = empleados.cedula
-LEFT OUTER JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
-WHERE usuarios.cedula = ?");
+            if (password_verify($contrasena, $usuario['contrasena'])) {
+                $_SESSION['usuario'] = $usuario['cedula'];
+                $_SESSION['rol'] = $usuario['id_rol'];
 
-if (!$stmt) {
-    die("Error en la consulta: " . $conexion->error);
-}
-
-$stmt->bind_param('s', $cedula);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-
-    // Verificar contraseña con password_verify
-    if (password_verify($contrasena, $row['contrasena'])) {
-        // Guardar datos en sesión
-        $_SESSION['rol'] = $row['rol'];
-        $_SESSION['usuario'] = $row['cedula'];
-        $_SESSION['nombreUsuario'] = $row['nombres'];
-        $_SESSION['apellidoUsuario'] = $row['apellidos'];
-        $_SESSION['imagen'] = $row['imagen'];
-        $_SESSION['celular'] = $row['celular'];
-        $_SESSION['edad'] = $row['edad'];
-        $_SESSION['correo'] = $row['correo'];
-        $_SESSION['fecha_ingreso'] = $row['fecha_ingreso'];
-        $_SESSION['cargo'] = $row['cargo'];
-        $_SESSION['area'] = $row['area'];
-        $_SESSION['jefe_inmediato'] = $row['jefe_inmediato'];
-        $_SESSION['caja'] = $row['caja'];
-        $_SESSION['eps'] = $row['eps'];
-        $_SESSION['arl'] = $row['arl'];
-        $_SESSION['pensiones'] = $row['pensiones'];
-        $_SESSION['cesantias'] = $row['cesantias'];
-        $_SESSION['dias_total'] = $row['dias_total'];
-        $_SESSION['dias_disfrutados'] = $row['dias_disfrutados'];
-        $_SESSION['diferencia_dias'] = $row['dias_total'] - $row['dias_disfrutados'];
-
-        // Redireccionar según rol
-        if ($_SESSION['rol'] == 1) {
-            header("Location: ../index_admin.php");
-        } elseif ($_SESSION['rol'] == 2) {
-            header("Location: ../index_usuario.php");
+                switch ($_SESSION['rol']) {
+                    case 1: header("Location: index_admin.php"); exit;
+                    case 2: header("Location: index_usuario.php"); exit;
+                    case 3: header("Location: index_rrhh.php"); exit;
+                    default: header("Location: index.php?error=Rol%20no%20válido"); exit;
+                }
+            } else {
+                header("Location: index.php?error=Contraseña%20incorrecta");
+                exit;
+            }
         } else {
-            header("Location: ../index_rrhh.php");
+            header("Location: index.php?error=Usuario%20no%20encontrado");
+            exit;
         }
-        exit;
-
     } else {
-        echo "Contraseña incorrecta.";
+        header("Location: index.php?error=Todos%20los%20campos%20son%20obligatorios");
+        exit;
     }
-
-} else {
-    echo "Usuario no encontrado.";
 }
-
-$stmt->close();
-$conexion->close();
 ?>
