@@ -5,16 +5,14 @@ error_reporting(E_ALL);
 
 include 'conexion.php';
 
-// Obtener datos POST
 $cedula = $_POST['cedula'] ?? '';
 $contrasena = $_POST['contrasena'] ?? '';
 
-// Validar que se enviaron datos
 if (!$cedula || !$contrasena) {
-    die("Error: faltan datos de login.");
+    echo "<script>alert('Faltan datos de login.'); window.location.href = '../index.php';</script>";
+    exit;
 }
 
-// Consulta solo por cédula (sin comparar la contraseña aquí)
 $stmt = $conexion->prepare("SELECT 
     usuarios.cedula, usuarios.contrasena, usuarios.id_rol as rol, 
     empleados.nombres, empleados.apellidos, empleados.imagen,
@@ -28,7 +26,8 @@ LEFT OUTER JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
 WHERE usuarios.cedula = ?");
 
 if (!$stmt) {
-    die("Error en la consulta: " . $conexion->error);
+    echo "<script>alert('Error en la consulta.'); window.location.href = '../index.php';</script>";
+    exit;
 }
 
 $stmt->bind_param('s', $cedula);
@@ -38,9 +37,7 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
-    // Verificar contraseña con password_verify
     if (password_verify($contrasena, $row['contrasena'])) {
-        // Guardar datos en sesión
         $_SESSION['rol'] = $row['rol'];
         $_SESSION['usuario'] = $row['cedula'];
         $_SESSION['nombreUsuario'] = $row['nombres'];
@@ -62,7 +59,6 @@ if ($result->num_rows > 0) {
         $_SESSION['dias_disfrutados'] = $row['dias_disfrutados'];
         $_SESSION['diferencia_dias'] = $row['dias_total'] - $row['dias_disfrutados'];
 
-        // Redireccionar según rol
         if ($_SESSION['rol'] == 1) {
             header("Location: ../index_admin.php");
         } elseif ($_SESSION['rol'] == 2) {
@@ -73,11 +69,13 @@ if ($result->num_rows > 0) {
         exit;
 
     } else {
-        echo "Contraseña incorrecta.";
+        echo "<script>alert('Contraseña incorrecta.'); window.location.href = '../index.php';</script>";
+        exit;
     }
 
 } else {
-    echo "Usuario no encontrado.";
+    echo "<script>alert('Usuario no encontrado.'); window.location.href = '../index.php';</script>";
+    exit;
 }
 
 $stmt->close();
