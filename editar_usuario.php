@@ -30,7 +30,7 @@ include("php/conexion.php");
 
         if (isset($_POST['enviar'])) {
             $cedula = $_POST['cedula'];
-            $contrasena = $_POST['contrasena'];
+            $contrasena = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
             $rol = $_POST['rol'];
 
             $sql = "UPDATE usuarios SET contrasena = '" . $contrasena . "', id_rol = '" . $rol . "' WHERE cedula = '" . $cedula . "'";
