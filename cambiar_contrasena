@@ -1,0 +1,42 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $cedula = $_POST['cedula'];
+    $nueva = $_POST['nueva'];
+
+    include 'conexion.php';
+
+    $hashed = password_hash($nueva, PASSWORD_DEFAULT);
+
+    $stmt = $conexion->prepare("UPDATE usuarios SET contrasena = ? WHERE cedula = ?");
+    $stmt->bind_param("ss", $hashed, $cedula);
+    $stmt->execute();
+
+    echo "<script>alert('Contraseña actualizada correctamente'); window.location.href='index.php';</script>";
+
+    $stmt->close();
+    $conexion->close();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cambiar Contraseña</title>
+    <link rel="stylesheet" href="docs/css/estilos.css">
+</head>
+<body class="body_index_login">
+    <main>
+        <div class="contenedor_todo">
+            <div class="contenedor_login-register">
+                <form method="POST" class="formulario_login">
+                    <label style="display: block; text-align: center;font-weight: 800; font-size: 30px">Nueva Contraseña</label><br>
+                    <input type="hidden" name="cedula" value="<?= htmlspecialchars($_GET['cedula'] ?? '') ?>">
+                    <input type="password" name="nueva" placeholder="Escribe la nueva contraseña" required>
+                    <button>Cambiar contraseña</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
