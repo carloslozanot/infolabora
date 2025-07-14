@@ -109,6 +109,8 @@ if (!isset($_SESSION['usuario'])) {
                 <thead>
                     <tr>
                         <th>Usuario</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
                         <th>Contraseña</th>
                         <th>Fecha Creacion</th>
                         <th>Rol</th>
@@ -119,7 +121,7 @@ if (!isset($_SESSION['usuario'])) {
                     <?php
 
 include("php/conexion.php");
-                    $SQL = "SELECT * FROM usuarios u, roles r WHERE u.id_rol = r.id";
+                    $SQL = "SELECT * FROM empleados e, usuarios u, roles r WHERE e.cedula = u.cedula and u.id_rol = r.id";
                     $dato = mysqli_query($conexion, $SQL);
 
                     if ($dato->num_rows > 0) {
@@ -128,6 +130,12 @@ include("php/conexion.php");
                             <tr>
                                 <td>
                                     <?php echo $fila['cedula']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $fila['nombres']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $fila['apellidos']; ?>
                                 </td>
                                 <td>
                                     <?php echo $fila['contrasena']; ?>
