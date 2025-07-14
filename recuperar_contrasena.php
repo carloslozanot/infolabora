@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($row = $result->fetch_assoc()) {
         $correo = $row['correo'];
 
-        // Simular token
+        // Simular token 
         $token = bin2hex(random_bytes(16));
 
         // Guardar token en la base de datos si quieres hacerlo más seguro (opcional)
