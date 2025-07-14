@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cambiar Contraseña</title>
+    <title>CAMBIAR CONTRASEÑA</title>
     <link rel="stylesheet" href="docs/css/estilos.css">
 </head>
 <body class="body_index_login">
@@ -33,7 +33,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label style="display: block; text-align: center;font-weight: 800; font-size: 30px">Nueva Contraseña</label><br>
                     <input type="hidden" name="cedula" value="<?= htmlspecialchars($_GET['cedula'] ?? '') ?>">
                     <input type="password" name="nueva" placeholder="Escribe la nueva contraseña" required>
-                    <button>Cambiar contraseña</button>
+                    <button type="submit" style="display: block;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                    padding: 10px 20px;
+                    text-align: center;
+                    font-size: 16px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-weight: bold;">
+                        Cambiar Contraseña
+                    </button>
                 </form>
             </div>
         </div>

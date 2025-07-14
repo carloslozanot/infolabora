@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Recuperar Contraseña</title>
+    <title>RECUPERAR CONTRASEÑA</title>
     <link rel="stylesheet" href="docs/css/estilos.css">
 </head>
 <body class="body_index_login">
@@ -39,7 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <form method="POST" class="formulario_login">
                     <label style="display: block; text-align: center;font-weight: 800; font-size: 30px">Recuperar Contraseña</label><br>
                     <input type="text" name="cedula" placeholder="Ingresa tu número de cédula" required>
-                    <button type="submit">Enviar enlace</button>
+                    <button type="submit" style="display: block;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                    padding: 10px 20px;
+                    text-align: center;
+                    font-size: 16px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-weight: bold;">
+                        Enviar Enlace
+                    </button>
                 </form>
             </div>
         </div>
