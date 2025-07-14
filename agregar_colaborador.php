@@ -12,7 +12,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" href="docs/css/estilos.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
@@ -20,15 +19,23 @@
 <body>
     <div id="agregar-colaborador">
         <?php
-
         if (isset($_POST['enviar'])) {
+            include("php/conexion.php");
 
+            // 1. Obtener el último id_empleado actual
+            $consulta = "SELECT MAX(id_empleado) AS ultimo_id FROM empleados";
+            $resultado_id = mysqli_query($conexion, $consulta);
+            $fila = mysqli_fetch_assoc($resultado_id);
+            $ultimo_id = $fila['ultimo_id'] ?? 0;
+            $nuevo_id = $ultimo_id + 1;
+
+            // 2. Recoger datos del formulario
             $cedula = $_POST['cedula'];
             $nombres = $_POST['nombres'];
             $apellidos = $_POST['apellidos'];
             $edad = $_POST['edad'];
             $celular = $_POST['celular'];
-            $correo = $_POST['correo'];          
+            $correo = $_POST['correo'];
             $fecha_ingreso = $_POST['fecha_ingreso'];
             $cargo = $_POST['cargo'];
             $area = $_POST['area'];
@@ -40,36 +47,41 @@
             $cesantias = $_POST['cesantias'];
             $imagen = $_POST['imagen'];
 
-            include("php/conexion.php");
-            $sql = "INSERT INTO empleados values
-            ('','".$cedula."','".$nombres."','".$apellidos."','".$edad."','".$celular."','".$correo."'
-            ,'".$fecha_ingreso."','".$cargo."','".$area."','".$jefe_inmediato."','".$caja."','".$eps."'
-            ,'".$arl."','".$pensiones."','".$cesantias."','".$imagen."')";
+            // 3. Insertar nuevo colaborador
+            $sql = "INSERT INTO empleados (
+                        id_empleado, cedula, nombres, apellidos, edad, celular, correo,
+                        fecha_ingreso, cargo, area, jefe_inmediato,
+                        caja, eps, arl, pensiones, cesantias, imagen
+                    ) VALUES (
+                        $nuevo_id, '$cedula', '$nombres', '$apellidos', '$edad', '$celular', '$correo',
+                        '$fecha_ingreso', '$cargo', '$area', '$jefe_inmediato',
+                        '$caja', '$eps', '$arl', '$pensiones', '$cesantias', '$imagen'
+                    )";
 
             $resultado = mysqli_query($conexion, $sql);
 
+            // 4. Verificación
             if ($resultado) {
                 echo "<script language='JavaScript'>
-                    alert('Los datos se han creado correctamente');
-                    location.assign('index_admin.php');
-                    </script>";
+                        alert('Los datos se han creado correctamente');
+                        location.assign('index_admin.php');
+                      </script>";
             } else {
                 echo "<script language='JavaScript'>
-                    alert('Los datos NO se han creado correctamente');
-                    location.assign('index_admin.php');
-                    </script>";
+                        alert('Los datos NO se han creado correctamente');
+                        location.assign('index_admin.php');
+                      </script>";
             }
 
             mysqli_close($conexion);
         }
-
         ?>
 
         <div class="titulo-agregar-colaborador">
             <h1>Agregar Colaborador</h1>
         </div>
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 
+        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <h3>Cedula*</h3>
             <input type="text" name="cedula" class="form-control"><br>
 
@@ -86,17 +98,17 @@
             <input type="text" name="celular" class="form-control"><br>
 
             <h3>Correo</h3>
-            <input type="text" name="correo" class="form-control"><br>         
-            
+            <input type="text" name="correo" class="form-control"><br>
+
             <h3>Fecha Ingreso</h3>
             <input type="date" name="fecha_ingreso" class="form-control"><br>
 
             <h3>Cargo</h3>
             <input type="text" name="cargo" class="form-control"><br>
 
-            <h3>Area</h3>
+            <h3>Área</h3>
             <input type="text" name="area" class="form-control"><br>
-            
+
             <h3>Jefe Inmediato</h3>
             <input type="text" name="jefe_inmediato" class="form-control"><br>
 
@@ -112,17 +124,15 @@
             <h3>Pensiones</h3>
             <input type="text" name="pensiones" class="form-control"><br>
 
-            <h3>Cesantias</h3>
+            <h3>Cesantías</h3>
             <input type="text" name="cesantias" class="form-control"><br>
 
             <h3>Imagen</h3>
             <input type="text" name="imagen" class="form-control"><br>
 
             <div class="botones-agregar-colaborador">
-
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
                 <a href="index_admin.php" class="btn btn-danger">Regresar</a>
-
             </div>
         </form>
     </div>
