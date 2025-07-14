@@ -65,7 +65,7 @@ include("php/conexion.php");
         ?>
 
         <div class="titulo-editar-usuario">
-            <h1>Editar Usuario</h1>
+        <p style="font-size: 32px; font-weight:1000;">EDITAR USUARIO<br></p>
         </div>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 
