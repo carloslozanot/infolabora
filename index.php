@@ -19,8 +19,20 @@
                         SESIÓN</label><br>
                     <input type="text" placeholder="Número de cédula" name="cedula" required>
                     <input type="password" placeholder="Contraseña" name="contrasena" required>
-                    <button>Entrar</button>
-
+                    <button type="submit" style="display: block;
+                     margin: 0 auto;
+                    background-color: #3c73b1;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    text-align: center;
+                    font-size: 16px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-weight: bold;">
+                        Entrar
+                    </button>
+                    <br>
                     <a href="recuperar_contrasena.php"
                         style="display: block; text-align: center; margin-top: 10px; color: #007bff; text-decoration: none;">
                         ¿Olvidaste tu contraseña?
