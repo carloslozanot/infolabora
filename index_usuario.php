@@ -1,22 +1,5 @@
-<?php
-
-session_start();
-
-if (!isset($_SESSION['usuario'])) {
-    echo '
-            <script>
-                alert("Debe iniciar sesión");
-                window.location = "index.php";
-            </script>
-        ';
-    exit;
-
-}
-
-
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -25,260 +8,115 @@ if (!isset($_SESSION['usuario'])) {
     <title>Administrador</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="docs/css/estilos.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" href="docs/css/estilos.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
 </head>
 
-<body id="body">
-    <header class="index">
-        <div class="icon_menu">
-            <i class="bi bi-code" id="btn_open"></i>
-        </div>
-    </header>
+<body>
+    <?php
+    session_start();
+    if (!isset($_SESSION['usuario'])) {
+        echo '<script>alert("Debe iniciar sesi\u00f3n"); window.location = "index.php";</script>';
+        exit;
+    }
+    ?>
 
-    <div class="menu_side" id="menu_side">
-
-        <div class="name_page">
-            <i class="bi bi-person"></i>
-            <h4>Colaborador</h4>
+    <div class="container mt-5">
+        <div class="card shadow p-4">
+            <h2 class="text-primary font-weight-bold mb-3">Bienvenido, <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario']; ?>!</h2>
+            <p class="lead">Este es el <strong>portal corporativo</strong> donde puedes realizar las siguientes acciones:</p>
+            <ul class="list-group list-group-flush mt-3">
+                <li class="list-group-item">📌 Consultar tus datos personales relacionados con la compañía</li>
+                <li class="list-group-item">📥 Descargar documentos corporativos</li>
+                <li class="list-group-item">🌴 Consultar y validar los días de vacaciones pendientes</li>
+            </ul>
         </div>
-        <div class="options_menu">
-            <a href="#">
-                <div class="option" data-pagina="inicio">
-                    <i class="bi bi-house-door" title="Inicio"></i>
-                    <h4>Inicio</h4>
+
+        <div class="row mt-5">
+            <div class="col-md-4 text-center">
+                <img src="<?php echo $_SESSION['imagen'] ?>" class="img-thumbnail rounded-circle" alt="Foto del empleado" width="200">
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-header bg-primary text-white font-weight-bold">INFORMACIÓN PERSONAL</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Nombres:</strong> <?php echo $_SESSION['nombreUsuario'] ?></li>
+                        <li class="list-group-item"><strong>Apellidos:</strong> <?php echo $_SESSION['apellidoUsuario'] ?></li>
+                        <li class="list-group-item"><strong>Documento:</strong> <?php echo $_SESSION['usuario'] ?></li>
+                        <li class="list-group-item"><strong>Celular:</strong> <?php echo $_SESSION['celular'] ?></li>
+                        <li class="list-group-item"><strong>Edad:</strong> <?php echo $_SESSION['edad'] ?></li>
+                    </ul>
                 </div>
+
+                <div class="card mb-3">
+                    <div class="card-header bg-success text-white font-weight-bold">INFORMACIÓN LABORAL</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Correo:</strong> <?php echo $_SESSION['correo'] ?></li>
+                        <li class="list-group-item"><strong>Ingreso:</strong> <?php echo $_SESSION['fecha_ingreso'] ?></li>
+                        <li class="list-group-item"><strong>Cargo:</strong> <?php echo $_SESSION['cargo'] ?></li>
+                        <li class="list-group-item"><strong>Área:</strong> <?php echo $_SESSION['area'] ?></li>
+                        <li class="list-group-item"><strong>Jefe:</strong> <?php echo $_SESSION['jefe_inmediato'] ?></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-info text-white font-weight-bold">BENEFICIOS</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Caja:</strong> <?php echo $_SESSION['caja'] ?></li>
+                        <li class="list-group-item"><strong>EPS:</strong> <?php echo $_SESSION['eps'] ?></li>
+                        <li class="list-group-item"><strong>ARL:</strong> <?php echo $_SESSION['arl'] ?></li>
+                        <li class="list-group-item"><strong>Pensiones:</strong> <?php echo $_SESSION['pensiones'] ?></li>
+                        <li class="list-group-item"><strong>Cesantías:</strong> <?php echo $_SESSION['cesantias'] ?></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <h2 class="text-info">DESCARGAS</h2>
+            <p class="lead">Descarga tus documentos:</p>
+            <a href="desprendible_pago.php" target="_blank" class="btn btn-outline-primary mx-2">
+                <i class="bi bi-file-earmark-text"></i> Desprendibles de Pago
             </a>
-            <a href="#">
-                <div class="option" data-pagina="datos">
-                    <i class="bi bi-database" title="Datos"></i>
-                    <h4>Datos</h4>
-                </div>
+            <a href="certificado_laboral.php" target="_blank" class="btn btn-outline-success mx-2">
+                <i class="bi bi-patch-check"></i> Certificado Laboral
             </a>
-            <a href="#">
-                <div class="option" data-pagina="descargas">
-                    <i class="bi bi-download" title="Descargas"></i>
-                    <h4>Descargas</h4>
-                </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <h2 class="text-warning">VACACIONES</h2>
+            <p class="lead"><strong>Días Totales:</strong> <?php echo $_SESSION['dias_total'] ?> días</p>
+            <p class="lead"><strong>Días Disfrutados:</strong> <?php echo $_SESSION['dias_disfrutados'] ?> días</p>
+            <h1 class="display-1 text-primary"><?php echo $_SESSION['diferencia_dias']; ?></h1>
+            <p class="h4 mb-4">Días pendientes por disfrutar</p>
+
+            <a href="docs/documents/GH.AUS.FO.01.Solicitud.de.Ausentismo.docx" download class="btn btn-outline-warning mb-4">
+                <i class="bi bi-file-earmark-arrow-down"></i> Descargar Formato Ausentismo
             </a>
-            <a href="#">
-                <div class="option" data-pagina="vacaciones">
-                    <i class="bi bi-umbrella" title="Vacaciones"></i>
-                    <h4>Vacaciones</h4>
-                </div>
-            </a>
-            <a href="#">
-                <div class="option" data-pagina="cerrar-sesion">
-                    <i class="bi bi-box-arrow-right" title="cerrar-sesion"></i>
-                    <h4>Cerrar Sesion</h4>
-                </div>
+
+            <form id="formulario" action="cargar_documento.php" method="post" enctype="multipart/form-data" class="border p-4 rounded bg-light">
+                <h5 class="mb-3">Subir documento</h5>
+                <input class="form-control mb-3" type="file" id="documento" name="documento">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-upload"></i> Subir</button>
+                <div id="mensaje" class="mt-3" style="display: none;"></div>
+            </form>
+        </div>
+
+        <div class="text-center mt-5">
+            <h2 class="text-danger">¿Está seguro de cerrar sesión?</h2>
+            <a href="php/cerrar_sesion.php" class="btn btn-danger mt-3">
+                <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
             </a>
         </div>
     </div>
 
-    <main>
-        <div id="contenido-inicio" class="contenido" style="display: block;">
-            <p style="font-size: 32px; font-weight:1000;">¡Bienvenido,
-                <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br>
-            </p>
-            <p style="font-size: 20px;">Este es el <strong>portal corporativo</strong>, a través del cual podrás realizar las siguientes acciones:<br><br></p>
-            <p style="font-size: 16px;text-align: left;margin-left: 10%;">* Consultar tus datos personales relacionados con la compañía</p>
-            <p style="font-size: 16px;text-align: left;margin-left: 10%;">* Descargar documentos corporativos</p>
-            <p style="font-size: 16px;text-align: left;margin-left: 10%;">* Consultar y validar los días de vacaciones pendientes por tomar.</p>
-        </div>
-        <div id="contenido-datos" class="contenido" style="display: none;">
-            <div class="empleado-info">
-                <div class="empleado-foto">
-                    <img src="<?php echo $_SESSION['imagen'] ?>" alt="Foto del empleado">
-                </div>
-                <div class="empleado-datos">
-                    <div class="arriba">
-                        <div class="informacion-personal">
-                            <p style="font-size: 27px; font-weight:800;">INFORMACION PERSONAL</>
-                            <ul>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">NOMBRES:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['nombreUsuario'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">APELLIDOS:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['apellidoUsuario'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">DOCUMENTO:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['usuario'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">NUMERO CELULAR:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['celular'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">EDAD:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['edad'] ?>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="informacion-laboral">
-                            <p style="font-size: 27px; font-weight:800;">INFORMACION LABORAL</>
-                            <ul>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CORREO ELECTRONICO:
-                                    </p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['correo'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">FECHA INGRESO:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['fecha_ingreso'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CARGO:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['cargo'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">AREA:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['area'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">JEFE INMEDIATO:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['jefe_inmediato'] ?>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="abajo">
-                        <div class="beneficios">
-                            <p style="font-size: 27px; font-weight:800;">BENEFICIOS</>
-                            <ul>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CAJA DE COMPENSACION:
-                                    </p>
-                                    <span style="font-size: 18px;font-weight:300;display: inline;">
-                                        <?php echo $_SESSION['caja'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">EPS:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['eps'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">ARL:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['arl'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">PENSIONES:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['pensiones'] ?>
-                                    </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CESANTIAS:</p>
-                                    <span style="font-size: 18px;font-weight:300; display: inline;">
-                                        <?php echo $_SESSION['cesantias'] ?>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="contenido-descargas" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">DESCARGAS</h2><br>
-            <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar desprendibles
-                de pago bajo el mes que necesite y certificados laborales para quien interese</p>
-            <div>
-                <a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
-                        class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>
-                <a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i
-                        class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
-            </div>
-        </div>
-        <div id="contenido-vacaciones" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">VACACIONES</h2>
-            <br>
-            <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Totales:
-                <?php echo $_SESSION['dias_total'] . ' días'; ?>
-            </p>
-            <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados:
-                <?php echo $_SESSION['dias_disfrutados'] . ' días'; ?>
-            </p>
-            <p style="font-size: 100px; font-weight: bold; text-align: center;margin-bottom: 0px;color:#150940">
-                <?php echo $_SESSION['diferencia_dias']; ?>
-            </p>
-            <p style="font-size: 25px; font-weight: bold; text-align: center;">Dias pendientes por disfrutar
-            </p>
-            <p style="text-align: center;">
-                <a href="docs/documents/GH.AUS.FO.01.Solicitud.de.Ausentismo.docx"
-                    download="GH.AUS.FO.01.Solicitud.de.Ausentismo.docx" onclick="mostrarFormulario()">
-                    <button type="button" class="btn boton-azul"> <i class="fa-solid fa-file-excel"></i> FORMATO
-                        AUSENTISMO</button>
-                </a>
-
-            </p>
-            <form id="formulario" action="cargar_documento.php" method="post" enctype="multipart/form-data"
-                style="display: none;">
-                <p style="text-align: center;">
-                    <br>
-                <p style="font-size: 25px; font-weight: bold; text-align: center;">Subir documento </p>
-                <input class="form-control" type="file" id="documento" name="documento">
-                <!-- Agregado el atributo name="documento" -->
-                <br>
-                <button type="submit" class="btn boton-azul" style="display: block; margin: 0 auto;"><i
-                        class="fa fa-upload"></i> SUBIR</button>
-                </p>
-
-                <!-- Contenedor para mostrar el mensaje de éxito o error -->
-                <<div id="mensaje" style="display: none;">
-        </div>
-        </form>
-        </div>
-
-        <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
-            <br>
-            <label style="display: block; text-align: center;font-weight: 800; font-size: 40px">¿Esta seguro de cerrar sesion?</label><br>
-            <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
-                SESION</a>
-        </div>
-
-    </main>
-
-    <!-- Incluye el archivo JavaScript -->
-    <script src="docs/js/script.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#formulario').submit(function (event) {
-                event.preventDefault(); // Evitar el envío del formulario por el método tradicional
-
+                event.preventDefault();
                 var formData = new FormData($(this)[0]);
 
                 $.ajax({
@@ -290,24 +128,15 @@ if (!isset($_SESSION['usuario'])) {
                     contentType: false,
                     processData: false,
                     success: function (response) {
-                        $('#mensaje').html(response).show(); // Mostrar el mensaje y el contenedor
+                        $('#mensaje').html(response).show();
                     },
                     error: function () {
-                        $('#mensaje').text('Error al subir el archivo').show(); // Mostrar un mensaje de error en caso de fallo
+                        $('#mensaje').text('Error al subir el archivo').show();
                     }
                 });
             });
         });
     </script>
-    <script>
-        function mostrarFormulario() {
-            var formulario = document.getElementById("formulario");
-            formulario.style.display = "block";
-        }
-    </script>
-
-
-
 </body>
 
 </html>
