@@ -180,8 +180,18 @@ if (!isset($_SESSION['usuario'])) {
 
                 <hr class="linea-divisoria-boceto">
                 <div class="subseccion-beneficios-boceto">
-                    <p style="font-size: 32px; font-weight:700;font-family: 'Monserrat', sans-serif;">DATOS LABORALES</p>
+                    <p style="font-size: 32px; font-weight:700;font-family: 'Monserrat', sans-serif;">DATOS LABORALES
+                    </p>
                     <div class="grupo-dato">
+                        <div class="icono-con-texto">
+                            <div class="icono-circular">
+                                <i class="bi bi-building"></i>
+                            </div>
+                            <div class="texto">
+                                <p class="etiqueta-dato">CONTRATO</p>
+                                <span class="valor-dato"><?php echo $_SESSION['tipo_contrato'] ?? ''; ?></span>
+                            </div>
+                        </div>
                         <div class="icono-con-texto">
                             <div class="icono-circular">
                                 <i class="bi bi-building"></i>
