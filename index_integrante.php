@@ -108,7 +108,8 @@ if (!isset($_SESSION['usuario'])) {
 
             <div class="seccion-inferior-boceto">
                 <div class="subseccion-datos-personales-laborales">
-                    <p style="font-size: 32px; font-weight:700; font-family: 'Monserrat', sans-serif;">DATOS PERSONALES</p>
+                    <p style="font-size: 32px; font-weight:700; font-family: 'Monserrat', sans-serif;">DATOS PERSONALES
+                    </p>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
@@ -200,6 +201,65 @@ if (!isset($_SESSION['usuario'])) {
 
                 </div>
 
+                <hr class="linea-divisoria-boceto">
+                <div class="subseccion-beneficios-boceto">
+                    <p style="font-size: 32px; font-weight:700;font-family: 'Monserrat', sans-serif;">BENEFICIOS</p>
+                    <div class="grupo-dato">
+                        <div class="icono-con-texto">
+                            <div class="icono-circular">
+                                <i class="bi-briefcase"></i>
+                            </div>
+                            <div class="texto">
+                                <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
+                                <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grupo-dato">
+                        <div class="icono-con-texto">
+                            <div class="icono-circular">
+                                <i class="bi bi-hospital"></i>
+                            </div>
+                            <div class="texto">
+                                <p class="etiqueta-dato">EPS</p>
+                                <span class="valor-dato"><?php echo $_SESSION['eps'] ?? ''; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grupo-dato">
+                        <div class="icono-con-texto">
+                            <div class="icono-circular">
+                                <i class="bi bi-coin"></i>
+                            </div>
+                            <div class="texto">
+                                <p class="etiqueta-dato">PENSIONES</p>
+                                <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grupo-dato">
+                        <div class="icono-con-texto">
+                            <div class="icono-circular">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div class="texto">
+                                <p class="etiqueta-dato">ARL</p>
+                                <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grupo-dato">
+                        <div class="icono-con-texto">
+                            <div class="icono-circular">
+                                <i class="bi bi-piggy-bank	"></i>
+                            </div>
+                            <div class="texto">
+                                <p class="etiqueta-dato">CESANTIAS</p>
+                                <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <hr class="linea-divisoria-boceto">
                 <div class="subseccion-beneficios-boceto">
                     <p style="font-size: 32px; font-weight:700;font-family: 'Monserrat', sans-serif;">BENEFICIOS</p>
