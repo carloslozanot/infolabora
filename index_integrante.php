@@ -169,12 +169,14 @@ if (!isset($_SESSION['usuario'])) {
 
                 <hr class="linea-divisoria-boceto">
                 <div class="subseccion-beneficios-boceto">
+                    <div>
                     <p style="font-size: 32px; font-weight:700;font-family: 'Monserrat', sans-serif;">DATOS LABORALES
                     </p>
+                    </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-person-workspace"></i>
+                                <i class="bi bi bi-file-earmark-check"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">CONTRATO</p>
