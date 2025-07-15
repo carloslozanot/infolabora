@@ -838,8 +838,8 @@ a.selected {
 }
 
 .empleado-foto-boceto {
-    width: 100px; /* Tamaño de la elipse de la foto */
-    height: 60px; /* Altura para hacerla elíptica */
+    width: 200px; /* Tamaño de la elipse de la foto */
+    height: 200px; /* Altura para hacerla elíptica */
     border: 2px solid #000; /* Borde negro de la elipse */
     border-radius: 50%; /* Para hacerla elíptica o circular si width y height son iguales */
     overflow: hidden; /* Recorta la imagen si sobresale del borde */
@@ -864,7 +864,6 @@ a.selected {
     font-weight: bold;
     color: #333;
     margin: 0 0 5px 0;
-    text-transform: uppercase; /* Como en el boceto */
 }
 
 .cargo-empleado-boceto {
