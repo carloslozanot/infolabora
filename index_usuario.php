@@ -122,7 +122,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">NUMERO CELULAR</p>
                                 <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
@@ -131,7 +133,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">DOCUMENTO</p>
                                 <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
@@ -140,7 +144,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">DIRECCIÓN</p>
                                 <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
@@ -149,7 +155,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">FECHA INGRESO</p>
                                 <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
@@ -158,7 +166,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">CIUDAD RESIDENCIA</p>
                                 <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
@@ -167,7 +177,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">AREA</p>
                                 <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
@@ -176,7 +188,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">JEFE INMEDIATO</p>
                                 <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
@@ -190,7 +204,9 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="subseccion-beneficios-boceto">
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
                                 <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
@@ -199,7 +215,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">EPS</p>
                                 <span class="valor-dato"><?php echo $_SESSION['eps'] ?? ''; ?></span>
@@ -208,7 +226,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">PENSIONES</p>
                                 <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
@@ -217,7 +237,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">ARL</p>
                                 <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
@@ -226,7 +248,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">CESANTIAS</p>
                                 <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
