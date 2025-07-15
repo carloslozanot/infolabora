@@ -108,9 +108,7 @@ if (!isset($_SESSION['usuario'])) {
 
             <div class="seccion-inferior-boceto">
                 <div class="subseccion-datos-personales-laborales">
-                    <p style="font-size: 32px; font-weight:700; font-family: 'Montserrat', sans-serif;">DATOS PERSONALES
-                    </p>
-
+                <p class="titulo-datos">DATOS PERSONALES</p>
                     <!-- Columna izquierda -->
                     <div class="grupo-dato">
                         <div class="icono-con-texto">

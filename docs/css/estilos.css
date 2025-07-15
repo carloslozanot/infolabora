@@ -892,11 +892,13 @@ a.selected {
     margin: 20px;
 }
 
-.subseccion-datos-personales-laborales {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-    gap: 30px 60px; /* espacio entre columnas y filas */
-    margin-top: 20px;
+.datos-personales-container {
+    background-color: #f0f0f0;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(24, 46, 89);
+    max-width: 1200px;
 }
 
 .contenedor-items {
@@ -907,7 +909,7 @@ a.selected {
 
 .grupo-dato {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .icono-con-texto {
@@ -921,13 +923,27 @@ a.selected {
 }
 
 .etiqueta-dato {
-    margin: 0;
     font-weight: bold;
+    margin: 0;
 }
 
 .valor-dato {
-    margin: 0;
     font-size: 14px;
+    margin: 0;
+    color: #333;
+}
+
+.datos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.titulo-datos {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .linea-divisoria-boceto {
@@ -943,6 +959,7 @@ a.selected {
     height: 50px;
     border-radius: 50%;
     background-color: #150940;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -950,8 +967,8 @@ a.selected {
 }
 
 .icono-circular i {
-    font-size: 24px;
-    color: white;
+    font-size: 20px;
+    color: #f0f0f0;
 }
 
 @media (max-width: 768px) {
