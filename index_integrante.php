@@ -109,7 +109,6 @@ if (!isset($_SESSION['usuario'])) {
             <div class="seccion-inferior-boceto">
                 <div class="datos-personales-container">
                     <p class="titulo-datos">DATOS PERSONALES</p>
-
                     <div class="datos-grid">
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-at"></i></div>
@@ -150,112 +149,112 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
 
                 <hr class="linea-divisoria-boceto">
-                <div class="subseccion-beneficios-boceto">
-                    <div>
-                        <p style="font-size: 32px; font-weight:700;">DATOS
-                            LABORALES
-                        </p>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi bi-file-earmark-check"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">CONTRATO</p>
-                                <span class="valor-dato"><?php echo $_SESSION['tipo_contrato'] ?? ''; ?></span>
+                <div class="datos-personales-container">
+                    <p class="titulo-datos">DATOS PERSONALES</p>
+                    <div class="datos-grid">
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi bi-file-earmark-check"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">CONTRATO</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['tipo_contrato'] ?? ''; ?></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-calendar-event"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">FECHA INGRESO</p>
-                                <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-person-workspace"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">AREA</p>
-                                <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-calendar-event"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">FECHA INGRESO</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-person-workspace"></i>
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-person-workspace"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">AREA</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
+                                </div>
                             </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">LIDER INMEDIATO</p>
-                                <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
+                        </div>
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-person-workspace"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">LIDER INMEDIATO</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <hr class="linea-divisoria-boceto">
-                <div class="subseccion-beneficios-boceto">
-                    <p style="font-size: 32px; font-weight:700;">BENEFICIOS</p>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi-briefcase"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
-                                <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-hospital"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">EPS</p>
-                                <span class="valor-dato"><?php echo $_SESSION['eps'] ?? ''; ?></span>
+                <div class="datos-personales-container">
+                    <p class="titulo-datos">DATOS PERSONALES</p>
+                    <div class="datos-grid">
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi-briefcase"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-coin"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">PENSIONES</p>
-                                <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-shield-check"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">ARL</p>
-                                <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-hospital"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">EPS</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['eps'] ?? ''; ?></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-piggy-bank	"></i>
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-coin"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">PENSIONES</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
+                                </div>
                             </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">CESANTIAS</p>
-                                <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
+                        </div>
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">ARL</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-piggy-bank	"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">CESANTIAS</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -265,7 +264,8 @@ if (!isset($_SESSION['usuario'])) {
 
         <div id="contenido-descargas" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
-            <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar desprendibles
+            <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar
+                desprendibles
                 de pago bajo el mes que necesite y certificados laborales para quien interese</p>
             <div>
                 <a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
@@ -314,9 +314,11 @@ if (!isset($_SESSION['usuario'])) {
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <br>
-            <label style="display: block; text-align: center;font-weight: 800; font-size: 40px">¿Esta seguro de cerrar
+            <label style="display: block; text-align: center;font-weight: 800; font-size: 40px">¿Esta seguro de
+                cerrar
                 sesion?</label><br>
-            <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
+            <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i>
+                CERRAR
                 SESION</a>
         </div>
 
