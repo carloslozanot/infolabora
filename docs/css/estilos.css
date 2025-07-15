@@ -935,20 +935,19 @@ a.selected {
 
 .etiqueta-dato {
     font-weight: bold;
+    font-size: 16px;
     margin: 0;
 }
 
 .valor-dato {
-    font-size: 16px;
+    font-size: 18px;
     color: #000;
 }
 
 .linea-divisoria-boceto {
     border: none;
     border-top: 2px solid #000;
-    /* Línea negra gruesa */
     margin: 10px 0;
-    /* Espacio alrededor de la línea */
 }
 
 
