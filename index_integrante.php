@@ -252,11 +252,11 @@ if (!isset($_SESSION['usuario'])) {
             <div>
                 <a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
                         class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>
-                <a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i
-                        class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
+                <!--<a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i
+                        class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>-->
             </div>
         </div>
-        <div id="contenido-vacaciones" class="contenido" style="display: none;">
+        <!--<div id="contenido-vacaciones" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">VACACIONES</h2>
             <br>
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Totales:
@@ -292,7 +292,7 @@ if (!isset($_SESSION['usuario'])) {
                 <div id="mensaje" style="display: none;">
                 </div>
             </form>
-        </div>
+        </div>-->
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <br>
