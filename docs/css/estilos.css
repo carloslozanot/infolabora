@@ -132,7 +132,8 @@ header {
     font-weight: 500;
 }
 
-#contenido-datos {
+/* OLD #contenido-datos rules - REMOVED/OVERRIDDEN BY NEW STYLES */
+/* #contenido-datos {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 20px;
@@ -141,7 +142,7 @@ header {
     box-shadow: 0 0 10px rgba(24,46,89);
     max-height: 700px;
     overflow: auto;
-}
+} */
 
 #contenido-principal {
     background-color: #f0f0f0;
@@ -336,6 +337,8 @@ header {
     margin-left: 190px;
 }
 
+/* OLD STYLES FOR empleado-info, empleado-foto, empleado-datos, etc. - REMOVED */
+/*
 .empleado-info {
     display: flex;
     align-items: center;
@@ -346,7 +349,6 @@ header {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    /* Crea un círculo para la foto */
     overflow: hidden;
     margin-right: 40px;
     border: 5px solid rgba(24, 46, 89);
@@ -356,7 +358,6 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Ajusta la imagen al círculo */
 }
 
 .empleado-datos {
@@ -382,6 +383,7 @@ header {
 .beneficios {
     padding: 30px;
 }
+*/
 
 #table_id th,
 #table_id td {
@@ -807,6 +809,115 @@ a.selected {
     border-color: #f5c6cb; /* Borde para mensajes de error */
 }
 
+/* --- Nuevos Estilos para el boceto --- */
+#contenido-datos-refaccionado {
+    background-color: #f0f0f0; /* Color de fondo similar al boceto, o blanco si prefieres */
+    border: 2px solid #000; /* Borde negro del boceto */
+    border-radius: 25px; /* Bordes redondeados */
+    padding: 20px 30px;
+    width: 90%;
+    max-width: 900px; /* Ancho máximo similar al boceto */
+    margin: 0 auto; /* Centra el div */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre la sección superior e inferior */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    max-height: 700px; /* Mantener la altura máxima y overflow si es necesario */
+    overflow: auto;
+}
+
+.seccion-superior-boceto {
+    background-color: #ffffff; /* Fondo blanco para la sección superior */
+    border: 2px solid #000; /* Borde negro del boceto */
+    border-radius: 25px; /* Bordes redondeados */
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espacio entre foto y texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+
+.empleado-foto-boceto {
+    width: 100px; /* Tamaño de la elipse de la foto */
+    height: 60px; /* Altura para hacerla elíptica */
+    border: 2px solid #000; /* Borde negro de la elipse */
+    border-radius: 50%; /* Para hacerla elíptica o circular si width y height son iguales */
+    overflow: hidden; /* Recorta la imagen si sobresale del borde */
+    display: flex; /* Para centrar la imagen dentro de la elipse */
+    justify-content: center;
+    align-items: center;
+}
+
+.empleado-foto-boceto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border-radius: 50%; /* Para mantener la forma si la imagen es cuadrada */
+}
+
+.empleado-nombre-cargo {
+    flex-grow: 1; /* Permite que ocupe el espacio restante */
+}
+
+.nombre-empleado-boceto {
+    font-size: 1.8em; /* Tamaño de nombre */
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 5px 0;
+    text-transform: uppercase; /* Como en el boceto */
+}
+
+.cargo-empleado-boceto {
+    font-size: 1.1em; /* Tamaño de cargo */
+    color: #666;
+    margin: 0;
+    text-transform: uppercase; /* Como en el boceto */
+}
+
+.seccion-inferior-boceto {
+    background-color: #ffffff; /* Fondo blanco */
+    border: 2px solid #000; /* Borde negro del boceto */
+    border-radius: 25px; /* Bordes redondeados */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre las subsecciones */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+
+.subseccion-datos-personales-laborales,
+.subseccion-beneficios-boceto {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual ancho */
+    gap: 20px 40px; /* Espacio vertical y horizontal entre los elementos */
+}
+
+.grupo-dato {
+    display: flex;
+    flex-direction: column;
+}
+
+.etiqueta-dato {
+    font-size: 1em; /* Tamaño de la etiqueta */
+    font-weight: bold;
+    color: #000; /* Color de la etiqueta como en el boceto */
+    margin: 0 0 5px 0;
+    text-transform: uppercase; /* Para que coincida con el boceto */
+}
+
+.valor-dato {
+    font-size: 1em; /* Tamaño del valor */
+    color: #555;
+    font-weight: normal;
+}
+
+.linea-divisoria-boceto {
+    border: none;
+    border-top: 2px solid #000; /* Línea negra gruesa */
+    margin: 10px 0; /* Espacio alrededor de la línea */
+}
+
+
 @media (max-width: 768px) {
     .body_index_login {
         background-size: cover;
@@ -825,5 +936,52 @@ a.selected {
         width: 100%;
         position: relative;
         padding: 40px 20px;
+    }
+
+    /* Media queries para el nuevo diseño */
+    #contenido-datos-refaccionado {
+        padding: 15px;
+    }
+
+    .seccion-superior-boceto {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .empleado-foto-boceto {
+        width: 80px;
+        height: 80px; /* Hacerla circular en móviles si lo prefieres */
+    }
+
+    .empleado-nombre-cargo {
+        text-align: center;
+    }
+
+    .nombre-empleado-boceto {
+        font-size: 1.5em;
+    }
+
+    .cargo-empleado-boceto {
+        font-size: 1em;
+    }
+
+    .seccion-inferior-boceto {
+        padding: 20px;
+    }
+
+    .subseccion-datos-personales-laborales,
+    .subseccion-beneficios-boceto {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        gap: 15px;
+    }
+
+    .etiqueta-dato {
+        font-size: 0.9em;
+    }
+
+    .valor-dato {
+        font-size: 0.9em;
     }
 }
