@@ -877,31 +877,33 @@ a.selected {
 
 .grupo-dato {
     display: flex;
-    flex-direction: column; /* Apila los elementos verticalmente (etiqueta+icono arriba, valor abajo) */
-    align-items: flex-start; /* Alinea todo el contenido del grupo a la izquierda */
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-/* Contenedor para el icono y el texto de la etiqueta */
-.etiqueta-icono-wrapper {
-    display: flex; /* Coloca el icono y el texto de la etiqueta uno al lado del otro */
-    align-items: center; /* Centra verticalmente el icono y el texto */
-    margin-bottom: 5px; /* Espacio entre el título (con icono) y el valor del dato */
+.icono-con-texto {
+    display: flex;
+    align-items: center;
 }
 
-/* Estilos para el texto de la etiqueta (por ejemplo, "DOCUMENTO") */
+.icono-con-texto i {
+    font-size: 32px; /* Tamaño del ícono */
+    margin-right: 10px; /* Espacio entre ícono y texto */
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+}
+
 .etiqueta-dato {
-    font-size: 1em;
+    margin: 0;
     font-weight: bold;
-    color: #000;
-    margin: 0; /* Importante: Elimina cualquier margen predeterminado de <p> */
-    text-transform: uppercase;
 }
 
 .valor-dato {
-    font-size: 1em;
-    color: #555;
-    font-weight: normal;
-    margin: 0; /* Asegura que no haya márgenes adicionales que interfieran */
+    margin: 0;
+    font-size: 14px;
 }
 
 .linea-divisoria-boceto {
