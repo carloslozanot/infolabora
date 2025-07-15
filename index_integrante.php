@@ -157,17 +157,6 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-calendar-event"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">FECHA INGRESO</p>
-                                <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
                                 <i class="bi bi-pin-map-fill"></i>
                             </div>
                             <div class="texto">
@@ -185,16 +174,29 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-building"></i>
+                                <i class="bi bi-person-workspace"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">CONTRATO</p>
                                 <span class="valor-dato"><?php echo $_SESSION['tipo_contrato'] ?? ''; ?></span>
                             </div>
                         </div>
+                    </div>
+                    <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-building"></i>
+                                <i class="bi bi-calendar-event"></i>
+                            </div>
+                            <div class="texto">
+                                <p class="etiqueta-dato">FECHA INGRESO</p>
+                                <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grupo-dato">
+                        <div class="icono-con-texto">
+                            <div class="icono-circular">
+                                <i class="bi bi-person-workspace"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">AREA</p>
