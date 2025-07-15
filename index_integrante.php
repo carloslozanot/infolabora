@@ -113,8 +113,8 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-at"></i></div>
                             <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">CORREO</p>
+                                <p class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></p>
+                                <span class="etiqueta-dato">CORREO</span>
                             </div>
                         </div>
                         <div class="grupo-dato">
