@@ -916,7 +916,7 @@ a.selected {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #e9ecef; /* Color del círculo */
+    background-color: #150940; /* Color del círculo */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -925,15 +925,9 @@ a.selected {
 }
 
 .icono-circular i {
-    font-size: 20px;
-    color: #150940; /* Puedes cambiar el color del ícono */
+    width: 40%;
+    color: #f0f0f0;
 }
-
-.icono-con-texto {
-    display: flex;
-    align-items: center;
-}
-
 
 @media (max-width: 768px) {
     .body_index_login {
