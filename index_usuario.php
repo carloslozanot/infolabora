@@ -123,7 +123,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-phone-vibrate-fill"></i>
+                                <i class="bi bi-phone"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">NUMERO CELULAR</p>
@@ -156,7 +156,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-calendar"></i>
+                                <i class="bi bi-calendar-event"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">FECHA INGRESO</p>
