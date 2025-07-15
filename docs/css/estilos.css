@@ -894,9 +894,9 @@ a.selected {
 
 .subseccion-datos-personales-laborales,
 .subseccion-beneficios-boceto {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 20px;
 }
 
 .grupo-dato {
