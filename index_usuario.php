@@ -120,6 +120,14 @@ if (!isset($_SESSION['usuario'])) {
                         <p class="etiqueta-dato">JEFE</p>
                         <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
                     </div>
+                    <div class="grupo-dato">
+                        <p class="etiqueta-dato">JEFE</p>
+                        <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
+                    </div>
+                    <div class="grupo-dato">
+                        <p class="etiqueta-dato">JEFE</p>
+                        <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
+                    </div>
                 </div>
 
                 <hr class="linea-divisoria-boceto"> <div class="subseccion-beneficios-boceto">
@@ -134,6 +142,14 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <p class="etiqueta-dato">PENSIONES</p>
                         <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
+                    </div>
+                    <div class="grupo-dato">
+                        <p class="etiqueta-dato">ARL</p>
+                        <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
+                    </div>
+                    <div class="grupo-dato">
+                        <p class="etiqueta-dato">ARL</p>
+                        <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
                         <p class="etiqueta-dato">ARL</p>
