@@ -137,24 +137,49 @@ if (!isset($_SESSION['usuario'])) {
                         </div>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">DIRECCIÓN</p>
-                        <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">DIRECCIÓN</p>
+                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">FECHA INGRESO</p>
-                        <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">FECHA INGRESO</p>
+                                <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">CIUDAD DE RESIDENCIA</p>
-                        <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">CIUDAD RESIDENCIA</p>
+                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">AREA</p>
-                        <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">AREA</p>
+                                <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">JEFE INMEDIATO</p>
-                        <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">JEFE INMEDIATO</p>
+                                <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
