@@ -892,11 +892,11 @@ a.selected {
     margin: 20px;
 }
 
-.subseccion-datos-personales-laborales,
-.subseccion-beneficios-boceto {
+.subseccion-datos-personales-laborales {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-    gap: 20px;
+    gap: 30px 60px; /* espacio entre columnas y filas */
+    margin-top: 20px;
 }
 
 .contenedor-items {
@@ -908,19 +908,11 @@ a.selected {
 .grupo-dato {
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
 }
 
 .icono-con-texto {
     display: flex;
     align-items: center;
-}
-
-.icono-con-texto i {
-    font-size: 32px;
-    /* Tamaño del ícono */
-    margin-right: 10px;
-    /* Espacio entre ícono y texto */
 }
 
 .texto {
@@ -951,17 +943,15 @@ a.selected {
     height: 50px;
     border-radius: 50%;
     background-color: #150940;
-    /* Color del círculo */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .icono-circular i {
-    width: 40%;
-    color: #f0f0f0;
+    font-size: 24px;
+    color: white;
 }
 
 @media (max-width: 768px) {
