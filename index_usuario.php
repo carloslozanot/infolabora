@@ -156,7 +156,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-file-earmark-person"></i>
+                                <i class="bi bi-calendar"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">FECHA INGRESO</p>
@@ -216,7 +216,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-file-earmark-person"></i>
+                                <i class="bi bi-bag-heart"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">EPS</p>
