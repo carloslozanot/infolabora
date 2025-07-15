@@ -99,16 +99,11 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="empleado-datos">
                     <div class="arriba">
                         <div class="informacion-personal">
-                            <p style="font-size: 27px; font-weight:800;">INFORMACION PERSONAL</>
                             <ul>
                                 <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">NOMBRES:</p>
                                     <span style="font-size: 18px;font-weight:300; display: inline;">
                                         <?php echo $_SESSION['nombreUsuario'] ?>
                                     </span>
-                                </li>
-                                <li>
-                                    <p style="font-size: 18px; font-weight: 800; display: inline;">APELLIDOS:</p>
                                     <span style="font-size: 18px;font-weight:300; display: inline;">
                                         <?php echo $_SESSION['apellidoUsuario'] ?>
                                     </span>
