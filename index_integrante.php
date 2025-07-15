@@ -111,12 +111,11 @@ if (!isset($_SESSION['usuario'])) {
                     <p class="titulo-datos">DATOS PERSONALES</p>
 
                     <div class="datos-grid">
-                        <!-- Columna 1 -->
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-phone"></i></div>
                             <div class="texto">
                                 <p class="etiqueta-dato">NÚMERO CELULAR</p>
-                                <span class="valor-dato">3002470969</span>
+                                <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
                             </div>
                         </div>
 
@@ -124,16 +123,14 @@ if (!isset($_SESSION['usuario'])) {
                             <div class="icono-circular"><i class="bi bi-house-door-fill"></i></div>
                             <div class="texto">
                                 <p class="etiqueta-dato">DIRECCIÓN</p>
-                                <span class="valor-dato">Cra 123 #45-67</span>
+                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
                             </div>
                         </div>
-
-                        <!-- Columna 2 -->
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-at"></i></div>
                             <div class="texto">
                                 <p class="etiqueta-dato">CORREO</p>
-                                <span class="valor-dato">correo@empresa.com</span>
+                                <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
                             </div>
                         </div>
 
@@ -141,7 +138,7 @@ if (!isset($_SESSION['usuario'])) {
                             <div class="icono-circular"><i class="bi bi-person-vcard"></i></div>
                             <div class="texto">
                                 <p class="etiqueta-dato">DOCUMENTO</p>
-                                <span class="valor-dato">1019134759</span>
+                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
                             </div>
                         </div>
                     </div>
