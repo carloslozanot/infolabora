@@ -113,36 +113,36 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-at"></i></div>
                             <div class="texto">
-                                <p class="etiqueta-dato">CORREO</p>
                                 <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">CORREO</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-person-vcard"></i></div>
                             <div class="texto">
+                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
                                 <p class="etiqueta-dato">DOCUMENTO</p>
-                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
                             </div>
                         </div>
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-house-door-fill"></i></div>
                             <div class="texto">
+                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
                                 <p class="etiqueta-dato">DIRECCIÓN</p>
-                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
                             </div>
                         </div>
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-house-door-fill"></i></div>
                             <div class="texto">
-                                <p class="etiqueta-dato">CIUDAD RESIDENCIA</p>
                                 <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">CIUDAD RESIDENCIA</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-phone"></i></div>
                             <div class="texto">
-                                <p class="etiqueta-dato">NÚMERO CELULAR</p>
                                 <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">NÚMERO CELULAR</p>
                             </div>
                         </div>
                     </div>
