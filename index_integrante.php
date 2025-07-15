@@ -153,47 +153,39 @@ if (!isset($_SESSION['usuario'])) {
                     <p class="titulo-datos">DATOS PERSONALES</p>
                     <div class="datos-grid">
                         <div class="grupo-dato">
-                            <div class="icono-con-texto">
-                                <div class="icono-circular">
-                                    <i class="bi bi bi-file-earmark-check"></i>
-                                </div>
-                                <div class="texto">
-                                    <p class="etiqueta-dato">CONTRATO</p>
-                                    <span class="valor-dato"><?php echo $_SESSION['tipo_contrato'] ?? ''; ?></span>
-                                </div>
+                            <div class="icono-circular">
+                                <i class="bi bi bi-file-earmark-check"></i>
+                            </div>
+                            <div class="texto">
+                                <p class="etiqueta-dato">CONTRATO</p>
+                                <span class="valor-dato"><?php echo $_SESSION['tipo_contrato'] ?? ''; ?></span>
                             </div>
                         </div>
                         <div class="grupo-dato">
-                            <div class="icono-con-texto">
-                                <div class="icono-circular">
-                                    <i class="bi bi-calendar-event"></i>
-                                </div>
-                                <div class="texto">
-                                    <p class="etiqueta-dato">FECHA INGRESO</p>
-                                    <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
-                                </div>
+                            <div class="icono-circular">
+                                <i class="bi bi-calendar-event"></i>
+                            </div>
+                            <div class="texto">
+                                <p class="etiqueta-dato">FECHA INGRESO</p>
+                                <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
                             </div>
                         </div>
                         <div class="grupo-dato">
-                            <div class="icono-con-texto">
-                                <div class="icono-circular">
-                                    <i class="bi bi-person-workspace"></i>
-                                </div>
-                                <div class="texto">
-                                    <p class="etiqueta-dato">AREA</p>
-                                    <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
-                                </div>
+                            <div class="icono-circular">
+                                <i class="bi bi-person-workspace"></i>
+                            </div>
+                            <div class="texto">
+                                <p class="etiqueta-dato">AREA</p>
+                                <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
                             </div>
                         </div>
                         <div class="grupo-dato">
-                            <div class="icono-con-texto">
-                                <div class="icono-circular">
-                                    <i class="bi bi-person-workspace"></i>
-                                </div>
-                                <div class="texto">
-                                    <p class="etiqueta-dato">LIDER INMEDIATO</p>
-                                    <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
-                                </div>
+                            <div class="icono-circular">
+                                <i class="bi bi-person-workspace"></i>
+                            </div>
+                            <div class="texto">
+                                <p class="etiqueta-dato">LIDER INMEDIATO</p>
+                                <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
                             </div>
                         </div>
                     </div>
