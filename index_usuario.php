@@ -92,7 +92,7 @@ if (!isset($_SESSION['usuario'])) {
             <p style="font-size: 16px;text-align: left;margin-left: 10%;">* Consultar y validar los días de vacaciones pendientes por tomar.</p>
         </div>
         <div id="contenido-datos" class="contenido" style="display: none;">
-            <!--<div class="empleado-info">
+            <div class="empleado-info">
                 <div class="empleado-foto">
                     <img src="<?php echo $_SESSION['imagen'] ?>" alt="Foto del empleado">
                 </div>
@@ -133,7 +133,8 @@ if (!isset($_SESSION['usuario'])) {
                                 </li>
                             </ul>
                         </div>
-                        <div class="informacion-laboral">
+        </div> 
+                        <!--<div class="informacion-laboral">
                             <p style="font-size: 27px; font-weight:800;">INFORMACION LABORAL</>
                             <ul>
                                 <li>
@@ -210,7 +211,7 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                 </div>
             </div> -->
-        </div> 
+        
         <div id="contenido-descargas" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">DESCARGAS</h2><br>
             <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar desprendibles
