@@ -22,7 +22,7 @@ $stmt = $conexion->prepare("SELECT
     vacaciones.dias_total, vacaciones.dias_disfrutados
 FROM usuarios 
 INNER JOIN integrantes ON usuarios.cedula = integrantes.cedula
-INNER JOIN info_integrantes ON usuarios.cedula = info_integrantes.cedula
+LEFT OUTER JOIN info_integrantes ON usuarios.cedula = info_integrantes.cedula
 LEFT OUTER JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
 WHERE usuarios.cedula = ?");
 
