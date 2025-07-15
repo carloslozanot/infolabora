@@ -118,25 +118,17 @@ header {
 /* Estilos para el contenedor */
 #contenido-inicio {
     background-color: #f0f0f0;
-    /* Color de fondo */
     padding: 20px;
-    /* Espaciado interno */
     border-radius: 10px;
-    /* Bordes redondeados */
     box-shadow: 0 0 10px rgba(24,46,89);
-    /* Sombra */
     max-width: 700px;
-    /* Ancho máximo */
     margin: 0 auto;
-    /* Centrar horizontalmente */
     text-align: center;
-    /* Texto centrado */
 }
 
 /* Estilos para el párrafo */
 #contenido-inicio p {
     margin: 10px 0;
-    /* Espaciado entre párrafos */
     font-weight: 500;
 }
 
