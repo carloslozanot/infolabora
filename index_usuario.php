@@ -119,9 +119,9 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <div class="etiqueta-icono-wrapper">
-                            <i class="bi bi-file-earmark-person"></i>
-                            <p class="etiqueta-dato">DOCUMENTO</p>
+                            <i class="bi bi-file-earmark-person"></i>                            
                         </div>
+                        <p class="etiqueta-dato">DOCUMENTO</p>
                         <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
