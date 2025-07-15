@@ -50,7 +50,7 @@ $result = mysqli_query($conexion, $sql);
     <div class="menu_side" id="menu_side">
         <div class="name_page">
             <i class="bi bi-building"></i>
-            <h4>RRHH</h4>
+            <h4>Talento Humano</h4>
         </div>
         <div class="options_menu">
             <a href="#">
