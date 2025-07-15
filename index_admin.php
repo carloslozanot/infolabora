@@ -65,9 +65,9 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </a>
             <a href="#">
-                <div class="option" data-pagina="colaboradores">
-                    <i class="bi bi-person-raised-hand" title="Colaboradores"></i>
-                    <h4>Colaboradores</h4>
+                <div class="option" data-pagina="integrantes">
+                    <i class="bi bi-person-raised-hand" title="Integrantes"></i>
+                    <h4>Integrantes</h4>
                 </div>
             </a>
             <a href="#">
@@ -98,7 +98,7 @@ if (!isset($_SESSION['usuario'])) {
             <p style="font-size: 20px; font-weight:800;">ESTE ES ES PORTAL ADMINISTRATIVO EN EL CUAL PODRÁ REALIZAR LAS
                 SIGUIENTES ACCIONES:<br><br></p>
             <p style="font-size: 16px;">Agregar y editar usuarios</p>
-            <p style="font-size: 16px;">Agregar y editar colaboradores</p>
+            <p style="font-size: 16px;">Agregar y editar integrantes</p>
             <p style="font-size: 16px;">Agregar y editar informacion de vacaciones</p>
             <p style="font-size: 16px;">Agregar y editar roles</p>
         </div>
@@ -169,9 +169,8 @@ include("php/conexion.php");
             </div>
         </div>
 
-        <!--COLABORADORES -->
-        <div id="contenido-colaboradores" class="contenido" style="display: none;">
-            <h2>Lista de Colaboradores</h2>
+        <div id="contenido-integrantes" class="contenido" style="display: none;">
+            <h2>Lista de Integrantes</h2>
             <br>
             <table class="table table-striped table-bordered table-hover" id="table_id">
                 <thead>
@@ -221,11 +220,11 @@ include("php/conexion.php");
 
                                 <td>
                                     <a class="btn btn-warning"
-                                        href="editar_colaborador.php?id=<?php echo $fila['cedula'] ?> "><i
+                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?> "><i
                                             class="fa-solid fa-pen-to-square"></i>
                                         Editar </a> <br>
 
-                                    <a class="btn btn-danger" href="eliminar_colaborador.php?id=<?php echo $fila['cedula'] ?>"
+                                    <a class="btn btn-danger" href="eliminar_integrante.php?id=<?php echo $fila['cedula'] ?>"
                                         onclick='return confirmar()'><i class="fa-solid fa-trash"></i>
                                         Eliminar</a><br>
 
@@ -241,8 +240,8 @@ include("php/conexion.php");
             </table>
             <br>
             <div>
-                <a class="btn btn-success" href="agregar_colaborador.php"><i class="fa-solid fa-plus"></i> Agregar
-                    Colaborador
+                <a class="btn btn-success" href="agregar_integrante.php"><i class="fa-solid fa-plus"></i> Agregar
+                    Integrante
                 </a>
             </div>
         </div>

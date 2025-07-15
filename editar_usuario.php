@@ -78,12 +78,12 @@ include("php/conexion.php");
             <h3>Rol</h3>
             <select name="rol" class="form-control">
                 <?php
-                if ($descripcion === 'Colaborador') {
-                    echo '<option value="2">Colaborador</option>
+                if ($descripcion === 'Integrante') {
+                    echo '<option value="2">Integrante</option>
                             <option value="3">Recursos Humanos</option>';
                 } elseif ($descripcion === 'Recursos Humanos') {
                     echo '<option value="3">Recursos Humanos</option>
-                            <option value="2">Colaborador</option>';
+                            <option value="2">Integrante</option>';
                 }
                 ?>
             </select><br>

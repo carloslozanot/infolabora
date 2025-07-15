@@ -11,7 +11,7 @@ include("php/conexion.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Colaborador</title>
+    <title>Editar Integrante</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -24,7 +24,7 @@ include("php/conexion.php");
 </head>
 
 <body>
-    <div id="editar-colaborador">
+    <div id="editar-integrante">
         <?php
         include("php/conexion.php");
 
@@ -97,8 +97,8 @@ include("php/conexion.php");
         }
         ?>
 
-        <div class="titulo-editar-colaborador">
-            <h1>Editar Colaborador</h1>
+        <div class="titulo-editar-integrante">
+            <h1>Editar Integrante</h1>
         </div>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 
@@ -153,7 +153,7 @@ include("php/conexion.php");
 
             <input type="hidden" name="cedula" value="<?php echo $cedula ?>">
 
-            <div class="botones-editar-colaborador">
+            <div class="botones-editar-integrante">
                 <button type="submit" class="btn btn-success" name="enviar">Editar</button>
                 <a href="index_admin.php" class="btn btn-danger">Regresar</a>
             </div>

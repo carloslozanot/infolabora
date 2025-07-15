@@ -81,7 +81,7 @@
             <h3>Rol</h3>
             <select name="rol" class="form-control">
                 <option value="">Seleccionar un rol</option>  
-                <option value="2">Colaborador</option>
+                <option value="2">Integrante</option>
                 <option value="3">Recursos Humanos</option>
             </select> <br>
 

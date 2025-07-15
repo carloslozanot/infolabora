@@ -481,7 +481,7 @@ header {
     margin-bottom: 30px;
 }
 
-#agregar-colaborador {
+#agregar-integrante {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 20px;
@@ -493,17 +493,17 @@ header {
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
 
-#agregar-colaborador .titulo-agregar-colaborador {
+#agregar-integrante .titulo-agregar-integrante {
     margin-left: 90px;
     margin-bottom: 30px;
 }
 
-#agregar-colaborador .botones-agregar-colaborador {
+#agregar-integrante .botones-agregar-integrante {
     margin-left: 175px;
     margin-bottom: 30px;
 }
 
-#editar-colaborador {
+#editar-integrante {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 20px;
@@ -515,12 +515,12 @@ header {
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
 
-#editar-colaborador .titulo-editar-colaborador {
+#editar-integrante .titulo-editar-integrante {
     margin-left: 90px;
     margin-bottom: 30px;
 }
 
-#editar-colaborador .botones-editar-colaborador {
+#editar-integrante .botones-editar-integrante {
     margin-left: 175px;
     margin-bottom: 30px;
 }

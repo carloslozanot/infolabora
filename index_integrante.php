@@ -45,7 +45,7 @@ if (!isset($_SESSION['usuario'])) {
 
         <div class="name_page">
             <i class="bi bi-person"></i>
-            <h4>Colaborador</h4>
+            <h4>Integrante</h4>
         </div>
         <div class="options_menu">
             <a href="#">
