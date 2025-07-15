@@ -104,30 +104,39 @@ if (!isset($_SESSION['usuario'])) {
 
             <div class="seccion-inferior-boceto">
                 <div class="subseccion-datos-personales-laborales">
+                <div class="grupo-dato">
+                        <p class="etiqueta-dato">FECHA INGRESO</p>
+                        <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
+                    </div>
                     <div class="grupo-dato">
                         <p class="etiqueta-dato">DOCUMENTO</p>
-                        <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                        <span class="valor-dato"><?php echo $_SESSION['cedula'] ?? ''; ?></span>
+                    </div>
+                    <div class="grupo-dato">
+                        <p class="etiqueta-dato">NUMERO CELULAR</p>
+                        <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                    </div>
+                    <div class="grupo-dato">
+                        <p class="etiqueta-dato">DIRECCIÓN</p>
+                        <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                    </div>
+                    <div class="grupo-dato">
+                        <p class="etiqueta-dato">CIUDAD DE RESIDENCIA</p>
+                        <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                    </div>
+                    <div class="grupo-dato">
+                        <p class="etiqueta-dato">CORREO CORPORATIVO</p>
+                        <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
                         <p class="etiqueta-dato">AREA</p>
                         <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">CORREO</p>
-                        <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">JEFE</p>
+                        <p class="etiqueta-dato">JEFE INMEDIATO</p>
                         <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
                     </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">JEFE</p>
-                        <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">JEFE</p>
-                        <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
-                    </div>
+                    
                 </div>
 
                 <hr class="linea-divisoria-boceto"> <div class="subseccion-beneficios-boceto">
@@ -148,12 +157,8 @@ if (!isset($_SESSION['usuario'])) {
                         <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">ARL</p>
-                        <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">ARL</p>
-                        <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
+                        <p class="etiqueta-dato">CESANTIAS</p>
+                        <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
                     </div>
                 </div>
             </div>
