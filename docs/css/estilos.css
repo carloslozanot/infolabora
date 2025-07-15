@@ -912,6 +912,28 @@ a.selected {
     margin: 10px 0; /* Espacio alrededor de la línea */
 }
 
+.icono-circular {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e9ecef; /* Color del círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.icono-circular i {
+    font-size: 20px;
+    color: #150940; /* Puedes cambiar el color del ícono */
+}
+
+.icono-con-texto {
+    display: flex;
+    align-items: center;
+}
+
 
 @media (max-width: 768px) {
     .body_index_login {

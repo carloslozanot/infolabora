@@ -109,9 +109,11 @@ if (!isset($_SESSION['usuario'])) {
 
             <div class="seccion-inferior-boceto">
                 <div class="subseccion-datos-personales-laborales">
-                <div class="grupo-dato">
+                    <div class="grupo-dato">
                         <div class="icono-con-texto">
-                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="icono-circular">
+                                <i class="bi bi-file-earmark-person"></i>
+                            </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">CORREO CORPORATIVO</p>
                                 <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
@@ -186,7 +188,7 @@ if (!isset($_SESSION['usuario'])) {
 
                 <hr class="linea-divisoria-boceto">
                 <div class="subseccion-beneficios-boceto">
-                <div class="grupo-dato">
+                    <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <i class="bi bi-file-earmark-person"></i>
                             <div class="texto">
