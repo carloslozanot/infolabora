@@ -178,7 +178,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-file-earmark-person"></i>
+                                <i class="bi bi-building"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">AREA</p>
@@ -189,7 +189,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-file-earmark-person"></i>
+                                <i class="bi bi-person-workspace"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">JEFE INMEDIATO</p>
@@ -205,7 +205,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-file-earmark-person"></i>
+                                <i class="bi-briefcase"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
@@ -227,7 +227,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-file-earmark-person"></i>
+                                <i class="bi bi-coin"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">PENSIONES</p>
@@ -238,7 +238,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-file-earmark-person"></i>
+                                <i class="bi bi-shield-check"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">ARL</p>
@@ -249,7 +249,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-file-earmark-person"></i>
+                                <i class="bi bi-piggy-bank	"></i>
                             </div>
                             <div class="texto">
                                 <p class="etiqueta-dato">CESANTIAS</p>
