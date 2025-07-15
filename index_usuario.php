@@ -129,7 +129,8 @@ if (!isset($_SESSION['usuario'])) {
                             </ul>
                         </div>
         </div> 
-                        <!--<div class="informacion-laboral">
+        <div id="contenido-datos" class="contenido" style="display: none;"></div>
+                        <div class="informacion-laboral">
                             <p style="font-size: 27px; font-weight:800;">INFORMACION LABORAL</>
                             <ul>
                                 <li>
@@ -166,6 +167,8 @@ if (!isset($_SESSION['usuario'])) {
                             </ul>
                         </div>
                     </div>
+        </div> 
+        <div id="contenido-datos" class="contenido" style="display: none;"></div>
                     <div class="abajo">
                         <div class="beneficios">
                             <p style="font-size: 27px; font-weight:800;">BENEFICIOS</>
@@ -205,7 +208,8 @@ if (!isset($_SESSION['usuario'])) {
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div> 
+        </div> 
         
         <div id="contenido-descargas" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">DESCARGAS</h2><br>
