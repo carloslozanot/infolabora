@@ -209,6 +209,124 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div> 
         </div> 
+        <div id="contenido-datos" class="contenido" style="display: none;">
+            <div class="empleado-info">
+                <div class="empleado-foto">
+                    <img src="<?php echo $_SESSION['imagen'] ?>" alt="Foto del empleado">
+                </div>
+                <div class="empleado-datos">
+                    <div class="arriba">
+                        <div class="informacion-personal">
+                            <ul>
+                                <li>
+                                    <span style="font-size: 32px;font-weight:800; display: inline;">
+                                        <?php echo $_SESSION['nombreUsuario'] ?>
+                                    </span>
+                                    <span style="font-size: 32px;font-weight:800; display: inline;">
+                                        <?php echo $_SESSION['apellidoUsuario'] ?>
+                                    </span>
+                                </li>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">DOCUMENTO:</p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['usuario'] ?>
+                                    </span>
+                                </li>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">NUMERO CELULAR:</p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['celular'] ?>
+                                    </span>
+                                </li>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">EDAD:</p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['edad'] ?>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+        
+        
+                        <div class="informacion-laboral">
+                            <p style="font-size: 27px; font-weight:800;">INFORMACION LABORAL</>
+                            <ul>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CORREO ELECTRONICO:
+                                    </p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['correo'] ?>
+                                    </span>
+                                </li>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">FECHA INGRESO:</p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['fecha_ingreso'] ?>
+                                    </span>
+                                </li>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CARGO:</p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['cargo'] ?>
+                                    </span>
+                                </li>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">AREA:</p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['area'] ?>
+                                    </span>
+                                </li>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">JEFE INMEDIATO:</p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['jefe_inmediato'] ?>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <div class="abajo">
+                        <div class="beneficios">
+                            <p style="font-size: 27px; font-weight:800;">BENEFICIOS</>
+                            <ul>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CAJA DE COMPENSACION:
+                                    </p>
+                                    <span style="font-size: 18px;font-weight:300;display: inline;">
+                                        <?php echo $_SESSION['caja'] ?>
+                                    </span>
+                                </li>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">EPS:</p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['eps'] ?>
+                                    </span>
+                                </li>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">ARL:</p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['arl'] ?>
+                                    </span>
+                                </li>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">PENSIONES:</p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['pensiones'] ?>
+                                    </span>
+                                </li>
+                                <li>
+                                    <p style="font-size: 18px; font-weight: 800; display: inline;">CESANTIAS:</p>
+                                    <span style="font-size: 18px;font-weight:300; display: inline;">
+                                        <?php echo $_SESSION['cesantias'] ?>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> 
         
         <div id="contenido-descargas" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">DESCARGAS</h2><br>
