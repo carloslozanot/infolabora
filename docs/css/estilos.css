@@ -892,15 +892,6 @@ a.selected {
     margin: 20px;
 }
 
-.datos-personales-container {
-    background-color: #f0f0f0;
-    padding: 30px;
-    border-radius: 15px;
-    margin: 20px auto;
-    box-shadow: 0 0 10px rgba(24, 46, 89);
-    max-width: 1200px;
-}
-
 .titulo-datos {
     font-size: 32px;
     font-weight: 700;
