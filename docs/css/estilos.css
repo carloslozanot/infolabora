@@ -844,16 +844,16 @@ a.selected {
 }
 
 .nombre-empleado-boceto {
-    font-size: 1.8em; /* Tamaño de nombre */
-    font-weight: bold;
-    color: #333;
-    margin: 30px;
+    font-size: 36px;
+    font-weight: 800;
+    color: #000;
+    margin: 0 0 0 20px;
 }
 
 .cargo-empleado-boceto {
-    font-size: 1.1em; /* Tamaño de cargo */
+    font-size: 18px; /* Tamaño de cargo */
     color: #666;
-    margin: 30px;
+    margin: 0 0 0 20px;
 }
 
 .seccion-inferior-boceto {
