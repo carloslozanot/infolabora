@@ -134,10 +134,10 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
-                                <i class="bi bi-file-earmark-person"></i>
+                                <i class="bi bi-person-vcard"></i>
                             </div>
                             <div class="texto">
-                                <p class="etiqueta-dato">DOCUMENTO</p>
+                                <p class="etiqueta-dato">NUMERO DE DOCUMENTO</p>
                                 <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
                             </div>
                         </div>
