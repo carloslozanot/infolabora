@@ -107,59 +107,45 @@ if (!isset($_SESSION['usuario'])) {
             </div>
 
             <div class="seccion-inferior-boceto">
-                <div class="subseccion-datos-personales-laborales">
-                <p class="titulo-datos">DATOS PERSONALES</p>
-                    <!-- Columna izquierda -->
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
+                <div class="datos-personales-container">
+                    <p class="titulo-datos">DATOS PERSONALES</p>
+
+                    <div class="datos-grid">
+                        <!-- Columna 1 -->
+                        <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-phone"></i></div>
                             <div class="texto">
-                                <p class="etiqueta-dato">NUMERO CELULAR</p>
-                                <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">NÚMERO CELULAR</p>
+                                <span class="valor-dato">3002470969</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
+
+                        <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-house-door-fill"></i></div>
                             <div class="texto">
                                 <p class="etiqueta-dato">DIRECCIÓN</p>
-                                <span class="valor-dato"><?php echo $_SESSION['direccion'] ?? ''; ?></span>
+                                <span class="valor-dato">Cra 123 #45-67</span>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Columna derecha -->
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
+                        <!-- Columna 2 -->
+                        <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-at"></i></div>
                             <div class="texto">
-                                <p class="etiqueta-dato">CORREO CORPORATIVO</p>
-                                <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">CORREO</p>
+                                <span class="valor-dato">correo@empresa.com</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
+
+                        <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-person-vcard"></i></div>
                             <div class="texto">
-                                <p class="etiqueta-dato">NUMERO DE DOCUMENTO</p>
-                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular"><i class="bi bi-pin-map-fill"></i></div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">CIUDAD RESIDENCIA</p>
-                                <span class="valor-dato"><?php echo $_SESSION['ciudad'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">DOCUMENTO</p>
+                                <span class="valor-dato">1019134759</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
 
                 <hr class="linea-divisoria-boceto">
                 <div class="subseccion-beneficios-boceto">
