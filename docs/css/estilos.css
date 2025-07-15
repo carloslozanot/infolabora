@@ -814,7 +814,7 @@ a.selected {
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 20px;
-    margin: 0 auto;
+    margin: 20px;
     box-shadow: 0 0 10px rgba(24,46,89);
     overflow: auto;
     display: flex;
@@ -859,13 +859,13 @@ a.selected {
 .seccion-inferior-boceto {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
-    padding: 20px;
     border-radius: 20px;
-    margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
-    overflow: auto;
+    padding: 30px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre las subsecciones */
+    box-shadow: 0 0 10px rgba(24,46,89);
+    margin: 20px;
 }
 
 .subseccion-datos-personales-laborales,
