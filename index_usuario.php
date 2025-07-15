@@ -109,7 +109,7 @@ if (!isset($_SESSION['usuario'])) {
 
             <div class="seccion-inferior-boceto">
                 <div class="subseccion-datos-personales-laborales">
-                <h1>DATOS PERSONALES</h1>
+                    <p style="font-size: 32px; font-weight:700;">DATOS PERSONALES</p>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
@@ -203,7 +203,7 @@ if (!isset($_SESSION['usuario'])) {
 
                 <hr class="linea-divisoria-boceto">
                 <div class="subseccion-beneficios-boceto">
-                    <h1>BENEFICIOS</h1>
+                    <p style="font-size: 32px; font-weight:700;">BENEFICIOS</p>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
