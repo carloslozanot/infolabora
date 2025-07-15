@@ -109,6 +109,7 @@ if (!isset($_SESSION['usuario'])) {
 
             <div class="seccion-inferior-boceto">
                 <div class="subseccion-datos-personales-laborales">
+                <h1>DATOS PERSONALES</h1>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
@@ -202,6 +203,7 @@ if (!isset($_SESSION['usuario'])) {
 
                 <hr class="linea-divisoria-boceto">
                 <div class="subseccion-beneficios-boceto">
+                    <h1>BENEFICIOS</h1>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">
