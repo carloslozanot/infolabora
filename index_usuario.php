@@ -86,10 +86,13 @@ if (!isset($_SESSION['usuario'])) {
             <p style="font-size: 32px; font-weight:1000;">¡Bienvenido,
                 <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br>
             </p>
-            <p style="font-size: 20px;">Este es el <strong>portal corporativo</strong>, a través del cual podrás realizar las siguientes acciones:<br><br></p>
-            <p style="font-size: 16px;text-align: left;margin-left: 10%;">📌 Consultar tus datos personales relacionados con la compañía</p>
+            <p style="font-size: 20px;">Este es el <strong>portal corporativo</strong>, a través del cual podrás
+                realizar las siguientes acciones:<br><br></p>
+            <p style="font-size: 16px;text-align: left;margin-left: 10%;">📌 Consultar tus datos personales relacionados
+                con la compañía</p>
             <p style="font-size: 16px;text-align: left;margin-left: 10%;">📥 Descargar documentos corporativos</p>
-            <p style="font-size: 16px;text-align: left;margin-left: 10%;">🌴 Consultar y validar los días de vacaciones pendientes por tomar.</p>
+            <p style="font-size: 16px;text-align: left;margin-left: 10%;">🌴 Consultar y validar los días de vacaciones
+                pendientes por tomar.</p>
         </div>
         <div id="contenido-datos" class="contenido" style="display: none;">
             <div class="seccion-superior-boceto">
@@ -97,36 +100,37 @@ if (!isset($_SESSION['usuario'])) {
                     <img src="<?php echo $_SESSION['imagen'] ?? 'placeholder.png'; ?>" alt="Foto del empleado">
                 </div>
                 <div class="empleado-nombre-cargo">
-                    <p class="nombre-empleado-boceto"><?php echo $_SESSION['nombreUsuario'] ?? ''; ?> <?php echo $_SESSION['apellidoUsuario'] ?? ''; ?></p>
+                    <p class="nombre-empleado-boceto"><?php echo $_SESSION['nombreUsuario'] ?? ''; ?>
+                        <?php echo $_SESSION['apellidoUsuario'] ?? ''; ?></p>
                     <p class="cargo-empleado-boceto"><?php echo $_SESSION['cargo'] ?? 'Cargo no definido'; ?></p>
                 </div>
             </div>
 
             <div class="seccion-inferior-boceto">
                 <div class="subseccion-datos-personales-laborales">
-                <div class="grupo-dato">
-                        <p class="etiqueta-dato">FECHA INGRESO</p>
-                        <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
-                    </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">DOCUMENTO</p>
-                        <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                        <p class="etiqueta-dato">CORREO CORPORATIVO</p>
+                        <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
                         <p class="etiqueta-dato">NUMERO CELULAR</p>
                         <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
+                        <p class="etiqueta-dato">DOCUMENTO</p>
+                        <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                    </div>                   
+                    <div class="grupo-dato">
                         <p class="etiqueta-dato">DIRECCIÓN</p>
                         <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
+                        <p class="etiqueta-dato">FECHA INGRESO</p>
+                        <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
+                    </div> 
+                    <div class="grupo-dato">
                         <p class="etiqueta-dato">CIUDAD DE RESIDENCIA</p>
                         <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">CORREO CORPORATIVO</p>
-                        <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
                         <p class="etiqueta-dato">AREA</p>
@@ -136,10 +140,11 @@ if (!isset($_SESSION['usuario'])) {
                         <p class="etiqueta-dato">JEFE INMEDIATO</p>
                         <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
                     </div>
-                    
+
                 </div>
 
-                <hr class="linea-divisoria-boceto"> <div class="subseccion-beneficios-boceto">
+                <hr class="linea-divisoria-boceto">
+                <div class="subseccion-beneficios-boceto">
                     <div class="grupo-dato">
                         <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
                         <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
@@ -215,7 +220,8 @@ if (!isset($_SESSION['usuario'])) {
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <br>
-            <label style="display: block; text-align: center;font-weight: 800; font-size: 40px">¿Esta seguro de cerrar sesion?</label><br>
+            <label style="display: block; text-align: center;font-weight: 800; font-size: 40px">¿Esta seguro de cerrar
+                sesion?</label><br>
             <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
                 SESION</a>
         </div>
