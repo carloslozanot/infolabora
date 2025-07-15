@@ -26,7 +26,7 @@
             $descripcion = $_POST['descripcion'];
 
             include("php/conexion.php");
-            $sql = "INSERT INTO roles values('" . $id . "','" . $descripcion . "')";
+            $sql = "INSERT INTO permisos values('" . $id . "','" . $descripcion . "')";
 
             $resultado = mysqli_query($conexion, $sql);
 

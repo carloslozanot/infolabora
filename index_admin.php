@@ -77,8 +77,8 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </a>
             <a href="#">
-                <div class="option" data-pagina="roles">
-                    <i class="bi bi-key" title="Roles"></i>
+                <div class="option" data-pagina="permisos">
+                    <i class="bi bi-key" title="Permisos"></i>
                     <h4>Permisos</h4>
                 </div>
             </a>
@@ -120,7 +120,7 @@ if (!isset($_SESSION['usuario'])) {
                     <?php
 
 include("php/conexion.php");
-                    $SQL = "SELECT * FROM integrantes e, usuarios u, roles r WHERE e.cedula = u.cedula and u.id_rol = r.id";
+                    $SQL = "SELECT * FROM integrantes e, usuarios u, permisos r WHERE e.cedula = u.cedula and u.id_rol = r.id";
                     $dato = mysqli_query($conexion, $SQL);
 
                     if ($dato->num_rows > 0) {
@@ -304,7 +304,7 @@ include("php/conexion.php");
             </div>
         </div>
 
-        <div id="contenido-roles" class="contenido" style="display: none;">
+        <div id="contenido-permisos" class="contenido" style="display: none;">
             <h2>Lista de Permisos</h2>
 
             <br>
@@ -320,7 +320,7 @@ include("php/conexion.php");
                     <?php
 
 include("php/conexion.php");
-                    $SQL_1 = "SELECT * FROM roles ";
+                    $SQL_1 = "SELECT * FROM permisos ";
                     $dato_1 = mysqli_query($conexion, $SQL_1);
 
                     if ($dato->num_rows > 0) {

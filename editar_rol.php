@@ -31,7 +31,7 @@ include("php/conexion.php");
             $id = $_POST['id'];
             $descripcion = $_POST['descripcion'];
 
-            $sql = "update roles set id='" . $id . "', descripcion='" . $descripcion . "' where id = '" . $id . "'";
+            $sql = "update permisos set id='" . $id . "', descripcion='" . $descripcion . "' where id = '" . $id . "'";
             $resultado = mysqli_query($conexion, $sql);
 
             if ($resultado) {
@@ -49,7 +49,7 @@ include("php/conexion.php");
 
         } else {
             $id = $_GET['id'];
-            $sql = "SELECT * FROM roles where id='" . $id . "'";
+            $sql = "SELECT * FROM permisos where id='" . $id . "'";
             $resultado = mysqli_query($conexion, $sql);
 
             $fila = mysqli_fetch_assoc($resultado);

@@ -51,7 +51,7 @@ include("php/conexion.php");
 
         } else {
             $cedula = $_GET['id'];
-            $sql = "SELECT * FROM usuarios u, integrantes e, roles r WHERE u.cedula = e.cedula AND u.id_rol = r.id AND u.cedula='" . $cedula . "'";
+            $sql = "SELECT * FROM usuarios u, integrantes e, permisos r WHERE u.cedula = e.cedula AND u.id_rol = r.id AND u.cedula='" . $cedula . "'";
             $resultado = mysqli_query($conexion, $sql);
 
             $fila = mysqli_fetch_assoc($resultado);
