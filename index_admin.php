@@ -79,7 +79,7 @@ if (!isset($_SESSION['usuario'])) {
             <a href="#">
                 <div class="option" data-pagina="roles">
                     <i class="bi bi-key" title="Roles"></i>
-                    <h4>Roles</h4>
+                    <h4>Permisos</h4>
                 </div>
             </a>
             <a href="#">
@@ -100,7 +100,7 @@ if (!isset($_SESSION['usuario'])) {
             <p style="font-size: 16px;">Agregar y editar usuarios</p>
             <p style="font-size: 16px;">Agregar y editar integrantes</p>
             <p style="font-size: 16px;">Agregar y editar informacion de vacaciones</p>
-            <p style="font-size: 16px;">Agregar y editar roles</p>
+            <p style="font-size: 16px;">Agregar y editar permisos</p>
         </div>
         <div id="contenido-usuarios" class="contenido" style="display: none;">
             <h2>Lista de Usuarios</h2>
@@ -304,9 +304,8 @@ include("php/conexion.php");
             </div>
         </div>
 
-        <!--ROLES -->
         <div id="contenido-roles" class="contenido" style="display: none;">
-            <h2>Lista de Roles</h2>
+            <h2>Lista de Permisos</h2>
 
             <br>
             <table class="table table-striped table-bordered table-hover" id="table_id">
