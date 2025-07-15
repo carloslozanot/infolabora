@@ -108,70 +108,78 @@ if (!isset($_SESSION['usuario'])) {
 
             <div class="seccion-inferior-boceto">
                 <div class="subseccion-datos-personales-laborales">
-                    <p style="font-size: 32px; font-weight:700; font-family: 'Monserrat', sans-serif;">DATOS PERSONALES
+                    <p style="font-size: 32px; font-weight:700;">DATOS PERSONALES
                     </p>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-at"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">CORREO CORPORATIVO</p>
-                                <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-phone"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">NUMERO CELULAR</p>
-                                <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                    <div class="contenedor-items">
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-at"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">CORREO CORPORATIVO</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-person-vcard"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">NUMERO DE DOCUMENTO</p>
-                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-house-door-fill"></i>
-                            </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">DIRECCIÓN</p>
-                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-phone"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">NUMERO CELULAR</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="grupo-dato">
-                        <div class="icono-con-texto">
-                            <div class="icono-circular">
-                                <i class="bi bi-pin-map-fill"></i>
+
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-person-vcard"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">NUMERO DE DOCUMENTO</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                                </div>
                             </div>
-                            <div class="texto">
-                                <p class="etiqueta-dato">CIUDAD RESIDENCIA</p>
-                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                        </div>
+
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-house-door-fill"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">DIRECCIÓN</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grupo-dato">
+                            <div class="icono-con-texto">
+                                <div class="icono-circular">
+                                    <i class="bi bi-pin-map-fill"></i>
+                                </div>
+                                <div class="texto">
+                                    <p class="etiqueta-dato">CIUDAD RESIDENCIA</p>
+                                    <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+
                 <hr class="linea-divisoria-boceto">
                 <div class="subseccion-beneficios-boceto">
                     <div>
-                    <p style="font-size: 32px; font-weight:700;font-family: 'Monserrat', sans-serif;">DATOS LABORALES
-                    </p>
+                        <p style="font-size: 32px; font-weight:700;">DATOS
+                            LABORALES
+                        </p>
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
@@ -220,7 +228,7 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
                 <hr class="linea-divisoria-boceto">
                 <div class="subseccion-beneficios-boceto">
-                    <p style="font-size: 32px; font-weight:700;font-family: 'Monserrat', sans-serif;">BENEFICIOS</p>
+                    <p style="font-size: 32px; font-weight:700;">BENEFICIOS</p>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">

@@ -119,7 +119,7 @@ $result = mysqli_query($conexion, $sql);
 
             <div class="seccion-inferior-boceto">
                 <div class="subseccion-datos-personales-laborales">
-                    <p style="font-size: 32px; font-weight:700; font-family: 'Monserrat', sans-serif;">DATOS PERSONALES
+                    <p style="font-size: 32px; font-weight:700;">DATOS PERSONALES
                     </p>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
@@ -214,7 +214,7 @@ $result = mysqli_query($conexion, $sql);
 
                 <hr class="linea-divisoria-boceto">
                 <div class="subseccion-beneficios-boceto">
-                    <p style="font-size: 32px; font-weight:700;font-family: 'Monserrat', sans-serif;">BENEFICIOS</p>
+                    <p style="font-size: 32px; font-weight:700;">BENEFICIOS</p>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
                             <div class="icono-circular">

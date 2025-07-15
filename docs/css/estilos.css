@@ -899,6 +899,12 @@ a.selected {
     gap: 20px;
 }
 
+.contenedor-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* dos columnas */
+    gap: 20px;
+}
+
 .grupo-dato {
     display: flex;
     align-items: flex-start;
