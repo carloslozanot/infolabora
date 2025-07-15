@@ -157,8 +157,8 @@ if (!isset($_SESSION['usuario'])) {
                                 <i class="bi bi bi-file-earmark-check"></i>
                             </div>
                             <div class="texto">
-                                <p class="etiqueta-dato">CONTRATO</p>
                                 <span class="valor-dato"><?php echo $_SESSION['tipo_contrato'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">CONTRATO</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -166,8 +166,8 @@ if (!isset($_SESSION['usuario'])) {
                                 <i class="bi bi-calendar-event"></i>
                             </div>
                             <div class="texto">
-                                <p class="etiqueta-dato">FECHA INGRESO</p>
                                 <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">FECHA INGRESO</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -175,8 +175,8 @@ if (!isset($_SESSION['usuario'])) {
                                 <i class="bi bi-person-workspace"></i>
                             </div>
                             <div class="texto">
-                                <p class="etiqueta-dato">AREA</p>
                                 <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">AREA</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -184,8 +184,8 @@ if (!isset($_SESSION['usuario'])) {
                                 <i class="bi bi-person-workspace"></i>
                             </div>
                             <div class="texto">
-                                <p class="etiqueta-dato">LIDER INMEDIATO</p>
                                 <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">LIDER INMEDIATO</p>
                             </div>
                         </div>
                     </div>
@@ -199,8 +199,8 @@ if (!isset($_SESSION['usuario'])) {
                                 <i class="bi-briefcase"></i>
                             </div>
                             <div class="texto">
-                                <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
                                 <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -208,8 +208,8 @@ if (!isset($_SESSION['usuario'])) {
                                 <i class="bi bi-hospital"></i>
                             </div>
                             <div class="texto">
-                                <p class="etiqueta-dato">EPS</p>
                                 <span class="valor-dato"><?php echo $_SESSION['eps'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">EPS</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -217,8 +217,8 @@ if (!isset($_SESSION['usuario'])) {
                                 <i class="bi bi-coin"></i>
                             </div>
                             <div class="texto">
-                                <p class="etiqueta-dato">PENSIONES</p>
                                 <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">PENSIONES</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -226,8 +226,8 @@ if (!isset($_SESSION['usuario'])) {
                                 <i class="bi bi-shield-check"></i>
                             </div>
                             <div class="texto">
-                                <p class="etiqueta-dato">ARL</p>
                                 <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">ARL</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -235,8 +235,8 @@ if (!isset($_SESSION['usuario'])) {
                                 <i class="bi bi-piggy-bank	"></i>
                             </div>
                             <div class="texto">
-                                <p class="etiqueta-dato">CESANTIAS</p>
                                 <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
+                                <p class="etiqueta-dato">CESANTIAS</p>
                             </div>
                         </div>
                     </div>
