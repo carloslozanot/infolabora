@@ -835,6 +835,7 @@ a.selected {
     align-items: center;
     gap: 30px; /* Espacio entre foto y texto */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    margin: 20px;
 }
 
 .empleado-foto-boceto {
@@ -882,6 +883,7 @@ a.selected {
     flex-direction: column;
     gap: 20px; /* Espacio entre las subsecciones */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    margin: 20px;
 }
 
 .subseccion-datos-personales-laborales,
