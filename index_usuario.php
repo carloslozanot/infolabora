@@ -87,9 +87,9 @@ if (!isset($_SESSION['usuario'])) {
                 <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br>
             </p>
             <p style="font-size: 20px;">Este es el <strong>portal corporativo</strong>, a través del cual podrás realizar las siguientes acciones:<br><br></p>
-            <p style="font-size: 16px;text-align: left;margin-left: 10%;">* Consultar tus datos personales relacionados con la compañía</p>
-            <p style="font-size: 16px;text-align: left;margin-left: 10%;">* Descargar documentos corporativos</p>
-            <p style="font-size: 16px;text-align: left;margin-left: 10%;">* Consultar y validar los días de vacaciones pendientes por tomar.</p>
+            <p style="font-size: 16px;text-align: left;margin-left: 10%;">📌 Consultar tus datos personales relacionados con la compañía</p>
+            <p style="font-size: 16px;text-align: left;margin-left: 10%;">📥 Descargar documentos corporativos</p>
+            <p style="font-size: 16px;text-align: left;margin-left: 10%;">🌴 Consultar y validar los días de vacaciones pendientes por tomar.</p>
         </div>
         <div id="contenido-datos" class="contenido" style="display: none;">
             <div class="empleado-info">
