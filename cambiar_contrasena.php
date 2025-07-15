@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="contenedor_todo">
             <div class="contenedor_login-register">
                 <form method="POST" class="formulario_login">
-                    <label style="display: block; text-align: center;font-weight: 800; font-size: 30px">NUEVA CONTRASEÑA</label><br>
+                    <label style="display: block; text-align: center;font-weight: 700; font-size: 30px">NUEVA CONTRASEÑA</label><br>
                     <input type="hidden" name="cedula" value="<?= htmlspecialchars($_GET['cedula'] ?? '') ?>">
                     <input type="password" name="nueva" placeholder="Escribe la nueva contraseña" required>
                     <button type="submit" style="display: block;
