@@ -133,7 +133,7 @@ header {
 }
 
 
-#contenido-datos {
+/*#contenido-datos {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 20px;
@@ -142,7 +142,7 @@ header {
     box-shadow: 0 0 10px rgba(24,46,89);
     max-height: 700px;
     overflow: auto;
-} 
+}*/
 
 #contenido-principal {
     background-color: #f0f0f0;
@@ -853,20 +853,19 @@ a.selected {
 .cargo-empleado-boceto {
     font-size: 1.1em; /* Tamaño de cargo */
     color: #666;
-    margin: 0;
-    text-transform: uppercase; /* Como en el boceto */
+    margin: 15px;
 }
 
 .seccion-inferior-boceto {
-    background-color: #ffffff; /* Fondo blanco */
-    border: 2px solid #000; /* Borde negro del boceto */
-    border-radius: 25px; /* Bordes redondeados */
-    padding: 30px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(24,46,89);
+    overflow: auto;
     display: flex;
-    flex-direction: column;
-    gap: 20px; /* Espacio entre las subsecciones */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
-    margin: 20px;
+    align-items: center;
 }
 
 .subseccion-datos-personales-laborales,
@@ -886,7 +885,6 @@ a.selected {
     font-weight: bold;
     color: #000; /* Color de la etiqueta como en el boceto */
     margin: 0 0 5px 0;
-    text-transform: uppercase; /* Para que coincida con el boceto */
 }
 
 .valor-dato {
@@ -920,11 +918,6 @@ a.selected {
         width: 100%;
         position: relative;
         padding: 40px 20px;
-    }
-
-    /* Media queries para el nuevo diseño */
-    #contenido-datos-refaccionado {
-        padding: 15px;
     }
 
     .seccion-superior-boceto {
