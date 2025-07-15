@@ -108,7 +108,7 @@
             <h3>Área</h3>
             <input type="text" name="area" class="form-control"><br>
 
-            <h3>Jefe Inmediato</h3>
+            <h3>Lider Inmediato</h3>
             <input type="text" name="jefe_inmediato" class="form-control"><br>
 
             <h3>Caja</h3>

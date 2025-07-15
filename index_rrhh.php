@@ -204,7 +204,7 @@ $result = mysqli_query($conexion, $sql);
                                 <i class="bi bi-person-workspace"></i>
                             </div>
                             <div class="texto">
-                                <p class="etiqueta-dato">JEFE INMEDIATO</p>
+                                <p class="etiqueta-dato">LIDER INMEDIATO</p>
                                 <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
                             </div>
                         </div>
