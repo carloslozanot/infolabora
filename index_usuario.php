@@ -101,10 +101,10 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="informacion-personal">
                             <ul>
                                 <li>
-                                    <span style="font-size: 36px;font-weight:800; display: inline;">
+                                    <span style="font-size: 32px;font-weight:800; display: inline;">
                                         <?php echo $_SESSION['nombreUsuario'] ?>
                                     </span>
-                                    <span style="font-size: 36px;font-weight:800; display: inline;">
+                                    <span style="font-size: 32px;font-weight:800; display: inline;">
                                         <?php echo $_SESSION['apellidoUsuario'] ?>
                                     </span>
                                 </li>
