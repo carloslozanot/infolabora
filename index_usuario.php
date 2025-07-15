@@ -186,25 +186,50 @@ if (!isset($_SESSION['usuario'])) {
 
                 <hr class="linea-divisoria-boceto">
                 <div class="subseccion-beneficios-boceto">
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
-                        <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
+                <div class="grupo-dato">
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
+                                <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">EPS</p>
-                        <span class="valor-dato"><?php echo $_SESSION['eps'] ?? ''; ?></span>
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">EPS</p>
+                                <span class="valor-dato"><?php echo $_SESSION['eps'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">PENSIONES</p>
-                        <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">PENSIONES</p>
+                                <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">ARL</p>
-                        <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">ARL</p>
+                                <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">CESANTIAS</p>
-                        <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">CESANTIAS</p>
+                                <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
