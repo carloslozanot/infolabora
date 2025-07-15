@@ -109,13 +109,23 @@ if (!isset($_SESSION['usuario'])) {
 
             <div class="seccion-inferior-boceto">
                 <div class="subseccion-datos-personales-laborales">
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">CORREO CORPORATIVO</p>
-                        <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
+                <div class="grupo-dato">
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">CORREO CORPORATIVO</p>
+                                <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato">NUMERO CELULAR</p>
-                        <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                        <div class="icono-con-texto">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <div class="texto">
+                                <p class="etiqueta-dato">NUMERO CELULAR</p>
+                                <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="grupo-dato">
                         <div class="icono-con-texto">
