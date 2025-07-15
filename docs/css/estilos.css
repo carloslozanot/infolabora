@@ -11,7 +11,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed; 
+    background-attachment: fixed;
 }
 
 
@@ -120,7 +120,7 @@ header {
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
@@ -150,7 +150,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     max-height: 700px;
     overflow: auto;
 }
@@ -161,7 +161,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     max-height: 700px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -173,7 +173,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     max-height: 700px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -185,7 +185,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     max-height: 700px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -197,7 +197,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 550px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -209,7 +209,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 70%;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -241,7 +241,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -262,7 +262,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 70%;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -294,7 +294,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 78%;
     display: flex;
     flex-direction: column;
@@ -315,7 +315,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 550px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -327,7 +327,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 550px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -399,7 +399,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -421,7 +421,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -443,7 +443,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -465,7 +465,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -487,7 +487,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -509,7 +509,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -531,7 +531,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -553,7 +553,7 @@ header {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 590px;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
@@ -787,26 +787,40 @@ a.selected {
 }
 
 #mensaje {
-    background-color: #dff0d8; /* Color de fondo */
-    color: #3c763d; /* Color del texto */
-    border: 1px solid #d6e9c6; /* Borde */
-    padding: 15px; /* Espaciado interno */
-    margin-top: 20px; /* Espaciado superior */
-    border-radius: 5px; /* Bordes redondeados */
-    text-align: center; /* Alineación del texto */
-    display: none; /* Ocultar por defecto */
+    background-color: #dff0d8;
+    /* Color de fondo */
+    color: #3c763d;
+    /* Color del texto */
+    border: 1px solid #d6e9c6;
+    /* Borde */
+    padding: 15px;
+    /* Espaciado interno */
+    margin-top: 20px;
+    /* Espaciado superior */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    text-align: center;
+    /* Alineación del texto */
+    display: none;
+    /* Ocultar por defecto */
 }
 
 #mensaje.success {
-    background-color: #d4edda; /* Color de fondo para mensajes de éxito */
-    color: #155724; /* Color del texto para mensajes de éxito */
-    border-color: #c3e6cb; /* Borde para mensajes de éxito */
+    background-color: #d4edda;
+    /* Color de fondo para mensajes de éxito */
+    color: #155724;
+    /* Color del texto para mensajes de éxito */
+    border-color: #c3e6cb;
+    /* Borde para mensajes de éxito */
 }
 
 #mensaje.error {
-    background-color: #f8d7da; /* Color de fondo para mensajes de error */
-    color: #721c24; /* Color del texto para mensajes de error */
-    border-color: #f5c6cb; /* Borde para mensajes de error */
+    background-color: #f8d7da;
+    /* Color de fondo para mensajes de error */
+    color: #721c24;
+    /* Color del texto para mensajes de error */
+    border-color: #f5c6cb;
+    /* Borde para mensajes de error */
 }
 
 .seccion-superior-boceto {
@@ -815,19 +829,25 @@ a.selected {
     padding: 20px;
     border-radius: 20px;
     margin: 20px;
-    box-shadow: 0 0 10px rgba(24,46,89);
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     overflow: auto;
     display: flex;
     align-items: center;
 }
 
 .empleado-foto-boceto {
-    width: 200px; /* Tamaño de la elipse de la foto */
-    height: 200px; /* Altura para hacerla elíptica */
-    border: 2px solid #000; /* Borde negro de la elipse */
-    border-radius: 50%; /* Para hacerla elíptica o circular si width y height son iguales */
-    overflow: hidden; /* Recorta la imagen si sobresale del borde */
-    display: flex; /* Para centrar la imagen dentro de la elipse */
+    width: 200px;
+    /* Tamaño de la elipse de la foto */
+    height: 200px;
+    /* Altura para hacerla elíptica */
+    border: 2px solid #000;
+    /* Borde negro de la elipse */
+    border-radius: 50%;
+    /* Para hacerla elíptica o circular si width y height son iguales */
+    overflow: hidden;
+    /* Recorta la imagen si sobresale del borde */
+    display: flex;
+    /* Para centrar la imagen dentro de la elipse */
     justify-content: center;
     align-items: center;
 }
@@ -835,12 +855,15 @@ a.selected {
 .empleado-foto-boceto img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
-    border-radius: 50%; /* Para mantener la forma si la imagen es cuadrada */
+    object-fit: cover;
+    /* Asegura que la imagen cubra el área sin distorsionarse */
+    border-radius: 50%;
+    /* Para mantener la forma si la imagen es cuadrada */
 }
 
 .empleado-nombre-cargo {
-    flex-grow: 1; /* Permite que ocupe el espacio restante */
+    flex-grow: 1;
+    /* Permite que ocupe el espacio restante */
 }
 
 .nombre-empleado-boceto {
@@ -851,7 +874,8 @@ a.selected {
 }
 
 .cargo-empleado-boceto {
-    font-size: 18px; /* Tamaño de cargo */
+    font-size: 18px;
+    /* Tamaño de cargo */
     color: #666;
     margin: 0 0 0 20px;
 }
@@ -863,16 +887,16 @@ a.selected {
     padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espacio entre las subsecciones */
-    box-shadow: 0 0 10px rgba(24,46,89);
+    gap: 20px;
+    box-shadow: 0 0 10px rgba(24, 46, 89);
     margin: 20px;
 }
 
 .subseccion-datos-personales-laborales,
 .subseccion-beneficios-boceto {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas de igual ancho */
-    gap: 20px 40px; /* Espacio vertical y horizontal entre los elementos */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .grupo-dato {
@@ -887,8 +911,10 @@ a.selected {
 }
 
 .icono-con-texto i {
-    font-size: 32px; /* Tamaño del ícono */
-    margin-right: 10px; /* Espacio entre ícono y texto */
+    font-size: 32px;
+    /* Tamaño del ícono */
+    margin-right: 10px;
+    /* Espacio entre ícono y texto */
 }
 
 .texto {
@@ -908,20 +934,23 @@ a.selected {
 
 .linea-divisoria-boceto {
     border: none;
-    border-top: 2px solid #000; /* Línea negra gruesa */
-    margin: 10px 0; /* Espacio alrededor de la línea */
+    border-top: 2px solid #000;
+    /* Línea negra gruesa */
+    margin: 10px 0;
+    /* Espacio alrededor de la línea */
 }
 
 .icono-circular {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #150940; /* Color del círculo */
+    background-color: #150940;
+    /* Color del círculo */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .icono-circular i {
@@ -958,7 +987,8 @@ a.selected {
 
     .empleado-foto-boceto {
         width: 80px;
-        height: 80px; /* Hacerla circular en móviles si lo prefieres */
+        height: 80px;
+        /* Hacerla circular en móviles si lo prefieres */
     }
 
     .empleado-nombre-cargo {
@@ -979,7 +1009,8 @@ a.selected {
 
     .subseccion-datos-personales-laborales,
     .subseccion-beneficios-boceto {
-        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        grid-template-columns: 1fr;
+        /* Una sola columna en pantallas pequeñas */
         gap: 15px;
     }
 
