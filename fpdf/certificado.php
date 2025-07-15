@@ -35,7 +35,6 @@ $meses = [
   '07'=>'julio','08'=>'agosto','09'=>'septiembre','10'=>'octubre','11'=>'noviembre','12'=>'diciembre'
 ];
 
-/* ───────  DATOS DEL EMPLEADO  ─────── */
 if ($consulta_info->num_rows > 0) {
    $d               = $consulta_info->fetch_object();
    $nombre_completo = mb_strtoupper($d->nombres.' '.$d->apellidos, 'UTF-8');

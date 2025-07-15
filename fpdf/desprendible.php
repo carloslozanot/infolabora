@@ -101,7 +101,6 @@ $colWidth1 = 30;
 $colWidth2 = 70;
 $rowHeight = 10;
 
-// Datos de ejemplo para llenar la tabla
 $data = [
    ['SUELDO BASICO', $sueldo_basico],
    ['DIAS TRABAJADOS', $dias_trabajados],

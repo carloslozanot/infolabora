@@ -61,8 +61,8 @@ $result = mysqli_query($conexion, $sql);
             </a>
             <a href="#">
                 <div class="option" data-pagina="datos">
-                    <i class="bi bi-database" title="Datos"></i>
-                    <h4>Datos</h4>
+                    <i class="bi bi-person" title="Datos"></i>
+                    <h4>Perfil</h4>
                 </div>
             </a>
             <a href="#">
