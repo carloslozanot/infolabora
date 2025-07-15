@@ -62,7 +62,7 @@ if ($result->num_rows > 0) {
         if ($_SESSION['rol'] == 1) {
             header("Location: ../index_admin.php");
         } elseif ($_SESSION['rol'] == 2) {
-            header("Location: ../index_usuario.php");
+            header("Location: ../index_integrante.php");
         } else {
             header("Location: ../index_rrhh.php");
         }
