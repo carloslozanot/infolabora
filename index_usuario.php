@@ -91,7 +91,7 @@ if (!isset($_SESSION['usuario'])) {
             <p style="font-size: 16px;text-align: left;margin-left: 10%;">📥 Descargar documentos corporativos</p>
             <p style="font-size: 16px;text-align: left;margin-left: 10%;">🌴 Consultar y validar los días de vacaciones pendientes por tomar.</p>
         </div>
-        <div id="contenido-datos-refaccionado" class="contenido" style="display: none;">
+        <div id="contenido-datos" class="contenido" style="display: none;">
             <div class="seccion-superior-boceto">
                 <div class="empleado-foto-boceto">
                     <img src="<?php echo $_SESSION['imagen'] ?? 'placeholder.png'; ?>" alt="Foto del empleado">
