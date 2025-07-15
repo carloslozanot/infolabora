@@ -18,7 +18,7 @@ $stmt = $conexion->prepare("SELECT
     empleados.nombres, empleados.apellidos, empleados.imagen,
     empleados.edad, empleados.eps, empleados.arl, empleados.correo, empleados.fecha_ingreso,
     empleados.cargo, empleados.area, empleados.jefe_inmediato, empleados.caja, empleados.pensiones,
-    empleados.cesantias, empleados.celular, info_empleados.tipo_contrato
+    empleados.cesantias, empleados.celular, info_empleados.tipo_contrato,
     vacaciones.dias_total, vacaciones.dias_disfrutados
 FROM usuarios 
 INNER JOIN empleados ON usuarios.cedula = empleados.cedula
