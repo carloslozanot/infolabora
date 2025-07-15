@@ -118,7 +118,10 @@ if (!isset($_SESSION['usuario'])) {
                         <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
-                        <p class="etiqueta-dato"><i class="bi bi-file-earmark-person"></i> DOCUMENTO</p>
+                        <div class="etiqueta-icono-wrapper">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <p class="etiqueta-dato">DOCUMENTO</p>
+                        </div>
                         <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
