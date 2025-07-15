@@ -250,8 +250,8 @@ if (!isset($_SESSION['usuario'])) {
             <div>
                 <a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
                         class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>
-                <!--<a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i
-                        class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>-->
+                <a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i
+                        class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
             </div>
         </div>
         <div id="contenido-vacaciones" class="contenido" style="display: none;">
