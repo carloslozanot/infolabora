@@ -132,8 +132,8 @@ header {
     font-weight: 500;
 }
 
-/* OLD #contenido-datos rules - REMOVED/OVERRIDDEN BY NEW STYLES */
-/* #contenido-datos {
+
+#contenido-datos {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 20px;
@@ -142,7 +142,7 @@ header {
     box-shadow: 0 0 10px rgba(24,46,89);
     max-height: 700px;
     overflow: auto;
-} */
+} 
 
 #contenido-principal {
     background-color: #f0f0f0;
@@ -809,33 +809,16 @@ a.selected {
     border-color: #f5c6cb; /* Borde para mensajes de error */
 }
 
-/* --- Nuevos Estilos para el boceto --- */
-#contenido-datos-refaccionado {
-    background-color: #f0f0f0; /* Color de fondo similar al boceto, o blanco si prefieres */
-    border: 2px solid #000; /* Borde negro del boceto */
-    border-radius: 25px; /* Bordes redondeados */
-    padding: 20px 30px;
-    width: 90%;
-    max-width: 900px; /* Ancho máximo similar al boceto */
-    margin: 0 auto; /* Centra el div */
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Espacio entre la sección superior e inferior */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
-    max-height: 700px; /* Mantener la altura máxima y overflow si es necesario */
-    overflow: auto;
-}
-
 .seccion-superior-boceto {
-    background-color: #ffffff; /* Fondo blanco para la sección superior */
-    border: 2px solid #000; /* Borde negro del boceto */
-    border-radius: 25px; /* Bordes redondeados */
-    padding: 20px 30px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(24,46,89);
+    overflow: auto;
     display: flex;
     align-items: center;
-    gap: 30px; /* Espacio entre foto y texto */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
-    margin: 20px;
 }
 
 .empleado-foto-boceto {
