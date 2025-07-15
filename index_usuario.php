@@ -117,118 +117,122 @@ if (!isset($_SESSION['usuario'])) {
                         <p class="etiqueta-dato">NUMERO CELULAR</p>
                         <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
                     </div>
-                    <div class="grupo-dato">
-                        <div class="etiqueta-icono-wrapper">
-                            <i class="bi bi-file-earmark-person"></i>
-                            <p class="etiqueta-dato">DOCUMENTO</p>
+                    <div class="subseccion-datos-personales-laborales">
+                        <div class="grupo-dato">
+                            <i class="bi bi-file-earmark-person icono-principal-dato"></i>
+                            <div class="texto-dato-wrapper">
+                                <p class="etiqueta-dato">DOCUMENTO</p>
+                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                            </div>
                         </div>
-                        <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">DIRECCIÓN</p>
-                        <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">FECHA INGRESO</p>
-                        <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">CIUDAD DE RESIDENCIA</p>
-                        <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">AREA</p>
-                        <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">JEFE INMEDIATO</p>
-                        <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
+                        <div class="grupo-dato">
+                            <p class="etiqueta-dato">DIRECCIÓN</p>
+                            <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                        </div>
+                        <div class="grupo-dato">
+                            <p class="etiqueta-dato">FECHA INGRESO</p>
+                            <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
+                        </div>
+                        <div class="grupo-dato">
+                            <p class="etiqueta-dato">CIUDAD DE RESIDENCIA</p>
+                            <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                        </div>
+                        <div class="grupo-dato">
+                            <p class="etiqueta-dato">AREA</p>
+                            <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
+                        </div>
+                        <div class="grupo-dato">
+                            <p class="etiqueta-dato">JEFE INMEDIATO</p>
+                            <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
+                        </div>
+
                     </div>
 
-                </div>
-
-                <hr class="linea-divisoria-boceto">
-                <div class="subseccion-beneficios-boceto">
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
-                        <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">EPS</p>
-                        <span class="valor-dato"><?php echo $_SESSION['eps'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">PENSIONES</p>
-                        <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">ARL</p>
-                        <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
-                    </div>
-                    <div class="grupo-dato">
-                        <p class="etiqueta-dato">CESANTIAS</p>
-                        <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
+                    <hr class="linea-divisoria-boceto">
+                    <div class="subseccion-beneficios-boceto">
+                        <div class="grupo-dato">
+                            <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
+                            <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
+                        </div>
+                        <div class="grupo-dato">
+                            <p class="etiqueta-dato">EPS</p>
+                            <span class="valor-dato"><?php echo $_SESSION['eps'] ?? ''; ?></span>
+                        </div>
+                        <div class="grupo-dato">
+                            <p class="etiqueta-dato">PENSIONES</p>
+                            <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
+                        </div>
+                        <div class="grupo-dato">
+                            <p class="etiqueta-dato">ARL</p>
+                            <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
+                        </div>
+                        <div class="grupo-dato">
+                            <p class="etiqueta-dato">CESANTIAS</p>
+                            <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id="contenido-descargas" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">DESCARGAS</h2><br>
-            <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar desprendibles
-                de pago bajo el mes que necesite y certificados laborales para quien interese</p>
-            <div>
-                <a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
-                        class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>
-                <a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i
-                        class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
+            <div id="contenido-descargas" class="contenido" style="display: none;">
+                <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">DESCARGAS</h2><br>
+                <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar
+                    desprendibles
+                    de pago bajo el mes que necesite y certificados laborales para quien interese</p>
+                <div>
+                    <a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
+                            class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>
+                    <a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i
+                            class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
+                </div>
             </div>
-        </div>
-        <div id="contenido-vacaciones" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">VACACIONES</h2>
-            <br>
-            <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Totales:
-                <?php echo $_SESSION['dias_total'] . ' días'; ?>
-            </p>
-            <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados:
-                <?php echo $_SESSION['dias_disfrutados'] . ' días'; ?>
-            </p>
-            <p style="font-size: 100px; font-weight: bold; text-align: center;margin-bottom: 0px;color:#150940">
-                <?php echo $_SESSION['diferencia_dias']; ?>
-            </p>
-            <p style="font-size: 25px; font-weight: bold; text-align: center;">Dias pendientes por disfrutar
-            </p>
-            <p style="text-align: center;">
-                <a href="docs/documents/GH.AUS.FO.01.Solicitud.de.Ausentismo.docx"
-                    download="GH.AUS.FO.01.Solicitud.de.Ausentismo.docx" onclick="mostrarFormulario()">
-                    <button type="button" class="btn boton-azul"> <i class="fa-solid fa-file-excel"></i> FORMATO
-                        AUSENTISMO</button>
-                </a>
-
-            </p>
-            <form id="formulario" action="cargar_documento.php" method="post" enctype="multipart/form-data"
-                style="display: none;">
-                <p style="text-align: center;">
-                    <br>
-                <p style="font-size: 25px; font-weight: bold; text-align: center;">Subir documento </p>
-                <input class="form-control" type="file" id="documento" name="documento">
+            <div id="contenido-vacaciones" class="contenido" style="display: none;">
+                <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">VACACIONES</h2>
                 <br>
-                <button type="submit" class="btn boton-azul" style="display: block; margin: 0 auto;"><i
-                        class="fa fa-upload"></i> SUBIR</button>
+                <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Totales:
+                    <?php echo $_SESSION['dias_total'] . ' días'; ?>
                 </p>
+                <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados:
+                    <?php echo $_SESSION['dias_disfrutados'] . ' días'; ?>
+                </p>
+                <p style="font-size: 100px; font-weight: bold; text-align: center;margin-bottom: 0px;color:#150940">
+                    <?php echo $_SESSION['diferencia_dias']; ?>
+                </p>
+                <p style="font-size: 25px; font-weight: bold; text-align: center;">Dias pendientes por disfrutar
+                </p>
+                <p style="text-align: center;">
+                    <a href="docs/documents/GH.AUS.FO.01.Solicitud.de.Ausentismo.docx"
+                        download="GH.AUS.FO.01.Solicitud.de.Ausentismo.docx" onclick="mostrarFormulario()">
+                        <button type="button" class="btn boton-azul"> <i class="fa-solid fa-file-excel"></i> FORMATO
+                            AUSENTISMO</button>
+                    </a>
 
-                <div id="mensaje" style="display: none;">
-                </div>
-            </form>
-        </div>
+                </p>
+                <form id="formulario" action="cargar_documento.php" method="post" enctype="multipart/form-data"
+                    style="display: none;">
+                    <p style="text-align: center;">
+                        <br>
+                    <p style="font-size: 25px; font-weight: bold; text-align: center;">Subir documento </p>
+                    <input class="form-control" type="file" id="documento" name="documento">
+                    <br>
+                    <button type="submit" class="btn boton-azul" style="display: block; margin: 0 auto;"><i
+                            class="fa fa-upload"></i> SUBIR</button>
+                    </p>
 
-        <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
-            <br>
-            <label style="display: block; text-align: center;font-weight: 800; font-size: 40px">¿Esta seguro de cerrar
-                sesion?</label><br>
-            <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
-                SESION</a>
-        </div>
+                    <div id="mensaje" style="display: none;">
+                    </div>
+                </form>
+            </div>
+
+            <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
+                <br>
+                <label style="display: block; text-align: center;font-weight: 800; font-size: 40px">¿Esta seguro de
+                    cerrar
+                    sesion?</label><br>
+                <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i>
+                    CERRAR
+                    SESION</a>
+            </div>
 
     </main>
 

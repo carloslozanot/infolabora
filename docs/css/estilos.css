@@ -875,25 +875,35 @@ a.selected {
     gap: 20px 40px; /* Espacio vertical y horizontal entre los elementos */
 }
 
+/* --- Cambios importantes aquí para la nueva alineación --- */
 .grupo-dato {
+    display: flex; /* Hace que el icono y el wrapper de texto estén en la misma fila */
+    align-items: flex-start; /* Alinea el icono y el texto-dato-wrapper a la parte superior */
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Asegura que ocupe el 100% del ancho de su celda de grid */
+}
+
+.icono-principal-dato {
+    font-size: 1.5em; /* Tamaño del icono un poco más grande */
+    color: #6c757d; /* Color gris para los iconos */
+    margin-right: 15px; /* Espacio entre el icono y el texto/valor */
+    min-width: 25px; /* Asegura un ancho mínimo para el icono para consistencia */
+    text-align: center; /* Centra el icono dentro de su min-width */
+}
+
+.texto-dato-wrapper {
     display: flex;
-    flex-direction: column; /* Apila los elementos verticalmente (etiqueta+icono arriba, valor abajo) */
-    align-items: flex-start; /* Alinea todo el contenido del grupo a la izquierda */
+    flex-direction: column; /* Apila el título y el valor */
+    flex-grow: 1; /* Permite que ocupe el espacio restante después del icono */
 }
 
-/* Contenedor para el icono y el texto de la etiqueta */
-.etiqueta-icono-wrapper {
-    display: flex; /* Coloca el icono y el texto de la etiqueta uno al lado del otro */
-    align-items: center; /* Centra verticalmente el icono y el texto */
-    margin-bottom: 5px; /* Espacio entre el título (con icono) y el valor del dato */
-}
-
-/* Estilos para el texto de la etiqueta (por ejemplo, "DOCUMENTO") */
 .etiqueta-dato {
     font-size: 1em;
     font-weight: bold;
     color: #000;
-    margin: 0; /* Importante: Elimina cualquier margen predeterminado de <p> */
+    margin: 0; /* Elimina cualquier margen predeterminado */
+    padding: 0;
     text-transform: uppercase;
 }
 
@@ -901,7 +911,10 @@ a.selected {
     font-size: 1em;
     color: #555;
     font-weight: normal;
-    margin: 0; /* Asegura que no haya márgenes adicionales que interfieran */
+    margin: 0; /* Elimina cualquier margen predeterminado */
+    padding: 0;
+    text-align: left; /* Asegura que el texto del valor se alinee a la izquierda */
+    display: block; /* Asegura que ocupe su propia línea */
 }
 
 .linea-divisoria-boceto {
