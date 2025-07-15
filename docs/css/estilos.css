@@ -847,13 +847,13 @@ a.selected {
     font-size: 1.8em; /* Tamaño de nombre */
     font-weight: bold;
     color: #333;
-    margin: 0 0 5px 0;
+    margin: 30px;
 }
 
 .cargo-empleado-boceto {
     font-size: 1.1em; /* Tamaño de cargo */
     color: #666;
-    margin: 15px;
+    margin: 30px;
 }
 
 .seccion-inferior-boceto {
