@@ -15,14 +15,14 @@ if (!$cedula || !$contrasena) {
 
 $stmt = $conexion->prepare("SELECT 
     usuarios.cedula, usuarios.contrasena, usuarios.id_rol as rol, 
-    empleados.nombres, empleados.apellidos, empleados.imagen,
-    empleados.edad, empleados.eps, empleados.arl, empleados.correo, empleados.fecha_ingreso,
-    empleados.cargo, empleados.area, empleados.jefe_inmediato, empleados.caja, empleados.pensiones,
-    empleados.cesantias, empleados.celular, info_empleados.tipo_contrato,
+    integrantes.nombres, integrantes.apellidos, integrantes.imagen,
+    integrantes.edad, integrantes.eps, integrantes.arl, integrantes.correo, integrantes.fecha_ingreso,
+    integrantes.cargo, integrantes.area, integrantes.jefe_inmediato, integrantes.caja, integrantes.pensiones,
+    integrantes.cesantias, integrantes.celular, info_integrantes.tipo_contrato,
     vacaciones.dias_total, vacaciones.dias_disfrutados
 FROM usuarios 
-INNER JOIN empleados ON usuarios.cedula = empleados.cedula
-INNER JOIN info_empleados ON usuarios.cedula = info_empleados.cedula
+INNER JOIN integrantes ON usuarios.cedula = integrantes.cedula
+INNER JOIN info_integrantes ON usuarios.cedula = info_integrantes.cedula
 LEFT OUTER JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
 WHERE usuarios.cedula = ?");
 

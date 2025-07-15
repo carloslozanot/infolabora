@@ -4,7 +4,7 @@ $cedula = $_GET['id'];
 include("php/conexion.php");
 
 
-$sql = "delete from empleados where cedula='" . $cedula . "'";
+$sql = "delete from integrantes where cedula='" . $cedula . "'";
 $resultado = mysqli_query($conexion, $sql);
 
 if ($resultado) {

@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     include 'php/conexion.php';
 
-    $stmt = $conexion->prepare("SELECT correo FROM empleados WHERE cedula = ?");
+    $stmt = $conexion->prepare("SELECT correo FROM integrantes WHERE cedula = ?");
     $stmt->bind_param("s", $cedula);
     $stmt->execute();
     $result = $stmt->get_result();

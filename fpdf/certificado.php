@@ -24,8 +24,8 @@ $titulo = $_POST['titulo'] ?? '';
 
 include("../php/conexion.php");
 $consulta_info = $conexion->query("
-    SELECT * FROM empleados a
-    JOIN info_empleados b ON a.cedula = b.cedula
+    SELECT * FROM integrantes a
+    JOIN info_integrantes b ON a.cedula = b.cedula
     WHERE a.cedula = '$cedula'
 ");
 

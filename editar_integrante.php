@@ -47,7 +47,7 @@ include("php/conexion.php");
             $cesantias = $_POST['cesantias'];
             $imagen = $_POST['imagen'];
 
-            $sql = "UPDATE empleados 
+            $sql = "UPDATE integrantes 
                     SET cedula = '".$cedula."', nombres = '".$nombres."', apellidos = '".$apellidos."', edad = '".$edad."',
                     celular = '".$celular."', correo = '".$correo."', fecha_ingreso = '".$fecha_ingreso."', cargo = '".$cargo."',
                     area = '".$area."', jefe_inmediato = '".$jefe_inmediato."', caja = '".$caja."', eps = '".$eps."', arl = '".$arl."',
@@ -70,7 +70,7 @@ include("php/conexion.php");
 
         } else {
             $cedula = $_GET['id'];
-            $sql = "SELECT * FROM usuarios u, empleados e WHERE u.cedula = e.cedula AND u.cedula='" . $cedula . "'";
+            $sql = "SELECT * FROM usuarios u, integrantes e WHERE u.cedula = e.cedula AND u.cedula='" . $cedula . "'";
             $resultado = mysqli_query($conexion, $sql);
 
             $fila = mysqli_fetch_assoc($resultado);

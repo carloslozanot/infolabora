@@ -120,7 +120,7 @@ if (!isset($_SESSION['usuario'])) {
                     <?php
 
 include("php/conexion.php");
-                    $SQL = "SELECT * FROM empleados e, usuarios u, roles r WHERE e.cedula = u.cedula and u.id_rol = r.id";
+                    $SQL = "SELECT * FROM integrantes e, usuarios u, roles r WHERE e.cedula = u.cedula and u.id_rol = r.id";
                     $dato = mysqli_query($conexion, $SQL);
 
                     if ($dato->num_rows > 0) {
@@ -189,7 +189,7 @@ include("php/conexion.php");
                     <?php
 
 include("php/conexion.php");
-                    $SQL = "SELECT * FROM empleados e";
+                    $SQL = "SELECT * FROM integrantes e";
                     $dato = mysqli_query($conexion, $SQL);
 
                     if ($dato->num_rows > 0) {
