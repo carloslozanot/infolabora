@@ -68,7 +68,7 @@ $result = mysqli_query($conexion, $sql);
             <a href="#">
                 <div class="option" data-pagina="descargas">
                     <i class="bi bi-download" title="Descargas"></i>
-                    <h4>Descargas</h4>
+                    <h4>Certificados</h4>
                 </div>
             </a>
             <a href="#">
@@ -274,7 +274,7 @@ $result = mysqli_query($conexion, $sql);
             </div>
         </div>
         <div id="contenido-descargas" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">DESCARGAS</h2><br>
+            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
             <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar desprendibles
                 de pago bajo el mes que necesite y certificados laborales para quien interese</p>
             <div>
