@@ -65,12 +65,12 @@ if (!isset($_SESSION['usuario'])) {
                     <h4>Certificados</h4>
                 </div>
             </a>
-            <a href="#">
+            <!--<a href="#">
                 <div class="option" data-pagina="vacaciones">
                     <i class="bi bi-umbrella" title="Vacaciones"></i>
                     <h4>Vacaciones</h4>
                 </div>
-            </a>
+            </a>-->
             <a href="#">
                 <div class="option" data-pagina="cerrar-sesion">
                     <i class="bi bi-box-arrow-right" title="cerrar-sesion"></i>
@@ -256,7 +256,7 @@ if (!isset($_SESSION['usuario'])) {
                         class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>-->
             </div>
         </div>
-        <!--<div id="contenido-vacaciones" class="contenido" style="display: none;">
+        <div id="contenido-vacaciones" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">VACACIONES</h2>
             <br>
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Totales:
@@ -292,8 +292,8 @@ if (!isset($_SESSION['usuario'])) {
                 <div id="mensaje" style="display: none;">
                 </div>
             </form>
-        </div>-->
-
+        </div>
+        
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <br>
             <label style="display: block; text-align: center;font-weight: 800; font-size: 40px">¿Esta seguro de
