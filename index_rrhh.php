@@ -28,7 +28,7 @@ $result = mysqli_query($conexion, $sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RRHH</title>
+    <title>TH</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -324,7 +324,7 @@ $result = mysqli_query($conexion, $sql);
             </form>
         </div>
         <div id="contenido-rrhh" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">MODULO DE RRHH</h2><br>
+            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">MODULO DE TALENTO HUMANO</h2><br>
             <p style="text-align: center;font-size: 16px;">Estas son las vacantes disponibles actualmente en la compañía
             </p>
             <?php
