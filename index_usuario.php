@@ -110,7 +110,7 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                     <div class="grupo-dato">
                         <p class="etiqueta-dato">DOCUMENTO</p>
-                        <span class="valor-dato"><?php echo $_SESSION['cedula'] ?? ''; ?></span>
+                        <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
                     </div>
                     <div class="grupo-dato">
                         <p class="etiqueta-dato">NUMERO CELULAR</p>
