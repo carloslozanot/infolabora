@@ -27,93 +27,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <title>Cambiar Contraseña</title>
-    <link rel="stylesheet" href="docs/css/estilos.css"> <!-- Mantener esta ruta correcta -->
-    <style>
-        .input-group {
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding-right: 35px;
-        }
-
-        .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            font-size: 18px;
-            color: #666;
-        }
-
-        .formulario_login button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-        }
-
-        label {
-            text-align: center;
-            display: block;
-            font-weight: 700;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-    </style>
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" href="docs/css/estilos.css">
 </head>
-
 <body class="body_index_login">
     <main>
-        <form method="POST" class="formulario_login" onsubmit="return validarFormulario()">
-            <label>NUEVA CONTRASEÑA</label>
-
-            <input type="hidden" name="cedula" value="<?= htmlspecialchars($_GET['cedula'] ?? '') ?>">
-
-            <div class="input-group">
-                <input type="password" id="nueva" name="nueva" placeholder="Nueva contraseña" required
-                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$"
-                    title="Mínimo 8 caracteres, con letras, números y un carácter especial.">
-                <span class="toggle-password" onclick="togglePassword('nueva', this)">👁️</span>
+        <div class="contenedor_todo">
+            <div class="contenedor_login-register">
+                <form method="POST" class="formulario_login">
+                    <label style="display: block; text-align: center;font-weight: 700; font-size: 30px">RECUPERAR CONTRASEÑA</label><br>
+                    <input type="text" name="cedula" placeholder="Ingresa tu número de cédula" required>
+                    <button type="submit" style="display: block;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                    padding: 10px 20px;
+                    text-align: center;
+                    font-size: 16px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-weight: bold;">
+                        Enviar Enlace
+                    </button>
+                </form>
             </div>
-
-            <div class="input-group">
-                <input type="password" id="confirmar" name="confirmar" placeholder="Confirmar contraseña" required>
-                <span class="toggle-password" onclick="togglePassword('confirmar', this)">👁️</span>
-            </div>
-
-            <button type="submit">Cambiar Contraseña</button>
-        </form>
+        </div>
     </main>
-
-    <script>
-        function validarFormulario() {
-            const nueva = document.getElementById('nueva').value;
-            const confirmar = document.getElementById('confirmar').value;
-            if (nueva !== confirmar) {
-                alert('Las contraseñas no coinciden.');
-                return false;
-            }
-            return true;
-        }
-
-        function togglePassword(id, icon) {
-            const input = document.getElementById(id);
-            if (input.type === "password") {
-                input.type = "text";
-                icon.textContent = "🙈";
-            } else {
-                input.type = "password";
-                icon.textContent = "👁️";
-            }
-        }
-    </script>
 </body>
-
 </html>

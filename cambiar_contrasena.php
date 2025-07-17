@@ -1,18 +1,16 @@
 <?php
-date_default_timezone_set('America/Bogota'); // Establece la zona horaria correcta
+date_default_timezone_set('America/Bogota');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cedula = $_POST['cedula'];
     $nueva = $_POST['nueva'];
     $confirmar = $_POST['confirmar'];
 
-    // Verifica coincidencia
     if ($nueva !== $confirmar) {
         echo "<script>alert('Las contraseñas no coinciden.'); window.history.back();</script>";
         exit;
     }
 
-    // Valida complejidad
     if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d])[\w\W]{8,}$/', $nueva)) {
         echo "<script>alert('La contraseña debe tener al menos 8 caracteres, incluir letras, números y un carácter especial.'); window.history.back();</script>";
         exit;
@@ -33,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -40,28 +39,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Cambiar Contraseña</title>
     <link rel="stylesheet" href="docs/css/estilos.css">
+    <style>
+        .input-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding-right: 35px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .formulario_login button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+
+        label {
+            text-align: center;
+            display: block;
+            font-weight: 700;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body class="body_index_login">
     <main>
-        <style>
-            .input-group {
-                position: relative;
-            }
-
-            .toggle-password {
-                position: absolute;
-                right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
-                cursor: pointer;
-                font-size: 18px;
-                color: #666;
-            }
-        </style>
-
         <form method="POST" class="formulario_login" onsubmit="return validarFormulario()">
-            <label style="display: block; text-align: center; font-weight: 700; font-size: 30px;">NUEVA CONTRASEÑA</label><br>
+            <label>NUEVA CONTRASEÑA</label>
 
             <input type="hidden" name="cedula" value="<?= htmlspecialchars($_GET['cedula'] ?? '') ?>">
 
@@ -77,36 +95,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="toggle-password" onclick="togglePassword('confirmar', this)">👁️</span>
             </div>
 
-            <button type="submit"
-                style="display: block; margin: 0 auto; margin-top: 20px; padding: 10px 20px; text-align: center; font-size: 16px; border-radius: 6px; cursor: pointer; font-weight: bold;">
-                Cambiar Contraseña
-            </button>
+            <button type="submit">Cambiar Contraseña</button>
         </form>
-
-        <script>
-            function validarFormulario() {
-                const nueva = document.getElementById('nueva').value;
-                const confirmar = document.getElementById('confirmar').value;
-                if (nueva !== confirmar) {
-                    alert('Las contraseñas no coinciden.');
-                    return false;
-                }
-                return true;
-            }
-
-            function togglePassword(id, icon) {
-                const input = document.getElementById(id);
-                if (input.type === "password") {
-                    input.type = "text";
-                    icon.textContent = "🙈";
-                } else {
-                    input.type = "password";
-                    icon.textContent = "👁️";
-                }
-            }
-        </script>
-
     </main>
+
+    <script>
+        function validarFormulario() {
+            const nueva = document.getElementById('nueva').value;
+            const confirmar = document.getElementById('confirmar').value;
+            if (nueva !== confirmar) {
+                alert('Las contraseñas no coinciden.');
+                return false;
+            }
+            return true;
+        }
+
+        function togglePassword(id, icon) {
+            const input = document.getElementById(id);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.textContent = "🙈";
+            } else {
+                input.type = "password";
+                icon.textContent = "👁️";
+            }
+        }
+    </script>
 </body>
 
 </html>
