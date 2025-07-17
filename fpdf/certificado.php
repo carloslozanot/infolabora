@@ -68,7 +68,7 @@ if ($consulta_info->num_rows > 0) {
     $tipo_descarga = 'Certificado Laboral';
     $observaciones = 'Certificado generado para: ' . $nombre_completo;
 
-    $sql_bitacora = "INSERT INTO bitacora_certificados (cedula_empleado, fecha_generacion, tipo_descarga, observaciones)
+    $sql_bitacora = "INSERT INTO bitacora (cedula_empleado, fecha_generacion, tipo_descarga, observaciones)
                          VALUES (?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql_bitacora);
     $stmt->bind_param("ssss", $cedula, $fecha_generacion, $tipo_descarga, $observaciones);
