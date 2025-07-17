@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>CAMBIAR CONTRASEÑA</title>
+    <title>Cambiar Contraseña</title>
     <link rel="stylesheet" href="docs/css/estilos.css">
 </head>
 

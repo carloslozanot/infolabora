@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>RECUPERAR CONTRASEÑA</title>
+    <title>Recuperar Contraseña</title>
     <link rel="stylesheet" href="docs/css/estilos.css">
 </head>
 <body class="body_index_login">
