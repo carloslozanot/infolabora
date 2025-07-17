@@ -78,27 +78,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body class="body_index_login">
     <main>
-        <form method="POST" class="formulario_login" onsubmit="return validarFormulario()">
-            <label>NUEVA CONTRASEÑA</label>
+        <div class="contenedor_todo">
+            <div class="contenedor_login-register">
+                <form method="POST" class="formulario_login" onsubmit="return validarFormulario()">
+                    <label>NUEVA CONTRASEÑA</label>
 
-            <input type="hidden" name="cedula" value="<?= htmlspecialchars($_GET['cedula'] ?? '') ?>">
+                    <input type="hidden" name="cedula" value="<?= htmlspecialchars($_GET['cedula'] ?? '') ?>">
 
-            <div class="input-group">
-                <input type="password" id="nueva" name="nueva" placeholder="Nueva contraseña" required
-                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$"
-                    title="Mínimo 8 caracteres, con letras, números y un carácter especial.">
-                <span class="toggle-password" onclick="togglePassword('nueva', this)">👁️</span>
+                    <div class="input-group">
+                        <input type="password" id="nueva" name="nueva" placeholder="Nueva contraseña" required
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$"
+                            title="Mínimo 8 caracteres, con letras, números y un carácter especial.">
+                        <span class="toggle-password" onclick="togglePassword('nueva', this)">👁️</span>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="confirmar" name="confirmar" placeholder="Confirmar contraseña"
+                            required>
+                        <span class="toggle-password" onclick="togglePassword('confirmar', this)">👁️</span>
+                    </div>
+
+                    <button type="submit">Cambiar Contraseña</button>
+
+                </form>
             </div>
-
-            <div class="input-group">
-                <input type="password" id="confirmar" name="confirmar" placeholder="Confirmar contraseña" required>
-                <span class="toggle-password" onclick="togglePassword('confirmar', this)">👁️</span>
-            </div>
-
-            <button type="submit">Cambiar Contraseña</button>
-        </form>
+        </div>
     </main>
-
     <script>
         function validarFormulario() {
             const nueva = document.getElementById('nueva').value;
