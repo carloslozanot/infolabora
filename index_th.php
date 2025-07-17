@@ -99,7 +99,7 @@ $result = mysqli_query($conexion, $sql);
                         <th>Cedula</th>
                         <th>Nombre Completo</th>
                         <th>Correo</th>
-                        <th>Celular</th>                        
+                        <th>Celular</th>
                         <th>Cargo</th>
                         <th>Fecha Ingreso</th>
                     </tr>
@@ -120,7 +120,8 @@ $result = mysqli_query($conexion, $sql);
                                     <?php echo $fila['cedula']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $fila['nombres'] . ' ' . $fila['apellidos'];; ?>
+                                    <?php echo $fila['nombres'] . ' ' . $fila['apellidos'];
+                                    ; ?>
                                 </td>
                                 <td>
                                     <?php echo $fila['correo']; ?>
@@ -134,15 +135,15 @@ $result = mysqli_query($conexion, $sql);
                                 <td>
                                     <?php echo $fila['fecha_ingreso']; ?>
                                 </td>
-                                
 
                                 <td>
-                                    <a class="btn btn-warning" href="editar_integrante.php?id=<?php echo $fila['cedula'] ?> "><i
-                                            class="fa-solid fa-pen-to-square"></i>
-                                        Editar </a> <br>
+                                    <a class="btn btn-warning me-1 mb-1"
+                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
+                                        <i class="fa-solid fa-pen-to-square"></i> Editar
+                                    </a><br>
 
                                     <a class="btn btn-primary" href="eliminar_integrante.php?id=<?php echo $fila['cedula'] ?>"
-                                        onclick='return confirmar()'><i class="fa-solid fa-trash"></i>
+                                        onclick='return confirmar()'><i class="fa-solid fa-ban"></i>
                                         Deshabilitar</a><br>
 
                                 </td>
