@@ -37,6 +37,10 @@ $result = mysqli_query($conexion, $sql);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="docs/css/estilos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
 
 </head>
 
@@ -96,18 +100,17 @@ $result = mysqli_query($conexion, $sql);
             <table class="table table-striped table-bordered table-hover" id="table_id">
                 <thead>
                     <tr>
-                        <th>Cedula</th>
+                        <th>Cédula</th>
                         <th>Nombre Completo</th>
                         <th>Correo</th>
                         <th>Celular</th>
                         <th>Cargo</th>
                         <th>Fecha Ingreso</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php
-
                     include("php/conexion.php");
                     $SQL = "SELECT * FROM integrantes e";
                     $dato = mysqli_query($conexion, $SQL);
@@ -116,44 +119,28 @@ $result = mysqli_query($conexion, $sql);
                         while ($fila = mysqli_fetch_array($dato)) {
                             ?>
                             <tr>
-                                <td>
-                                    <?php echo $fila['cedula']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['nombres'] . ' ' . $fila['apellidos'];
-                                    ; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['correo']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['celular']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['cargo']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['fecha_ingreso']; ?>
-                                </td>
-
+                                <td><?php echo $fila['cedula']; ?></td>
+                                <td><?php echo $fila['nombres'] . ' ' . $fila['apellidos']; ?></td>
+                                <td><?php echo $fila['correo']; ?></td>
+                                <td><?php echo $fila['celular']; ?></td>
+                                <td><?php echo $fila['cargo']; ?></td>
+                                <td><?php echo $fila['fecha_ingreso']; ?></td>
                                 <td>
                                     <a class="btn btn-warning me-1 mb-1"
                                         href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
-
-                                    <a class="btn btn-primary" href="eliminar_integrante.php?id=<?php echo $fila['cedula'] ?>"
-                                        onclick='return confirmar()'><i class="fa-solid fa-ban"></i>
-                                        Deshabilitar</a><br>
-
+                                    <a class="btn btn-primary mt-1"
+                                        href="eliminar_integrante.php?id=<?php echo $fila['cedula'] ?>"
+                                        onclick='return confirmar()'>
+                                        <i class="fa-solid fa-ban"></i> Deshabilitar
+                                    </a>
                                 </td>
                             </tr>
                             <?php
                         }
                     }
                     ?>
-
-
                 </tbody>
             </table>
             <br>
@@ -184,7 +171,6 @@ $result = mysqli_query($conexion, $sql);
         </div>
     </main>
 
-    <!-- Incluye el archivo JavaScript -->
     <script src="docs/js/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -217,6 +203,27 @@ $result = mysqli_query($conexion, $sql);
             var formulario = document.getElementById("formulario");
             formulario.style.display = "block";
         }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable({
+                order: [],
+                language: {
+                    search: "Buscar:",
+                    lengthMenu: "Mostrar _MENU_ registros",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                    paginate: {
+                        first: "Primero",
+                        last: "Último",
+                        next: "Siguiente",
+                        previous: "Anterior"
+                    },
+                    zeroRecords: "No se encontraron resultados",
+                    infoEmpty: "Mostrando 0 a 0 de 0 registros",
+                    infoFiltered: "(filtrado de _MAX_ registros totales)"
+                }
+            });
+        });
     </script>
 
 </body>
