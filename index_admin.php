@@ -31,6 +31,8 @@ if (!isset($_SESSION['usuario'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="docs/css/estilos.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
     <script type="text/javaScript">
         function confirmar() {
@@ -173,79 +175,55 @@ if (!isset($_SESSION['usuario'])) {
         </div>
 
         <div id="contenido-integrantes" class="contenido" style="display: none;">
-            <h2>Lista de Integrantes</h2>
-            <br>
+            <h2>Lista de Integrantes</h2><br>
             <table class="table table-striped table-bordered table-hover" id="table_id">
                 <thead>
                     <tr>
-                        <th>Cedula</th>
+                        <th>Cédula</th>
+                        <th>Nombre Completo</th>
                         <th>Correo</th>
                         <th>Celular</th>
-                        <th>Edad</th>
-                        <th>Fecha Ingreso</th>
                         <th>Cargo</th>
-                        <th>Area</th>
+                        <th>Fecha Ingreso</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php
-
-                    include("php/conexion.php");
-                    $SQL = "SELECT * FROM integrantes e";
+                    $SQL = "SELECT * FROM integrantes";
                     $dato = mysqli_query($conexion, $SQL);
-
                     if ($dato->num_rows > 0) {
                         while ($fila = mysqli_fetch_array($dato)) {
                             ?>
                             <tr>
-                                <td>
-                                    <?php echo $fila['cedula']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['correo']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['celular']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['edad']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['fecha_ingreso']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['cargo']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['area']; ?>
-                                </td>
-
+                                <td><?php echo $fila['cedula']; ?></td>
+                                <td><?php echo $fila['nombres'] . ' ' . $fila['apellidos']; ?></td>
+                                <td><?php echo $fila['correo']; ?></td>
+                                <td><?php echo $fila['celular']; ?></td>
+                                <td><?php echo $fila['cargo']; ?></td>
+                                <td><?php echo $fila['fecha_ingreso']; ?></td>
                                 <td>
                                     <a class="btn btn-warning me-1 mb-1"
                                         href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
-
-                                    <a class="btn btn-danger" href="eliminar_integrante.php?id=<?php echo $fila['cedula'] ?>"
-                                        onclick='return confirmar()'><i class="fa-solid fa-trash"></i>
-                                        Eliminar</a><br>
-
+                                    <a class="btn btn-danger mt-1"
+                                        href="eliminar_integrante.php?id=<?php echo $fila['cedula'] ?>"
+                                        onclick='return confirmar()'>
+                                        <i class="fa-solid fa-trash"></i> Eliminar
+                                    </a>
                                 </td>
                             </tr>
                             <?php
                         }
                     }
                     ?>
-
-
                 </tbody>
             </table>
             <br>
             <div>
                 <a class="btn btn-success" href="agregar_integrante.php"><i class="fa-solid fa-plus"></i> Agregar
-                    Integrante
-                </a>
+                    Integrante</a>
             </div>
         </div>
 
@@ -338,7 +316,7 @@ if (!isset($_SESSION['usuario'])) {
                                     <?php echo $fila['descripcion']; ?>
                                 </td>
                                 <td>
-                                    
+
                                     <a class="btn btn-warning me-1 mb-1"
                                         href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
@@ -379,6 +357,27 @@ if (!isset($_SESSION['usuario'])) {
             var formulario = document.getElementById("formulario");
             formulario.style.display = "block";
         }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable({
+                language: {
+                    search: "Buscar:",
+                    lengthMenu: "Mostrar _MENU_ registros",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                    paginate: {
+                        first: "Primero",
+                        last: "Último",
+                        next: "Siguiente",
+                        previous: "Anterior"
+                    },
+                    zeroRecords: "No se encontraron resultados",
+                    infoEmpty: "Mostrando 0 a 0 de 0 registros",
+                    infoFiltered: "(filtrado de _MAX_ registros totales)"
+                }
+            });
+        });
     </script>
 
 </body>

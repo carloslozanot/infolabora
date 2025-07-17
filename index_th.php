@@ -131,7 +131,6 @@ $result = mysqli_query($conexion, $sql);
         </div>
     </main>
 
-    <!-- Script DataTable Español y activación -->
     <script>
         $(document).ready(function () {
             $('#table_id').DataTable({
