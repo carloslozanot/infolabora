@@ -97,10 +97,10 @@ if (!isset($_SESSION['usuario'])) {
             <p style="font-size: 32px; font-weight:1000;">¡BIENVENIDO, ADMINISTRADOR!<br><br></p>
             <p style="font-size: 20px; font-weight:800;">ESTE ES ES PORTAL ADMINISTRATIVO EN EL CUAL PODRÁ REALIZAR LAS
                 SIGUIENTES ACCIONES:<br><br></p>
-            <p style="font-size: 16px;text-align: left;margin-left: 27%;"></i>👤 Agregar y editar usuarios</p>
-            <p style="font-size: 16px;text-align: left;margin-left: 27%;"></i>👥 Agregar y editar integrantes</p>
-            <p style="font-size: 16px;text-align: left;margin-left: 27%;"></i>🌴 Agregar y editar información de vacaciones</p>
-            <p style="font-size: 16px;text-align: left;margin-left: 27%;"></i>🔑 Agregar y editar permisos</p>
+            <p style="font-size: 16px;"></i>👤 Agregar y editar usuarios</p>
+            <p style="font-size: 16px;"></i>👥 Agregar y editar integrantes</p>
+            <p style="font-size: 16px;"></i>🌴 Agregar y editar información de vacaciones</p>
+            <p style="font-size: 16px;"></i>🔑 Agregar y editar permisos</p>
 
         </div>
         <div id="contenido-usuarios" class="contenido" style="display: none;">

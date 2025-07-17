@@ -99,8 +99,8 @@ $result = mysqli_query($conexion, $sql);
             </p>
             <p style="font-size: 20px; font-weight:800;">Este es el portal de Recursos Humanos en el cual podrá realizar
                 las siguientes acciones:<br><br></p>
-            <p style="font-size: 16px;text-align: left;margin-left: 10%;">🔍 Consultar los datos de los integrantes de la compañia</p>
-            <p style="font-size: 16px;text-align: left;margin-left: 10%;">📋 Consultar bitacora</p>
+            <p style="font-size: 16px;">🔍 Consultar los datos de los integrantes de la compañia</p>
+            <p style="font-size: 16px;">📋 Consultar bitacora</p>
         </div>
         <div id="contenido-datos" class="contenido" style="display: none;">
             <div class="seccion-superior-boceto">
