@@ -99,9 +99,9 @@ $result = mysqli_query($conexion, $sql);
                         <th>Cedula</th>
                         <th>Nombre Completo</th>
                         <th>Correo</th>
-                        <th>Celular</th>
-                        <th>Fecha Ingreso</th>
+                        <th>Celular</th>                        
                         <th>Cargo</th>
+                        <th>Fecha Ingreso</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -129,11 +129,12 @@ $result = mysqli_query($conexion, $sql);
                                     <?php echo $fila['celular']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $fila['fecha_ingreso']; ?>
-                                </td>
-                                <td>
                                     <?php echo $fila['cargo']; ?>
                                 </td>
+                                <td>
+                                    <?php echo $fila['fecha_ingreso']; ?>
+                                </td>
+                                
 
                                 <td>
                                     <a class="btn btn-warning" href="editar_integrante.php?id=<?php echo $fila['cedula'] ?> "><i
