@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         label {
             text-align: center;
             display: block;
-            font-weight: 700;
+            font-weight: bold;
             font-size: 28px;
             margin-bottom: 20px;
         }

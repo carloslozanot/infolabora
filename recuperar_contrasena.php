@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="contenedor_todo">
             <div class="contenedor_login-register">
                 <form method="POST" class="formulario_login">
-                    <label style="display: block; text-align: center;font-weight: 700; font-size: 30px">RECUPERAR CONTRASEÑA</label><br>
+                    <label style="display: block; text-align: center;font-weight: bold; font-size: 30px">RECUPERAR CONTRASEÑA</label><br>
                     <input type="text" name="cedula" placeholder="Ingresa tu número de cédula" required>
                     <button type="submit" style="display: block;
                     margin: 0 auto;
