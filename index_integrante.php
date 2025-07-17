@@ -114,14 +114,14 @@ if (!isset($_SESSION['usuario'])) {
                             <div class="icono-circular"><i class="bi bi-at"></i></div>
                             <div class="texto">
                                 <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">CORREO</p>
+                                <p class="etiqueta-dato">CORREO CORPORATIVO</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-person-vcard"></i></div>
                             <div class="texto">
                                 <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">DOCUMENTO</p>
+                                <p class="etiqueta-dato">NÚMERO DE DOCUMENTO</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -135,7 +135,7 @@ if (!isset($_SESSION['usuario'])) {
                             <div class="icono-circular"><i class="bi bi-house-door-fill"></i></div>
                             <div class="texto">
                                 <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">CIUDAD RESIDENCIA</p>
+                                <p class="etiqueta-dato">CIUDAD DE RESIDENCIA</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -158,7 +158,7 @@ if (!isset($_SESSION['usuario'])) {
                             </div>
                             <div class="texto">
                                 <span class="valor-dato"><?php echo $_SESSION['tipo_contrato'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">CONTRATO</p>
+                                <p class="etiqueta-dato">TIPO DE CONTRATO</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -167,7 +167,7 @@ if (!isset($_SESSION['usuario'])) {
                             </div>
                             <div class="texto">
                                 <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">FECHA INGRESO</p>
+                                <p class="etiqueta-dato">FECHA DE INGRESO</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -176,7 +176,7 @@ if (!isset($_SESSION['usuario'])) {
                             </div>
                             <div class="texto">
                                 <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">AREA</p>
+                                <p class="etiqueta-dato">ÁREA</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
@@ -185,7 +185,7 @@ if (!isset($_SESSION['usuario'])) {
                             </div>
                             <div class="texto">
                                 <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">LIDER INMEDIATO</p>
+                                <p class="etiqueta-dato">LÍDER INMEDIATO</p>
                             </div>
                         </div>
                     </div>
@@ -248,8 +248,8 @@ if (!isset($_SESSION['usuario'])) {
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
             <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar certificados laborales a quien interese</p>
             <div>
-                <a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
-                        class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>
+                <!--<a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
+                        class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>-->
                 <a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i
                         class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
             </div>
