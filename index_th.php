@@ -97,12 +97,11 @@ $result = mysqli_query($conexion, $sql);
                 <thead>
                     <tr>
                         <th>Cedula</th>
+                        <th>Nombre Completo</th>
                         <th>Correo</th>
                         <th>Celular</th>
-                        <th>Edad</th>
                         <th>Fecha Ingreso</th>
                         <th>Cargo</th>
-                        <th>Area</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -121,22 +120,19 @@ $result = mysqli_query($conexion, $sql);
                                     <?php echo $fila['cedula']; ?>
                                 </td>
                                 <td>
+                                    <?php echo $fila['nombres']; ?>
+                                </td>
+                                <td>
                                     <?php echo $fila['correo']; ?>
                                 </td>
                                 <td>
                                     <?php echo $fila['celular']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $fila['edad']; ?>
-                                </td>
-                                <td>
                                     <?php echo $fila['fecha_ingreso']; ?>
                                 </td>
                                 <td>
                                     <?php echo $fila['cargo']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['area']; ?>
                                 </td>
 
                                 <td>
