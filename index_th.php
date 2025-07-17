@@ -60,27 +60,15 @@ $result = mysqli_query($conexion, $sql);
                 </div>
             </a>
             <a href="#">
-                <div class="option" data-pagina="datos">
-                    <i class="bi bi-person" title="Datos"></i>
-                    <h4>Perfil</h4>
+                <div class="option" data-pagina="integrantes">
+                    <i class="bi bi-person" title="Integrantes"></i>
+                    <h4>Integrantes</h4>
                 </div>
             </a>
             <a href="#">
                 <div class="option" data-pagina="descargas">
                     <i class="bi bi-download" title="Descargas"></i>
                     <h4>Certificados</h4>
-                </div>
-            </a>
-            <a href="#">
-                <div class="option" data-pagina="vacaciones">
-                    <i class="bi bi-umbrella" title="Vacaciones"></i>
-                    <h4>Vacaciones</h4>
-                </div>
-            </a>
-            <a href="#">
-                <div class="option" data-pagina="th">
-                    <i class="bi bi-briefcase" title="TH"></i>
-                    <h4>Vacantes</h4>
                 </div>
             </a>
             <a href="#">
@@ -282,61 +270,7 @@ $result = mysqli_query($conexion, $sql);
                         class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
             </div>
         </div>
-        <div id="contenido-vacaciones" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">VACACIONES</h2>
-            <br>
-            <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Totales:
-                <?php echo $_SESSION['dias_total'] . ' días'; ?>
-            </p>
-            <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados:
-                <?php echo $_SESSION['dias_disfrutados'] . ' días'; ?>
-            </p>
-            <p style="font-size: 100px; font-weight: bold; text-align: center;margin-bottom: 0px;color:#150940">
-                <?php echo $_SESSION['diferencia_dias']; ?>
-            </p>
-            <p style="font-size: 25px; font-weight: bold; text-align: center;">Dias pendientes por disfrutar
-            </p>
-            <p style="text-align: center;">
-                <a href="docs/documents/GH.AUS.FO.01.Solicitud.de.Ausentismo.docx"
-                    download="GH.AUS.FO.01.Solicitud.de.Ausentismo.docx" onclick="mostrarFormulario()">
-                    <button type="button" class="btn boton-azul"> <i class="fa-solid fa-file-excel"></i> FORMATO
-                        AUSENTISMO</button>
-                </a>
-
-            </p>
-            <form id="formulario" action="cargar_documento.php" method="post" enctype="multipart/form-data"
-                style="display: none;">
-                <p style="text-align: center;">
-                    <br>
-                <p style="font-size: 25px; font-weight: bold; text-align: center;">Subir documento </p>
-                <input class="form-control" type="file" id="documento" name="documento">
-                <!-- Agregado el atributo name="documento" -->
-                <br>
-                <button type="submit" class="btn boton-azul" style="display: block; margin: 0 auto;"><i
-                        class="fa fa-upload"></i> SUBIR</button>
-                </p>
-
-                <!-- Contenedor para mostrar el mensaje de éxito o error -->
-                <div id="mensaje" style="display: none;">
-                </div>
-            </form>
-        </div>
-        <div id="contenido-th" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">MODULO DE TALENTO HUMANO</h2><br>
-            <p style="text-align: center;font-size: 16px;">Estas son las vacantes disponibles actualmente en la compañía
-            </p>
-            <?php
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $nombre_vacante = $row["nombre_vacante"];
-                    echo '<button type="button" class="btn boton-vacantes" onclick="window.location.href=\'vacante.php?nombre=' . urlencode($nombre_vacante) . '\'">' . $nombre_vacante . '</button>';
-                }
-            } else {
-                echo "No hay vacantes disponibles en este momento.";
-            }
-            ?>
-        </div>
-        </div>
+        
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <br>
             <label style="display: block; text-align: center;font-weight: bold; font-size: 40px">¿Esta seguro de cerrar
