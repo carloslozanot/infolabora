@@ -28,7 +28,7 @@ $result = mysqli_query($conexion, $sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TH</title>
+    <title>Talento Humano</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -78,8 +78,8 @@ $result = mysqli_query($conexion, $sql);
                 </div>
             </a>
             <a href="#">
-                <div class="option" data-pagina="rrhh">
-                    <i class="bi bi-briefcase" title="RRHH"></i>
+                <div class="option" data-pagina="th">
+                    <i class="bi bi-briefcase" title="TH"></i>
                     <h4>Vacantes</h4>
                 </div>
             </a>
@@ -97,7 +97,7 @@ $result = mysqli_query($conexion, $sql);
             <p style="font-size: 32px; font-weight:1000;">¡Bienvenido,
                 <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br>
             </p>
-            <p style="font-size: 20px; font-weight:800;">Este es el portal de Recursos Humanos en el cual podrá realizar
+            <p style="font-size: 20px; font-weight:800;">Este es el portal de Talento Humano en el cual podrá realizar
                 las siguientes acciones:<br><br></p>
             <p style="font-size: 16px;">🔍 Consultar los datos de los integrantes de la compañia</p>
             <p style="font-size: 16px;">📋 Consultar bitacora</p>
@@ -321,7 +321,7 @@ $result = mysqli_query($conexion, $sql);
                 </div>
             </form>
         </div>
-        <div id="contenido-rrhh" class="contenido" style="display: none;">
+        <div id="contenido-th" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">MODULO DE TALENTO HUMANO</h2><br>
             <p style="text-align: center;font-size: 16px;">Estas son las vacantes disponibles actualmente en la compañía
             </p>

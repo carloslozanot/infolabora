@@ -78,7 +78,7 @@ if ($result->num_rows > 0) {
         } elseif ($_SESSION['rol'] == 2) {
             header("Location: ../index_integrante.php");
         } else {
-            header("Location: ../index_rrhh.php");
+            header("Location: ../index_th.php");
         }
         exit;
 

@@ -80,9 +80,9 @@ include("php/conexion.php");
                 <?php
                 if ($descripcion === 'Integrante') {
                     echo '<option value="2">Integrante</option>
-                            <option value="3">Recursos Humanos</option>';
-                } elseif ($descripcion === 'Recursos Humanos') {
-                    echo '<option value="3">Recursos Humanos</option>
+                            <option value="3">Talento Humano</option>';
+                } elseif ($descripcion === 'Talento Humano') {
+                    echo '<option value="3">Talento Humano</option>
                             <option value="2">Integrante</option>';
                 }
                 ?>

@@ -63,7 +63,7 @@ if (isset($_GET['nombre'])) {
         </p>
 
         <p>
-            <a href="index_rrhh.php">
+            <a href="index_th.php">
                 <button type="button" class="btn btn-danger">VOLVER</button>
             </a>
         </p>
