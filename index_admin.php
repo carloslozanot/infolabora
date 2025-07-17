@@ -34,19 +34,34 @@ if (!isset($_SESSION['usuario'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="docs/css/estilos.css">
 
-    <script type="text/javaScript">
-        function confirmar() {
-            return confirm('¿Esta seguro de realizar esta acción?');            
-        }
-
-        $(document).ready(function () {
-            $('#table_id').DataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
-                }
-            });
+    <script>
+    $(document).ready(function () {
+        $('#tabla_usuarios').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
+            }
         });
-    </script>
+
+        $('#tabla_integrantes').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
+            }
+        });
+
+        $('#tabla_vacaciones').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
+            }
+        });
+
+        $('#tabla_permisos').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
+            }
+        });
+    });
+</script>
+
 </head>
 
 <body id="body">
@@ -116,7 +131,7 @@ if (!isset($_SESSION['usuario'])) {
         <div id="contenido-usuarios" class="contenido" style="display: none;">
             <h2>Lista de Usuarios</h2>
             <br>
-            <table class="table table-striped table-bordered table-hover" id="table_id">
+            <table class="table table-striped table-bordered table-hover" id="tabla_usuarios">
                 <thead>
                     <tr>
                         <th>Nombres</th>
@@ -124,6 +139,7 @@ if (!isset($_SESSION['usuario'])) {
                         <th>Usuario</th>
                         <th>Contraseña</th>
                         <th>Rol</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
 
@@ -185,7 +201,7 @@ if (!isset($_SESSION['usuario'])) {
         <div id="contenido-integrantes" class="contenido" style="display: none;">
             <h2>Lista de Integrantes</h2>
             <br>
-            <table class="table table-striped table-bordered table-hover" id="table_id">
+            <table class="table table-striped table-bordered table-hover" id="tabla_integrantes">
                 <thead>
                     <tr>
                         <th>Cedula</th>
@@ -195,6 +211,7 @@ if (!isset($_SESSION['usuario'])) {
                         <th>Fecha Ingreso</th>
                         <th>Cargo</th>
                         <th>Area</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -264,12 +281,13 @@ if (!isset($_SESSION['usuario'])) {
             <h2>Vacaciones</h2>
 
             <br>
-            <table class="table table-striped table-bordered table-hover" id="table_id">
+            <table class="table table-striped table-bordered table-hover" id="tabla_vacaciones">
                 <thead>
                     <tr>
                         <th>Cedula</th>
                         <th>Dias totales</th>
                         <th>Dias disfrutados</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -322,11 +340,12 @@ if (!isset($_SESSION['usuario'])) {
             <h2>Lista de Permisos</h2>
 
             <br>
-            <table class="table table-striped table-bordered table-hover" id="table_id">
+            <table class="table table-striped table-bordered table-hover" id="tabla_permisos">
                 <thead>
                     <tr>
                         <th>Id</th>
                         <th>Descripcion</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
