@@ -61,14 +61,14 @@ $result = mysqli_query($conexion, $sql);
             </a>
             <a href="#">
                 <div class="option" data-pagina="integrantes">
-                    <i class="bi bi-person" title="Integrantes"></i>
+                    <i class="bi bi-people-fill" title="Integrantes"></i>
                     <h4>Integrantes</h4>
                 </div>
             </a>
             <a href="#">
-                <div class="option" data-pagina="descargas">
-                    <i class="bi bi-download" title="Descargas"></i>
-                    <h4>Certificados</h4>
+                <div class="option" data-pagina="bitacora">
+                    <i class="bi bi-download" title="Bitacora"></i>
+                    <h4>Bitacora</h4>
                 </div>
             </a>
             <a href="#">
