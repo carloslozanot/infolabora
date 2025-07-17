@@ -99,10 +99,10 @@ $result = mysqli_query($conexion, $sql);
             </p>
             <p style="font-size: 20px; font-weight:800;">Este es el portal de Recursos Humanos en el cual podrá realizar
                 las siguientes acciones:<br><br></p>
-            <p style="font-size: 16px;">Consultar sus datos personales con relación a la compañía</p>
-            <p style="font-size: 16px;">Descargar documentos corporativos</p>
-            <p style="font-size: 16px;">Consultar y validar dias de vacaciones por tomar</p>
-            <p style="font-size: 16px;">Consultar, ingresar datos a vacantes y descargar pruebas</p>
+            <p style="font-size: 16px;text-align: left;margin-left: 10%;">Consultar sus datos personales con relación a la compañía</p>
+            <p style="font-size: 16px;text-align: left;margin-left: 10%;">Descargar documentos corporativos</p>
+            <p style="font-size: 16px;text-align: left;margin-left: 10%;">🌴 Consultar y validar dias de vacaciones por tomar</p>
+            <p style="font-size: 16px;text-align: left;margin-left: 10%;">Consultar, ingresar datos a vacantes y descargar pruebas</p>
         </div>
         <div id="contenido-datos" class="contenido" style="display: none;">
             <div class="seccion-superior-boceto">

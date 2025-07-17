@@ -97,17 +97,22 @@ if (!isset($_SESSION['usuario'])) {
             <p style="font-size: 32px; font-weight:1000;">¡BIENVENIDO, ADMINISTRADOR!<br><br></p>
             <p style="font-size: 20px; font-weight:800;">ESTE ES ES PORTAL ADMINISTRATIVO EN EL CUAL PODRÁ REALIZAR LAS
                 SIGUIENTES ACCIONES:<br><br></p>
-            <p style="font-size: 16px;">Agregar y editar usuarios</p>
-            <p style="font-size: 16px;">Agregar y editar integrantes</p>
-            <p style="font-size: 16px;">Agregar y editar informacion de vacaciones</p>
-            <p style="font-size: 16px;">Agregar y editar permisos</p>
+            <p style="font-size: 16px;text-align: left;"><i class="fa-solid fa-user-plus" style="margin-right: 6px;"></i>Agregar y editar
+                usuarios</p>
+            <p style="font-size: 16px;text-align: left;"><i class="fa-solid fa-users" style="margin-right: 6px;"></i>Agregar y editar
+                integrantes</p>
+            <p style="font-size: 16px;text-align: left;"><i class="fa-solid fa-umbrella-beach" style="margin-right: 6px;"></i>Agregar y
+                editar información de vacaciones</p>
+            <p style="font-size: 16px;text-align: left;"><i class="fa-solid fa-id-badge" style="margin-right: 6px;"></i>Agregar y editar
+                permisos</p>
+
         </div>
         <div id="contenido-usuarios" class="contenido" style="display: none;">
             <h2>Lista de Usuarios</h2>
             <br>
             <table class="table table-striped table-bordered table-hover" id="table_id">
                 <thead>
-                    <tr>                        
+                    <tr>
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Usuario</th>
@@ -119,14 +124,14 @@ if (!isset($_SESSION['usuario'])) {
 
                     <?php
 
-include("php/conexion.php");
+                    include("php/conexion.php");
                     $SQL = "SELECT * FROM integrantes e, usuarios u, permisos r WHERE e.cedula = u.cedula and u.id_rol = r.id";
                     $dato = mysqli_query($conexion, $SQL);
 
                     if ($dato->num_rows > 0) {
                         while ($fila = mysqli_fetch_array($dato)) {
                             ?>
-                            <tr>                                
+                            <tr>
                                 <td>
                                     <?php echo $fila['nombres']; ?>
                                 </td>
@@ -188,7 +193,7 @@ include("php/conexion.php");
 
                     <?php
 
-include("php/conexion.php");
+                    include("php/conexion.php");
                     $SQL = "SELECT * FROM integrantes e";
                     $dato = mysqli_query($conexion, $SQL);
 
@@ -219,8 +224,7 @@ include("php/conexion.php");
                                 </td>
 
                                 <td>
-                                    <a class="btn btn-warning"
-                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?> "><i
+                                    <a class="btn btn-warning" href="editar_integrante.php?id=<?php echo $fila['cedula'] ?> "><i
                                             class="fa-solid fa-pen-to-square"></i>
                                         Editar </a> <br>
 
@@ -263,7 +267,7 @@ include("php/conexion.php");
 
                     <?php
 
-include("php/conexion.php");
+                    include("php/conexion.php");
                     $SQL_1 = "SELECT * FROM vacaciones";
                     $dato_1 = mysqli_query($conexion, $SQL_1);
 
@@ -319,7 +323,7 @@ include("php/conexion.php");
 
                     <?php
 
-include("php/conexion.php");
+                    include("php/conexion.php");
                     $SQL_1 = "SELECT * FROM permisos ";
                     $dato_1 = mysqli_query($conexion, $SQL_1);
 
@@ -360,7 +364,8 @@ include("php/conexion.php");
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <br>
-            <label style="display: block; text-align: center;font-weight: 700; font-size: 40px">¿Esta seguro de cerrar sesion?</label><br>
+            <label style="display: block; text-align: center;font-weight: 700; font-size: 40px">¿Esta seguro de cerrar
+                sesion?</label><br>
             <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
                 SESION</a>
         </div>
