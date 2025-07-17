@@ -66,13 +66,13 @@ if ($consulta_info->num_rows > 0) {
     date_default_timezone_set('America/Bogota');
     // Registro en la bitácora de certificados
     $fecha_generacion = date('Y-m-d H:i:s');
-    $tipo_descarga = 'Certificado Laboral';
+    $tipo = 'Descarga de Certificado Laboral';
     $observaciones = 'Dirigido a: ' . $destinatario;
 
-    $sql_bitacora = "INSERT INTO bitacora (cedula_empleado, fecha_generacion, tipo_descarga, observaciones)
+    $sql_bitacora = "INSERT INTO bitacora (cedula_empleado, fecha_generacion, tipo, observaciones)
                          VALUES (?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql_bitacora);
-    $stmt->bind_param("ssss", $cedula, $fecha_generacion, $tipo_descarga, $observaciones);
+    $stmt->bind_param("ssss", $cedula, $fecha_generacion, $tipo, $observaciones);
     $stmt->execute();
     $stmt->close();
 

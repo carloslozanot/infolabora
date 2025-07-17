@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('America/Bogota'); 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -60,6 +61,17 @@ if ($result->num_rows > 0) {
         $_SESSION['dias_total'] = $row['dias_total'];
         $_SESSION['dias_disfrutados'] = $row['dias_disfrutados'];
         $_SESSION['diferencia_dias'] = $row['dias_total'] - $row['dias_disfrutados'];
+        $fecha_generacion = date('Y-m-d H:i:s');
+        $tipo = 'Ingreso al Sistema';
+        $observaciones = 'Inicio de sesión exitoso del usuario';
+
+        // Insertar en bitácora
+        $sql_bitacora = "INSERT INTO bitacora (cedula_empleado, fecha_generacion, tipo, observaciones) VALUES (?, ?, ?, ?)";
+        $stmt_bitacora = $conexion->prepare($sql_bitacora);
+        $stmt_bitacora->bind_param("ssss", $row['cedula'], $fecha_generacion, $tipo, $observaciones);
+        $stmt_bitacora->execute();
+        $stmt_bitacora->close();
+
 
         if ($_SESSION['rol'] == 1) {
             header("Location: ../index_admin.php");
