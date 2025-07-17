@@ -52,8 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .toggle-password {
             position: absolute;
-            right: 10px;
-            top: 50%;
+            right: 20px;
+            top: 37px;
             transform: translateY(-50%);
             cursor: pointer;
             font-size: 18px;
@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             const input = document.getElementById(id);
             if (input.type === "password") {
                 input.type = "text";
-                icon.textContent = "🙈";
+                icon.textContent = "🔒";
             } else {
                 input.type = "password";
                 icon.textContent = "👁️";
