@@ -63,7 +63,7 @@ if ($result->num_rows > 0) {
         $_SESSION['diferencia_dias'] = $row['dias_total'] - $row['dias_disfrutados'];
         $fecha_generacion = date('Y-m-d H:i:s');
         $tipo = 'Ingreso al Sistema';
-        $observaciones = 'Inicio de sesión exitoso del usuario';
+        $observaciones = 'Inicio de sesión exitoso del usuario' . $row['cedula'];
 
         // Insertar en bitácora
         $sql_bitacora = "INSERT INTO bitacora (cedula_empleado, fecha_generacion, tipo, observaciones) VALUES (?, ?, ?, ?)";
