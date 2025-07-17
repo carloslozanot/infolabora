@@ -116,6 +116,7 @@ if (!isset($_SESSION['usuario'])) {
                         <th>Rol</th>
                     </tr>
                 </thead>
+                
                 <tbody>
 
                     <?php
