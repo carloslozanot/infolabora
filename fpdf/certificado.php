@@ -63,6 +63,7 @@ if ($consulta_info->num_rows > 0) {
 
     // ✅ Ahora sí: registrar en la bitácora después de tener nombre_completo
     session_start();
+    date_default_timezone_set('America/Bogota');
     // Registro en la bitácora de certificados
     $fecha_generacion = date('Y-m-d H:i:s');
     $tipo_descarga = 'Certificado Laboral';
