@@ -149,10 +149,10 @@ if (!isset($_SESSION['usuario'])) {
 
                     include("php/conexion.php");
                     $SQL = "SELECT * FROM integrantes e, usuarios u, permisos r WHERE e.cedula = u.cedula and u.id_rol = r.id";
-                    $dato = mysqli_query($conexion, $SQL);
+                    $dato_usuarios = mysqli_query($conexion, $SQL);
 
-                    if ($dato->num_rows > 0) {
-                        while ($fila = mysqli_fetch_array($dato)) {
+                    if ($dato_usuarios->num_rows > 0) {
+                        while ($fila = mysqli_fetch_array($dato_usuarios)) {
                             ?>
                             <tr>
                                 <td>
@@ -173,7 +173,7 @@ if (!isset($_SESSION['usuario'])) {
 
                                 <td>
                                     <a class="btn btn-warning me-1 mb-1"
-                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
+                                        href="editar_usuario.php?id=<?php echo $fila['cedula'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
 
@@ -220,10 +220,10 @@ if (!isset($_SESSION['usuario'])) {
 
                     include("php/conexion.php");
                     $SQL = "SELECT * FROM integrantes e";
-                    $dato = mysqli_query($conexion, $SQL);
+                    $dato_integrantes = mysqli_query($conexion, $SQL);
 
-                    if ($dato->num_rows > 0) {
-                        while ($fila = mysqli_fetch_array($dato)) {
+                    if ($dato_integrantes->num_rows > 0) {
+                        while ($fila = mysqli_fetch_array($dato_integrantes)) {
                             ?>
                             <tr>
                                 <td>
@@ -295,11 +295,11 @@ if (!isset($_SESSION['usuario'])) {
                     <?php
 
                     include("php/conexion.php");
-                    $SQL_1 = "SELECT * FROM vacaciones";
-                    $dato_1 = mysqli_query($conexion, $SQL_1);
+                    $SQL_vacaciones = "SELECT * FROM vacaciones";
+                    $dato_vacaciones = mysqli_query($conexion, $SQL_vacaciones);
 
-                    if ($dato->num_rows > 0) {
-                        while ($fila = mysqli_fetch_array($dato_1)) {
+                    if ($dato_vacaciones->num_rows > 0) {
+                        while ($fila = mysqli_fetch_array($dato_vacaciones)) {
                             ?>
                             <tr>
                                 <td>
@@ -314,7 +314,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <td>
 
                                     <a class="btn btn-warning me-1 mb-1"
-                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
+                                        href="editar_vacaciones.php?id=<?php echo $fila['cedula'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
 
@@ -353,11 +353,11 @@ if (!isset($_SESSION['usuario'])) {
                     <?php
 
                     include("php/conexion.php");
-                    $SQL_1 = "SELECT * FROM permisos ";
-                    $dato_1 = mysqli_query($conexion, $SQL_1);
+                    $SQL_permisos = "SELECT * FROM permisos";
+                    $dato_permisos = mysqli_query($conexion, $SQL_permisos);
 
-                    if ($dato->num_rows > 0) {
-                        while ($fila = mysqli_fetch_array($dato_1)) {
+                    if ($dato_permisos->num_rows > 0) {
+                        while ($fila = mysqli_fetch_array($dato_permisos)) {
                             ?>
                             <tr>
                                 <td>
@@ -369,7 +369,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <td>
 
                                     <a class="btn btn-warning me-1 mb-1"
-                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
+                                        href="editar_rol.php?id=<?php echo $fila['id'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
 
