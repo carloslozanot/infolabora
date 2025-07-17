@@ -76,10 +76,10 @@ html, body {
 
 .contenedor_login-register form button {
     padding: 10px 40px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 65px;
     border-radius: 6px;
-    font-size: 15px;
+    font-size: 16px;
     background: #150940;
     font-weight: bold;
     cursor: pointer;
