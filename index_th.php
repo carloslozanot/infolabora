@@ -120,7 +120,7 @@ $result = mysqli_query($conexion, $sql);
                                     <?php echo $fila['cedula']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $fila['nombres']; ?>
+                                    <?php echo $fila['nombres'] . ' ' . $fila['apellidos'];; ?>
                                 </td>
                                 <td>
                                     <?php echo $fila['correo']; ?>
