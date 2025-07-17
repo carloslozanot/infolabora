@@ -28,7 +28,7 @@ if (!isset($_SESSION['usuario'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="docs/css/estilos.css">
 
@@ -146,9 +146,10 @@ if (!isset($_SESSION['usuario'])) {
                                 </td>
 
                                 <td>
-                                    <a class="btn btn-warning" href="editar_usuario.php?id=<?php echo $fila['cedula'] ?> "><i
-                                            class="fa-solid fa-pen-to-square"></i>
-                                        Editar </a>
+                                    <a class="btn btn-warning me-1 mb-1"
+                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
+                                        <i class="fa-solid fa-pen-to-square"></i> Editar
+                                    </a><br>
 
                                     <a class="btn btn-danger" href="eliminar_usuario.php?id=<?php echo $fila['cedula'] ?>"
                                         onclick='return confirmar()'><i class="fa-solid fa-trash"></i>
@@ -221,9 +222,10 @@ if (!isset($_SESSION['usuario'])) {
                                 </td>
 
                                 <td>
-                                    <a class="btn btn-warning" href="editar_integrante.php?id=<?php echo $fila['cedula'] ?> "><i
-                                            class="fa-solid fa-pen-to-square"></i>
-                                        Editar </a> <br>
+                                    <a class="btn btn-warning me-1 mb-1"
+                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
+                                        <i class="fa-solid fa-pen-to-square"></i> Editar
+                                    </a><br>
 
                                     <a class="btn btn-danger" href="eliminar_integrante.php?id=<?php echo $fila['cedula'] ?>"
                                         onclick='return confirmar()'><i class="fa-solid fa-trash"></i>
@@ -283,9 +285,10 @@ if (!isset($_SESSION['usuario'])) {
                                 </td>
                                 <td>
 
-                                    <a class="btn btn-warning" href="editar_vacaciones.php?id=<?php echo $fila['id'] ?> "><i
-                                            class="fa-solid fa-pen-to-square"></i>
-                                        Editar </a>
+                                    <a class="btn btn-warning me-1 mb-1"
+                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
+                                        <i class="fa-solid fa-pen-to-square"></i> Editar
+                                    </a><br>
 
                                 </td>
                             </tr>
@@ -335,10 +338,11 @@ if (!isset($_SESSION['usuario'])) {
                                     <?php echo $fila['descripcion']; ?>
                                 </td>
                                 <td>
-
-                                    <a class="btn btn-warning" href="editar_rol.php?id=<?php echo $fila['id'] ?> "><i
-                                            class="fa-solid fa-pen-to-square"></i>
-                                        Editar </a>
+                                    
+                                    <a class="btn btn-warning me-1 mb-1"
+                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
+                                        <i class="fa-solid fa-pen-to-square"></i> Editar
+                                    </a><br>
 
                                 </td>
                             </tr>
