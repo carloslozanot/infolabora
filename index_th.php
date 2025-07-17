@@ -144,9 +144,9 @@ $result = mysqli_query($conexion, $sql);
                                             class="fa-solid fa-pen-to-square"></i>
                                         Editar </a> <br>
 
-                                    <a class="btn btn-danger" href="eliminar_integrante.php?id=<?php echo $fila['cedula'] ?>"
+                                    <a class="btn btn-primary" href="eliminar_integrante.php?id=<?php echo $fila['cedula'] ?>"
                                         onclick='return confirmar()'><i class="fa-solid fa-trash"></i>
-                                        Eliminar</a><br>
+                                        Deshabilitar</a><br>
 
                                 </td>
                             </tr>
