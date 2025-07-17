@@ -166,7 +166,7 @@ header {
     border-radius: 10px;
     margin: 0 auto;
     box-shadow: 0 0 10px rgba(24, 46, 89);
-    max-height: 700px;
+    max-height: 100%;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
@@ -190,7 +190,7 @@ header {
     border-radius: 10px;
     margin: 0 auto;
     box-shadow: 0 0 10px rgba(24, 46, 89);
-    max-height: 700px;
+    max-height: 100%;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
@@ -202,7 +202,7 @@ header {
     border-radius: 10px;
     margin: 0 auto;
     box-shadow: 0 0 10px rgba(24, 46, 89);
-    width: 550px;
+    width: 100%;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
