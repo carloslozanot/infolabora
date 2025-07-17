@@ -82,7 +82,7 @@
             <select name="rol" class="form-control">
                 <option value="">Seleccionar un rol</option>  
                 <option value="2">Integrante</option>
-                <option value="3">Recursos Humanos</option>
+                <option value="3">Talento Humano</option>
             </select> <br>
 
             <div class="botones-agregar-usuario">
