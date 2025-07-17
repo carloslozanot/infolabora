@@ -66,7 +66,7 @@ if (!isset($_SESSION['usuario'])) {
             </a>
             <a href="#">
                 <div class="option" data-pagina="integrantes">
-                    <i class="bi bi-person-raised-hand" title="Integrantes"></i>
+                    <i class="bi bi-people-fill" title="Integrantes"></i>
                     <h4>Integrantes</h4>
                 </div>
             </a>
