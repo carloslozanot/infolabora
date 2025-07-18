@@ -50,11 +50,11 @@
             $sql = "INSERT INTO integrantes (
                         id_empleado, cedula, nombres, apellidos, edad, celular, correo,
                         fecha_ingreso, cargo, area, jefe_inmediato,
-                        caja, eps, arl, pensiones, cesantias, imagen, direccion, ciudad_residencia
+                        caja, eps, arl, pensiones, cesantias, imagen, direccion, ciudad_residencia, tipo_contrato
                     ) VALUES (
                         $nuevo_id, '$cedula', '$nombres', '$apellidos', '$edad', '$celular', '$correo',
                         '$fecha_ingreso', '$cargo', '$area', '$jefe_inmediato',
-                        '$caja', '$eps', '$arl', '$pensiones', '$cesantias', '$imagen', '$direccion', '$ciudad_residencia'
+                        '$caja', '$eps', '$arl', '$pensiones', '$cesantias', '$imagen', '$direccion', '$ciudad_residencia', '$tipo_contrato'
                     )";
 
             $resultado = mysqli_query($conexion, $sql);
@@ -113,6 +113,9 @@
 
             <h3>Área</h3>
             <input type="text" name="area" class="form-control"><br>
+
+            <h3>Tipo Contrato</h3>
+            <input type="text" name="tipo_contrato" class="form-control"><br>
 
             <h3>Lider Inmediato</h3>
             <input type="text" name="jefe_inmediato" class="form-control"><br>

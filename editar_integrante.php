@@ -53,7 +53,8 @@ include("php/conexion.php");
                     SET cedula = '" . $cedula . "', nombres = '" . $nombres . "', apellidos = '" . $apellidos . "', edad = '" . $edad . "',
                     celular = '" . $celular . "', correo = '" . $correo . "', fecha_ingreso = '" . $fecha_ingreso . "', cargo = '" . $cargo . "',
                     area = '" . $area . "', jefe_inmediato = '" . $jefe_inmediato . "', caja = '" . $caja . "', eps = '" . $eps . "', arl = '" . $arl . "',
-                    pensiones = '" . $pensiones . "', cesantias = '" . $cesantias . "', imagen = '" . $imagen . "', direccion = '" . $direccion . "', ciudad_residencia = '" . $ciudad_residencia . "'
+                    pensiones = '" . $pensiones . "', cesantias = '" . $cesantias . "', imagen = '" . $imagen . "', direccion = '" . $direccion . "', 
+                    ciudad_residencia = '" . $ciudad_residencia . "', tipo_contrato = '" . $tipo_contrato . "'
                     WHERE cedula='" . $cedula . "'";
             $resultado = mysqli_query($conexion, $sql);
 
@@ -126,12 +127,13 @@ include("php/conexion.php");
 
             <h3>Fecha Ingreso</h3>
             <input type="date" name="fecha_ingreso" class="form-control" value="<?php echo $fecha_ingreso ?>"><br>
-            
+
             <h3>Dirección</h3>
             <input type="text" name="direccion" class="form-control" value="<?php echo $direccion ?>"><br>
 
             <h3>Ciudad Residencia</h3>
-            <input type="text" name="ciudad_residencia" class="form-control" value="<?php echo $ciudad_residencia ?>"><br>
+            <input type="text" name="ciudad_residencia" class="form-control"
+                value="<?php echo $ciudad_residencia ?>"><br>
 
             <h3>Cargo</h3>
             <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>"><br>
