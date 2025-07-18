@@ -34,15 +34,6 @@ if (!isset($_SESSION['usuario'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="docs/css/estilos.css">
 
-    <style>
-        /* Centrar el contenido de las celdas de la tabla */
-        #table_id th,
-        #table_id td {
-            text-align: center;
-            vertical-align: middle;
-        }
-    </style>
-
     <script>
     $(document).ready(function () {
         $('#tabla_usuarios').DataTable({

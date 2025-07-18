@@ -389,12 +389,19 @@ header {
 }
 */
 
-#table_id th,
-#table_id td {
+#tabla_th th,
+#tabla_th td,
+#tabla_usuarios th,
+#tabla_usuarios td,
+#tabla_integrantes th,
+#tabla_integrantes td,
+#tabla_vacaciones th,
+#tabla_vacaciones td,
+#tabla_permisos th,
+#tabla_permisos td
+{
     padding: 10px;
-    /* Espacio interno en celdas */
     text-align: center;
-    /* Alineación del texto en celdas */
 }
 
 #editar-rol {

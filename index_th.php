@@ -32,8 +32,6 @@ $result = mysqli_query($conexion, $sql);
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Scripts JS -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 </head>
@@ -68,7 +66,7 @@ $result = mysqli_query($conexion, $sql);
 
         <div id="contenido-integrantes" class="contenido" style="display: none;">
             <h2>Lista de Integrantes</h2><br>
-            <table class="table table-striped table-bordered table-hover" id="table_id">
+            <table class="table table-striped table-bordered table-hover" id="tabla_th">
                 <thead>
                     <tr>
                         <th>Cédula</th>
@@ -133,7 +131,7 @@ $result = mysqli_query($conexion, $sql);
 
     <script>
         $(document).ready(function () {
-            $('#table_id').DataTable({
+            $('#table_th').DataTable({
                 language: {
                     search: "Buscar:",
                     lengthMenu: "Mostrar _MENU_ registros",
