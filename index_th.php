@@ -19,6 +19,7 @@ $result = mysqli_query($conexion, $sql);
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,17 +50,36 @@ $result = mysqli_query($conexion, $sql);
             <h4>Talento Humano</h4>
         </div>
         <div class="options_menu">
-            <a href="#"><div class="option" data-pagina="inicio"><i class="bi bi-house-door"></i><h4>Inicio</h4></div></a>
-            <a href="#"><div class="option" data-pagina="integrantes"><i class="bi bi-people-fill"></i><h4>Integrantes</h4></div></a>
-            <a href="#"><div class="option" data-pagina="bitacora"><i class="bi bi-download"></i><h4>Bitacora</h4></div></a>
-            <a href="#"><div class="option" data-pagina="cerrar-sesion"><i class="bi bi-box-arrow-right"></i><h4>Cerrar Sesión</h4></div></a>
+            <a href="#">
+                <div class="option" data-pagina="inicio"><i class="bi bi-house-door"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+            <a href="#">
+                <div class="option" data-pagina="integrantes"><i class="bi bi-people-fill"></i>
+                    <h4>Integrantes</h4>
+                </div>
+            </a>
+            <a href="#">
+                <div class="option" data-pagina="bitacora"><i class="bi bi-download"></i>
+                    <h4>Bitacora</h4>
+                </div>
+            </a>
+            <a href="#">
+                <div class="option" data-pagina="cerrar-sesion"><i class="bi bi-box-arrow-right"></i>
+                    <h4>Cerrar Sesión</h4>
+                </div>
+            </a>
         </div>
     </div>
 
     <main>
         <div id="contenido-inicio" class="contenido" style="display: block;">
-            <p style="font-size: 32px; font-weight:1000;">¡Bienvenido, <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br></p>
-            <p style="font-size: 20px; font-weight:800;">Este es el portal de Talento Humano en el cual podrá realizar las siguientes acciones:<br><br></p>
+            <p style="font-size: 32px; font-weight:1000;">¡Bienvenido,
+                <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br>
+            </p>
+            <p style="font-size: 20px; font-weight:800;">Este es el portal de Talento Humano en el cual podrá realizar
+                las siguientes acciones:<br><br></p>
             <p style="font-size: 16px;">🔍 Consultar los datos de los integrantes de la compañia</p>
             <p style="font-size: 16px;">📋 Consultar bitacora</p>
         </div>
@@ -69,6 +89,7 @@ $result = mysqli_query($conexion, $sql);
             <table class="table table-striped table-bordered table-hover" id="tabla_th">
                 <thead>
                     <tr>
+                        <th>Estado</th>
                         <th>Cédula</th>
                         <th>Nombre Completo</th>
                         <th>Correo</th>
@@ -86,6 +107,7 @@ $result = mysqli_query($conexion, $sql);
                         while ($fila = mysqli_fetch_array($dato)) {
                             ?>
                             <tr>
+                                <td><?php echo $fila['estado']; ?></td>
                                 <td><?php echo $fila['cedula']; ?></td>
                                 <td><?php echo $fila['nombres'] . ' ' . $fila['apellidos']; ?></td>
                                 <td><?php echo $fila['correo']; ?></td>
@@ -93,10 +115,13 @@ $result = mysqli_query($conexion, $sql);
                                 <td><?php echo $fila['cargo']; ?></td>
                                 <td><?php echo $fila['fecha_ingreso']; ?></td>
                                 <td>
-                                    <a class="btn btn-warning me-1 mb-1" href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
+                                    <a class="btn btn-warning me-1 mb-1"
+                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
-                                    <a class="btn btn-primary mt-1" href="deshabilitar_integrante.php?id=<?php echo $fila['cedula'] ?>" onclick='return confirmar()'>
+                                    <a class="btn btn-primary mt-1"
+                                        href="deshabilitar_integrante.php?id=<?php echo $fila['cedula'] ?>"
+                                        onclick='return confirmar()'>
                                         <i class="fa-solid fa-ban"></i> Deshabilitar
                                     </a>
                                 </td>
@@ -109,23 +134,29 @@ $result = mysqli_query($conexion, $sql);
             </table>
             <br>
             <div>
-                <a class="btn btn-success" href="agregar_integrante.php"><i class="fa-solid fa-plus"></i> Agregar Integrante</a>
+                <a class="btn btn-success" href="agregar_integrante.php"><i class="fa-solid fa-plus"></i> Agregar
+                    Integrante</a>
             </div>
         </div>
 
         <div id="contenido-descargas" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
-            <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar desprendibles de pago bajo el mes que necesite y certificados laborales para quien interese</p>
+            <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar desprendibles
+                de pago bajo el mes que necesite y certificados laborales para quien interese</p>
             <div>
-                <a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>
-                <a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
+                <a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
+                        class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>
+                <a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i
+                        class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
             </div>
         </div>
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <br>
-            <label style="display: block; text-align: center;font-weight: bold; font-size: 40px">¿Está seguro de cerrar sesión?</label><br>
-            <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> CERRAR SESIÓN</a>
+            <label style="display: block; text-align: center;font-weight: bold; font-size: 40px">¿Está seguro de cerrar
+                sesión?</label><br>
+            <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
+                SESIÓN</a>
         </div>
     </main>
 
@@ -153,4 +184,5 @@ $result = mysqli_query($conexion, $sql);
     <!-- Otros scripts de tu sistema -->
     <script src="docs/js/script.js"></script>
 </body>
+
 </html>
