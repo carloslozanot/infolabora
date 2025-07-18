@@ -205,17 +205,42 @@ $result = mysqli_query($conexion, $sql);
                     </div>
                 </div>
 
-                <div class="col-md-5 mb-4">
+                <div class="col-md-10 mb-4">
                     <div class="card card-hover shadow-lg border-0 text-center">
-                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                            <div class="mb-2">
-                                <i class="bi bi-file-earmark-check-fill icono-card"></i>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="bi bi-people-fill icono-card"></i>
                             </div>
-                            <h5 class="card-title mb-1">Certificados laborales generados</h5>
-                            <h3 class="mb-0 cantidad-card"><?php echo $total_certificados; ?></h3>
+                            <h5 class="card-title mb-3">Top 5 Ingresos al Sistema</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre Completo</th>
+                                            <th>Total Ingresos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $contador = 1;
+                                        mysqli_data_seek($resultado_integrantes, 0); // Asegura que se reinicie el puntero del resultado
+                                        while ($fila = mysqli_fetch_assoc($resultado_integrantes)) {
+                                            echo "<tr>";
+                                            echo "<td>{$contador}</td>";
+                                            echo "<td>{$fila['nombre_completo']}</td>";
+                                            echo "<td>{$fila['total_ingreso']}</td>";
+                                            echo "</tr>";
+                                            $contador++;
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
