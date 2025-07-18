@@ -49,6 +49,7 @@ include("php/conexion.php");
             $direccion = $_POST['direccion'];
             $ciudad_residencia = $_POST['ciudad_residencia'];
             $tipo_contrato = $_POST['tipo_contrato'];
+            $estado = $_POST['estado'];
 
             $sql = "UPDATE integrantes 
                     SET cedula = '" . $cedula . "', nombres = '" . $nombres . "', apellidos = '" . $apellidos . "', edad = '" . $edad . "',
@@ -98,6 +99,7 @@ include("php/conexion.php");
             $direccion = $fila['direccion'];
             $ciudad_residencia = $fila['ciudad_residencia'];
             $tipo_contrato = $fila['tipo_contrato'];
+            $estado = $fila['estado'];
 
             mysqli_close($conexion);
 
@@ -108,6 +110,9 @@ include("php/conexion.php");
             <h1>Editar Integrante</h1>
         </div>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+
+            <h3>Estado</h3>
+            <input type="text" name="estado" class="form-control" value="<?php echo $estado ?>"><br>
 
             <h3>Cedula</h3>
             <input type="text" name="cedula" class="form-control" value="<?php echo $cedula ?>"><br>
@@ -134,7 +139,8 @@ include("php/conexion.php");
             <input type="text" name="direccion" class="form-control" value="<?php echo $direccion ?>"><br>
 
             <h3>Ciudad Residencia</h3>
-            <input type="text" name="ciudad_residencia" class="form-control" value="<?php echo $ciudad_residencia ?>"><br>
+            <input type="text" name="ciudad_residencia" class="form-control"
+                value="<?php echo $ciudad_residencia ?>"><br>
 
             <h3>Cargo</h3>
             <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>"><br>

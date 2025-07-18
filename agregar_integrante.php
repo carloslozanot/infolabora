@@ -49,15 +49,17 @@
             $direccion = $_POST['direccion'];
             $ciudad_residencia = $_POST['ciudad_residencia'];
             $tipo_contrato = $_POST['tipo_contrato'];
+            $estado = $_POST['estado'];
 
             $sql = "INSERT INTO integrantes (
                         id_empleado, cedula, nombres, apellidos, edad, celular, correo,
                         fecha_ingreso, cargo, area, lider_inmediato,
-                        caja, eps, arl, pensiones, cesantias, imagen, direccion, ciudad_residencia, tipo_contrato
+                        caja, eps, arl, pensiones, cesantias, imagen, direccion, ciudad_residencia, tipo_contrato, estado
                     ) VALUES (
                         $nuevo_id, '$cedula', '$nombres', '$apellidos', '$edad', '$celular', '$correo',
-                        '$fecha_ingreso', '$cargo', '$area', '$lider_inmediato',
-                        '$caja', '$eps', '$arl', '$pensiones', '$cesantias', '$imagen', '$direccion', '$ciudad_residencia', '$tipo_contrato'
+                        '$fecha_ingreso', '$cargo', '$area', '$lider_inmediato', '$caja', '$eps', '$arl', 
+                        '$pensiones', '$cesantias', '$imagen', '$direccion', '$ciudad_residencia', '$tipo_contrato',
+                        '$estado'
                     )";
 
             $resultado = mysqli_query($conexion, $sql);
@@ -84,6 +86,10 @@
         </div>
 
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+
+            <h3>Estado</h3>
+            <input type="text" name="estado" class="form-control"><br>
+
             <h3>Cedula*</h3>
             <input type="text" name="cedula" class="form-control"><br>
 
@@ -104,7 +110,7 @@
 
             <h3>Fecha Ingreso</h3>
             <input type="date" name="fecha_ingreso" class="form-control"><br>
-            
+
             <h3>Direccion</h3>
             <input type="text" name="direccion" class="form-control"><br>
 
