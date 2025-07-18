@@ -4,7 +4,7 @@ $cedula = $_GET['id'];
 include("php/conexion.php");
 
 
-$sql = "update integrantes set estado = 'Inactivo' where cedula='" . $cedula . "'";
+$sql = "update integrantes set estado = 'Inactivo', fecha_retiro = NOW() where cedula='" . $cedula . "'";
 $resultado = mysqli_query($conexion, $sql);
 
 if ($resultado) {
