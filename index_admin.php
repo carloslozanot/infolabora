@@ -35,32 +35,32 @@ if (!isset($_SESSION['usuario'])) {
     <link rel="stylesheet" href="docs/css/estilos.css">
 
     <script>
-    $(document).ready(function () {
-        $('#tabla_usuarios').DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
-            }
-        });
+        $(document).ready(function () {
+            $('#tabla_usuarios').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
+                }
+            });
 
-        $('#tabla_integrantes').DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
-            }
-        });
+            $('#tabla_integrantes').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
+                }
+            });
 
-        $('#tabla_vacaciones').DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
-            }
-        });
+            $('#tabla_vacaciones').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
+                }
+            });
 
-        $('#tabla_permisos').DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
-            }
+            $('#tabla_permisos').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 </head>
 
@@ -204,6 +204,7 @@ if (!isset($_SESSION['usuario'])) {
             <table class="table table-striped table-bordered table-hover" id="tabla_integrantes">
                 <thead>
                     <tr>
+                        <th>Estado</th>
                         <th>Cedula</th>
                         <th>Correo</th>
                         <th>Celular</th>
@@ -226,6 +227,9 @@ if (!isset($_SESSION['usuario'])) {
                         while ($fila = mysqli_fetch_array($dato_integrantes)) {
                             ?>
                             <tr>
+                                <td>
+                                    <?php echo $fila['estado']; ?>
+                                </td>
                                 <td>
                                     <?php echo $fila['cedula']; ?>
                                 </td>
@@ -368,8 +372,7 @@ if (!isset($_SESSION['usuario'])) {
                                 </td>
                                 <td>
 
-                                    <a class="btn btn-warning me-1 mb-1"
-                                        href="editar_permiso.php?id=<?php echo $fila['id'] ?>">
+                                    <a class="btn btn-warning me-1 mb-1" href="editar_permiso.php?id=<?php echo $fila['id'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
 
@@ -413,4 +416,3 @@ if (!isset($_SESSION['usuario'])) {
 </body>
 
 </html>
-
