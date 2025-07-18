@@ -975,7 +975,7 @@ a.selected {
 }
 
 .card-hover:hover {
-    background-color: #2e1f6f; /* Color más claro en hover */
+    background-color: #fff; /* Color más claro en hover */
     transform: scale(1.02);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
@@ -983,7 +983,7 @@ a.selected {
 .card-hover h5,
 .card-hover h2,
 .card-hover i {
-    color: #ffffff !important;
+    color: #150940 !important;
 }
 
 @media (max-width: 768px) {
