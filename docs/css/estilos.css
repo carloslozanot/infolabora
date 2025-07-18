@@ -1013,10 +1013,17 @@ a.selected {
     border-color: #ffffff33;
 }
 
-.table-hover tbody tr:hover td {
-    background-color: #ffff !important;
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+    background-color: white !important;
     color: #150940 !important;
 }
+
+.table tbody td {
+    background-color: white !important;
+    color: #150940 !important;
+}
+
 
 @media (max-width: 768px) {
     .body_index_login {
