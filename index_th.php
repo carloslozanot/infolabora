@@ -154,7 +154,19 @@ $result = mysqli_query($conexion, $sql);
         </div>
 
         <div id="contenido-bitacora" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
+            <h2 style="text-align: center;font-size: 40px; font-weight: 800;">BITÁCORA</h2><br>
+
+            <?php
+            include("php/conexion.php");
+            $sql = "SELECT COUNT(*) AS total_ingresos FROM bitacora WHERE tipo = 'Ingreso al Sistema'";
+            $resultado = mysqli_query($conexion, $sql);
+            $fila = mysqli_fetch_assoc($resultado);
+            $total_ingresos = $fila['total_ingresos'];
+            ?>
+
+            <div class="alert alert-primary text-center" role="alert" style="font-size: 24px; font-weight: 600;">
+                Ingresos al sistema: <?php echo $total_ingresos; ?>
+            </div>
         </div>
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
