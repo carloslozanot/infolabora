@@ -975,7 +975,7 @@ a.selected {
 }
 
 .card-hover h5,
-.card-hover h2,
+.card-hover h3,
 .card-hover i {
     color: #ffffff;
     transition: color 0.3s;
@@ -988,7 +988,7 @@ a.selected {
 }
 
 .card-hover:hover h5,
-.card-hover:hover h2,
+.card-hover:hover h3,
 .card-hover:hover i {
     color: #150940;
 }
