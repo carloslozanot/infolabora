@@ -168,11 +168,34 @@ $result = mysqli_query($conexion, $sql);
             $total_certificados = $fila_certificados['total_certificados'];
             ?>
 
-            <div class="alert alert-primary text-center" role="alert" style="font-size: 24px; font-weight: 600;">
-                Ingresos al sistema: <?php echo $total_ingresos; ?>
-            </div>
-            <div class="alert alert-primary text-center" role="alert" style="font-size: 24px; font-weight: 600;">
-                Total de certificados laborales generados: <?php echo $total_certificados; ?>
+            <div class="row justify-content-center">
+                <div class="col-md-5 mb-4">
+                    <div class="card shadow-lg border-0" style="border-left: 5px solid #007bff;">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="me-3">
+                                <i class="bi bi-person-check-fill text-primary" style="font-size: 40px;"></i>
+                            </div>
+                            <div>
+                                <h5 class="card-title mb-1">Ingresos al sistema</h5>
+                                <h3 class="mb-0 text-primary"><?php echo $total_ingresos; ?></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5 mb-4">
+                    <div class="card shadow-lg border-0" style="border-left: 5px solid #28a745;">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="me-3">
+                                <i class="bi bi-file-earmark-check-fill text-success" style="font-size: 40px;"></i>
+                            </div>
+                            <div>
+                                <h5 class="card-title mb-1">Certificados laborales generados</h5>
+                                <h3 class="mb-0 text-success"><?php echo $total_certificados; ?></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
