@@ -125,11 +125,19 @@ $result = mysqli_query($conexion, $sql);
                                         href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
-                                    <a class="btn btn-primary mt-1"
-                                        href="deshabilitar_integrante.php?id=<?php echo $fila['cedula'] ?>"
-                                        onclick='return confirmar()'>
-                                        <i class="fa-solid fa-ban"></i> Deshabilitar
-                                    </a>
+                                    <?php if ($fila['estado'] === 'Activo') { ?>
+                                        <a class="btn btn-danger mt-1"
+                                            href="desactivar_integrante.php?id=<?php echo $fila['cedula'] ?>"
+                                            onclick='return confirmar()'>
+                                            <i class="fa-solid fa-ban"></i> Desactivar
+                                        </a>
+                                    <?php } else { ?>
+                                        <a class="btn btn-primary mt-1"
+                                            href="habilitar_integrante.php?id=<?php echo $fila['cedula'] ?>"
+                                            onclick='return confirmar()'>
+                                            <i class="fa-solid fa-check-circle"></i> Activar
+                                        </a>
+                                    <?php } ?>
                                 </td>
                             </tr>
                             <?php
