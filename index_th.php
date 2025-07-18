@@ -85,88 +85,63 @@ $result = mysqli_query($conexion, $sql);
         </div>
 
         <div id="contenido-integrantes" class="contenido" style="display: none;">
-            <h2>Lista de Integrantes</h2>
-            <br>
+            <h2>Lista de Integrantes</h2><br>
             <table class="table table-striped table-bordered table-hover" id="tabla_integrantes">
                 <thead>
                     <tr>
                         <th>Estado</th>
-                        <th>Cedula</th>
+                        <th>Cédula</th>
+                        <th>Nombre Completo</th>
                         <th>Correo</th>
                         <th>Celular</th>
-                        <th>Edad</th>
-                        <th>Fecha Ingreso</th>
                         <th>Cargo</th>
-                        <th>Área</th>
+                        <th>Fecha Ingreso</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php
-
-                    include("php/conexion.php");
-                    $SQL = "SELECT * FROM integrantes e";
-                    $dato_integrantes = mysqli_query($conexion, $SQL);
-
-                    if ($dato_integrantes->num_rows > 0) {
-                        while ($fila = mysqli_fetch_array($dato_integrantes)) {
+                    $SQL = "SELECT * FROM integrantes";
+                    $dato = mysqli_query($conexion, $SQL);
+                    if ($dato->num_rows > 0) {
+                        while ($fila = mysqli_fetch_array($dato)) {
                             ?>
                             <tr>
                                 <td>
                                     <?php if ($fila['estado'] === 'Activo') { ?>
-                                        <span class="btn btn-success btn-sm disabled">Activo</span>
+                                        <span class="btn btn-success btn-sm disabled"></span>
                                     <?php } else { ?>
-                                        <span class="btn btn-danger btn-sm disabled">Inactivo</span>
+                                        <span class="btn btn-danger btn-sm disabled"></span>
                                     <?php } ?>
                                 </td>
-                                <td>
-                                    <?php echo $fila['cedula']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['correo']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['celular']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['edad']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['fecha_ingreso']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['cargo']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $fila['area']; ?>
-                                </td>
-
+                                <td><?php echo $fila['cedula']; ?></td>
+                                <td><?php echo $fila['nombres'] . ' ' . $fila['apellidos']; ?></td>
+                                <td><?php echo $fila['correo']; ?></td>
+                                <td><?php echo $fila['celular']; ?></td>
+                                <td><?php echo $fila['cargo']; ?></td>
+                                <td><?php echo $fila['fecha_ingreso']; ?></td>
                                 <td>
                                     <a class="btn btn-warning me-1 mb-1"
                                         href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
-
-                                    <a class="btn btn-danger" href="eliminar_integrante.php?id=<?php echo $fila['cedula'] ?>"
-                                        onclick='return confirmar()'><i class="fa-solid fa-trash"></i>
-                                        Eliminar</a><br>
-
+                                    <a class="btn btn-primary mt-1"
+                                        href="deshabilitar_integrante.php?id=<?php echo $fila['cedula'] ?>"
+                                        onclick='return confirmar()'>
+                                        <i class="fa-solid fa-ban"></i> Deshabilitar
+                                    </a>
                                 </td>
                             </tr>
                             <?php
                         }
                     }
                     ?>
-
-
                 </tbody>
             </table>
             <br>
             <div>
                 <a class="btn btn-success" href="agregar_integrante.php"><i class="fa-solid fa-plus"></i> Agregar
-                    Integrante
-                </a>
+                    Integrante</a>
             </div>
         </div>
 
