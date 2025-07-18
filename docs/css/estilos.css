@@ -1004,7 +1004,7 @@ a.selected {
 }
 
 .table tbody td {
-    background-color: transparent !important;
+    background-color: #150940 !important;
     color: white !important;
 }
 
@@ -1018,12 +1018,6 @@ a.selected {
     background-color: white !important;
     color: #150940 !important;
 }
-
-.table tbody td {
-    background-color: white !important;
-    color: #150940 !important;
-}
-
 
 @media (max-width: 768px) {
     .body_index_login {
