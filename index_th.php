@@ -61,7 +61,7 @@ $result = mysqli_query($conexion, $sql);
                 </div>
             </a>
             <a href="#">
-                <div class="option" data-pagina="bitacora"><i class="bi bi-download"></i>
+                <div class="option" data-pagina="bitacora"><i class="bi bi-journal-text"></i>
                     <h4>Bitacora</h4>
                 </div>
             </a>
@@ -155,14 +155,6 @@ $result = mysqli_query($conexion, $sql);
 
         <div id="contenido-bitacora" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
-            <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar desprendibles
-                de pago bajo el mes que necesite y certificados laborales para quien interese</p>
-            <div>
-                <a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
-                        class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>
-                <a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i
-                        class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
-            </div>
         </div>
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
