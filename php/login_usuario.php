@@ -19,11 +19,10 @@ $stmt = $conexion->prepare("SELECT
     integrantes.nombres, integrantes.apellidos, integrantes.imagen,
     integrantes.edad, integrantes.eps, integrantes.arl, integrantes.correo, integrantes.fecha_ingreso,
     integrantes.cargo, integrantes.area, integrantes.jefe_inmediato, integrantes.caja, integrantes.pensiones,
-    integrantes.cesantias, integrantes.celular, integrantes.direccion, integrantes.ciudad_residencia, info_integrantes.tipo_contrato,
+    integrantes.cesantias, integrantes.celular, integrantes.direccion, integrantes.ciudad_residencia, integrantes.tipo_contrato,
     vacaciones.dias_total, vacaciones.dias_disfrutados
 FROM usuarios 
 INNER JOIN integrantes ON usuarios.cedula = integrantes.cedula
-LEFT OUTER JOIN info_integrantes ON usuarios.cedula = info_integrantes.cedula
 LEFT OUTER JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
 WHERE usuarios.cedula = ?");
 
