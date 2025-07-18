@@ -136,8 +136,11 @@ include("php/conexion.php");
             <h3>Cargo</h3>
             <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>"><br>
 
-            <h3>Area</h3>
+            <h3>Área</h3>
             <input type="text" name="area" class="form-control" value="<?php echo $area ?>"><br>
+
+            <h3>Tipo Contrato</h3>
+            <input type="text" name="tipo_contrato" class="form-control" value="<?php echo $tipo_contrato ?>"><br>
 
             <h3>Lider Inmediato</h3>
             <input type="text" name="jefe_inmediato" class="form-control" value="<?php echo $jefe_inmediato ?>"><br>
