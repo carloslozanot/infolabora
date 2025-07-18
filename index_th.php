@@ -169,32 +169,26 @@ $result = mysqli_query($conexion, $sql);
             ?>
 
             <div class="row justify-content-center">
-                <!-- Tarjeta Ingresos -->
                 <div class="col-md-5 mb-4">
-                    <div class="card card-hover shadow border-0">
-                        <div class="card-body d-flex align-items-center p-4">
-                            <div class="me-4">
-                                <i class="bi bi-person-check-fill" style="font-size: 45px;"></i>
+                    <div class="card card-hover shadow-lg border-0 text-center">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-2">
+                                <i class="bi bi-person-check-fill icono-card"></i>
                             </div>
-                            <div>
-                                <h5 class="card-title mb-1 fw-bold">Ingresos al sistema</h5>
-                                <h2 class="mb-0"><?php echo $total_ingresos; ?></h2>
-                            </div>
+                            <h5 class="card-title mb-1">Ingresos al sistema</h5>
+                            <h3 class="mb-0 cantidad-card"><?php echo $total_ingresos; ?></h3>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tarjeta Certificados -->
                 <div class="col-md-5 mb-4">
-                    <div class="card card-hover shadow border-0">
-                        <div class="card-body d-flex align-items-center p-4">
-                            <div class="me-4">
-                                <i class="bi bi-file-earmark-check-fill" style="font-size: 45px;"></i>
+                    <div class="card card-hover shadow-lg border-0 text-center">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-2">
+                                <i class="bi bi-file-earmark-check-fill icono-card"></i>
                             </div>
-                            <div>
-                                <h5 class="card-title mb-1 fw-bold">Certificados generados</h5>
-                                <h2 class="mb-0"><?php echo $total_certificados; ?></h2>
-                            </div>
+                            <h5 class="card-title mb-1">Certificados laborales generados</h5>
+                            <h3 class="mb-0 cantidad-card"><?php echo $total_certificados; ?></h3>
                         </div>
                     </div>
                 </div>
