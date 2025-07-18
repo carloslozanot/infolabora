@@ -193,7 +193,7 @@ $result = mysqli_query($conexion, $sql);
 
     <script>
         $(document).ready(function () {
-            $('#table_th').DataTable({
+            $('#tabla_integrantes').DataTable({
                 language: {
                     search: "Buscar:",
                     lengthMenu: "Mostrar _MENU_ registros",
