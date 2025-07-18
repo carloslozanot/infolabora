@@ -1010,7 +1010,7 @@ a.selected {
 
 .table-bordered td, 
 .table-bordered th {
-    border-color: #white;
+    border-color: white;
 }
 
 .table-hover tbody tr:hover td,
