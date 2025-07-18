@@ -39,7 +39,7 @@ include("php/conexion.php");
             $fecha_ingreso = $_POST['fecha_ingreso'];
             $cargo = $_POST['cargo'];
             $area = $_POST['area'];
-            $jefe_inmediato = $_POST['jefe_inmediato'];
+            $lider_inmediato = $_POST['lider_inmediato'];
             $caja = $_POST['caja'];
             $eps = $_POST['eps'];
             $arl = $_POST['arl'];
@@ -53,7 +53,7 @@ include("php/conexion.php");
             $sql = "UPDATE integrantes 
                     SET cedula = '" . $cedula . "', nombres = '" . $nombres . "', apellidos = '" . $apellidos . "', edad = '" . $edad . "',
                     celular = '" . $celular . "', correo = '" . $correo . "', fecha_ingreso = '" . $fecha_ingreso . "', cargo = '" . $cargo . "',
-                    area = '" . $area . "', jefe_inmediato = '" . $jefe_inmediato . "', caja = '" . $caja . "', eps = '" . $eps . "', arl = '" . $arl . "',
+                    area = '" . $area . "', lider_inmediato = '" . $lider_inmediato . "', caja = '" . $caja . "', eps = '" . $eps . "', arl = '" . $arl . "',
                     pensiones = '" . $pensiones . "', cesantias = '" . $cesantias . "', imagen = '" . $imagen . "', direccion = '" . $direccion . "', 
                     ciudad_residencia = '" . $ciudad_residencia . "', tipo_contrato = '" . $tipo_contrato . "'
                     WHERE cedula='" . $cedula . "'";
@@ -88,7 +88,7 @@ include("php/conexion.php");
             $fecha_ingreso = $fila['fecha_ingreso'];
             $cargo = $fila['cargo'];
             $area = $fila['area'];
-            $jefe_inmediato = $fila['jefe_inmediato'];
+            $lider_inmediato = $fila['lider_inmediato'];
             $caja = $fila['caja'];
             $eps = $fila['eps'];
             $arl = $fila['arl'];
@@ -146,7 +146,7 @@ include("php/conexion.php");
             <input type="text" name="tipo_contrato" class="form-control" value="<?php echo $tipo_contrato ?>"><br>
 
             <h3>Lider Inmediato</h3>
-            <input type="text" name="jefe_inmediato" class="form-control" value="<?php echo $jefe_inmediato ?>"><br>
+            <input type="text" name="lider_inmediato" class="form-control" value="<?php echo $lider_inmediato ?>"><br>
 
             <h3>Caja</h3>
             <input type="text" name="caja" class="form-control" value="<?php echo $caja ?>"><br>

@@ -184,7 +184,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <i class="bi bi-person-workspace"></i>
                             </div>
                             <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['jefe_inmediato'] ?? ''; ?></span>
+                                <span class="valor-dato"><?php echo $_SESSION['lider_inmediato'] ?? ''; ?></span>
                                 <p class="etiqueta-dato">LÍDER INMEDIATO</p>
                             </div>
                         </div>

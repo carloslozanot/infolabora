@@ -18,7 +18,7 @@ $stmt = $conexion->prepare("SELECT
     usuarios.cedula, usuarios.contrasena, usuarios.id_permiso as permiso, 
     integrantes.nombres, integrantes.apellidos, integrantes.imagen,
     integrantes.edad, integrantes.eps, integrantes.arl, integrantes.correo, integrantes.fecha_ingreso,
-    integrantes.cargo, integrantes.area, integrantes.jefe_inmediato, integrantes.caja, integrantes.pensiones,
+    integrantes.cargo, integrantes.area, integrantes.lider_inmediato, integrantes.caja, integrantes.pensiones,
     integrantes.cesantias, integrantes.celular, integrantes.direccion, integrantes.ciudad_residencia, integrantes.tipo_contrato,
     vacaciones.dias_total, vacaciones.dias_disfrutados
 FROM usuarios 
@@ -50,7 +50,7 @@ if ($result->num_rows > 0) {
         $_SESSION['fecha_ingreso'] = $row['fecha_ingreso'];
         $_SESSION['cargo'] = $row['cargo'];
         $_SESSION['area'] = $row['area'];
-        $_SESSION['jefe_inmediato'] = $row['jefe_inmediato'];
+        $_SESSION['lider_inmediato'] = $row['lider_inmediato'];
         $_SESSION['caja'] = $row['caja'];
         $_SESSION['eps'] = $row['eps'];
         $_SESSION['arl'] = $row['arl'];

@@ -39,7 +39,7 @@
             $fecha_ingreso = $_POST['fecha_ingreso'];
             $cargo = $_POST['cargo'];
             $area = $_POST['area'];
-            $jefe_inmediato = $_POST['jefe_inmediato'];
+            $lider_inmediato = $_POST['lider_inmediato'];
             $caja = $_POST['caja'];
             $eps = $_POST['eps'];
             $arl = $_POST['arl'];
@@ -52,11 +52,11 @@
 
             $sql = "INSERT INTO integrantes (
                         id_empleado, cedula, nombres, apellidos, edad, celular, correo,
-                        fecha_ingreso, cargo, area, jefe_inmediato,
+                        fecha_ingreso, cargo, area, lider_inmediato,
                         caja, eps, arl, pensiones, cesantias, imagen, direccion, ciudad_residencia, tipo_contrato
                     ) VALUES (
                         $nuevo_id, '$cedula', '$nombres', '$apellidos', '$edad', '$celular', '$correo',
-                        '$fecha_ingreso', '$cargo', '$area', '$jefe_inmediato',
+                        '$fecha_ingreso', '$cargo', '$area', '$lider_inmediato',
                         '$caja', '$eps', '$arl', '$pensiones', '$cesantias', '$imagen', '$direccion', '$ciudad_residencia', '$tipo_contrato'
                     )";
 
@@ -121,7 +121,7 @@
             <input type="text" name="tipo_contrato" class="form-control"><br>
 
             <h3>Lider Inmediato</h3>
-            <input type="text" name="jefe_inmediato" class="form-control"><br>
+            <input type="text" name="lider_inmediato" class="form-control"><br>
 
             <h3>Caja</h3>
             <input type="text" name="caja" class="form-control"><br>
