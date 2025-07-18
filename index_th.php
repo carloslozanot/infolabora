@@ -133,7 +133,7 @@ $result = mysqli_query($conexion, $sql);
                                         </a>
                                     <?php } else { ?>
                                         <a class="btn btn-primary mt-1"
-                                            href="habilitar_integrante.php?id=<?php echo $fila['cedula'] ?>"
+                                            href="activar_integrante.php?id=<?php echo $fila['cedula'] ?>"
                                             onclick='return confirmar()'>
                                             <i class="fa-solid fa-check-circle"></i> Activar
                                         </a>
