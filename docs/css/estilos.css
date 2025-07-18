@@ -1010,9 +1010,13 @@ a.selected {
 
 .table-bordered td, 
 .table-bordered th {
-    border-color: #ffffff33; /* blanco con opacidad */
+    border-color: #ffffff33;
 }
 
+.table-hover tbody tr:hover td {
+    background-color: rgba(255, 255, 255, 0.1) !important; 
+    color: white !important;
+}
 
 @media (max-width: 768px) {
     .body_index_login {
