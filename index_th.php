@@ -166,6 +166,18 @@ $result = mysqli_query($conexion, $sql);
             $resultado_certificados = mysqli_query($conexion, $sql_certificados);
             $fila_certificados = mysqli_fetch_assoc($resultado_certificados);
             $total_certificados = $fila_certificados['total_certificados'];
+            $sql_integrantes = "select CONCAT(nombres, ' ', apellidos) AS nombre_completo, COUNT(*) AS total_ingreso
+            from bitacora b, integrantes i
+            where b.cedula_empleado = i.cedula
+            and tipo = 'Ingreso al Sistema'
+            and cedula_empleado not in (100, 123)
+            group by nombre_completo
+            order by total_ingreso desc
+            limit 5";
+            $resultado_integrantes = mysqli_query($conexion, $sql_integrantes);
+            $fila_integrantes = mysqli_fetch_assoc($resultado_integrantes);
+            $total_nombre = $fila_integrantes['nombre_completo'];
+            $total_cantidad = $fila_integrantes['total_ingreso'];
             ?>
 
             <div class="row justify-content-center">
