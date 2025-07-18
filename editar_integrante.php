@@ -107,7 +107,7 @@ include("php/conexion.php");
         ?>
 
         <div class="titulo-editar-integrante">
-            <h1>Editar Integrante</h1>
+            <p style="font-size: 36px; font-weight:700;">EDITAR INTEGRANTE<br></p>
         </div>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 
