@@ -82,6 +82,7 @@ $result = mysqli_query($conexion, $sql);
                 las siguientes acciones:<br><br></p>
             <p style="font-size: 16px;">🔍 Consultar los datos de los integrantes de la compañia</p>
             <p style="font-size: 16px;">📋 Consultar bitacora</p>
+            <p style="font-size: 16px;">📎 Descargar referencias laborales</p>
         </div>
 
         <div id="contenido-integrantes" class="contenido" style="display: none;">
