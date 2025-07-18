@@ -48,6 +48,7 @@ include("php/conexion.php");
             $imagen = $_POST['imagen'];
             $direccion = $_POST['direccion'];
             $ciudad_residencia = $_POST['ciudad_residencia'];
+            $tipo_contrato = $_POST['tipo_contrato'];
 
             $sql = "UPDATE integrantes 
                     SET cedula = '" . $cedula . "', nombres = '" . $nombres . "', apellidos = '" . $apellidos . "', edad = '" . $edad . "',
@@ -96,6 +97,7 @@ include("php/conexion.php");
             $imagen = $fila['imagen'];
             $direccion = $fila['direccion'];
             $ciudad_residencia = $fila['ciudad_residencia'];
+            $tipo_contrato = $fila['tipo_contrato'];
 
             mysqli_close($conexion);
 
@@ -132,8 +134,7 @@ include("php/conexion.php");
             <input type="text" name="direccion" class="form-control" value="<?php echo $direccion ?>"><br>
 
             <h3>Ciudad Residencia</h3>
-            <input type="text" name="ciudad_residencia" class="form-control"
-                value="<?php echo $ciudad_residencia ?>"><br>
+            <input type="text" name="ciudad_residencia" class="form-control" value="<?php echo $ciudad_residencia ?>"><br>
 
             <h3>Cargo</h3>
             <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>"><br>

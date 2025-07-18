@@ -46,6 +46,9 @@
             $pensiones = $_POST['pensiones'];
             $cesantias = $_POST['cesantias'];
             $imagen = $_POST['imagen'];
+            $direccion = $_POST['direccion'];
+            $ciudad_residencia = $_POST['ciudad_residencia'];
+            $tipo_contrato = $_POST['tipo_contrato'];
 
             $sql = "INSERT INTO integrantes (
                         id_empleado, cedula, nombres, apellidos, edad, celular, correo,
