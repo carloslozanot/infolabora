@@ -203,19 +203,7 @@ $result = mysqli_query($conexion, $sql);
                             <h3 class="mb-0 cantidad-card"><?php echo $total_ingresos; ?></h3>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-5 mb-4">
-                    <div class="card card-hover shadow-lg border-0 text-center">
-                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                            <div class="mb-2">
-                                <i class="bi bi-file-earmark-check-fill icono-card"></i>
-                            </div>
-                            <h5 class="card-title mb-1">Certificados laborales generados</h5>
-                            <h3 class="mb-0 cantidad-card"><?php echo $total_certificados; ?></h3>
-                        </div>
-                    </div>
-                </div>
+                </div>                
 
                 <div class="col-md-10 mb-4">
                     <div class="card card-hover shadow-lg border-0 text-center">
@@ -252,6 +240,19 @@ $result = mysqli_query($conexion, $sql);
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-5 mb-4">
+                    <div class="card card-hover shadow-lg border-0 text-center">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-2">
+                                <i class="bi bi-file-earmark-check-fill icono-card"></i>
+                            </div>
+                            <h5 class="card-title mb-1">Certificados laborales generados</h5>
+                            <h3 class="mb-0 cantidad-card"><?php echo $total_certificados; ?></h3>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="col-md-10 mb-4">
                     <div class="card card-hover shadow-lg border-0 text-center">
                         <div class="card-body">
