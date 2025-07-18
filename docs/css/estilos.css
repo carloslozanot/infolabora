@@ -993,6 +993,11 @@ a.selected {
     color: #150940;
 }
 
+.table-dark th {
+    background-color: #150940 !important;
+    color: white;
+}
+
 @media (max-width: 768px) {
     .body_index_login {
         background-size: cover;
