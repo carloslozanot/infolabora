@@ -211,7 +211,7 @@ $result = mysqli_query($conexion, $sql);
                             <div class="mb-3">
                                 <i class="bi bi-people-fill icono-card"></i>
                             </div>
-                            <h5 class="card-title mb-3">Top 5 Ingresos al Sistema</h5>
+                            <h5 class="card-title mb-3">Top Ingresos al Sistema</h5>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover table-striped">
                                     <thead class="table-dark">

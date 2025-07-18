@@ -998,10 +998,21 @@ a.selected {
     color: white;
 }
 
-.table-dark td {
+.table thead th {
     background-color: transparent !important;
-    color: white;
+    color: white !important;
 }
+
+.table tbody td {
+    background-color: transparent !important;
+    color: white !important;
+}
+
+.table-bordered td, 
+.table-bordered th {
+    border-color: #ffffff33; /* blanco con opacidad */
+}
+
 
 @media (max-width: 768px) {
     .body_index_login {
