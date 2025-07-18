@@ -15,7 +15,7 @@ if (!$cedula || !$contrasena) {
 }
 
 $stmt = $conexion->prepare("SELECT 
-    usuarios.cedula, usuarios.contrasena, usuarios.id_rol as rol, 
+    usuarios.cedula, usuarios.contrasena, usuarios.id_permiso as permiso, 
     integrantes.nombres, integrantes.apellidos, integrantes.imagen,
     integrantes.edad, integrantes.eps, integrantes.arl, integrantes.correo, integrantes.fecha_ingreso,
     integrantes.cargo, integrantes.area, integrantes.jefe_inmediato, integrantes.caja, integrantes.pensiones,
@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
     if (password_verify($contrasena, $row['contrasena'])) {
-        $_SESSION['rol'] = $row['rol'];
+        $_SESSION['permiso'] = $row['permiso'];
         $_SESSION['usuario'] = $row['cedula'];
         $_SESSION['nombreUsuario'] = $row['nombres'];
         $_SESSION['apellidoUsuario'] = $row['apellidos'];
@@ -73,9 +73,9 @@ if ($result->num_rows > 0) {
         $stmt_bitacora->close();
 
 
-        if ($_SESSION['rol'] == 1) {
+        if ($_SESSION['permiso'] == 1) {
             header("Location: ../index_admin.php");
-        } elseif ($_SESSION['rol'] == 2) {
+        } elseif ($_SESSION['permiso'] == 2) {
             header("Location: ../index_integrante.php");
         } else {
             header("Location: ../index_th.php");

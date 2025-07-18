@@ -404,7 +404,7 @@ header {
     text-align: center;
 }
 
-#editar-rol {
+#editar-permiso {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 20px;
@@ -416,17 +416,17 @@ header {
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
 
-#editar-rol .titulo-editar-rol {
+#editar-permiso .titulo-editar-permiso {
     margin-left: 180px;
     margin-bottom: 30px;
 }
 
-#editar-rol .botones-editar-rol {
+#editar-permiso .botones-editar-permiso {
     margin-left: 195px;
     margin-bottom: 30px;
 }
 
-#agregar-rol {
+#agregar-permiso {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 20px;
@@ -438,12 +438,12 @@ header {
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
 
-#agregar-rol .titulo-agregar-rol {
+#agregar-permiso .titulo-agregar-permiso {
     margin-left: 180px;
     margin-bottom: 30px;
 }
 
-#agregar-rol .botones-agregar-rol {
+#agregar-permiso .botones-agregar-permiso {
     margin-left: 195px;
     margin-bottom: 30px;
 }
@@ -712,13 +712,11 @@ ul li {
     box-shadow: 4px 4px 8px #000;
 }
 
-/*Ocultar scroll para chrome, safari y opera*/
 .menu_side::-webkit-scrollbar {
     display: none;
 
 }
 
-/*Ocultar scroll para IE, Edge y Firefox*/
 .menu_side {
     -ms-overflow-style: none;
     scrollbar-width: none;
