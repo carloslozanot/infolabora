@@ -1008,7 +1008,10 @@ a.selected {
     color: #150940;
 }
 
-.table-bordered td, 
+.table-bordered td{
+    border-color: #150940;
+}
+
 .table-bordered th {
     border-color: white;
 }
