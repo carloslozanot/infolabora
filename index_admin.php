@@ -134,6 +134,7 @@ if (!isset($_SESSION['usuario'])) {
             <table class="table table-striped table-bordered table-hover" id="tabla_usuarios">
                 <thead>
                     <tr>
+                        <th>Estado</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Usuario</th>
@@ -155,6 +156,13 @@ if (!isset($_SESSION['usuario'])) {
                         while ($fila = mysqli_fetch_array($dato_usuarios)) {
                             ?>
                             <tr>
+                                <td>
+                                    <?php if ($fila['estado'] === 'Activo') { ?>
+                                        <span class="btn btn-success btn-sm disabled">Activo</span>
+                                    <?php } else { ?>
+                                        <span class="btn btn-danger btn-sm disabled">Inactivo</span>
+                                    <?php } ?>
+                                </td>
                                 <td>
                                     <?php echo $fila['nombres']; ?>
                                 </td>
