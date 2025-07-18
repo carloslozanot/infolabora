@@ -201,6 +201,8 @@ $pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
 $pdf->Ln(14);
 
 /* Firma */
+$pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 50); // Asegúrate de que la ruta sea correcta
+$pdf->Ln(40); // Ajusta si la imagen es más alta o más baja
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
 $pdf->Ln(-4);
