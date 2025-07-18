@@ -31,9 +31,9 @@ include("php/conexion.php");
         if (isset($_POST['enviar'])) {
             $cedula = $_POST['cedula'];
             $contrasena = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
-            $rol = $_POST['rol'];
+            $permiso = $_POST['permiso'];
 
-            $sql = "UPDATE usuarios SET contrasena = '" . $contrasena . "', id_rol = '" . $rol . "' WHERE cedula = '" . $cedula . "'";
+            $sql = "UPDATE usuarios SET contrasena = '" . $contrasena . "', id_permiso = '" . $permiso . "' WHERE cedula = '" . $cedula . "'";
             $resultado = mysqli_query($conexion, $sql);
 
             if ($resultado) {
@@ -51,7 +51,7 @@ include("php/conexion.php");
 
         } else {
             $cedula = $_GET['id'];
-            $sql = "SELECT * FROM usuarios u, integrantes e, permisos r WHERE u.cedula = e.cedula AND u.id_rol = r.id AND u.cedula='" . $cedula . "'";
+            $sql = "SELECT * FROM usuarios u, integrantes e, permisos r WHERE u.cedula = e.cedula AND u.id_permiso = r.id AND u.cedula='" . $cedula . "'";
             $resultado = mysqli_query($conexion, $sql);
 
             $fila = mysqli_fetch_assoc($resultado);
@@ -75,8 +75,8 @@ include("php/conexion.php");
             <h3>Contraseña</h3>
             <input type="text" name="contrasena" class="form-control" value="<?php echo $contrasena ?>"><br>
 
-            <h3>Rol</h3>
-            <select name="rol" class="form-control">
+            <h3>Permiso</h3>
+            <select name="permiso" class="form-control">
                 <?php
                 if ($descripcion === 'Integrante') {
                     echo '<option value="2">Integrante</option>

@@ -138,7 +138,7 @@ if (!isset($_SESSION['usuario'])) {
                         <th>Apellidos</th>
                         <th>Usuario</th>
                         <th>Contraseña</th>
-                        <th>Rol</th>
+                        <th>Permiso</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -148,7 +148,7 @@ if (!isset($_SESSION['usuario'])) {
                     <?php
 
                     include("php/conexion.php");
-                    $SQL = "SELECT * FROM integrantes e, usuarios u, permisos r WHERE e.cedula = u.cedula and u.id_rol = r.id";
+                    $SQL = "SELECT * FROM integrantes e, usuarios u, permisos r WHERE e.cedula = u.cedula and u.id_permiso = r.id";
                     $dato_usuarios = mysqli_query($conexion, $SQL);
 
                     if ($dato_usuarios->num_rows > 0) {
@@ -369,7 +369,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <td>
 
                                     <a class="btn btn-warning me-1 mb-1"
-                                        href="editar_rol.php?id=<?php echo $fila['id'] ?>">
+                                        href="editar_permiso.php?id=<?php echo $fila['id'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
 
@@ -385,7 +385,7 @@ if (!isset($_SESSION['usuario'])) {
             </table>
             <br>
             <div>
-                <a class="btn btn-success" href="agregar_rol.php"><i class="fa-solid fa-plus"></i> Agregar Rol
+                <a class="btn btn-success" href="agregar_permiso.php"><i class="fa-solid fa-plus"></i> Agregar Permiso
                 </a>
             </div>
         </div>

@@ -1,9 +1,3 @@
-<?php
-
-include("php/conexion.php");
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +5,7 @@ include("php/conexion.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Rol</title>
+    <title>Agregar Permiso</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -24,59 +18,48 @@ include("php/conexion.php");
 </head>
 
 <body>
-    <div id="editar-rol">
+    <div id="agregar-permiso">
         <?php
-        if (isset($_POST['enviar'])) {
 
+        if (isset($_POST['enviar'])) {
             $id = $_POST['id'];
             $descripcion = $_POST['descripcion'];
 
-            $sql = "update permisos set id='" . $id . "', descripcion='" . $descripcion . "' where id = '" . $id . "'";
+            include("php/conexion.php");
+            $sql = "INSERT INTO permisos values('" . $id . "','" . $descripcion . "')";
+
             $resultado = mysqli_query($conexion, $sql);
 
             if ($resultado) {
                 echo "<script language='JavaScript'>
-            alert('Los datos se han actualizado correctamente');
-            location.assign('index_admin.php');
-            </script>";
+                    alert('Los datos se han creado correctamente');
+                    location.assign('index_admin.php');
+                    </script>";
             } else {
                 echo "<script language='JavaScript'>
-            alert('No se han actualizado correctamente');
-            location.assign('index_admin.php');
-            </script>";
+                    alert('Los datos NO se han creado correctamente');
+                    location.assign('index_admin.php');
+                    </script>";
             }
-            mysqli_close($conexion);
-
-        } else {
-            $id = $_GET['id'];
-            $sql = "SELECT * FROM permisos where id='" . $id . "'";
-            $resultado = mysqli_query($conexion, $sql);
-
-            $fila = mysqli_fetch_assoc($resultado);
-            $id = $fila["id"];
-            $descripcion = $fila["descripcion"];
 
             mysqli_close($conexion);
-
         }
 
-
         ?>
-        <div class="titulo-editar-rol">
-            <h1>Editar Rol</h1>
+
+        <div class="titulo-agregar-permiso">
+            <h1>Agregar Permiso</h1>
         </div>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <h3>Id</h3>
-            <input type="text" name="id" class="form-control" readonly value="<?php echo $id ?>"><br>
+            <input type="text" name="id" class="form-control"><br>
 
             <h3>Descripcion</h3>
-            <input type="text" name="descripcion" class="form-control" value="<?php echo $descripcion ?>"><br>
+            <input type="text" name="descripcion" class="form-control"><br>
 
-            <input type="hidden" name="id" value="<?php echo $id ?>">
+            <div class="botones-agregar-permiso">
 
-            <div class="botones-editar-rol">
-
-                <button type="submit" class="btn btn-success" name="enviar">Editar</button>
+                <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
                 <a href="index_admin.php" class="btn btn-danger">Regresar</a>
 
             </div>

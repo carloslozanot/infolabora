@@ -35,17 +35,16 @@
             $cedula = $_POST['cedula'];
             $contrasena = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
             $fecha = $_POST['fecha'];
-            $rol = $_POST['rol'];
+            $permiso = $_POST['permiso'];
 
-            // Validación básica de rol
-            if (!is_numeric($rol)) {
-                echo "<script>alert('Debe seleccionar un rol válido'); location.assign('index_admin.php');</script>";
+            if (!is_numeric($permiso)) {
+                echo "<script>alert('Debe seleccionar un permiso válido'); location.assign('index_admin.php');</script>";
                 exit;
             }
 
             // Insertar nuevo usuario
-            $sql = "INSERT INTO usuarios (id, cedula, contrasena, fecha_diligenciamiento, id_rol)
-                    VALUES ($nuevo_id, $cedula, '$contrasena', '$fecha', $rol)";
+            $sql = "INSERT INTO usuarios (id, cedula, contrasena, fecha_diligenciamiento, id_permiso)
+                    VALUES ($nuevo_id, $cedula, '$contrasena', '$fecha', $permiso)";
             $resultado = mysqli_query($conexion, $sql);
 
             if ($resultado) {
@@ -78,9 +77,9 @@
             <h3>Fecha de Creación</h3>
             <input type="date" name="fecha" class="form-control"><br>
 
-            <h3>Rol</h3>
-            <select name="rol" class="form-control">
-                <option value="">Seleccionar un rol</option>  
+            <h3>Permisos</h3>
+            <select name="permisos" class="form-control">
+                <option value="">Seleccionar un permiso</option>  
                 <option value="2">Integrante</option>
                 <option value="3">Talento Humano</option>
             </select> <br>
