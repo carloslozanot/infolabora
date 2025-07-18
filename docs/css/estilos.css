@@ -983,8 +983,8 @@ a.selected {
 
 .card-hover:hover {
     background-color: #ffffff;
-    transform: scale(1.02);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);    
+    box-shadow: 0 0 10px rgba(24, 46, 89);
 }
 
 .card-hover:hover h5,
