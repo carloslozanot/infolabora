@@ -210,7 +210,7 @@ if (!isset($_SESSION['usuario'])) {
                         <th>Edad</th>
                         <th>Fecha Ingreso</th>
                         <th>Cargo</th>
-                        <th>Area</th>
+                        <th>Área</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
