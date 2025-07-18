@@ -971,20 +971,26 @@ a.selected {
 .card-hover {
     background-color: #150940;
     border-radius: 15px;
-    transition: transform 0.3s, background-color 0.3s;
-}
-
-.card-hover:hover {
-    background-color: #fff; /* Color más claro en hover */
-    transform: scale(1.02);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    color: #150940;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
 }
 
 .card-hover h5,
 .card-hover h2,
 .card-hover i {
-    color: #ffff !important;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.card-hover:hover {
+    background-color: #ffffff;
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-hover:hover h5,
+.card-hover:hover h2,
+.card-hover:hover i {
+    color: #150940;
 }
 
 @media (max-width: 768px) {
