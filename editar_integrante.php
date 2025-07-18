@@ -111,9 +111,6 @@ include("php/conexion.php");
         </div>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 
-            <h3>Estado</h3>
-            <input type="text" name="estado" class="form-control" value="<?php echo $estado ?>"><br>
-
             <h3>Cedula</h3>
             <input type="text" name="cedula" class="form-control" value="<?php echo $cedula ?>"><br>
 
@@ -172,6 +169,8 @@ include("php/conexion.php");
             <h3>Imagen</h3>
             <input type="text" name="imagen" class="form-control" value="<?php echo $imagen ?>"><br>
 
+            <h3>Estado</h3>
+            <input type="text" name="estado" class="form-control" value="<?php echo $estado ?>"><br>
 
             <input type="hidden" name="cedula" value="<?php echo $cedula ?>">
 

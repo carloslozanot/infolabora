@@ -87,9 +87,6 @@
 
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 
-            <h3>Estado</h3>
-            <input type="text" name="estado" class="form-control"><br>
-
             <h3>Cedula*</h3>
             <input type="text" name="cedula" class="form-control"><br>
 
@@ -147,6 +144,9 @@
             <h3>Imagen</h3>
             <input type="text" name="imagen" class="form-control"><br>
 
+            <h3>Estado</h3>
+            <input type="text" name="estado" class="form-control"><br>
+            
             <div class="botones-agregar-integrante">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
                 <a href="index_admin.php" class="btn btn-danger">Regresar</a>
