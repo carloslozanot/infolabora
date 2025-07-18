@@ -153,7 +153,7 @@ $result = mysqli_query($conexion, $sql);
             </div>
         </div>
 
-        <div id="contenido-descargas" class="contenido" style="display: none;">
+        <div id="contenido-bitacora" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
             <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar desprendibles
                 de pago bajo el mes que necesite y certificados laborales para quien interese</p>

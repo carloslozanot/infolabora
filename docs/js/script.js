@@ -11,6 +11,7 @@ const contenidoPermisos = document.getElementById('contenido-permisos');
 const contenidoDescargas = document.getElementById('contenido-descargas');
 const contenidoVacaciones = document.getElementById('contenido-vacaciones');
 const contenidoCerrarSesion = document.getElementById('contenido-cerrar-sesion');
+const contenidoBitacora = document.getElementById('contenido-bitacora');
 const menuButtons = document.querySelectorAll('.option');
 
 function mostrarContenido(pagina) {
