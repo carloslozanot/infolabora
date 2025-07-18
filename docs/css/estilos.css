@@ -994,29 +994,29 @@ a.selected {
 }
 
 .table-dark th {
-    background-color: #150940 !important;
-    color: white;
+    background-color: white !important;
+    color: #150940;
 }
 
 .table thead th {
-    background-color: transparent !important;
-    color: white !important;
+    background-color: white !important;
+    color: #150940;
 }
 
 .table tbody td {
-    background-color: #150940 !important;
-    color: white !important;
+    background-color: white !important;
+    color: #150940;
 }
 
 .table-bordered td, 
 .table-bordered th {
-    border-color: #ffffff33;
+    border-color: #000;
 }
 
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
-    background-color: white !important;
-    color: #150940 !important;
+    background-color: #150940 !important;
+    color: white !important;
 }
 
 @media (max-width: 768px) {
