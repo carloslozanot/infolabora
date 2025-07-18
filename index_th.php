@@ -169,37 +169,36 @@ $result = mysqli_query($conexion, $sql);
             ?>
 
             <div class="row justify-content-center">
+                <!-- Tarjeta Ingresos -->
                 <div class="col-md-5 mb-4">
-                    <div class="card shadow border-0"
-                        style="background-color: #150940; border-radius: 15px; transition: transform 0.3s;">
+                    <div class="card card-hover shadow border-0">
                         <div class="card-body d-flex align-items-center p-4">
                             <div class="me-4">
-                                <i class="bi bi-person-check-fill text-white" style="font-size: 45px;"></i>
+                                <i class="bi bi-person-check-fill" style="font-size: 45px;"></i>
                             </div>
                             <div>
-                                <h5 class="card-title mb-1 fw-bold text-white">Ingresos al sistema</h5>
-                                <h2 class="mb-0 text-light"><?php echo $total_ingresos; ?></h2>
+                                <h5 class="card-title mb-1 fw-bold">Ingresos al sistema</h5>
+                                <h2 class="mb-0"><?php echo $total_ingresos; ?></h2>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Tarjeta Certificados -->
                 <div class="col-md-5 mb-4">
-                    <div class="card shadow border-0"
-                        style="background-color: #150940; border-radius: 15px; transition: transform 0.3s;">
+                    <div class="card card-hover shadow border-0">
                         <div class="card-body d-flex align-items-center p-4">
                             <div class="me-4">
-                                <i class="bi bi-file-earmark-check-fill text-white" style="font-size: 45px;"></i>
+                                <i class="bi bi-file-earmark-check-fill" style="font-size: 45px;"></i>
                             </div>
                             <div>
-                                <h5 class="card-title mb-1 fw-bold text-white">Certificados generados</h5>
-                                <h2 class="mb-0 text-light"><?php echo $total_certificados; ?></h2>
+                                <h5 class="card-title mb-1 fw-bold">Certificados generados</h5>
+                                <h2 class="mb-0"><?php echo $total_certificados; ?></h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
 
         </div>
 

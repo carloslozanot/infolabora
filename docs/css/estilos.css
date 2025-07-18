@@ -968,9 +968,22 @@ a.selected {
     margin: 10px 0;
 }
 
-.card:hover {
+.card-hover {
+    background-color: #150940;
+    border-radius: 15px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.card-hover:hover {
+    background-color: #2e1f6f; /* Color más claro en hover */
     transform: scale(1.02);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-hover h5,
+.card-hover h2,
+.card-hover i {
+    color: #ffffff !important;
 }
 
 @media (max-width: 768px) {
