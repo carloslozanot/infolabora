@@ -1014,8 +1014,8 @@ a.selected {
 }
 
 .table-hover tbody tr:hover td {
-    background-color: rgba(255, 255, 255, 0.1) !important; 
-    color: #150940 !important;
+    background-color: #1d1d2e !important;
+    color: white !important;
 }
 
 @media (max-width: 768px) {
