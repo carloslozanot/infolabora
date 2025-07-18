@@ -10,12 +10,12 @@ $resultado = mysqli_query($conexion, $sql);
 if ($resultado) {
     echo "<script language='JavaScript'>
             alert('El usuario se ha deshabilitado correctamente');
-            location.assign('index_admin.php');
+            location.assign('index_th.php');
             </script>";
 } else {
     echo "<script language='JavaScript'>
             alert('El usuario NO se ha deshabilitado correctamente');
-            location.assign('index_admin.php');
+            location.assign('index_th.php');
             </script>";
 }
 ?>
