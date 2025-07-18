@@ -46,13 +46,15 @@ include("php/conexion.php");
             $pensiones = $_POST['pensiones'];
             $cesantias = $_POST['cesantias'];
             $imagen = $_POST['imagen'];
+            $direccion = $_POST['direccion'];
+            $ciudad_residencia = $_POST['ciudad_residencia'];
 
             $sql = "UPDATE integrantes 
-                    SET cedula = '".$cedula."', nombres = '".$nombres."', apellidos = '".$apellidos."', edad = '".$edad."',
-                    celular = '".$celular."', correo = '".$correo."', fecha_ingreso = '".$fecha_ingreso."', cargo = '".$cargo."',
-                    area = '".$area."', jefe_inmediato = '".$jefe_inmediato."', caja = '".$caja."', eps = '".$eps."', arl = '".$arl."',
-                    pensiones = '".$pensiones."', cesantias = '".$cesantias."', imagen = '".$imagen."'
-                    WHERE cedula='".$cedula."'";
+                    SET cedula = '" . $cedula . "', nombres = '" . $nombres . "', apellidos = '" . $apellidos . "', edad = '" . $edad . "',
+                    celular = '" . $celular . "', correo = '" . $correo . "', fecha_ingreso = '" . $fecha_ingreso . "', cargo = '" . $cargo . "',
+                    area = '" . $area . "', jefe_inmediato = '" . $jefe_inmediato . "', caja = '" . $caja . "', eps = '" . $eps . "', arl = '" . $arl . "',
+                    pensiones = '" . $pensiones . "', cesantias = '" . $cesantias . "', imagen = '" . $imagen . "', direccion = '" . $direccion . "', ciudad_residencia = '" . $ciudad_residencia . "'
+                    WHERE cedula='" . $cedula . "'";
             $resultado = mysqli_query($conexion, $sql);
 
             if ($resultado) {
@@ -77,7 +79,7 @@ include("php/conexion.php");
 
             $cedula = $fila['cedula'];
             $nombres = $fila['nombres'];
-            $apellidos = $fila['apellidos'];            
+            $apellidos = $fila['apellidos'];
             $edad = $fila['edad'];
             $celular = $fila['celular'];
             $correo = $fila['correo'];
@@ -91,6 +93,8 @@ include("php/conexion.php");
             $pensiones = $fila['pensiones'];
             $cesantias = $fila['cesantias'];
             $imagen = $fila['imagen'];
+            $direccion = $fila['direccion'];
+            $ciudad_residencia = $fila['ciudad_residencia'];
 
             mysqli_close($conexion);
 
