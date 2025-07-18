@@ -998,6 +998,11 @@ a.selected {
     color: white;
 }
 
+.table-dark td {
+    background-color: transparent !important;
+    color: white;
+}
+
 @media (max-width: 768px) {
     .body_index_login {
         background-size: cover;
