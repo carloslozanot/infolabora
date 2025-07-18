@@ -20,7 +20,7 @@ $stmt = $conexion->prepare("SELECT
     integrantes.edad, integrantes.eps, integrantes.arl, integrantes.correo, integrantes.fecha_ingreso,
     integrantes.cargo, integrantes.area, integrantes.lider_inmediato, integrantes.caja, integrantes.pensiones,
     integrantes.cesantias, integrantes.celular, integrantes.direccion, integrantes.ciudad_residencia, 
-    integrantes.tipo_contrato, integrantes.estado, vacaciones.dias_total, vacaciones.dias_disfrutados
+    integrantes.tipo_contrato, integrantes.estado, integrantes.fecha_retiro, vacaciones.dias_total, vacaciones.dias_disfrutados
 FROM usuarios 
 INNER JOIN integrantes ON usuarios.cedula = integrantes.cedula
 LEFT OUTER JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
@@ -60,6 +60,7 @@ if ($result->num_rows > 0) {
         $_SESSION['direccion'] = $row['direccion'];
         $_SESSION['ciudad_residencia'] = $row['ciudad_residencia'];
         $_SESSION['estado'] = $row['estado'];
+        $_SESSION['fecha_retiro'] = $row['fecha_retiro'];
         $_SESSION['dias_total'] = $row['dias_total'];
         $_SESSION['dias_disfrutados'] = $row['dias_disfrutados'];
         $_SESSION['diferencia_dias'] = $row['dias_total'] - $row['dias_disfrutados'];

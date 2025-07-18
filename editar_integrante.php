@@ -100,6 +100,7 @@ include("php/conexion.php");
             $ciudad_residencia = $fila['ciudad_residencia'];
             $tipo_contrato = $fila['tipo_contrato'];
             $estado = $fila['estado'];
+            $fecha_retiro = $fila['fecha_retiro'];
 
             mysqli_close($conexion);
 
@@ -171,6 +172,9 @@ include("php/conexion.php");
 
             <h3>Estado</h3>
             <input type="text" name="estado" class="form-control" value="<?php echo $estado ?>" disabled><br>
+
+            <h3>Fecha Retiro</h3>
+            <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>" disabled><br>
 
             <input type="hidden" name="cedula" value="<?php echo $cedula ?>">
 
