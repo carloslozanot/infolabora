@@ -96,7 +96,7 @@ $result = mysqli_query($conexion, $sql);
                                     <a class="btn btn-warning me-1 mb-1" href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
-                                    <a class="btn btn-primary mt-1" href="eliminar_integrante.php?id=<?php echo $fila['cedula'] ?>" onclick='return confirmar()'>
+                                    <a class="btn btn-primary mt-1" href="deshabilitar_integrante.php?id=<?php echo $fila['cedula'] ?>" onclick='return confirmar()'>
                                         <i class="fa-solid fa-ban"></i> Deshabilitar
                                     </a>
                                 </td>
