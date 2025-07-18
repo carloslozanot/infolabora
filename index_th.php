@@ -62,7 +62,7 @@ $result = mysqli_query($conexion, $sql);
             </a>
             <a href="#">
                 <div class="option" data-pagina="bitacora"><i class="bi bi-journal-text"></i>
-                    <h4>Bitacora</h4>
+                    <h4>Bitácora</h4>
                 </div>
             </a>
             <a href="#">
