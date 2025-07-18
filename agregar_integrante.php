@@ -54,12 +54,12 @@
             $sql = "INSERT INTO integrantes (
                         id_empleado, cedula, nombres, apellidos, edad, celular, correo,
                         fecha_ingreso, cargo, area, lider_inmediato,
-                        caja, eps, arl, pensiones, cesantias, imagen, direccion, ciudad_residencia, tipo_contrato, estado
+                        caja, eps, arl, pensiones, cesantias, imagen, direccion, ciudad_residencia, tipo_contrato, estado, fecha_retiro
                     ) VALUES (
                         $nuevo_id, '$cedula', '$nombres', '$apellidos', '$edad', '$celular', '$correo',
                         '$fecha_ingreso', '$cargo', '$area', '$lider_inmediato', '$caja', '$eps', '$arl', 
                         '$pensiones', '$cesantias', '$imagen', '$direccion', '$ciudad_residencia', '$tipo_contrato',
-                        '$estado'
+                        '$estado', '$fecha_retiro'
                     )";
 
             $resultado = mysqli_query($conexion, $sql);
@@ -146,6 +146,9 @@
 
             <h3>Estado</h3>
             <input type="text" name="estado" class="form-control"><br>
+
+            <h3>Fecha Retiro</h3>
+            <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>" disabled><br>
             
             <div class="botones-agregar-integrante">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
