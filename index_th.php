@@ -107,7 +107,13 @@ $result = mysqli_query($conexion, $sql);
                         while ($fila = mysqli_fetch_array($dato)) {
                             ?>
                             <tr>
-                                <td><?php echo $fila['estado']; ?></td>
+                                <td>
+                                    <?php if ($fila['estado'] === 'Activo') { ?>
+                                        <span class="btn btn-success btn-sm disabled">Activo</span>
+                                    <?php } else { ?>
+                                        <span class="btn btn-danger btn-sm disabled">Inactivo</span>
+                                    <?php } ?>
+                                </td>
                                 <td><?php echo $fila['cedula']; ?></td>
                                 <td><?php echo $fila['nombres'] . ' ' . $fila['apellidos']; ?></td>
                                 <td><?php echo $fila['correo']; ?></td>

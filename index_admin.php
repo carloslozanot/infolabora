@@ -228,7 +228,11 @@ if (!isset($_SESSION['usuario'])) {
                             ?>
                             <tr>
                                 <td>
-                                    <?php echo $fila['estado']; ?>
+                                    <?php if ($fila['estado'] === 'Activo') { ?>
+                                        <span class="btn btn-success btn-sm disabled">Activo</span>
+                                    <?php } else { ?>
+                                        <span class="btn btn-danger btn-sm disabled">Inactivo</span>
+                                    <?php } ?>
                                 </td>
                                 <td>
                                     <?php echo $fila['cedula']; ?>
