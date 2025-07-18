@@ -127,14 +127,14 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-house-door-fill"></i></div>
                             <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                                <span class="valor-dato"><?php echo $_SESSION['direccion'] ?? ''; ?></span>
                                 <p class="etiqueta-dato">DIRECCIÓN</p>
                             </div>
                         </div>
                         <div class="grupo-dato">
                             <div class="icono-circular"><i class="bi bi-house-door-fill"></i></div>
                             <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                                <span class="valor-dato"><?php echo $_SESSION['ciudad_residencia'] ?? ''; ?></span>
                                 <p class="etiqueta-dato">CIUDAD DE RESIDENCIA</p>
                             </div>
                         </div>
