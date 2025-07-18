@@ -968,6 +968,10 @@ a.selected {
     margin: 10px 0;
 }
 
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
 
 @media (max-width: 768px) {
     .body_index_login {

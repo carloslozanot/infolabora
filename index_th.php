@@ -170,33 +170,36 @@ $result = mysqli_query($conexion, $sql);
 
             <div class="row justify-content-center">
                 <div class="col-md-5 mb-4">
-                    <div class="card shadow-lg border-0" style="border-left: 5px solid #007bff;">
-                        <div class="card-body d-flex align-items-center">
-                            <div class="me-3">
-                                <i class="bi bi-person-check-fill text-primary" style="font-size: 40px;"></i>
+                    <div class="card shadow border-0"
+                        style="border-left: 6px solid #007bff; border-radius: 15px; transition: transform 0.3s;">
+                        <div class="card-body d-flex align-items-center p-4">
+                            <div class="me-4">
+                                <i class="bi bi-person-check-fill text-primary" style="font-size: 45px;"></i>
                             </div>
                             <div>
-                                <h5 class="card-title mb-1">Ingresos al sistema</h5>
-                                <h3 class="mb-0 text-primary"><?php echo $total_ingresos; ?></h3>
+                                <h5 class="card-title mb-1 fw-bold text-primary">Ingresos al sistema</h5>
+                                <h2 class="mb-0 text-dark"><?php echo $total_ingresos; ?></h2>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-5 mb-4">
-                    <div class="card shadow-lg border-0" style="border-left: 5px solid #28a745;">
-                        <div class="card-body d-flex align-items-center">
-                            <div class="me-3">
-                                <i class="bi bi-file-earmark-check-fill text-success" style="font-size: 40px;"></i>
+                    <div class="card shadow border-0"
+                        style="border-left: 6px solid #28a745; border-radius: 15px; transition: transform 0.3s;">
+                        <div class="card-body d-flex align-items-center p-4">
+                            <div class="me-4">
+                                <i class="bi bi-file-earmark-check-fill text-success" style="font-size: 45px;"></i>
                             </div>
                             <div>
-                                <h5 class="card-title mb-1">Certificados laborales generados</h5>
-                                <h3 class="mb-0 text-success"><?php echo $total_certificados; ?></h3>
+                                <h5 class="card-title mb-1 fw-bold text-success">Certificados generados</h5>
+                                <h2 class="mb-0 text-dark"><?php echo $total_certificados; ?></h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
