@@ -50,6 +50,7 @@ include("php/conexion.php");
             $ciudad_residencia = $_POST['ciudad_residencia'];
             $tipo_contrato = $_POST['tipo_contrato'];
             $estado = $_POST['estado'];
+            $fecha_retiro = $_POST['fecha_retiro'];
 
             $sql = "UPDATE integrantes 
                     SET cedula = '" . $cedula . "', nombres = '" . $nombres . "', apellidos = '" . $apellidos . "', edad = '" . $edad . "',
