@@ -993,12 +993,6 @@ a.selected {
     color: #150940;
 }
 
-.table {
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
 .table-dark th {
     background-color: #150940 !important;
     color: white;
@@ -1016,7 +1010,7 @@ a.selected {
 
 .table-bordered td, 
 .table-bordered th {
-    border-color: #150940;
+    border-color: #white;
 }
 
 .table-hover tbody tr:hover td,
