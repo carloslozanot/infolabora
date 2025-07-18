@@ -999,8 +999,8 @@ a.selected {
 }
 
 .table thead th {
-    background-color: white !important;
-    color: #150940;
+    background-color: #150940 !important;
+    color: white;
 }
 
 .table tbody td {
