@@ -128,10 +128,10 @@ include("php/conexion.php");
             <input type="date" name="fecha_ingreso" class="form-control" value="<?php echo $fecha_ingreso ?>"><br>
             
             <h3>Dirección</h3>
-            <input type="date" name="direccion" class="form-control" value="<?php echo $direccion ?>"><br>
+            <input type="text" name="direccion" class="form-control" value="<?php echo $direccion ?>"><br>
 
             <h3>Ciudad Residencia</h3>
-            <input type="date" name="ciudad_residencia" class="form-control" value="<?php echo $ciudad_residencia ?>"><br>
+            <input type="text" name="ciudad_residencia" class="form-control" value="<?php echo $ciudad_residencia ?>"><br>
 
             <h3>Cargo</h3>
             <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>"><br>
