@@ -162,10 +162,17 @@ $result = mysqli_query($conexion, $sql);
             $resultado = mysqli_query($conexion, $sql);
             $fila = mysqli_fetch_assoc($resultado);
             $total_ingresos = $fila['total_ingresos'];
+            $sql_certificados = "SELECT COUNT(*) AS total_ingresos FROM bitacora WHERE tipo = 'Certificado Laboral'";
+            $resultado_certificados = mysqli_query($conexion, $sql_certificados);
+            $fila_certificados = mysqli_fetch_assoc($resultado_certificados);
+            $total_certificados = $fila['total_certificados'];
             ?>
 
             <div class="alert alert-primary text-center" role="alert" style="font-size: 24px; font-weight: 600;">
                 Ingresos al sistema: <?php echo $total_ingresos; ?>
+            </div>
+            <div class="alert alert-primary text-center" role="alert" style="font-size: 24px; font-weight: 600;">
+                Total de certificados laborales generados: <?php echo $total_certificados; ?>
             </div>
         </div>
 
