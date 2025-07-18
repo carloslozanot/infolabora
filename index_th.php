@@ -109,9 +109,9 @@ $result = mysqli_query($conexion, $sql);
                             <tr>
                                 <td>
                                     <?php if ($fila['estado'] === 'Activo') { ?>
-                                        <span class="btn btn-success btn-sm disabled">Activo</span>
+                                        <span class="btn btn-success btn-sm disabled"></span>
                                     <?php } else { ?>
-                                        <span class="btn btn-danger btn-sm disabled">Inactivo</span>
+                                        <span class="btn btn-danger btn-sm disabled"></span>
                                     <?php } ?>
                                 </td>
                                 <td><?php echo $fila['cedula']; ?></td>
