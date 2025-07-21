@@ -175,7 +175,6 @@ if ($salario_sn === 'SI') {
         $pdf->SetFont('montserrat', 'B', 11);
         $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($neto_pagar, 0, ',', '.') . ')'));
-        $pdf->Ln(15);
     } else {
         $pdf->SetFont('montserrat', '', 11);
         $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
@@ -186,13 +185,13 @@ if ($salario_sn === 'SI') {
         $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
     }
 }
-$pdf->Ln(20);
+$pdf->Ln(15);
 $pdf->SetFont('montserrat', '', 11);
 $pdf->MultiCell(0, 10, utf8_decode('Esta certificación se expide el día ' . $fecha_actual . '.'), 0, 'L');
 $pdf->Ln(14);
 $pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
 $pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 40); 
-$pdf->Ln(20); 
+$pdf->Ln(40); 
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
 $pdf->Ln(-4);
