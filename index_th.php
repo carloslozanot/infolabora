@@ -126,6 +126,7 @@ $result = mysqli_query($conexion, $sql);
                                         href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
+
                                     <?php if ($fila['estado'] === 'Activo') { ?>
                                         <a class="btn btn-danger mt-1"
                                             href="desactivar_integrante.php?id=<?php echo $fila['cedula'] ?>"
@@ -137,9 +138,15 @@ $result = mysqli_query($conexion, $sql);
                                             href="activar_integrante.php?id=<?php echo $fila['cedula'] ?>"
                                             onclick='return confirmar()'>
                                             <i class="fa-solid fa-check-circle"></i> Activar
+                                        </a><br>
+                                        
+                                        <a class="btn btn-secondary mt-1"
+                                            href="fpdf/certificado.php?cedula=<?php echo $fila['cedula']; ?>" target="_blank">
+                                            <i class="fa-solid fa-file-lines"></i> Generar referencia
                                         </a>
                                     <?php } ?>
                                 </td>
+
                             </tr>
                             <?php
                         }
@@ -157,7 +164,6 @@ $result = mysqli_query($conexion, $sql);
                     <i class="fa-solid fa-file-excel"></i> Exportar a excel
                 </a>
             </div>
-
         </div>
 
         <div id="contenido-bitacora" class="contenido" style="display: none;">
