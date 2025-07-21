@@ -149,8 +149,12 @@ $result = mysqli_query($conexion, $sql);
             </table>
             <br>
             <div>
-                <a class="btn btn-success" href="agregar_integrante.php"><i class="fa-solid fa-plus"></i> Agregar
-                    Integrante</a>
+                <a class="btn btn-success" href="exportar_excel.php" target="_blank">
+                    <i class="fa-solid fa-file-excel"></i> Exportar a Excel
+                </a>
+                <a class="btn btn-success" href="agregar_integrante.php">
+                    <i class="fa-solid fa-plus"></i> Agregar Integrante
+                </a>
             </div>
         </div>
 
@@ -204,7 +208,7 @@ $result = mysqli_query($conexion, $sql);
                             <h3 class="mb-0 cantidad-card"><?php echo $total_ingresos; ?></h3>
                         </div>
                     </div>
-                </div>                
+                </div>
 
                 <div class="col-md-10 mb-4">
                     <div class="card card-hover shadow-lg border-0 text-center">
@@ -253,7 +257,7 @@ $result = mysqli_query($conexion, $sql);
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-10 mb-4">
                     <div class="card card-hover shadow-lg border-0 text-center">
                         <div class="card-body">
