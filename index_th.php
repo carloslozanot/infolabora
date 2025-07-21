@@ -139,9 +139,9 @@ $result = mysqli_query($conexion, $sql);
                                             onclick='return confirmar()'>
                                             <i class="fa-solid fa-check-circle"></i> Activar
                                         </a><br>
-                                        
-                                        <a class="btn btn-secondary mt-1"
-                                            href="fpdf/certificado.php?cedula=<?php echo $fila['cedula']; ?>" target="_blank">
+
+                                        <a class="btn btn-dark mt-1"
+                                            href="fpdf/referencia.php?cedula=<?php echo $fila['cedula']; ?>" target="_blank">
                                             <i class="fa-solid fa-file-lines"></i> Generar referencia
                                         </a>
                                     <?php } ?>
