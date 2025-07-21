@@ -166,7 +166,34 @@ if (!isset($_SESSION['usuario'])) {
                                 <i class="bi bi-calendar-event"></i>
                             </div>
                             <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['fecha_ingreso'] ?? ''; ?></span>
+                                <span class="valor-dato">
+                                    <?php
+                                    if (!empty($_SESSION['fecha_ingreso'])) {
+                                        $fecha_cruda = $_SESSION['fecha_ingreso']; // formato: Y-m-d
+                                        $fecha_obj = DateTime::createFromFormat('Y-m-d', $fecha_cruda);
+                                        $meses = [
+                                            '01' => 'Enero',
+                                            '02' => 'Febrero',
+                                            '03' => 'Marzo',
+                                            '04' => 'Abril',
+                                            '05' => 'Mayo',
+                                            '06' => 'Junio',
+                                            '07' => 'Julio',
+                                            '08' => 'Agosto',
+                                            '09' => 'Septiembre',
+                                            '10' => 'Octubre',
+                                            '11' => 'Noviembre',
+                                            '12' => 'Diciembre'
+                                        ];
+                                        $dia = $fecha_obj->format('d');
+                                        $mes = $meses[$fecha_obj->format('m')];
+                                        $anio = $fecha_obj->format('Y');
+                                        echo "$dia de $mes del $anio";
+                                    } else {
+                                        echo "Fecha no disponible";
+                                    }
+                                    ?>
+                                </span>
                                 <p class="etiqueta-dato">FECHA DE INGRESO</p>
                             </div>
                         </div>
@@ -246,7 +273,8 @@ if (!isset($_SESSION['usuario'])) {
 
         <div id="contenido-descargas" class="contenido" style="display: none;">
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
-            <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar certificados laborales a quien interese</p>
+            <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar certificados
+                laborales a quien interese</p>
             <div>
                 <!--<a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
                         class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>-->
