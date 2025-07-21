@@ -74,7 +74,10 @@ include("php/conexion.php");
 
         } else {
             $cedula = $_GET['id'];
-            $sql = "SELECT * FROM usuarios u, integrantes e WHERE u.cedula = e.cedula AND u.cedula='" . $cedula . "'";
+            $sql = "SELECT * 
+            FROM usuarios u, integrantes e
+            WHERE u.cedula = e.cedula 
+            AND u.cedula='" . $cedula . "'";
             $resultado = mysqli_query($conexion, $sql);
 
             $fila = mysqli_fetch_assoc($resultado);
@@ -100,6 +103,13 @@ include("php/conexion.php");
             $tipo_contrato = $fila['tipo_contrato'];
             $estado = $fila['estado'];
             $fecha_retiro = $fila['fecha_retiro'];
+            $permiso = $fila['id_permiso'];
+
+            if ($permiso == '1') {
+                $destino = 'index_admin.php';
+            } else {
+                $destino = 'index_th.php';
+            }
 
             mysqli_close($conexion);
 
@@ -173,13 +183,14 @@ include("php/conexion.php");
             <input type="text" name="estado" class="form-control" value="<?php echo $estado ?>" disabled><br>
 
             <h3>Fecha Retiro</h3>
-            <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>" disabled><br>
+            <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>"
+                disabled><br>
 
             <input type="hidden" name="cedula" value="<?php echo $cedula ?>">
 
             <div class="botones-editar-integrante">
                 <button type="submit" class="btn btn-success" name="enviar">Editar</button>
-                <a href="index_th.php" class="btn btn-danger">Regresar</a>
+                <a href="<?php echo $destino; ?>" class="btn btn-danger">Regresar</a>
             </div>
         </form>
     </div>
