@@ -148,7 +148,7 @@ $result = mysqli_query($conexion, $sql);
                 </tbody>
             </table>
             <br>
-            <div>
+            <div class="d-flex justify-content-between mb-3">
                 <a class="btn btn-success" href="agregar_integrante.php">
                     <i class="fa-solid fa-plus"></i> Agregar Integrante
                 </a>
@@ -157,6 +157,7 @@ $result = mysqli_query($conexion, $sql);
                     <i class="fa-solid fa-file-excel"></i> Exportar
                 </a>
             </div>
+
         </div>
 
         <div id="contenido-bitacora" class="contenido" style="display: none;">
