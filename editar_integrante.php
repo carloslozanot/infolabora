@@ -2,6 +2,16 @@
 
 include("php/conexion.php");
 
+$destino = "#";
+
+if (isset($_SESSION['permiso'])) {
+    if ($_SESSION['permiso'] == 1) {
+        $destino = "index_admin.php";
+    } else {
+        $destino = "index_th.php";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -173,13 +183,14 @@ include("php/conexion.php");
             <input type="text" name="estado" class="form-control" value="<?php echo $estado ?>" disabled><br>
 
             <h3>Fecha Retiro</h3>
-            <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>" disabled><br>
+            <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>"
+                disabled><br>
 
             <input type="hidden" name="cedula" value="<?php echo $cedula ?>">
 
             <div class="botones-editar-integrante">
                 <button type="submit" class="btn btn-success" name="enviar">Editar</button>
-                <a href="index_admin.php" class="btn btn-danger">Regresar</a>
+                <a href="<?php echo $destino; ?>" class="btn btn-danger">Regresar</a>
             </div>
         </form>
     </div>
