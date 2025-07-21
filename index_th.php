@@ -149,13 +149,12 @@ $result = mysqli_query($conexion, $sql);
             </table>
             <br>
             <div>
-
                 <a class="btn btn-success" href="agregar_integrante.php">
                     <i class="fa-solid fa-plus"></i> Agregar Integrante
                 </a>
 
                 <a class="btn btn-info" href="exportar_excel.php" target="_blank">
-                    <i class="fa-solid fa-file-excel"></i> Exportar a Excel
+                    <i class="fa-solid fa-file-excel"></i> Exportar
                 </a>
             </div>
         </div>
