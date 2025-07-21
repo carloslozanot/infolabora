@@ -1,6 +1,6 @@
 <?php
 session_start();
-date_default_timezone_set('America/Bogota'); 
+date_default_timezone_set('America/Bogota');
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -39,6 +39,12 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
     if (password_verify($contrasena, $row['contrasena'])) {
+
+        if (strtolower($row['estado']) === 'inactivo') {
+            echo "<script>alert('El usuario está inactivo. Por favor contacte al administrador.'); window.location.href = '../index.php';</script>";
+            exit;
+        }
+
         $_SESSION['permiso'] = $row['permiso'];
         $_SESSION['usuario'] = $row['cedula'];
         $_SESSION['nombreUsuario'] = $row['nombres'];
@@ -74,7 +80,6 @@ if ($result->num_rows > 0) {
         $stmt_bitacora->bind_param("ssss", $row['cedula'], $fecha_generacion, $tipo, $observaciones);
         $stmt_bitacora->execute();
         $stmt_bitacora->close();
-
 
         if ($_SESSION['permiso'] == 1) {
             header("Location: ../index_admin.php");
