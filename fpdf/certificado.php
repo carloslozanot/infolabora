@@ -155,7 +155,7 @@ $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Write(10, utf8_decode($tipo_contrato) . '.');
 
 if ($salario_sn === 'SI') {
-    if (trim(strtoupper($integral)) == 'SI') {
+    if (trim(strtoupper($integral)) == 'NO') {
         $pdf->SetFont('montserrat', '', 11);
         $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
         $pdf->SetFont('montserrat', '', 11);
