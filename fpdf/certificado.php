@@ -151,10 +151,9 @@ $pdf->Write(10, utf8_decode($cargo));
 $pdf->SetFont('montserrat', '', 11);
 $pdf->Write(10, utf8_decode(', con un contrato a término '));
 
-$pdf->SetFont('montserrat', 'B', 11);
-$pdf->Write(10, utf8_decode($tipo_contrato));
-
 if ($salario_sn === 'SI') {
+    $pdf->SetFont('montserrat', 'B', 11);
+    $pdf->Write(10, utf8_decode($tipo_contrato));
 
     $pdf->SetFont('montserrat', '', 11);
     $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
@@ -189,31 +188,16 @@ if ($salario_sn === 'SI') {
     } else {
 
         $pdf->SetFont('montserrat', 'B', 11);
+        $pdf->Write(10, utf8_decode($tipo_contrato) . '.');
+        $pdf->Ln(15);
+        $pdf->SetFont('montserrat', 'B', 11);
         $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($neto_pagar, 0, ',', '.') . ') '));
         $pdf->SetFont('montserrat', '', 11);
         $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
         $pdf->Ln(20);
     }
-} else {
-
-    /* Fecha y cierre */
-    $pdf->SetFont('montserrat', '', 11);
-    $pdf->MultiCell(0, 10, utf8_decode('Esta certificación se expide el día ' . $fecha_actual . '.'), 0, 'L');
-    $pdf->Ln(14);
-    $pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
-    $pdf->Ln(14);
-
-    /* Firma */
-    $pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 50); // Asegúrate de que la ruta sea correcta
-    $pdf->Ln(40); // Ajusta si la imagen es más alta o más baja
-    $pdf->SetFont('montserrat', 'B', 11);
-    $pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
-    $pdf->Ln(-4);
-    $pdf->MultiCell(0, 10, utf8_decode('Líder de Talento Humano'), 0, 'L');
-    $pdf->Ln(-4);
-    $pdf->MultiCell(0, 10, 'DATABIZ S.A.S', 0, 'L');
-}
+} 
 
 $pdf->SetFont('montserrat', '', 11);
 $pdf->MultiCell(0, 10, utf8_decode('Esta certificación se expide el día ' . $fecha_actual . '.'), 0, 'L');
