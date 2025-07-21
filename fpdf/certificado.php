@@ -158,7 +158,7 @@ if ($salario_sn === 'SI') {
     if (trim(strtoupper($integral)) == 'NO') {
         $pdf->SetFont('montserrat', '', 11);
         $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
-        $pdf->SetFont('montserrat', '', 11);
+        $pdf->SetFont('montserrat', 'B', 11);
         $pdf->Write(10, utf8_decode($salario_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($salario, 0, ',', '.') . ') '));
         $pdf->SetFont('montserrat', '', 11);
@@ -166,7 +166,7 @@ if ($salario_sn === 'SI') {
         $pdf->Ln(15);
         $pdf->SetFont('montserrat', '', 11);
         $pdf->Write(10, utf8_decode('          * Un auxilio mensual no salarial de '));
-        $pdf->SetFont('montserrat', '', 11);
+        $pdf->SetFont('montserrat', 'B', 11);
         $pdf->Write(10, utf8_decode($auxilio_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($auxilio, 0, ',', '.') . ')'));
         $pdf->Ln(15);
@@ -184,19 +184,14 @@ if ($salario_sn === 'SI') {
         $pdf->Write(10, utf8_decode('($' . number_format($neto_pagar, 0, ',', '.') . ') '));
         $pdf->SetFont('montserrat', '', 11);
         $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
-        $pdf->Ln(20);
     }
 }
-
+$pdf->Ln(20);
 $pdf->SetFont('montserrat', '', 11);
 $pdf->MultiCell(0, 10, utf8_decode('Esta certificación se expide el día ' . $fecha_actual . '.'), 0, 'L');
 $pdf->Ln(14);
 $pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
-$pdf->Ln(14);
-
-/* Firma */
-$pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 50); // Asegúrate de que la ruta sea correcta
-$pdf->Ln(40); // Ajusta si la imagen es más alta o más baja
+$pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 30); 
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
 $pdf->Ln(-4);
