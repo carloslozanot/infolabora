@@ -151,16 +151,11 @@ $pdf->Write(10, utf8_decode($cargo));
 $pdf->SetFont('montserrat', '', 11);
 $pdf->Write(10, utf8_decode(', con un contrato a término '));
 
-if ($salario_sn === 'NO') {
+$pdf->SetFont('montserrat', 'B', 11);
+$pdf->Write(10, utf8_decode($tipo_contrato) . '.');
 
-    $pdf->SetFont('montserrat', 'B', 11);
-    $pdf->Write(10, utf8_decode($tipo_contrato) . '.');
-    $pdf->Ln(15);
-
-} else {
-
+if ($salario_sn === 'SI') {
     if (trim(strtoupper($integral)) == 'SI') {
-
         $pdf->SetFont('montserrat', '', 11);
         $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
         $pdf->SetFont('montserrat', '', 11);
@@ -181,17 +176,16 @@ if ($salario_sn === 'NO') {
         $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($neto_pagar, 0, ',', '.') . ')'));
         $pdf->Ln(15);
+    } else {
+        $pdf->SetFont('montserrat', '', 11);
+        $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
+        $pdf->SetFont('montserrat', 'B', 11);
+        $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
+        $pdf->Write(10, utf8_decode('($' . number_format($neto_pagar, 0, ',', '.') . ') '));
+        $pdf->SetFont('montserrat', '', 11);
+        $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
+        $pdf->Ln(20);
     }
-
-    $pdf->SetFont('montserrat', '', 11);
-    $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
-    $pdf->SetFont('montserrat', 'B', 11);
-    $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
-    $pdf->Write(10, utf8_decode('($' . number_format($neto_pagar, 0, ',', '.') . ') '));
-    $pdf->SetFont('montserrat', '', 11);
-    $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
-    $pdf->Ln(20);
-
 }
 
 $pdf->SetFont('montserrat', '', 11);
