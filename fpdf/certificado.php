@@ -20,6 +20,7 @@ function numero_a_letras($numero)
 /* ───────  ENTRADAS  ─────── */
 $cedula = $_POST['id'] ?? '';
 $destinatario = $_POST['destinatario'] ?? '';
+$salario_sn = $_POST['salario_sn'] ?? '';
 $titulo = $_POST['titulo'] ?? '';
 
 include("../php/conexion.php");
@@ -104,7 +105,6 @@ class PDF extends FPDF
 $pdf = new PDF('membrete.png', 'membrete_2.png');
 $pdf->AddPage('P', 'A4');
 
-/* Destinatario */
 if ($titulo != 'En blanco') {
     $pdf->SetFont('montserrat', '', 11);
     $pdf->MultiCell(0, 10, utf8_decode($titulo . ' ' . $destinatario), 0, 'L');
@@ -154,6 +154,8 @@ $pdf->Write(10, utf8_decode(', con un contrato a término '));
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Write(10, utf8_decode($tipo_contrato));
 
+if (trim(strtoupper($salario_sn)) == 'Si') {
+
 $pdf->SetFont('montserrat', '', 11);
 $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
 
@@ -193,7 +195,26 @@ if (trim(strtoupper($integral)) == 'SI') {
     $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
     $pdf->Ln(20);
 }
+} else {
+
 /* Fecha y cierre */
+$pdf->SetFont('montserrat', '', 11);
+$pdf->MultiCell(0, 10, utf8_decode('Esta certificación se expide el día ' . $fecha_actual . '.'), 0, 'L');
+$pdf->Ln(14);
+$pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
+$pdf->Ln(14);
+
+/* Firma */
+$pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 50); // Asegúrate de que la ruta sea correcta
+$pdf->Ln(40); // Ajusta si la imagen es más alta o más baja
+$pdf->SetFont('montserrat', 'B', 11);
+$pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
+$pdf->Ln(-4);
+$pdf->MultiCell(0, 10, utf8_decode('Líder de Talento Humano'), 0, 'L');
+$pdf->Ln(-4);
+$pdf->MultiCell(0, 10, 'DATABIZ S.A.S', 0, 'L');
+}
+
 $pdf->SetFont('montserrat', '', 11);
 $pdf->MultiCell(0, 10, utf8_decode('Esta certificación se expide el día ' . $fecha_actual . '.'), 0, 'L');
 $pdf->Ln(14);
