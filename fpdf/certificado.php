@@ -190,7 +190,7 @@ $pdf->SetFont('montserrat', '', 10);
 $pdf->MultiCell(0, 10, utf8_decode('Esta certificación se expide el día ' . $fecha_actual . '.'), 0, 'L');
 $pdf->Ln(5);
 $pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
-$pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 30); 
+$pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 40); 
 $pdf->Ln(30); 
 $pdf->SetFont('montserrat', 'B', 10);
 $pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
