@@ -62,12 +62,12 @@ $cedula = $_SESSION['usuario'];
             <br><br>
             <label style="font-weight: 600;">¿Desea presentar su salario?</label><br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="salario_sn" id="salario_si" value="Si" required
+                <input class="form-check-input" type="radio" name="salario_sn" id="salario_si" value="SI" required
                     onchange="toggleDestinatario()">
                 <label class="form-check-label" for="salario_si">Si </label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="salario_sn" id="salario_no" value="No"
+                <input class="form-check-input" type="radio" name="salario_sn" id="salario_no" value="NO"
                     onchange="toggleDestinatario()">
                 <label class="form-check-label" for="salario_no">No</label>
             </div>
