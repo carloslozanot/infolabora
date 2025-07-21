@@ -163,7 +163,6 @@ if ($salario_sn === 'NO') {
 
         $pdf->SetFont('montserrat', '', 11);
         $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
-        $pdf->Ln(15);
         $pdf->SetFont('montserrat', '', 11);
         $pdf->Write(10, utf8_decode($salario_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($salario, 0, ',', '.') . ') '));
@@ -186,7 +185,6 @@ if ($salario_sn === 'NO') {
 
     $pdf->SetFont('montserrat', '', 11);
     $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
-    $pdf->Ln(15);
     $pdf->SetFont('montserrat', 'B', 11);
     $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
     $pdf->Write(10, utf8_decode('($' . number_format($neto_pagar, 0, ',', '.') . ') '));
