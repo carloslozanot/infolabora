@@ -1,8 +1,17 @@
 <?php
+session_start(); 
 
 include("php/conexion.php");
 
+$permiso = $_SESSION['permiso'] ?? null;
+
+if ($permiso == '1') {
+    $destino = 'index_admin.php';
+} else {
+    $destino = 'index_th.php';
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,12 +71,12 @@ include("php/conexion.php");
             if ($resultado) {
                 echo "<script language='JavaScript'>
             alert('Los datos se han actualizado correctamente');
-            location.assign('index_admin.php');
+            location.assign('$destino');
         </script>";
             } else {
                 echo "<script language='JavaScript'>
             alert('No se han actualizado correctamente');
-            location.assign('index_admin.php');
+            location.assign('$destino');
         </script>";
             }
             mysqli_close($conexion);
@@ -103,13 +112,6 @@ include("php/conexion.php");
             $tipo_contrato = $fila['tipo_contrato'];
             $estado = $fila['estado'];
             $fecha_retiro = $fila['fecha_retiro'];
-            $permiso = $fila['id_permiso'];
-
-            if ($permiso == '1') {
-                $destino = 'index_admin.php';
-            } else {
-                $destino = 'index_th.php';
-            }
 
             mysqli_close($conexion);
 
