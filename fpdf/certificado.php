@@ -106,93 +106,93 @@ $pdf = new PDF('membrete.png', 'membrete_2.png');
 $pdf->AddPage('P', 'A4');
 
 if ($titulo != 'En blanco') {
-    $pdf->SetFont('montserrat', '', 11);
+    $pdf->SetFont('montserrat', '', 10);
     $pdf->MultiCell(0, 10, utf8_decode($titulo . ' ' . $destinatario), 0, 'L');
     $pdf->Ln(4);
 }
 
 /* Encabezado empresa */
-$pdf->SetFont('montserrat', 'B', 12);
+$pdf->SetFont('montserrat', 'B', 11);
 $pdf->Cell(0, 10, 'DATABIZ S.A.S', 0, 1, 'C');
-$pdf->SetFont('montserrat', '', 11);
+$pdf->SetFont('montserrat', '', 10);
 $pdf->Cell(0, 10, 'NIT 900641482-1', 0, 1, 'C');
 $pdf->Ln(6);
 
 /* Subtítulo */
-$pdf->SetFont('montserrat', 'B', 11);
+$pdf->SetFont('montserrat', 'B', 10);
 $pdf->Cell(0, 10, 'HACE CONSTAR', 0, 1, 'C');
 $pdf->Ln(4);
 
 /* Cuerpo */
-$pdf->SetFont('montserrat', '', 11);
+$pdf->SetFont('montserrat', '', 10);
 $pdf->Write(10, utf8_decode('Que '));
 
-$pdf->SetFont('montserrat', 'B', 11);
+$pdf->SetFont('montserrat', 'B', 10);
 $pdf->Write(10, utf8_decode($nombre_completo));
 
-$pdf->SetFont('montserrat', '', 11);
+$pdf->SetFont('montserrat', '', 10);
 $pdf->Write(10, utf8_decode(' identificado(a) con cédula de ciudadanía N° '));
 
-$pdf->SetFont('montserrat', 'B', 11);
+$pdf->SetFont('montserrat', 'B', 10);
 $pdf->Write(10, utf8_decode($cedula));
 
-$pdf->SetFont('montserrat', '', 11);
+$pdf->SetFont('montserrat', '', 10);
 $pdf->Write(10, utf8_decode(' labora en nuestra compañía desde el '));
 
-$pdf->SetFont('montserrat', 'B', 11);
+$pdf->SetFont('montserrat', 'B', 10);
 $pdf->Write(10, utf8_decode($fecha_ingreso));
 
-$pdf->SetFont('montserrat', '', 11);
+$pdf->SetFont('montserrat', '', 10);
 $pdf->Write(10, utf8_decode(' desempeñando el cargo de '));
 
-$pdf->SetFont('montserrat', 'B', 11);
+$pdf->SetFont('montserrat', 'B', 10);
 $pdf->Write(10, utf8_decode($cargo));
 
-$pdf->SetFont('montserrat', '', 11);
+$pdf->SetFont('montserrat', '', 10);
 $pdf->Write(10, utf8_decode(', con un contrato a término '));
 
-$pdf->SetFont('montserrat', 'B', 11);
+$pdf->SetFont('montserrat', 'B', 10);
 $pdf->Write(10, utf8_decode($tipo_contrato) . '.');
 
 if ($salario_sn === 'SI') {
     if (trim(strtoupper($integral)) == 'NO') {
-        $pdf->SetFont('montserrat', '', 11);
+        $pdf->SetFont('montserrat', '', 10);
         $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
-        $pdf->SetFont('montserrat', 'B', 11);
+        $pdf->SetFont('montserrat', 'B', 10);
         $pdf->Write(10, utf8_decode($salario_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($salario, 0, ',', '.') . ') '));
-        $pdf->SetFont('montserrat', '', 11);
+        $pdf->SetFont('montserrat', '', 10);
         $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
         $pdf->Ln(15);
-        $pdf->SetFont('montserrat', '', 11);
+        $pdf->SetFont('montserrat', '', 10);
         $pdf->Write(10, utf8_decode('          * Un auxilio mensual no salarial de '));
-        $pdf->SetFont('montserrat', 'B', 11);
+        $pdf->SetFont('montserrat', 'B', 10);
         $pdf->Write(10, utf8_decode($auxilio_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($auxilio, 0, ',', '.') . ')'));
         $pdf->Ln(15);
-        $pdf->SetFont('montserrat', '', 11);
+        $pdf->SetFont('montserrat', '', 10);
         $pdf->Write(10, utf8_decode('Para un total de '));
-        $pdf->SetFont('montserrat', 'B', 11);
+        $pdf->SetFont('montserrat', 'B', 10);
         $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($neto_pagar, 0, ',', '.') . ')'));
     } else {
-        $pdf->SetFont('montserrat', '', 11);
+        $pdf->SetFont('montserrat', '', 10);
         $pdf->Write(10, utf8_decode(', devengando un salario mensual de '));
-        $pdf->SetFont('montserrat', 'B', 11);
+        $pdf->SetFont('montserrat', 'B', 10);
         $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($neto_pagar, 0, ',', '.') . ') '));
-        $pdf->SetFont('montserrat', '', 11);
+        $pdf->SetFont('montserrat', '', 10);
         $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
     }
 }
 $pdf->Ln(15);
-$pdf->SetFont('montserrat', '', 11);
+$pdf->SetFont('montserrat', '', 10);
 $pdf->MultiCell(0, 10, utf8_decode('Esta certificación se expide el día ' . $fecha_actual . '.'), 0, 'L');
 $pdf->Ln(14);
 $pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
-$pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 40); 
+$pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 30); 
 $pdf->Ln(40); 
-$pdf->SetFont('montserrat', 'B', 11);
+$pdf->SetFont('montserrat', 'B', 10);
 $pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
 $pdf->Ln(-4);
 $pdf->MultiCell(0, 10, utf8_decode('Líder de Talento Humano'), 0, 'L');
