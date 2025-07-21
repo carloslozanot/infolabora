@@ -152,6 +152,7 @@ $pdf->SetFont('montserrat', '', 11);
 $pdf->Write(10, utf8_decode(', con un contrato a término '));
 
 if ($salario_sn === 'SI') {
+
     $pdf->SetFont('montserrat', 'B', 11);
     $pdf->Write(10, utf8_decode($tipo_contrato));
 
@@ -185,9 +186,11 @@ if ($salario_sn === 'SI') {
         $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($neto_pagar, 0, ',', '.') . ')'));
         $pdf->Ln(15);
-    } else {
 
-        $pdf->SetFont('montserrat', 'B', 11);
+    } 
+} else {
+
+    $pdf->SetFont('montserrat', 'B', 11);
         $pdf->Write(10, utf8_decode($tipo_contrato) . '.');
         $pdf->Ln(15);
         $pdf->SetFont('montserrat', 'B', 11);
@@ -196,8 +199,8 @@ if ($salario_sn === 'SI') {
         $pdf->SetFont('montserrat', '', 11);
         $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
         $pdf->Ln(20);
-    }
-} 
+
+}
 
 $pdf->SetFont('montserrat', '', 11);
 $pdf->MultiCell(0, 10, utf8_decode('Esta certificación se expide el día ' . $fecha_actual . '.'), 0, 'L');
