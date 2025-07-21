@@ -154,7 +154,7 @@ $result = mysqli_query($conexion, $sql);
                 </a>
 
                 <a class="btn btn-info" href="exportar_excel.php" target="_blank">
-                    <i class="fa-solid fa-file-excel"></i> Exportar
+                    <i class="fa-solid fa-file-excel"></i> Exportar a excel
                 </a>
             </div>
 
