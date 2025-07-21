@@ -106,7 +106,7 @@ $pdf = new PDF('membrete.png', 'membrete_2.png');
 $pdf->AddPage('P', 'A4');
 
 if ($titulo != 'En blanco') {
-    $pdf->SetFont('montserrat', '', 10);
+    $pdf->SetFont('montserrat', 'B', 10);
     $pdf->MultiCell(0, 10, utf8_decode($titulo . ' ' . $destinatario), 0, 'L');
     $pdf->Ln(4);
 }
@@ -165,7 +165,7 @@ if ($salario_sn === 'SI') {
         $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
         $pdf->Ln(15);
         $pdf->SetFont('montserrat', '', 10);
-        $pdf->Write(10, utf8_decode('          * Un auxilio mensual no salarial de '));
+        $pdf->Write(10, utf8_decode('Un auxilio mensual no salarial de '));
         $pdf->SetFont('montserrat', 'B', 10);
         $pdf->Write(10, utf8_decode($auxilio_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($auxilio, 0, ',', '.') . ')'));
@@ -188,10 +188,10 @@ if ($salario_sn === 'SI') {
 $pdf->Ln(15);
 $pdf->SetFont('montserrat', '', 10);
 $pdf->MultiCell(0, 10, utf8_decode('Esta certificación se expide el día ' . $fecha_actual . '.'), 0, 'L');
-$pdf->Ln(14);
+$pdf->Ln(5);
 $pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
 $pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 30); 
-$pdf->Ln(40); 
+$pdf->Ln(30); 
 $pdf->SetFont('montserrat', 'B', 10);
 $pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
 $pdf->Ln(-4);
