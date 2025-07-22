@@ -67,7 +67,7 @@ if (!isset($_SESSION['usuario'])) {
                     <h4>Certificados</h4>
                 </div>
             </a>
-            <<a href="#">
+            <a href="#">
                 <div class="option" data-pagina="vacaciones">
                     <i class="bi bi-umbrella" title="Vacaciones"></i>
                     <h4>Vacaciones</h4>
