@@ -42,24 +42,36 @@ $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del us
         <form method="post" action="fpdf/desprendible.php">
             <select name="mes" class="form-select form-select-sm" aria-label=".form-select-sm example"
                 style="width: 250px; height: 30px;">
-                <option selected><b>SELECCIONE EL MES<b></option>
-                <option value="Enero-2023">Enero 2023</option>
-                <option value="Febrero-2023">Febrero 2023</option>
-                <option value="Marzo-2023">Marzo 2023</option>
-                <option value="Abril-2023">Abril 2023</option>
-                <option value="Mayo-2023">Mayo 2023</option>
-                <option value="Junio-2023">Junio 2023</option>
-                <option value="Julio-2023">Julio 2023</option>
-                <option value="Agosto-2023">Agosto 2023</option>
-                <option value="Septiembre-2023">Septiembre 2023</option>
-                <option value="Octubre-2023">Octubre 2023</option>
+                <option selected><b>SELECCIONE EL MES</b></option>
+
+                <?php
+                include("conexion.php"); // o el archivo correcto de conexión
+                
+                // Asegúrate de tener la cédula del empleado
+                $cedula = $_GET['id']; // o donde la tengas disponible
+                
+                // Consulta para obtener los meses disponibles
+                $query = "SELECT DISTINCT mes
+                  FROM desprendibles
+                  WHERE cedula = '$cedula'
+                  ORDER BY mes DESC";
+
+                $resultado = mysqli_query($conexion, $query);
+
+                while ($row = mysqli_fetch_assoc($resultado)) {
+                    $valor = $row['mes_etiqueta'];  // Ej: "Julio-2025"
+                    echo "<option value='$valor'>$valor</option>";
+                }
+                ?>
             </select>
 
             <input type="hidden" name="id" value="<?php echo $cedula; ?>">
 
-            <button type="submit" class="btn boton-certificado"><i class="fa-solid fa-file"></i> GENERAR
-                DESPRENDIBLE</button>
+            <button type="submit" class="btn boton-certificado">
+                <i class="fa-solid fa-file"></i> GENERAR DESPRENDIBLE
+            </button>
         </form>
+
     </div>
 </body>
 
