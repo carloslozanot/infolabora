@@ -105,6 +105,8 @@ class PDF extends FPDF
 $pdf = new PDF('membrete.png', 'membrete_2.png');
 $pdf->AddPage('P', 'A4');
 
+
+
 if ($titulo != 'En blanco') {
     $pdf->SetFont('montserrat', 'B', 10);
     $pdf->MultiCell(0, 10, utf8_decode($titulo . ' ' . $destinatario), 0, 'L');

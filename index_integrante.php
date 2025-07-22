@@ -67,12 +67,12 @@ if (!isset($_SESSION['usuario'])) {
                     <h4>Certificados</h4>
                 </div>
             </a>
-            <!--<a href="#">
+            <<a href="#">
                 <div class="option" data-pagina="vacaciones">
                     <i class="bi bi-umbrella" title="Vacaciones"></i>
                     <h4>Vacaciones</h4>
                 </div>
-            </a>-->
+            </a>
             <a href="#">
                 <div class="option" data-pagina="cerrar-sesion">
                     <i class="bi bi-box-arrow-right" title="cerrar-sesion"></i>
@@ -276,8 +276,8 @@ if (!isset($_SESSION['usuario'])) {
             <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar certificados
                 laborales a quien interese</p>
             <div>
-                <!--<a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
-                        class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>-->
+                <<a href="desprendible_pago.php" target="_blank" class="btn boton-descargas"><i
+                        class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLES DE PAGO</a>
                 <a href="certificado_laboral.php" target="_blank" class="btn boton-descargas"><i
                         class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
             </div>
