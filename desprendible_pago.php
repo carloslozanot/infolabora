@@ -12,13 +12,13 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-// Obtén el ID del usuario desde la variable de sesión
-$cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del usuario
+// Obtener el ID del usuario desde la sesión
+$cedula = $_SESSION['usuario'];
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,6 @@ $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del us
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" href="docs/css/estilos.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
@@ -45,22 +44,19 @@ $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del us
                 <option selected><b>SELECCIONE EL MES</b></option>
 
                 <?php
-                include("conexion.php"); // o el archivo correcto de conexión
-                
-                // Asegúrate de tener la cédula del empleado
-                $cedula = $_GET['id']; // o donde la tengas disponible
-                
+                include("conexion.php");
+
                 // Consulta para obtener los meses disponibles
                 $query = "SELECT DISTINCT mes
-                  FROM desprendibles
-                  WHERE cedula = '$cedula'
-                  ORDER BY mes DESC";
+                          FROM desprendibles
+                          WHERE cedula = '$cedula'
+                          ORDER BY mes DESC";
 
                 $resultado = mysqli_query($conexion, $query);
 
                 while ($row = mysqli_fetch_assoc($resultado)) {
-                    $valor = $row['mes_etiqueta'];  // Ej: "Julio-2025"
-                    echo "<option value='$valor'>$valor</option>";
+                    $mes = $row['mes'];  // Ej: "Julio-2025"
+                    echo "<option value='$mes'>$mes</option>";
                 }
                 ?>
             </select>
@@ -71,7 +67,6 @@ $cedula = $_SESSION['usuario']; // Asumiendo que 'usuario' contiene el ID del us
                 <i class="fa-solid fa-file"></i> GENERAR DESPRENDIBLE
             </button>
         </form>
-
     </div>
 </body>
 
