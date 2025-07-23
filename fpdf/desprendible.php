@@ -2,7 +2,7 @@
 require('fpdf.php');
 
 $cedula = isset($_POST['id']) ? $_POST['id'] : '';
-$mes = isset($_POST['mes']) ? $_POST['mes'] : '';
+$periodo = isset($_POST['periodo']) ? $_POST['periodo'] : '';
 
 // Realizar la consulta a la base de datos
 include("../php/conexion.php");
