@@ -40,21 +40,21 @@ $cedula = $_SESSION['usuario'];
         <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">DESPRENDIBLE DE PAGO</h2><br>
 
         <form method="post" action="fpdf/desprendible.php">
-            <select name="mes" class="desplegable_mes" required>
-                <option selected disabled>SELECCIONE EL MES</option>
+            <select name="periodo" class="desplegable_periodo" required>
+                <option selected disabled>SELECCIONE EL PERIODO</option>
 
                 <?php
 
-                $query = "SELECT mes FROM desprendibles WHERE cedula = '$cedula' ORDER BY mes DESC";
+                $query = "SELECT periodo FROM desprendibles WHERE cedula = '$cedula' ORDER BY periodo DESC";
                 $resultado = mysqli_query($conexion, $query);
 
                 if ($resultado && mysqli_num_rows($resultado) > 0) {
                     while ($row = mysqli_fetch_assoc($resultado)) {
-                        $mes = $row['mes'];
-                        echo "<option value='$mes'>$mes</option>";
+                        $periodo = $row['periodo'];
+                        echo "<option value='$periodo'>$periodo</option>";
                     }
                 } else {
-                    echo "<option disabled>No hay meses disponibles para la cédula $cedula</option>";
+                    echo "<option disabled>No hay periodos disponibles para la cédula $cedula</option>";
 
                 }
                 ?>

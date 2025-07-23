@@ -2,11 +2,11 @@
 require('fpdf.php');
 
 $cedula = isset($_POST['id']) ? $_POST['id'] : '';
-$mes = isset($_POST['mes']) ? $_POST['mes'] : '';
+$periodo = isset($_POST['periodo']) ? $_POST['periodo'] : '';
 
 // Realizar la consulta a la base de datos
 include("../php/conexion.php");
-$consulta_info = $conexion->query("select * from desprendibles d, integrantes i  where d.cedula = i.cedula and d.cedula = '$cedula' and d.mes = '$mes'");
+$consulta_info = $conexion->query("select * from desprendibles d, integrantes i  where d.cedula = i.cedula and d.cedula = '$cedula' and d.periodo = '$periodo'");
 
 if ($consulta_info->num_rows > 0) {
    $dato_info = $consulta_info->fetch_object();
@@ -41,7 +41,7 @@ class PDF extends FPDF
    function Header()
    {
       global $cedula;
-      global $mes;
+      global $periodo;
       global $nombre_completo;
       global $cargo;
 
@@ -78,7 +78,7 @@ class PDF extends FPDF
       
       $this->Cell(34);
       $this->SetFont('Arial', 'B', 10);
-      $this->Cell(50, 10, utf8_decode("Periodo correspondiente al mes de " . $mes), 0, 0, '', 0);
+      $this->Cell(50, 10, utf8_decode("Periodo correspondiente al periodo de " . $periodo), 0, 0, '', 0);
       $this->Ln(10);
 
    }

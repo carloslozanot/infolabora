@@ -335,7 +335,7 @@ header {
     width: 550px;
     overflow: auto;
 }
-.desplegable_mes {
+.desplegable_periodo {
     display: flex;
     justify-content: center;
     gap: 10px;
