@@ -7,7 +7,7 @@ $cedula = $_POST['id'];
 $periodo = $_POST['periodo'];
 
 // Consulta los datos del desprendible
-$query = "SELECT * FROM desprendibles WHERE cedula = '$cedula' AND periodo = '$periodo' LIMIT 1";
+$query = "SELECT * FROM desprendibles d, integrantes i WHERE d.cedula = i.cedula AND d.cedula = '$cedula' AND periodo = '$periodo' LIMIT 1";
 $resultado = mysqli_query($conexion, $query);
 $datos = mysqli_fetch_assoc($resultado);
 
@@ -75,7 +75,7 @@ $pdf->Ln(2);
 $pdf->Titulo('PERIODO DE PAGO');
 $pdf->LineaTexto('Periodo:', substr($datos['periodo'], 4, 2) . '/01/' . substr($datos['periodo'], 0, 4));  // Ej: 202501 → 01/01/2025
 $pdf->LineaTexto('Días trabajados:', $datos['aportes_pension']);
-$pdf->LineaTexto('Salario Base:', '$ ' . number_format(normalizar_num($datos['aportes_pensión']), 0, ',', '.'));
+$pdf->LineaTexto('Salario Base:', '$ ' . number_format(normalizar_num($datos['aportes_pension']), 0, ',', '.'));
 
 // Resumen del pago
 $pdf->Ln(4);
@@ -86,7 +86,7 @@ $pdf->TablaConceptos('Item', [
     'Subsidio de Transporte' => normalizar_num($datos['aportes_pension']),
     'Ingresos adicionales' => normalizar_num($datos['aportes_pension']),
     'Retenciones y deducciones' => -normalizar_num($datos['aportes_pension']),
-    'TOTAL NETO A PAGAR AL EMPLEADO' => normalizar_num($datos['aportes_pension']) + normalizar_num($datos['aportes_pensión']) + normalizar_num($datos['aportes_pensión']) - normalizar_num($datos['aportes_pensión'])
+    'TOTAL NETO A PAGAR AL EMPLEADO' => normalizar_num($datos['aportes_pension']) + normalizar_num($datos['aportes_pension']) + normalizar_num($datos['aportes_pension']) - normalizar_num($datos['aportes_pension'])
 ]);
 
 // Ingresos adicionales
