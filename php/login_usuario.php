@@ -138,7 +138,7 @@ if ($result->num_rows > 0) {
         $_SESSION['dias_generados'] = $row['dias_generados'];
         $_SESSION['total_dias_generados'] = $row['dias_generados'] + $row['total_dias_totales'];
         $_SESSION['ultimo_periodo'] = $row['ultimo_periodo'];
-        $_SESSION['diferencia_dias'] = $row['total_dias_generados'] - $row['total_dias_disfrutados'] - $row['total_dias_dinero'];
+        $_SESSION['diferencia_dias'] = $_SESSION['total_dias_generados'] - $row['total_dias_disfrutados'] - $row['total_dias_dinero'];
         $fecha_generacion = date('Y-m-d H:i:s');
         $tipo = 'Ingreso al Sistema';
         $observaciones = 'Inicio de sesión exitoso del usuario: ' . $row['cedula'];
