@@ -36,7 +36,7 @@ $pdf->Ln(5);
 
 // Datos del empleado
 $pdf->SetFont('Arial','',11);
-$pdf->Cell(95,6,'Nombre: ' . $empleado['nombre'],0,0);
+$pdf->Cell(95,6,'Nombre: ' . $empleado['nombres'],0,0);
 $pdf->Cell(95,6,'Cédula: ' . $cedula,0,1);
 $pdf->Cell(95,6,'Cargo: ' . $empleado['cargo'],0,0);
 $pdf->Cell(95,6,'Área: ' . $empleado['area'],0,1);
@@ -56,10 +56,9 @@ $pdf->SetFont('Arial','',10);
 $conceptos = [
     ['Sueldo Básico', $datos['sueldo_basico'], 0],
     ['Horas Extra', $datos['horas_extra'], 0],
-    ['Auxilio Transporte', $datos['aux_transporte'], 0],
-    ['Salud', 0, $datos['salud']],
-    ['Pensión', 0, $datos['pension']],
-    ['Fondo Solidaridad', 0, $datos['f_solidaridad']],
+    ['Auxilio Transporte', $datos['auxilio_transporte'], 0],
+    ['Salud', 0, $datos['aportes_eps']],
+    ['Pensión', 0, $datos['aportes_pension']],
     ['Otras Deducciones', 0, $datos['otras_deducciones']]
 ];
 
