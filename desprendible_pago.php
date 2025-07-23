@@ -38,7 +38,7 @@ $cedula = $_SESSION['usuario'];
 
 <body>
     <div class="contenido-desprendible">
-        <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">DESPRENDIBLE</h2><br>
+    <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">DESPRENDIBLE <?php echo $cedula; ?></h2>
 
         <form method="post" action="fpdf/desprendible.php">
             <select name="mes" class="form-select form-select-sm" aria-label=".form-select-sm example"
@@ -49,7 +49,7 @@ $cedula = $_SESSION['usuario'];
                 include("conexion.php");
 
                 // Consulta para obtener los meses disponibles
-                $query = "SELECT DISTINCT mes
+                $query = "SELECT mes
                           FROM desprendibles
                           WHERE cedula = '$cedula'
                           ORDER BY mes DESC";
