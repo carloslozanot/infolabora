@@ -303,6 +303,13 @@ if (!isset($_SESSION['usuario'])) {
             <p style="font-size: 22px; font-weight: bold; text-align: center;">Dias pendientes por disfrutar
             </p>
 
+            <div>
+                <a href="detalle_vacaciones.php" target="_blank" class="btn boton-descargas"><i
+                        class="fa-solid fa-file-invoice-dollar"></i>DETALLE</a>
+                <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-descargas"><i
+                        class="fa-solid fa-file-circle-check"></i>SOLICITAR VACACIONES</a>
+            </div>
+
 
             <!--<p style="text-align: center;">
                 <a href="docs/documents/GH.AUS.FO.01.Solicitud.de.Ausentismo.docx"
