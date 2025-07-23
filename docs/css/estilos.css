@@ -336,7 +336,7 @@ header {
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
-.form-flex {
+.desplegable_mes {
     display: flex;
     justify-content: center;
     gap: 10px;
