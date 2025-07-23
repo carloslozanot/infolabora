@@ -21,9 +21,9 @@ integrantes.edad, integrantes.eps, integrantes.arl, integrantes.correo, integran
 integrantes.cargo, integrantes.area, integrantes.lider_inmediato, integrantes.caja, integrantes.pensiones,
 integrantes.cesantias, integrantes.celular, integrantes.direccion, integrantes.ciudad_residencia, 
 integrantes.tipo_contrato, integrantes.estado, integrantes.fecha_retiro, 
-SUM(vacaciones.dias_totales) AS total_dias, 
-SUM(vacaciones.dias_disfrutados) AS total_disfrutados,
-SUM(vacaciones.dias_dinero) AS total_dinero
+SUM(vacaciones.dias_totales) AS total_dias_totales, 
+SUM(vacaciones.dias_disfrutados) AS total_dias_disfrutados,
+SUM(vacaciones.dias_dinero) AS total_dias_dinero
 FROM usuarios 
 INNER JOIN integrantes ON usuarios.cedula = integrantes.cedula
 LEFT OUTER JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
@@ -77,9 +77,10 @@ if ($result->num_rows > 0) {
         $_SESSION['ciudad_residencia'] = $row['ciudad_residencia'];
         $_SESSION['estado'] = $row['estado'];
         $_SESSION['fecha_retiro'] = $row['fecha_retiro'];
-        $_SESSION['dias_totales'] = $row['dias_totales'];
-        $_SESSION['dias_disfrutados'] = $row['dias_disfrutados'];
-        $_SESSION['diferencia_dias'] = $row['dias_totales'] - $row['dias_disfrutados'];
+        $_SESSION['total_dias_totales'] = $row['total_dias_totales'];
+        $_SESSION['total_dias_disfrutados'] = $row['total_dias_disfrutados'];
+        $_SESSION['total_dias_dinero'] = $row['total_dias_dinero'];
+        $_SESSION['diferencia_dias'] = $row['total_dias_totales'] - $row['total_dias_disfrutados'] - $row['total_dias_dinero'];
         $fecha_generacion = date('Y-m-d H:i:s');
         $tipo = 'Ingreso al Sistema';
         $observaciones = 'Inicio de sesión exitoso del usuario: ' . $row['cedula'];
