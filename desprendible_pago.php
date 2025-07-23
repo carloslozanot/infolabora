@@ -58,7 +58,7 @@ $cedula = $_SESSION['usuario'];
                         echo "<option value='$mes'>$mes</option>";
                     }
                 } else {
-                    echo "<option disabled>No hay meses disponibles</option>";
+                    echo "<option disabled>No hay meses disponibles para la cedula <?php echo $cedula; ?></option>";
                 }
                 ?>
             </select>
