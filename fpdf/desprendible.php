@@ -67,7 +67,7 @@ $pdf->LineaTexto('NIT:', '123.456.789');
 
 $pdf->Ln(2);
 $pdf->Titulo('EMPLEADO');
-$pdf->LineaTexto('Nombre:', utf8_decode($datos['nombres'] . ' ' . $datos['apellidos']));
+$pdf->LineaTexto('Nombre:', utf8_decode($datos['nombre_completo']));
 $pdf->LineaTexto('C.C.:', $datos['cedula']);
 $pdf->LineaTexto('Cargo:', utf8_decode($datos['cargo']));
 
