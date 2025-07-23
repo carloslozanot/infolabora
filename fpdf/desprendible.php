@@ -7,7 +7,7 @@ $cedula = $_POST['id'];
 $periodo = $_POST['periodo'];
 
 // Consultar datos del empleado
-$queryEmpleado = "SELECT nombre, cargo, area FROM info_empleados WHERE cedula = '$cedula'";
+$queryEmpleado = "SELECT nombres, cargo, area FROM integrantes WHERE cedula = '$cedula'";
 $resultEmpleado = mysqli_query($conexion, $queryEmpleado);
 $empleado = mysqli_fetch_assoc($resultEmpleado);
 
