@@ -19,33 +19,33 @@ class PDF extends FPDF
 {
     function Header()
     {
-        $this->SetFont('Arial', 'B', 16);
+        $this->SetFont('Arial', 'B', 14);
         $this->Cell(0, 10, utf8_decode('DESPRENDIBLE DE PAGO'), 0, 1, 'C');
         $this->Ln(5);
     }
 
     function Titulo($texto)
     {
-        $this->SetFont('Arial', 'B', 12);
+        $this->SetFont('Arial', 'B', 11);
         $this->SetFillColor(230, 230, 230);
         $this->Cell(0, 8, utf8_decode($texto), 0, 1, 'L', true);
     }
 
     function LineaTexto($titulo, $valor, $negrita = false)
     {
-        $this->SetFont('Arial', $negrita ? 'B' : '', 11);
+        $this->SetFont('Arial', $negrita ? 'B' : '', 10);
         $this->Cell(60, 8, utf8_decode($titulo), 0, 0, 'L');
         $this->Cell(0, 8, utf8_decode($valor), 0, 1, 'L');
     }
 
     function TablaConceptos($titulo, $conceptos)
     {
-        $this->SetFont('Arial', 'B', 11);
+        $this->SetFont('Arial', 'B', 10);
         $this->SetFillColor(240, 240, 240);
         $this->Cell(95, 8, utf8_decode($titulo), 1, 0, 'L', true);
         $this->Cell(0, 8, utf8_decode('Valor'), 1, 1, 'R', true);
 
-        $this->SetFont('Arial', '', 11);
+        $this->SetFont('Arial', '', 10);
         foreach ($conceptos as $nombre => $valor) {
             $this->Cell(95, 8, utf8_decode($nombre), 1);
             $this->Cell(0, 8, '$ ' . number_format($valor, 0, ',', '.'), 1, 1, 'R');
