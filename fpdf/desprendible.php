@@ -26,7 +26,7 @@ include("../php/conexion.php");
 $cedula = $_POST['id'];
 $periodo = $_POST['periodo'];
 
-$query = "SELECT * FROM desprendibles WHERE cedula = '$cedula' AND periodo = '$periodo' LIMIT 1";
+$query = "SELECT * FROM desprendibles d, integrantes i WHERE d.cedula = i.cedula AND cedula = '$cedula' AND periodo = '$periodo' LIMIT 1";
 $resultado = mysqli_query($conexion, $query);
 
 if (!$resultado || mysqli_num_rows($resultado) === 0) {
@@ -63,15 +63,15 @@ $pdf->Cell(45, 8, 'Deducción', 1, 1, 'C', true);
 $pdf->SetFont('Arial', '', 11);
 
 // Obtener detalles
-$query_detalle = "SELECT concepto, ingreso, deduccion FROM desprendibles_detalle WHERE cedula = '$cedula' AND periodo = '$periodo'";
+$query_detalle = "SELECT concepto, ingreso, deduccion FROM desprendibles WHERE cedula = '$cedula' AND periodo = '$periodo'";
 $resultado_detalle = mysqli_query($conexion, $query_detalle);
 
 if ($resultado_detalle && mysqli_num_rows($resultado_detalle) > 0) {
     while ($item = mysqli_fetch_assoc($resultado_detalle)) {
-        $ingreso = floatval(str_replace('.', '', $item['ingreso']));
-        $deduccion = floatval(str_replace('.', '', $item['deduccion']));
+        $ingreso = floatval(str_replace('.', '', $item['neto_pagar']));
+        $deduccion = floatval(str_replace('.', '', $item['neto_pagar']));
         
-        $pdf->Cell(100, 8, utf8_decode($item['concepto']), 1);
+        $pdf->Cell(100, 8, utf8_decode($item['neto_pagar']), 1);
         $pdf->Cell(45, 8, number_format($ingreso, 0, ',', '.'), 1, 0, 'R');
         $pdf->Cell(45, 8, number_format($deduccion, 0, ',', '.'), 1, 1, 'R');
     }
