@@ -283,13 +283,13 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </div>
         <div id="contenido-vacaciones" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">VACACIONES</h2>
+        <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">VACACIONES</h2>
             <br>
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Totales:
-                <?php echo $_SESSION['dias_totales'] . ' días'; ?>
+                <?php echo $_SESSION['total_dias_totales'] . ' días'; ?>
             </p>
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados:
-                <?php echo $_SESSION['dias_disfrutados'] . ' días'; ?>
+                <?php echo $_SESSION['total_dias_disfrutados'] . ' días'; ?>
             </p>
             <p style="font-size: 100px; font-weight: bold; text-align: center;margin-bottom: 0px;color:#150940">
                 <?php echo $_SESSION['diferencia_dias']; ?>
