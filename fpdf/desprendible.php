@@ -1,97 +1,89 @@
 <?php
 require('fpdf.php');
+include('../php/conexion.php');
 
-class PDF extends FPDF
-{
-    function Header()
-    {
-        // Logo
-        $this->Image('../docs/img/logo.png', 10, 8, 30); // Ajusta la ruta y tamaño del logo
-        // Título
-        $this->SetFont('Arial', 'B', 14);
-        $this->Cell(0, 10, utf8_decode('DESPRENDIBLE DE PAGO'), 0, 1, 'C');
-        $this->Ln(10);
-    }
+// Recibir datos
+$cedula = $_POST['id'];
+$periodo = $_POST['periodo'];
 
-    function Footer()
-    {
-        $this->SetY(-20);
-        $this->SetFont('Arial', 'I', 8);
-        $this->MultiCell(0, 5, utf8_decode("Este documento es confidencial y contiene información sobre los pagos realizados. Verifique cualquier inconsistencia con el área de Talento Humano."), 0, 'C');
-    }
+// Consultar datos del empleado
+$queryEmpleado = "SELECT nombre, cargo, area FROM info_empleados WHERE cedula = '$cedula'";
+$resultEmpleado = mysqli_query($conexion, $queryEmpleado);
+$empleado = mysqli_fetch_assoc($resultEmpleado);
 
-    function DatosEmpleado($empleado)
-    {
-        $this->SetFont('Arial', '', 10);
-        foreach ($empleado as $key => $value) {
-            $this->Cell(50, 8, utf8_decode($key), 0, 0);
-            $this->Cell(80, 8, utf8_decode($value), 0, 1);
-        }
-        $this->Ln(5);
-    }
+// Consultar datos del desprendible
+$queryDesprendible = "SELECT * FROM desprendibles WHERE cedula = '$cedula' AND periodo = '$periodo'";
+$resultDesprendible = mysqli_query($conexion, $queryDesprendible);
+$datos = mysqli_fetch_assoc($resultDesprendible);
 
-    function TablaConceptos($conceptos)
-    {
-        $this->SetFillColor(220, 220, 220);
-        $this->SetFont('Arial', 'B', 10);
-        $this->Cell(80, 8, utf8_decode('CONCEPTO'), 1, 0, 'C', true);
-        $this->Cell(40, 8, 'INGRESOS', 1, 0, 'C', true);
-        $this->Cell(40, 8, 'DEDUCCIONES', 1, 1, 'C', true);
+// Convertir periodo a formato: Enero-2025
+$anio = substr($periodo, 0, 4);
+$mes = substr($periodo, 4, 2);
+$meses = ['01'=>'Enero','02'=>'Febrero','03'=>'Marzo','04'=>'Abril','05'=>'Mayo','06'=>'Junio',
+          '07'=>'Julio','08'=>'Agosto','09'=>'Septiembre','10'=>'Octubre','11'=>'Noviembre','12'=>'Diciembre'];
+$periodoFormateado = $meses[$mes] . ' - ' . $anio;
 
-        $this->SetFont('Arial', '', 10);
-        foreach ($conceptos as $item) {
-            $this->Cell(80, 8, utf8_decode($item['concepto']), 1);
-            $this->Cell(40, 8, number_format($item['ingreso'], 0, ',', '.'), 1, 0, 'R');
-            $this->Cell(40, 8, number_format($item['deduccion'], 0, ',', '.'), 1, 1, 'R');
-        }
-    }
+// Crear PDF
+$pdf = new FPDF();
+$pdf->AddPage();
 
-    function Totales($ingresoTotal, $deduccionTotal)
-    {
-        $neto = $ingresoTotal - $deduccionTotal;
-        $this->Ln(5);
-        $this->SetFont('Arial', 'B', 11);
-        $this->Cell(120, 8, 'TOTAL INGRESOS:', 0, 0, 'R');
-        $this->Cell(40, 8, number_format($ingresoTotal, 0, ',', '.'), 0, 1, 'R');
+// Encabezado
+$pdf->SetFont('Arial','B',14);
+$pdf->Cell(190,10,'EMPRESA XYZ S.A.S',0,1,'C');
+$pdf->SetFont('Arial','',12);
+$pdf->Cell(190,7,'Desprendible de Pago - '.$periodoFormateado,0,1,'C');
+$pdf->Ln(5);
 
-        $this->Cell(120, 8, 'TOTAL DEDUCCIONES:', 0, 0, 'R');
-        $this->Cell(40, 8, number_format($deduccionTotal, 0, ',', '.'), 0, 1, 'R');
+// Datos del empleado
+$pdf->SetFont('Arial','',11);
+$pdf->Cell(95,6,'Nombre: ' . $empleado['nombre'],0,0);
+$pdf->Cell(95,6,'Cédula: ' . $cedula,0,1);
+$pdf->Cell(95,6,'Cargo: ' . $empleado['cargo'],0,0);
+$pdf->Cell(95,6,'Área: ' . $empleado['area'],0,1);
+$pdf->Ln(8);
 
-        $this->SetFont('Arial', 'B', 12);
-        $this->SetTextColor(0, 102, 0);
-        $this->Cell(120, 8, 'NETO A PAGAR:', 0, 0, 'R');
-        $this->Cell(40, 8, number_format($neto, 0, ',', '.'), 0, 1, 'R');
-    }
+// Encabezado de tabla
+$pdf->SetFillColor(220,220,220);
+$pdf->SetFont('Arial','B',11);
+$pdf->Cell(100,8,'Concepto',1,0,'C',true);
+$pdf->Cell(45,8,'Ingresos',1,0,'C',true);
+$pdf->Cell(45,8,'Deducciones',1,1,'C',true);
+
+// Filas de conceptos
+$pdf->SetFont('Arial','',10);
+
+// Ejemplo: puedes adaptar según tus columnas reales en la tabla
+$conceptos = [
+    ['Sueldo Básico', $datos['sueldo_basico'], 0],
+    ['Horas Extra', $datos['horas_extra'], 0],
+    ['Auxilio Transporte', $datos['aux_transporte'], 0],
+    ['Salud', 0, $datos['salud']],
+    ['Pensión', 0, $datos['pension']],
+    ['Fondo Solidaridad', 0, $datos['f_solidaridad']],
+    ['Otras Deducciones', 0, $datos['otras_deducciones']]
+];
+
+foreach ($conceptos as $item) {
+    $pdf->Cell(100,8,$item[0],1);
+    $pdf->Cell(45,8,number_format($item[1],0,',','.'),1,0,'R');
+    $pdf->Cell(45,8,number_format($item[2],0,',','.'),1,1,'R');
 }
 
-// =====================
-// Simulación de datos
-// =====================
-$empleado = [
-    'Nombre:' => 'Carlos Pérez',
-    'Cédula:' => '12345678',
-    'Cargo:' => 'Analista',
-    'Área:' => 'Financiera',
-    'Periodo:' => 'Enero-2025'
-];
+// Totales
+$pdf->SetFont('Arial','B',11);
+$pdf->Cell(100,8,'Totales',1,0,'R',true);
+$pdf->Cell(45,8,number_format($datos['total_ingresos'],0,',','.'),1,0,'R',true);
+$pdf->Cell(45,8,number_format($datos['total_deducciones'],0,',','.'),1,1,'R',true);
 
-$conceptos = [
-    ['concepto' => 'Salario básico', 'ingreso' => 2000000, 'deduccion' => 0],
-    ['concepto' => 'Subsidio transporte', 'ingreso' => 140000, 'deduccion' => 0],
-    ['concepto' => 'Salud', 'ingreso' => 0, 'deduccion' => 160000],
-    ['concepto' => 'Pensión', 'ingreso' => 0, 'deduccion' => 160000],
-];
+// Neto a pagar
+$pdf->Ln(5);
+$pdf->SetFont('Arial','B',12);
+$pdf->Cell(190,10,'Neto a Pagar: $'.number_format($datos['neto'],0,',','.'),0,1,'C');
 
-$ingresos = array_sum(array_column($conceptos, 'ingreso'));
-$deducciones = array_sum(array_column($conceptos, 'deduccion'));
+// Pie de página
+$pdf->SetY(-20);
+$pdf->SetFont('Arial','I',9);
+$pdf->Cell(0,10,utf8_decode('Este documento es generado electrónicamente y no requiere firma.'),0,0,'C');
 
-// =====================
-// Generar PDF
-// =====================
-$pdf = new PDF();
-$pdf->AddPage();
-$pdf->DatosEmpleado($empleado);
-$pdf->TablaConceptos($conceptos);
-$pdf->Totales($ingresos, $deducciones);
 $pdf->Output();
 ?>
