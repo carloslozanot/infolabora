@@ -67,14 +67,14 @@ $pdf->LineaTexto('NIT:', '800.113.238');
 
 $pdf->Ln(2);
 $pdf->Titulo('EMPLEADO');
-$pdf->LineaTexto('Nombre:', utf8_decode($datos['aportes_pensión']));
+$pdf->LineaTexto('Nombre:', utf8_decode($datos['aportes_pension']));
 $pdf->LineaTexto('C.C.:', $datos['cedula']);
 $pdf->LineaTexto('Cargo:', utf8_decode($datos['cargo']));
 
 $pdf->Ln(2);
 $pdf->Titulo('PERIODO DE PAGO');
 $pdf->LineaTexto('Periodo:', substr($datos['periodo'], 4, 2) . '/01/' . substr($datos['periodo'], 0, 4));  // Ej: 202501 → 01/01/2025
-$pdf->LineaTexto('Días trabajados:', $datos['aportes_pensión']);
+$pdf->LineaTexto('Días trabajados:', $datos['aportes_pension']);
 $pdf->LineaTexto('Salario Base:', '$ ' . number_format(normalizar_num($datos['aportes_pensión']), 0, ',', '.'));
 
 // Resumen del pago
@@ -82,11 +82,11 @@ $pdf->Ln(4);
 $pdf->Titulo('RESUMEN DEL PAGO');
 
 $pdf->TablaConceptos('Item', [
-    'Salario' => normalizar_num($datos['aportes_pensión']),
-    'Subsidio de Transporte' => normalizar_num($datos['aportes_pensión']),
-    'Ingresos adicionales' => normalizar_num($datos['aportes_pensión']),
-    'Retenciones y deducciones' => -normalizar_num($datos['aportes_pensión']),
-    'TOTAL NETO A PAGAR AL EMPLEADO' => normalizar_num($datos['aportes_pensión']) + normalizar_num($datos['aportes_pensión']) + normalizar_num($datos['aportes_pensión']) - normalizar_num($datos['aportes_pensión'])
+    'Salario' => normalizar_num($datos['aportes_pension']),
+    'Subsidio de Transporte' => normalizar_num($datos['aportes_pension']),
+    'Ingresos adicionales' => normalizar_num($datos['aportes_pension']),
+    'Retenciones y deducciones' => -normalizar_num($datos['aportes_pension']),
+    'TOTAL NETO A PAGAR AL EMPLEADO' => normalizar_num($datos['aportes_pension']) + normalizar_num($datos['aportes_pensión']) + normalizar_num($datos['aportes_pensión']) - normalizar_num($datos['aportes_pensión'])
 ]);
 
 // Ingresos adicionales
@@ -94,8 +94,8 @@ $pdf->Ln(4);
 $pdf->Titulo('INGRESOS ADICIONALES');
 
 $pdf->TablaConceptos('Concepto', [
-    'Comisiones' => normalizar_num($datos['aportes_pensión']),
-    'Auxilio de movilización' => normalizar_num($datos['aportes_pensión']),
+    'Comisiones' => normalizar_num($datos['aportes_pension']),
+    'Auxilio de movilización' => normalizar_num($datos['aportes_pension']),
 ]);
 
 // Retenciones y deducciones
@@ -104,8 +104,8 @@ $pdf->Titulo('RETENCIONES Y DEDUCCIONES');
 
 $pdf->TablaConceptos('Concepto', [
     'Salud 4%' => normalizar_num($datos['aportes_eps']),
-    'Pensión 4%' => normalizar_num($datos['aportes_pensión']),
-    'Total Retenciones' => normalizar_num($datos['aportes_pensión']),
+    'Pensión 4%' => normalizar_num($datos['aportes_pension']),
+    'Total Retenciones' => normalizar_num($datos['aportes_pension']),
 ]);
 
 $pdf->Ln(10);
