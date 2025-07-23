@@ -10,6 +10,10 @@ $consulta_info = $conexion->query("SELECT * FROM desprendibles d, integrantes i 
 if ($consulta_info->num_rows > 0) {
     $dato = $consulta_info->fetch_object();
 
+    // Limpieza de valores numéricos
+    function limpiar_numero($valor) {
+        return number_format(floatval(str_replace('.', '', str_replace(',', '', $valor))), 0, ',', '.');
+    }
 
     $pdf = new FPDF();
     $pdf->AddPage();
