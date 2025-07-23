@@ -15,16 +15,26 @@ if (!$cedula || !$contrasena) {
 }
 
 $stmt = $conexion->prepare("SELECT 
-    usuarios.cedula, usuarios.contrasena, usuarios.id_permiso as permiso, 
-    integrantes.nombres, integrantes.apellidos, integrantes.imagen,
-    integrantes.edad, integrantes.eps, integrantes.arl, integrantes.correo, integrantes.fecha_ingreso,
-    integrantes.cargo, integrantes.area, integrantes.lider_inmediato, integrantes.caja, integrantes.pensiones,
-    integrantes.cesantias, integrantes.celular, integrantes.direccion, integrantes.ciudad_residencia, 
-    integrantes.tipo_contrato, integrantes.estado, integrantes.fecha_retiro, vacaciones.dias_totales, vacaciones.dias_disfrutados
+usuarios.cedula, usuarios.contrasena, usuarios.id_permiso AS permiso, 
+integrantes.nombres, integrantes.apellidos, integrantes.imagen,
+integrantes.edad, integrantes.eps, integrantes.arl, integrantes.correo, integrantes.fecha_ingreso,
+integrantes.cargo, integrantes.area, integrantes.lider_inmediato, integrantes.caja, integrantes.pensiones,
+integrantes.cesantias, integrantes.celular, integrantes.direccion, integrantes.ciudad_residencia, 
+integrantes.tipo_contrato, integrantes.estado, integrantes.fecha_retiro, 
+SUM(vacaciones.dias_totales) AS total_dias, 
+SUM(vacaciones.dias_disfrutados) AS total_disfrutados,
+SUM(vacaciones.dias_dinero) AS total_dinero
 FROM usuarios 
 INNER JOIN integrantes ON usuarios.cedula = integrantes.cedula
 LEFT OUTER JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
-WHERE usuarios.cedula = ?");
+WHERE usuarios.cedula = ?
+GROUP BY 
+usuarios.cedula, usuarios.contrasena, usuarios.id_permiso, 
+integrantes.nombres, integrantes.apellidos, integrantes.imagen,
+integrantes.edad, integrantes.eps, integrantes.arl, integrantes.correo, integrantes.fecha_ingreso,
+integrantes.cargo, integrantes.area, integrantes.lider_inmediato, integrantes.caja, integrantes.pensiones,
+integrantes.cesantias, integrantes.celular, integrantes.direccion, integrantes.ciudad_residencia, 
+integrantes.tipo_contrato, integrantes.estado, integrantes.fecha_retiro;");
 
 if (!$stmt) {
     echo "<script>alert('Error en la consulta.'); window.location.href = '../index.php';</script>";
