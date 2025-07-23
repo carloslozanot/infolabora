@@ -55,11 +55,9 @@ $pdf->SetFont('Arial','',10);
 // Ejemplo: puedes adaptar según tus columnas reales en la tabla
 $conceptos = [
     ['Sueldo Básico', $datos['sueldo_basico'], 0],
-    ['Horas Extra', $datos['horas_extra'], 0],
     ['Auxilio Transporte', $datos['auxilio_transporte'], 0],
     ['Salud', 0, $datos['aportes_eps']],
-    ['Pensión', 0, $datos['aportes_pension']],
-    ['Otras Deducciones', 0, $datos['otras_deducciones']]
+    ['Pensión', 0, $datos['aportes_pension']]
 ];
 
 foreach ($conceptos as $item) {
