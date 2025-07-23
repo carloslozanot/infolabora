@@ -304,7 +304,7 @@ if (!isset($_SESSION['usuario'])) {
             </p>
 
 
-            <p style="text-align: center;">
+            <!--<p style="text-align: center;">
                 <a href="docs/documents/GH.AUS.FO.01.Solicitud.de.Ausentismo.docx"
                     download="GH.AUS.FO.01.Solicitud.de.Ausentismo.docx" onclick="mostrarFormulario()">
                     <button type="button" class="btn boton-azul"> <i class="fa-solid fa-file-excel"></i> FORMATO
@@ -325,7 +325,7 @@ if (!isset($_SESSION['usuario'])) {
 
                 <div id="mensaje" style="display: none;">
                 </div>
-            </form>
+            </form>-->
         </div>
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
