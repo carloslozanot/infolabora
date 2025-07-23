@@ -15,6 +15,18 @@ if (!$datos) {
    die('No se encontró información para el desprendible.');
 }
 
+$fecha_generacion = date('Y-m-d H:i:s');
+$tipo = 'Desprendible de Pago';
+$observaciones = '';
+
+$sql_bitacora = "INSERT INTO bitacora (cedula_empleado, fecha_generacion, tipo, observaciones)
+                         VALUES (?, ?, ?, ?)";
+$stmt = $conexion->prepare($sql_bitacora);
+$stmt->bind_param("ssss", $cedula, $fecha_generacion, $tipo, $observaciones);
+$stmt->execute();
+$stmt->close();
+
+
 class PDF extends FPDF
 {
    function Header()
