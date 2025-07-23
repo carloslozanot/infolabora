@@ -285,10 +285,10 @@ if (!isset($_SESSION['usuario'])) {
         <div id="contenido-vacaciones" class="contenido" style="display: none;">
             <h2 style="text-align: center; font-size: 40px; font-weight: 1000;">VACACIONES</h2>
             <br>
-            <p style="text-align: center; font-size: 18px; font-weight: 300;">Días Totales:
+            <!--<p style="text-align: center; font-size: 18px; font-weight: 300;">Días Totales:
                 <?php echo $_SESSION['total_dias_generados'] . ' días'; ?>
             </p>
-            <!--<p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados en Tiempo:
+            <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados en Tiempo:
                 <?php echo $_SESSION['total_dias_disfrutados'] . ' días'; ?>
             </p>
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Recompensados en Dinero:
@@ -307,7 +307,7 @@ if (!isset($_SESSION['usuario'])) {
                 <a href="detalle_vacaciones.php" target="_blank" class="btn boton-vacaciones"><i
                         class="fa-solid fa-clipboard-list"></i> DETALLE</a>
                 <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones"><i
-                        class="fa-solid fa-file-signature"></i> SOLICITAR VACACIONES</a>
+                        class="fa-solid fa-file-signature"></i> SOLICITAR VACACIONES</a> 
                 <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones"><i
                         class="fa-solid fa-file-signature"></i> HISTORIAL DE SOLICITUDES</a>
             </div>
