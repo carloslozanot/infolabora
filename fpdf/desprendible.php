@@ -82,9 +82,9 @@ if ($resultado_detalle && mysqli_num_rows($resultado_detalle) > 0) {
 $pdf->Ln(5);
 
 // Totales
-$total_ingresos = floatval(str_replace('.', '', $datos['total_ingresos']));
-$total_deducciones = floatval(str_replace('.', '', $datos['total_deducciones']));
-$neto = floatval(str_replace('.', '', $datos['neto']));
+$total_ingresos = floatval(str_replace('.', '', $datos['neto_pagar']));
+$total_deducciones = floatval(str_replace('.', '', $datos['neto_pagar']));
+$neto = floatval(str_replace('.', '', $datos['neto_pagar']));
 
 $pdf->SetFont('Arial', 'B', 11);
 $pdf->SetFillColor(240, 240, 240);
