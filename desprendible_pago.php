@@ -44,21 +44,41 @@ $cedula = $_SESSION['usuario'];
                 <option selected disabled>SELECCIONE EL PERIODO</option>
 
                 <?php
-
                 $query = "SELECT periodo FROM desprendibles WHERE cedula = '$cedula' ORDER BY periodo DESC";
                 $resultado = mysqli_query($conexion, $query);
 
+                $meses = [
+                    '01' => 'Enero',
+                    '02' => 'Febrero',
+                    '03' => 'Marzo',
+                    '04' => 'Abril',
+                    '05' => 'Mayo',
+                    '06' => 'Junio',
+                    '07' => 'Julio',
+                    '08' => 'Agosto',
+                    '09' => 'Septiembre',
+                    '10' => 'Octubre',
+                    '11' => 'Noviembre',
+                    '12' => 'Diciembre'
+                ];
+
                 if ($resultado && mysqli_num_rows($resultado) > 0) {
                     while ($row = mysqli_fetch_assoc($resultado)) {
-                        $periodo = $row['periodo'];
-                        echo "<option value='$periodo'>$periodo</option>";
+                        $periodo = $row['periodo']; // Ejemplo: 202501
+                        $anio = substr($periodo, 0, 4);    // "2025"
+                        $mes = substr($periodo, 4, 2);     // "01"
+                
+                        $mesNombre = isset($meses[$mes]) ? $meses[$mes] : 'Mes inválido';
+                        $label = "$mesNombre-$anio";
+
+                        echo "<option value='$periodo'>$label</option>";
                     }
                 } else {
                     echo "<option disabled>No hay periodos disponibles para la cédula $cedula</option>";
-
                 }
                 ?>
             </select>
+
 
 
             <input type="hidden" name="id" value="<?php echo $cedula; ?>">
