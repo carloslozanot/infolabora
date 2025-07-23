@@ -336,6 +336,13 @@ header {
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
+.form-flex {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
 
 .contenido-certificado {
     background-color: #f0f0f0;

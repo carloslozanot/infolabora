@@ -40,7 +40,7 @@ $cedula = $_SESSION['usuario'];
         <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">DESPRENDIBLE </h2><br>
 
         <form method="post" action="fpdf/desprendible.php">
-            <select name="mes" class="form-select w-auto d-inline-block" required>
+            <select name="mes" class="desplegable_mes" required>
                 <option selected disabled>SELECCIONE EL MES</option>
 
                 <?php
@@ -63,8 +63,9 @@ $cedula = $_SESSION['usuario'];
 
             <input type="hidden" name="id" value="<?php echo $cedula; ?>">
 
-            <button type="submit" name="generar" class="btn btn-primary mt-2">GENERAR DESPRENDIBLE</button>
-
+            <button type="submit" class="btn boton-certificado">
+                <i class="fa-solid fa-file"></i> GENERAR DESPRENDIBLE
+            </button>
         </form>
     </div>
 </body>
