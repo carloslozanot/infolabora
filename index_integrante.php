@@ -288,12 +288,12 @@ if (!isset($_SESSION['usuario'])) {
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Totales:
                 <?php echo $_SESSION['total_dias_generados'] . ' días'; ?>
             </p>
-            <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados en Tiempo:
+            <!--<p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados en Tiempo:
                 <?php echo $_SESSION['total_dias_disfrutados'] . ' días'; ?>
             </p>
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Recompensados en Dinero:
                 <?php echo $_SESSION['total_dias_dinero'] . ' días'; ?>
-            </p>
+            </p>-->
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Total Dias Disfrutados:
                 <?php echo $_SESSION['dias_disfrutados'] . ' días'; ?>
             </p>
