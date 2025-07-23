@@ -67,13 +67,13 @@ $pdf->LineaTexto('NIT:', '123.456.789');
 
 $pdf->Ln(2);
 $pdf->Titulo('EMPLEADO');
-$pdf->LineaTexto('Nombre:', utf8_decode($datos['nombres']));
+$pdf->LineaTexto('Nombre:', utf8_decode($datos['nombres'] . ' ' . $datos['apellidos']));
 $pdf->LineaTexto('C.C.:', $datos['cedula']);
 $pdf->LineaTexto('Cargo:', utf8_decode($datos['cargo']));
 
 $pdf->Ln(2);
 $pdf->Titulo('PERIODO DE PAGO');
-$pdf->LineaTexto('Periodo:', substr($datos['periodo'], 4, 2) . '/01/' . substr($datos['periodo'], 0, 4));  // Ej: 202501 → 01/01/2025
+$pdf->LineaTexto('Periodo:', $datos['periodo']);
 $pdf->LineaTexto('Días trabajados:', $datos['dias_trabajados']);
 $pdf->LineaTexto('Salario Base:', '$ ' . number_format(normalizar_num($datos['sueldo_basico']), 0, ',', '.'));
 
