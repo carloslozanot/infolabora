@@ -283,10 +283,10 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </div>
         <div id="contenido-vacaciones" class="contenido" style="display: none;">
-        <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">VACACIONES</h2>
+            <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">VACACIONES</h2>
             <br>
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Totales:
-                <?php echo $_SESSION['total_dias_totales'] . ' días'; ?>
+                <?php echo $_SESSION['total_dias_generados'] . ' días'; ?>
             </p>
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados en Tiempo:
                 <?php echo $_SESSION['total_dias_disfrutados'] . ' días'; ?>

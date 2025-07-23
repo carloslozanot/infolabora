@@ -14,31 +14,81 @@ if (!$cedula || !$contrasena) {
     exit;
 }
 
-$stmt = $conexion->prepare("SELECT 
-usuarios.cedula, usuarios.contrasena, usuarios.id_permiso AS permiso, 
-integrantes.nombres, integrantes.apellidos, integrantes.imagen,
-integrantes.edad, integrantes.eps, integrantes.arl, integrantes.correo, integrantes.fecha_ingreso,
-integrantes.cargo, integrantes.area, integrantes.lider_inmediato, integrantes.caja, integrantes.pensiones,
-integrantes.cesantias, integrantes.celular, integrantes.direccion, integrantes.ciudad_residencia, 
-integrantes.tipo_contrato, integrantes.estado, integrantes.fecha_retiro, 
-SUM(vacaciones.dias_totales) AS total_dias_totales, 
-SUM(vacaciones.dias_disfrutados) AS total_dias_disfrutados,
-SUM(vacaciones.dias_dinero) AS total_dias_dinero,
-(SELECT MAX(v.periodo)
- FROM vacaciones v
- WHERE v.cedula = usuarios.cedula) AS ultimo_periodo
-FROM usuarios 
-INNER JOIN integrantes ON usuarios.cedula = integrantes.cedula
-LEFT OUTER JOIN vacaciones ON usuarios.cedula = vacaciones.cedula
-WHERE usuarios.cedula = ?
-GROUP BY 
-usuarios.cedula, usuarios.contrasena, usuarios.id_permiso, 
-integrantes.nombres, integrantes.apellidos, integrantes.imagen,
-integrantes.edad, integrantes.eps, integrantes.arl, integrantes.correo, integrantes.fecha_ingreso,
-integrantes.cargo, integrantes.area, integrantes.lider_inmediato, integrantes.caja, integrantes.pensiones,
-integrantes.cesantias, integrantes.celular, integrantes.direccion, integrantes.ciudad_residencia, 
-integrantes.tipo_contrato, integrantes.estado, integrantes.fecha_retiro;
-");
+$stmt = $conexion->prepare("select
+usuarios.cedula,
+usuarios.contrasena,
+usuarios.id_permiso as permiso,
+integrantes.nombres,
+integrantes.apellidos,
+integrantes.imagen,
+integrantes.edad,
+integrantes.eps,
+integrantes.arl,
+integrantes.correo,
+integrantes.fecha_ingreso,
+integrantes.cargo,
+integrantes.area,
+integrantes.lider_inmediato,
+integrantes.caja,
+integrantes.pensiones,
+integrantes.cesantias,
+integrantes.celular,
+integrantes.direccion,
+integrantes.ciudad_residencia,
+integrantes.tipo_contrato,
+integrantes.estado,
+integrantes.fecha_retiro,
+SUM(vacaciones.dias_totales) as total_dias_totales,
+SUM(vacaciones.dias_disfrutados) as total_dias_disfrutados,
+SUM(vacaciones.dias_dinero) as total_dias_dinero,
+(
+select
+    MAX(v.periodo)
+from
+    vacaciones v
+where
+    v.cedula = usuarios.cedula) as ultimo_periodo,
+ROUND(
+DATEDIFF(
+    SYSDATE(),
+    (select MAX(v.periodo) 
+     from vacaciones v 
+     where v.cedula = usuarios.cedula)
+) * 15 / 365,
+1
+) as dias_generados
+from
+usuarios
+inner join integrantes on
+usuarios.cedula = integrantes.cedula
+left outer join vacaciones on
+usuarios.cedula = vacaciones.cedula
+where
+usuarios.cedula = 1019134759
+group by
+usuarios.cedula,
+usuarios.contrasena,
+usuarios.id_permiso,
+integrantes.nombres,
+integrantes.apellidos,
+integrantes.imagen,
+integrantes.edad,
+integrantes.eps,
+integrantes.arl,
+integrantes.correo,
+integrantes.fecha_ingreso,
+integrantes.cargo,
+integrantes.area,
+integrantes.lider_inmediato,
+integrantes.caja,
+integrantes.pensiones,
+integrantes.cesantias,
+integrantes.celular,
+integrantes.direccion,
+integrantes.ciudad_residencia,
+integrantes.tipo_contrato,
+integrantes.estado,
+integrantes.fecha_retiro;");
 
 if (!$stmt) {
     echo "<script>alert('Error en la consulta.'); window.location.href = '../index.php';</script>";
@@ -86,6 +136,8 @@ if ($result->num_rows > 0) {
         $_SESSION['total_dias_dinero'] = $row['total_dias_dinero'];
         $_SESSION['diferencia_dias'] = $row['total_dias_totales'] - $row['total_dias_disfrutados'] - $row['total_dias_dinero'];
         $_SESSION['dias_disfrutados'] = $row['total_dias_disfrutados'] + $row['total_dias_dinero'];
+        $_SESSION['dias_generados'] = $row['dias_generados'];
+        $_SESSION['total_dias_generados'] = $row['dias_generados'] + $row['total_dias_totales'];
         $_SESSION['ultimo_periodo'] = $row['ultimo_periodo'];
         $fecha_generacion = date('Y-m-d H:i:s');
         $tipo = 'Ingreso al Sistema';
