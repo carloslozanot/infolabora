@@ -64,7 +64,7 @@ usuarios.cedula = integrantes.cedula
 left outer join vacaciones on
 usuarios.cedula = vacaciones.cedula
 where
-usuarios.cedula = 1019134759
+usuarios.cedula = ?
 group by
 usuarios.cedula,
 usuarios.contrasena,
