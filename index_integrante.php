@@ -283,7 +283,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </div>
         <div id="contenido-vacaciones" class="contenido" style="display: none;">
-            <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">VACACIONES</h2>
+            <h2 style="text-align: center; font-size: 40px; font-weight: 1000;">VACACIONES</h2>
             <br>
             <p style="text-align: center; font-size: 18px; font-weight: 300;">Días Totales:
                 <?php echo $_SESSION['total_dias_generados'] . ' días'; ?>
@@ -308,6 +308,8 @@ if (!isset($_SESSION['usuario'])) {
                         class="fa-solid fa-clipboard-list"></i> DETALLE</a>
                 <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones"><i
                         class="fa-solid fa-file-signature"></i> SOLICITAR VACACIONES</a>
+                <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones"><i
+                        class="fa-solid fa-file-signature"></i> REVISAR SOLICITUDES</a>
             </div>
 
 
