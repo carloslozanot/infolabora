@@ -20,7 +20,7 @@ class PDF extends FPDF
     function Header()
     {
         $this->SetFont('Arial', 'B', 16);
-        $this->Cell(0, 10, utf8_decode('COLILLA DE PAGO'), 0, 1, 'C');
+        $this->Cell(0, 10, utf8_decode('DESPRENDIBLE DE PAGO'), 0, 1, 'C');
         $this->Ln(5);
     }
 
@@ -62,20 +62,20 @@ $pdf->AddPage();
 
 // Empresa y empleado
 $pdf->Titulo('EMPRESA');
-$pdf->LineaTexto('Nombre:', 'CIFUENTES & URIBE SAS');
-$pdf->LineaTexto('NIT:', '800.113.238');
+$pdf->LineaTexto('Nombre:', 'Empresa');
+$pdf->LineaTexto('NIT:', '123.456.789');
 
 $pdf->Ln(2);
 $pdf->Titulo('EMPLEADO');
-$pdf->LineaTexto('Nombre:', utf8_decode($datos['aportes_pension']));
+$pdf->LineaTexto('Nombre:', utf8_decode($datos['nombres']));
 $pdf->LineaTexto('C.C.:', $datos['cedula']);
 $pdf->LineaTexto('Cargo:', utf8_decode($datos['cargo']));
 
 $pdf->Ln(2);
 $pdf->Titulo('PERIODO DE PAGO');
 $pdf->LineaTexto('Periodo:', substr($datos['periodo'], 4, 2) . '/01/' . substr($datos['periodo'], 0, 4));  // Ej: 202501 → 01/01/2025
-$pdf->LineaTexto('Días trabajados:', $datos['aportes_pension']);
-$pdf->LineaTexto('Salario Base:', '$ ' . number_format(normalizar_num($datos['aportes_pension']), 0, ',', '.'));
+$pdf->LineaTexto('Días trabajados:', $datos['dias_trabajados']);
+$pdf->LineaTexto('Salario Base:', '$ ' . number_format(normalizar_num($datos['sueldo_basico']), 0, ',', '.'));
 
 // Resumen del pago
 $pdf->Ln(4);
@@ -83,7 +83,7 @@ $pdf->Titulo('RESUMEN DEL PAGO');
 
 $pdf->TablaConceptos('Item', [
     'Salario' => normalizar_num($datos['aportes_pension']),
-    'Subsidio de Transporte' => normalizar_num($datos['aportes_pension']),
+    'Subsidio de Transporte' => normalizar_num($datos['auxilio_transporte']),
     'Ingresos adicionales' => normalizar_num($datos['aportes_pension']),
     'Retenciones y deducciones' => -normalizar_num($datos['aportes_pension']),
     'TOTAL NETO A PAGAR AL EMPLEADO' => normalizar_num($datos['aportes_pension']) + normalizar_num($datos['aportes_pension']) + normalizar_num($datos['aportes_pension']) - normalizar_num($datos['aportes_pension'])
@@ -95,7 +95,7 @@ $pdf->Titulo('INGRESOS ADICIONALES');
 
 $pdf->TablaConceptos('Concepto', [
     'Comisiones' => normalizar_num($datos['aportes_pension']),
-    'Auxilio de movilización' => normalizar_num($datos['aportes_pension']),
+    'Auxilio de movilización' => normalizar_num($datos['auxilio_transporte']),
 ]);
 
 // Retenciones y deducciones
@@ -105,11 +105,7 @@ $pdf->Titulo('RETENCIONES Y DEDUCCIONES');
 $pdf->TablaConceptos('Concepto', [
     'Salud 4%' => normalizar_num($datos['aportes_eps']),
     'Pensión 4%' => normalizar_num($datos['aportes_pension']),
-    'Total Retenciones' => normalizar_num($datos['aportes_pension']),
+    'Total Retenciones' => normalizar_num($datos['total_descuento']),
 ]);
-
-$pdf->Ln(10);
-$pdf->SetFont('Arial', '', 10);
-$pdf->MultiCell(0, 6, utf8_decode("Sara Catalina Corredor Rodriguez\nCC. 1.015.479.959\n\nCIFUENTES & URIBE SAS\nNIT. 800.113.238-3\n\nSoftware de recursos humanos, seguridad social y nómina.\nwww.aleluya.com"), 0, 'C');
 
 $pdf->Output();
