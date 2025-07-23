@@ -37,7 +37,7 @@ $cedula = $_SESSION['usuario'];
 
 <body>
     <div class="contenido-desprendible">
-        <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">CERTIFICADO LABORAL</h2><br>
+        <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">DESPRENDIBLE DE PAGO</h2><br>
 
         <form method="post" action="fpdf/desprendible.php">
             <select name="mes" class="desplegable_mes" required>
