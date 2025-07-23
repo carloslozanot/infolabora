@@ -41,30 +41,28 @@ $cedula = $_SESSION['usuario'];
         <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">DESPRENDIBLE <?php echo $cedula; ?></h2>
 
         <form method="post" action="fpdf/desprendible.php">
-            <select name="mes" class="form-select form-select-sm" aria-label=".form-select-sm example"
-                style="width: 250px; height: 30px;">
-                <option selected disabled><b>SELECCIONE EL MES</b></option>
+            <select name="mes" class="form-select form-select-sm" style="width: 250px; height: 30px;">
+                <option selected disabled>SELECCIONE EL MES</option>
 
                 <?php
-                include("conexion.php");
+                include("php/conexion.php");
 
-                $cedula = $_GET['id']; // O $_POST['id'] dependiendo de tu flujo
-                
-                $query = "SELECT mes FROM desprendibles WHERE cedula = '$cedula'";
+                $cedula = $_GET['id'];
+
+                $query = "SELECT mes FROM desprendibles WHERE cedula = '$cedula' ORDER BY mes DESC";
                 $resultado = mysqli_query($conexion, $query);
 
-                if (!$resultado) {
-                    echo "<option disabled>Error en la consulta: " . mysqli_error($conexion) . "</option>";
-                } elseif (mysqli_num_rows($resultado) == 0) {
-                    echo "<option disabled>No hay meses disponibles</option>";
-                } else {
+                if ($resultado && mysqli_num_rows($resultado) > 0) {
                     while ($row = mysqli_fetch_assoc($resultado)) {
                         $mes = $row['mes'];
                         echo "<option value='$mes'>$mes</option>";
                     }
+                } else {
+                    echo "<option disabled>No hay meses disponibles</option>";
                 }
                 ?>
             </select>
+
 
             <input type="hidden" name="id" value="<?php echo $cedula; ?>">
 
