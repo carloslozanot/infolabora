@@ -1,135 +1,97 @@
 <?php
 require('fpdf.php');
 
-$cedula = isset($_POST['id']) ? $_POST['id'] : '';
-$periodo = isset($_POST['periodo']) ? $_POST['periodo'] : '';
-
-// Realizar la consulta a la base de datos
-include("../php/conexion.php");
-$consulta_info = $conexion->query("select * from desprendibles d, integrantes i  where d.cedula = i.cedula and d.cedula = '$cedula' and d.periodo = '$periodo'");
-
-if ($consulta_info->num_rows > 0) {
-   $dato_info = $consulta_info->fetch_object();
-   $nombre_completo = $dato_info->nombre_completo;
-   $cargo = $dato_info->cargo;
-   $sueldo_basico = $dato_info->sueldo_basico;
-   $dias_trabajados = $dato_info->dias_trabajados;
-   $devengado = $dato_info->devengado;
-   $auxilio_transporte = $dato_info->auxilio_transporte;
-   $otros_devengados = $dato_info->otros_devengados;
-   $total_devengado = $dato_info->total_devengado;
-   $aportes_eps = $dato_info->aportes_eps;
-   $aportes_pension = $dato_info->aportes_pension;
-   $total_descuento = $dato_info->total_descuento;
-   $neto_pagar = $dato_info->neto_pagar;
-
-} else {
-   $nombre_completo = "No disponible";
-   $cargo = "No disponible"; // O proporciona un valor predeterminado si no se encontraron resultados
-}
-
 class PDF extends FPDF
 {
-   function NoResultsMessage()
-   {
-      $this->SetFont('Arial', 'B', 14);
-      $this->SetTextColor(255, 0, 0);
-      $this->Cell(0, 20, utf8_decode('No se encontraron resultados para la consulta.'), 0, 1, 'C');
-   }
+    function Header()
+    {
+        // Logo
+        $this->Image('../docs/img/logo.png', 10, 8, 30); // Ajusta la ruta y tamaño del logo
+        // Título
+        $this->SetFont('Arial', 'B', 14);
+        $this->Cell(0, 10, utf8_decode('DESPRENDIBLE DE PAGO'), 0, 1, 'C');
+        $this->Ln(10);
+    }
 
-   // Cabecera de página
-   function Header()
-   {
-      global $cedula;
-      global $periodo;
-      global $nombre_completo;
-      global $cargo;
+    function Footer()
+    {
+        $this->SetY(-20);
+        $this->SetFont('Arial', 'I', 8);
+        $this->MultiCell(0, 5, utf8_decode("Este documento es confidencial y contiene información sobre los pagos realizados. Verifique cualquier inconsistencia con el área de Talento Humano."), 0, 'C');
+    }
 
-      $this->SetFont('Arial', 'B', 18);
-      $this->Cell(20);
-      $this->SetTextColor(0, 0, 0);
-      $this->Cell(110, 15, utf8_decode("DATABIZ S.A.S"), 1, 1, 'C', 0);
-      $this->Ln(3);
-      $this->SetTextColor(103);
+    function DatosEmpleado($empleado)
+    {
+        $this->SetFont('Arial', '', 10);
+        foreach ($empleado as $key => $value) {
+            $this->Cell(50, 8, utf8_decode($key), 0, 0);
+            $this->Cell(80, 8, utf8_decode($value), 0, 1);
+        }
+        $this->Ln(5);
+    }
 
-      if ($nombre_completo !== "No disponible") {
-         $this->SetTextColor(0, 0, 0);
-         $this->Cell(20);
-         $this->SetFont('Arial', 'B', 10);
-         $this->Cell(96, 10, utf8_decode("NOMBRE TRABAJADOR : $nombre_completo"), 0, 0, '', 0);
-         $this->Ln(5);
-         $this->Cell(20);
-         $this->SetFont('Arial', 'B', 10);
-         $this->Cell(96, 10, utf8_decode("IDENTIFICACION : $cedula"), 0, 0, '', 0);
-         $this->Ln(5);
-         $this->Cell(20);
-         $this->SetFont('Arial', 'B', 10);
-         $this->Cell(96, 10, utf8_decode("CARGO : $cargo"), 0, 0, '', 0);
-         $this->Ln(10);
-      } else {
-         $this->NoResultsMessage();
-      }
-      
-      $this->SetFont('Arial', 'B', 18);
-      $this->Cell(20);
-      $this->Cell(110, 15, utf8_decode("DESPRENDIBLE DE PAGO"), 1, 1, 'C', 0);
-      $this->Ln(3);
-      $this->SetTextColor(103);
-      
-      $this->Cell(34);
-      $this->SetFont('Arial', 'B', 10);
-      $this->Cell(50, 10, utf8_decode("Periodo correspondiente al periodo de " . $periodo), 0, 0, '', 0);
-      $this->Ln(10);
+    function TablaConceptos($conceptos)
+    {
+        $this->SetFillColor(220, 220, 220);
+        $this->SetFont('Arial', 'B', 10);
+        $this->Cell(80, 8, utf8_decode('CONCEPTO'), 1, 0, 'C', true);
+        $this->Cell(40, 8, 'INGRESOS', 1, 0, 'C', true);
+        $this->Cell(40, 8, 'DEDUCCIONES', 1, 1, 'C', true);
 
-   }
+        $this->SetFont('Arial', '', 10);
+        foreach ($conceptos as $item) {
+            $this->Cell(80, 8, utf8_decode($item['concepto']), 1);
+            $this->Cell(40, 8, number_format($item['ingreso'], 0, ',', '.'), 1, 0, 'R');
+            $this->Cell(40, 8, number_format($item['deduccion'], 0, ',', '.'), 1, 1, 'R');
+        }
+    }
 
-   // Pie de página
-   function Footer()
-   {
-      $this->SetY(-15);
-      $this->SetFont('Arial', 'I', 8);
-      $this->Cell(0, 10, 'Página ' . $this->PageNo(), 0, 0, 'C');
-   }
+    function Totales($ingresoTotal, $deduccionTotal)
+    {
+        $neto = $ingresoTotal - $deduccionTotal;
+        $this->Ln(5);
+        $this->SetFont('Arial', 'B', 11);
+        $this->Cell(120, 8, 'TOTAL INGRESOS:', 0, 0, 'R');
+        $this->Cell(40, 8, number_format($ingresoTotal, 0, ',', '.'), 0, 1, 'R');
+
+        $this->Cell(120, 8, 'TOTAL DEDUCCIONES:', 0, 0, 'R');
+        $this->Cell(40, 8, number_format($deduccionTotal, 0, ',', '.'), 0, 1, 'R');
+
+        $this->SetFont('Arial', 'B', 12);
+        $this->SetTextColor(0, 102, 0);
+        $this->Cell(120, 8, 'NETO A PAGAR:', 0, 0, 'R');
+        $this->Cell(40, 8, number_format($neto, 0, ',', '.'), 0, 1, 'R');
+    }
 }
 
-// Crear una instancia de PDF
-$pdf = new PDF();
-$pdf->AddPage('P', array(160, 200));
-
-// Define el ancho de las columnas y la altura de las filas
-$colWidth1 = 30;
-$colWidth2 = 70;
-$rowHeight = 10;
-
-$data = [
-   ['SUELDO BASICO', $sueldo_basico],
-   ['DIAS TRABAJADOS', $dias_trabajados],
-   ['DEVENGADO', $devengado],
-   ['AUXILIO DE TRANSPORTE', $auxilio_transporte],
-   ['OTROS DEVENGADOS', $otros_devengados],
-   ['TOTAL DEVENGADO', $total_devengado],
-   ['APORTES EPS', $aportes_eps],
-   ['APORTES PENSION', $aportes_pension],
-   ['TOTAL DESCUENTOS', '-' . $total_descuento],
-   ['NETO A PAGAR', $neto_pagar],
+// =====================
+// Simulación de datos
+// =====================
+$empleado = [
+    'Nombre:' => 'Carlos Pérez',
+    'Cédula:' => '12345678',
+    'Cargo:' => 'Analista',
+    'Área:' => 'Financiera',
+    'Periodo:' => 'Enero-2025'
 ];
 
-$centerX = ($pdf->GetPageWidth() - ($colWidth1 + $colWidth2)) / 2;
+$conceptos = [
+    ['concepto' => 'Salario básico', 'ingreso' => 2000000, 'deduccion' => 0],
+    ['concepto' => 'Subsidio transporte', 'ingreso' => 140000, 'deduccion' => 0],
+    ['concepto' => 'Salud', 'ingreso' => 0, 'deduccion' => 160000],
+    ['concepto' => 'Pensión', 'ingreso' => 0, 'deduccion' => 160000],
+];
 
-// Generar la tabla
-foreach ($data as $key => $row) {
-   $pdf->SetX($centerX);
+$ingresos = array_sum(array_column($conceptos, 'ingreso'));
+$deducciones = array_sum(array_column($conceptos, 'deduccion'));
 
-   $pdf->SetFont('Arial', 'B', 11);
-   $pdf->Cell($colWidth1, $rowHeight, $row[0], 0);
-
-   if (in_array($key, [5, 8, 9])) {
-      $pdf->SetFont('Arial', 'B', 11);
-   } else {
-      $pdf->SetFont('Arial', '', 11);
-   }
-   $pdf->Cell($colWidth2, $rowHeight, $row[1], 0, 1, 'R');
-}
-
-$pdf->Output($nombre_completo.'  '.$cedula.'.pdf', 'I');
+// =====================
+// Generar PDF
+// =====================
+$pdf = new PDF();
+$pdf->AddPage();
+$pdf->DatosEmpleado($empleado);
+$pdf->TablaConceptos($conceptos);
+$pdf->Totales($ingresos, $deducciones);
+$pdf->Output();
 ?>
