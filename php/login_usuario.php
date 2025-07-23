@@ -69,6 +69,9 @@ if ($result->num_rows > 0) {
         $tipo = 'Ingreso al Sistema';
         $observaciones = 'Inicio de sesión exitoso del usuario: ' . $row['cedula'];
 
+        $result->free();
+        $stmt->close();
+
         // Insertar en bitácora
         $sql_bitacora = "INSERT INTO bitacora (cedula_empleado, fecha_generacion, tipo, observaciones) VALUES (?, ?, ?, ?)";
         $stmt_bitacora = $conexion->prepare($sql_bitacora);
