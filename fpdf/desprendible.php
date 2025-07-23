@@ -6,7 +6,7 @@ $mes = isset($_POST['mes']) ? $_POST['mes'] : '';
 
 // Realizar la consulta a la base de datos
 include("../php/conexion.php");
-$consulta_info = $conexion->query("select * from desprendibles d, integrantes i where d.cedula = i.cedula and d.cedula = '$cedula' and mes = '$mes'");
+$consulta_info = $conexion->query("select * from desprendibles d, integrantes i where d.cedula = i.cedula and d.cedula = '$cedula' and mes = '$periodo'");
 
 if ($consulta_info->num_rows > 0) {
    $dato_info = $consulta_info->fetch_object();
