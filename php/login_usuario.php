@@ -85,6 +85,7 @@ if ($result->num_rows > 0) {
         $_SESSION['total_dias_disfrutados'] = $row['total_dias_disfrutados'];
         $_SESSION['total_dias_dinero'] = $row['total_dias_dinero'];
         $_SESSION['diferencia_dias'] = $row['total_dias_totales'] - $row['total_dias_disfrutados'] - $row['total_dias_dinero'];
+        $_SESSION['dias_disfrutados'] = $row['total_dias_disfrutados'] + $row['total_dias_dinero'];
         $_SESSION['ultimo_periodo'] = $row['ultimo_periodo'];
         $fecha_generacion = date('Y-m-d H:i:s');
         $tipo = 'Ingreso al Sistema';
