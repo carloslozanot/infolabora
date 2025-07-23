@@ -305,9 +305,9 @@ if (!isset($_SESSION['usuario'])) {
 
             <div>
                 <a href="detalle_vacaciones.php" target="_blank" class="btn boton-vacaciones"><i
-                        class="fa-solid fa-file-invoice-dollar"></i>DETALLE</a>
+                        class="fa-solid fa-clipboard-list"></i> DETALLE</a>
                 <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones"><i
-                        class="fa-solid fa-file-circle-check"></i>SOLICITAR VACACIONES</a>
+                        class="fa-solid fa-file-signature"></i> SOLICITAR VACACIONES</a>
             </div>
 
 
