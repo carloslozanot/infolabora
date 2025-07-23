@@ -26,7 +26,7 @@ include("../php/conexion.php");
 $cedula = $_POST['id'];
 $periodo = $_POST['periodo'];
 
-$query = "SELECT * FROM desprendibles d, integrantes i WHERE d.cedula = i.cedula AND cedula = '$cedula' AND periodo = '$periodo' LIMIT 1";
+$query = "SELECT * FROM desprendibles d, integrantes i WHERE d.cedula = i.cedula AND d.cedula = '$cedula' AND periodo = '$periodo' LIMIT 1";
 $resultado = mysqli_query($conexion, $query);
 
 if (!$resultado || mysqli_num_rows($resultado) === 0) {
