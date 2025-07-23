@@ -322,7 +322,7 @@ if (!isset($_SESSION['usuario'])) {
                                     <?php echo $fila['cedula']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $fila['dias_total']; ?>
+                                    <?php echo $fila['dias_totales']; ?>
                                 </td>
                                 <td>
                                     <?php echo $fila['dias_disfrutados']; ?>

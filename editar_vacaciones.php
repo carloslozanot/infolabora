@@ -32,10 +32,10 @@ $result = $conn->query($sql);
         if (isset($_POST['enviar'])) {
 
             $cedula = $_POST['id'];
-            $dias_total = $_POST['dias_total'];
+            $dias_totales = $_POST['dias_totales'];
             $dias_disfrutados = $_POST['dias_disfrutados'];
 
-            $sql = "update vacaciones set dias_total='" . $dias_total . "', dias_disfrutados='" . $dias_disfrutados . "' where id = '" . $cedula . "'";
+            $sql = "update vacaciones set dias_totales='" . $dias_totales . "', dias_disfrutados='" . $dias_disfrutados . "' where id = '" . $cedula . "'";
             $resultado = mysqli_query($conexion, $sql);
 
             if ($resultado) {
@@ -58,7 +58,7 @@ $result = $conn->query($sql);
 
             $fila = mysqli_fetch_assoc($resultado);
             $cedula = $fila["cedula"];
-            $dias_total = $fila["dias_total"];
+            $dias_totales = $fila["dias_totales"];
             $dias_disfrutados = $fila["dias_disfrutados"];
 
             mysqli_close($conexion);
@@ -75,7 +75,7 @@ $result = $conn->query($sql);
             <input type="text" name="id" class="form-control" readonly value="<?php echo $cedula ?>"><br>
 
             <h3>Dias Totales</h3>
-            <input type="text" name="dias_total" class="form-control" value="<?php echo $dias_total ?>"><br>
+            <input type="text" name="dias_totales" class="form-control" value="<?php echo $dias_totales ?>"><br>
 
             <h3>Dias Disfrutados</h3>
             <input type="text" name="dias_disfrutados" class="form-control" value="<?php echo $dias_disfrutados ?>"><br>

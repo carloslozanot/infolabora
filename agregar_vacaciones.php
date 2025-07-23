@@ -23,11 +23,11 @@
 
         if (isset($_POST['enviar'])) {
             $cedula = $_POST['id'];            
-            $dias_total = $_POST['dias_total'];
+            $dias_totales = $_POST['dias_totales'];
             $dias_disfrutados = $_POST['dias_disfrutados'];
 
             include("php/conexion.php");
-            $sql = "INSERT INTO vacaciones values('','" . $cedula . "','" . $dias_total . "','" . $dias_disfrutados . "')";
+            $sql = "INSERT INTO vacaciones values('','" . $cedula . "','" . $dias_totales . "','" . $dias_disfrutados . "')";
 
             $resultado = mysqli_query($conexion, $sql);
 
@@ -56,7 +56,7 @@
             <input type="text" name="id" class="form-control"><br>
 
             <h3>Dias Totales</h3>
-            <input type="text" name="dias_total" class="form-control"><br>
+            <input type="text" name="dias_totales" class="form-control"><br>
 
             <h3>Dias Disfrutados</h3>
             <input type="text" name="dias_disfrutados" class="form-control"><br>

@@ -286,7 +286,7 @@ if (!isset($_SESSION['usuario'])) {
             <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">VACACIONES</h2>
             <br>
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Totales:
-                <?php echo $_SESSION['dias_total'] . ' días'; ?>
+                <?php echo $_SESSION['dias_totales'] . ' días'; ?>
             </p>
             <p style="text-align: center; font-size: 20px; font-weight: bold;">Días Disfrutados:
                 <?php echo $_SESSION['dias_disfrutados'] . ' días'; ?>
@@ -296,6 +296,8 @@ if (!isset($_SESSION['usuario'])) {
             </p>
             <p style="font-size: 25px; font-weight: bold; text-align: center;">Dias pendientes por disfrutar
             </p>
+
+
             <p style="text-align: center;">
                 <a href="docs/documents/GH.AUS.FO.01.Solicitud.de.Ausentismo.docx"
                     download="GH.AUS.FO.01.Solicitud.de.Ausentismo.docx" onclick="mostrarFormulario()">
