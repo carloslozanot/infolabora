@@ -99,4 +99,4 @@ $pdf->TablaConceptos('Concepto', [
     'Total Retenciones' => normalizar_num($datos['total_descuento']),
 ]);
 
-$pdf->Output();
+$pdf->Output('Desprendible de pago' . $cedula . ' - Periodo ' . $periodo . '.pdf', 'I');
