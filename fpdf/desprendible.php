@@ -82,11 +82,11 @@ $pdf->Ln(4);
 $pdf->Titulo('RESUMEN DEL PAGO');
 
 $pdf->TablaConceptos('Item', [
-    'Salario' => normalizar_num($datos['aportes_pension']),
+    'Salario' => normalizar_num($datos['sueldo_basico']),
     'Subsidio de Transporte' => normalizar_num($datos['auxilio_transporte']),
     'Ingresos adicionales' => normalizar_num($datos['aportes_pension']),
     'Retenciones y deducciones' => -normalizar_num($datos['aportes_pension']),
-    'TOTAL NETO A PAGAR AL EMPLEADO' => normalizar_num($datos['aportes_pension']) + normalizar_num($datos['aportes_pension']) + normalizar_num($datos['aportes_pension']) - normalizar_num($datos['aportes_pension'])
+    'TOTAL NETO A PAGAR AL EMPLEADO' => normalizar_num($datos['neto_pagar']) + normalizar_num($datos['aportes_pension']) + normalizar_num($datos['aportes_pension']) - normalizar_num($datos['aportes_pension'])
 ]);
 
 // Ingresos adicionales
