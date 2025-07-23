@@ -16,10 +16,6 @@ if (!isset($_SESSION['usuario'])) {
 
 // Obtener el ID del usuario desde la sesión
 $cedula = $_SESSION['usuario'];
-
-$query = "SELECT mes FROM desprendibles WHERE cedula = '$cedula' ORDER BY mes DESC";
-$resultado = mysqli_query($conexion, $query);
-
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +44,10 @@ $resultado = mysqli_query($conexion, $query);
                 <option selected disabled>SELECCIONE EL MES</option>
 
                 <?php
- 
+
+                $query = "SELECT mes FROM desprendibles WHERE cedula = '$cedula' ORDER BY mes DESC";
+                $resultado = mysqli_query($conexion, $query);
+
                 if ($resultado && mysqli_num_rows($resultado) > 0) {
                     while ($row = mysqli_fetch_assoc($resultado)) {
                         $mes = $row['mes'];
