@@ -63,7 +63,7 @@ $pdf->Cell(45, 8, 'Deducción', 1, 1, 'C', true);
 $pdf->SetFont('Arial', '', 11);
 
 // Obtener detalles
-$query_detalle = "SELECT concepto, ingreso, deduccion FROM desprendibles WHERE cedula = '$cedula' AND periodo = '$periodo'";
+$query_detalle = "SELECT neto_pagar FROM desprendibles WHERE cedula = '$cedula' AND periodo = '$periodo'";
 $resultado_detalle = mysqli_query($conexion, $query_detalle);
 
 if ($resultado_detalle && mysqli_num_rows($resultado_detalle) > 0) {
