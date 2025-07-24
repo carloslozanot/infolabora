@@ -105,7 +105,7 @@ include("php/conexion.php");
             </div>
 
             <div class="tabla-vacaciones">
-                <table class="table table-bordered table-hover table-striped">
+                <table class="table table-bordered table-hover table-striped tabla-vacaciones">
                     <thead class="table-dark">
                         <tr>
                             <th>#</th>

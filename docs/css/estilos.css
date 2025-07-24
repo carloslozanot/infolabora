@@ -1081,10 +1081,14 @@ a.selected {
     color: white !important;
 }
 
-.tabla-vacaciones{
-    display: block;
+.tabla-vacaciones {
+    border-radius: 15px; /* Bordes redondeados */
+    overflow: hidden;    /* Esconde los bordes sobresalientes */
+    border: 1px solid #dee2e6; /* Opcional: agrega borde exterior */
+    margin: 0 auto;       /* Centra horizontalmente */
     width: 80%;
 }
+
 
 @media (max-width: 768px) {
     .body_index_login {
