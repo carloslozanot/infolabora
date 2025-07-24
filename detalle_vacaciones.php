@@ -33,8 +33,6 @@ include("php/conexion.php");
 <body>
 
     <div id="contenido-det-vacaciones" class="container">
-        <h2 class="text-center mt-4 mb-5" style="font-size: 40px; font-weight: 800;">DETALLE DE VACACIONES</h2>
-
         <?php
         $stmt = $conexion->prepare("CALL infolabora.pr_inicial(?)");
         $stmt->bind_param("s", $cedula);
