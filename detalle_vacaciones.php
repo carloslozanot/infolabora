@@ -64,7 +64,7 @@ include("php/conexion.php");
             <div class="card card-hover shadow-lg border-0 text-center">
                 <div class="card-body">
                     <i class="bi bi-plus-circle-fill icono-card mb-2" style="font-size: 2rem;"></i>
-                    <h5 class="card-title">Días Generados</h5>
+                    <h5 class="card-title">Días Totales</h5>
                     <h3 class="mb-0 cantidad-card"><?php echo $_SESSION['total_dias_generados']; ?></h3>
                 </div>
             </div>
