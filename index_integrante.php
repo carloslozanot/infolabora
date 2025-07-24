@@ -308,7 +308,7 @@ if (!isset($_SESSION['usuario'])) {
 
                 <!-- Columna Derecha: Imagen -->
                 <div class="col-md-6 text-center">
-                    <img src="docs/images/vacaciones_ilustracion.png" alt="Ilustración vacaciones"
+                    <img src="docs/images/vacaciones.png" alt="Ilustración vacaciones"
                         class="vacaciones-img">
                 </div>
 
