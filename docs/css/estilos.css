@@ -277,7 +277,8 @@ header {
     box-shadow: 2px 2px 4px #000;
     border: none;
     width: 45%;
-    margin: 35px;
+    margin-top: 15px;
+    margin-left: 160px;
     padding: 15px;
     transition: all 0.2s ease;
 }
