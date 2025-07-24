@@ -283,17 +283,17 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </div>
         <div id="contenido-vacaciones" class="contenido container my-5" style="display: none;">
-            <div class="row align-items-center shadow-lg p-4 rounded" style="background-color: #f4f4f4;">
+            <div class="row align-items-center seccion-vacaciones">
 
-                <!-- Columna Izquierda: Información y Botones -->
+                <!-- Columna Izquierda: Información -->
                 <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
-                    <h2 class="font-weight-bold" style="font-size: 36px;">VACACIONES</h2>
+                    <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">VACACIONES</h2>
                     <p class="display-3 font-weight-bold my-3" style="color: #150940;">
                         <?php echo $_SESSION['diferencia_dias']; ?>
                     </p>
                     <p class="h5 mb-4">Días pendientes por disfrutar</p>
 
-                    <div class="d-flex flex-column gap-2">
+                    <div class="d-flex flex-column gap-3">
                         <a href="detalle_vacaciones.php" target="_blank" class="btn boton-vacaciones mb-2">
                             <i class="fa-solid fa-clipboard-list"></i> DETALLE
                         </a>
@@ -308,12 +308,13 @@ if (!isset($_SESSION['usuario'])) {
 
                 <!-- Columna Derecha: Imagen -->
                 <div class="col-md-6 text-center">
-                    <img src="docs/images/vacaciones.png" alt="Ilustración vacaciones" class="img-fluid"
-                        style="max-height: 300px;">
+                    <img src="docs/images/vacaciones_ilustracion.png" alt="Ilustración vacaciones"
+                        class="vacaciones-img">
                 </div>
 
             </div>
         </div>
+
 
 
 
