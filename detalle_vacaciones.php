@@ -60,8 +60,6 @@ include("php/conexion.php");
         $sql = "SELECT * FROM vacaciones WHERE cedula = '$cedula'";
         $resultado2 = mysqli_query($conexion, $sql);
         $fila2 = mysqli_fetch_assoc($resultado2);
-
-
         ?>
 
         <div class="row justify-content-center">
@@ -112,7 +110,10 @@ include("php/conexion.php");
                         <tr>
                             <th>#</th>
                             <th>Periodo</th>
-                            <th>Fecha Ingreso</th>
+                            <th>Dias totales</th>
+                            <th>Dias disfrutados</th>
+                            <th>Dias remunerados</th>
+                            <th>Dias faltantes</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -120,13 +121,18 @@ include("php/conexion.php");
                         $contador = 1;
                         mysqli_data_seek($resultado2, 0); // Asegura que se reinicie el puntero del resultado
                         while ($fila2 = mysqli_fetch_assoc($resultado2)) {
+                            $total_faltantes = ($fila2["dias_disfrutados"] + $fila2["dias_dinero"]) - $fila2["dias_totales"];
                             echo "<tr>";
                             echo "<td>{$contador}</td>";
                             echo "<td>{$fila2['periodo']}</td>";
-                            echo "<td>{$fila2['fecha_ingreso']}</td>";
+                            echo "<td>{$fila2['dias_totales']}</td>";
+                            echo "<td>{$fila2['dias_disfrutados']}</td>";
+                            echo "<td>{$fila2['dias_dinero']}</td>";
+                            echo "<td>{$total_faltantes}</td>";
                             echo "</tr>";
                             $contador++;
                         }
+
                         ?>
                     </tbody>
                 </table>
