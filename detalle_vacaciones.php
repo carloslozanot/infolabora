@@ -96,11 +96,11 @@ include("php/conexion.php");
 
                 <!-- Días Disponibles -->
                 <div class="col-12 col-md-6 mb-4">
-                    <div class="card card-hover h-100 w-100 shadow-lg border-0 text-center">
-                        <div class="card-body">
-                            <i class="bi bi-hourglass-split icono-card mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="card-title">Días Disponibles</h5>
-                            <h3 class="mb-0 cantidad-card"><?php echo $_SESSION['total_dias']; ?></h3>
+                    <div class="carde carde-hover h-100 w-100 shadow-lg border-0 text-center">
+                        <div class="carde-body">
+                            <i class="bi bi-hourglass-split icono-carde mb-2" style="font-size: 2rem;"></i>
+                            <h5 class="carde-title">Días Disponibles</h5>
+                            <h3 class="mb-0 cantidad-carde"><?php echo $_SESSION['total_dias']; ?></h3>
                         </div>
                     </div>
                 </div>
@@ -149,13 +149,13 @@ include("php/conexion.php");
                                 </table>
                             </div>
 
-                            <div class="botones-vacaciones mt-3">
-                                <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="botones-vacaciones mt-3">
+            <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
         </div>
     </div>
 
