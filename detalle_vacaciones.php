@@ -32,75 +32,108 @@ include("php/conexion.php");
 
 <body>
 
-<div id="contenido-det-vacaciones" class="container">
-    <h2 class="text-center mt-4 mb-5" style="font-size: 40px; font-weight: 800;">DETALLE DE VACACIONES</h2>
+    <div id="contenido-det-vacaciones" class="container">
+        <h2 class="text-center mt-4 mb-5" style="font-size: 40px; font-weight: 800;">DETALLE DE VACACIONES</h2>
 
-    <?php
-    $stmt = $conexion->prepare("CALL infolabora.pr_inicial(?)");
-    $stmt->bind_param("s", $cedula);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
+        <?php
+        $stmt = $conexion->prepare("CALL infolabora.pr_inicial(?)");
+        $stmt->bind_param("s", $cedula);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
 
-    if ($fila = $resultado->fetch_assoc()) {
-        $total_dias_totales = $fila['total_dias_totales'] ?? 0;
-        $total_dias_disfrutados = $fila['total_dias_disfrutados'] ?? 0;
-        $total_dias_dinero = $fila['total_dias_dinero'] ?? 0;
-        $dias_generados = $fila['dias_generados'] ?? 0;
+        if ($fila = $resultado->fetch_assoc()) {
+            $total_dias_totales = $fila['total_dias_totales'] ?? 0;
+            $total_dias_disfrutados = $fila['total_dias_disfrutados'] ?? 0;
+            $total_dias_dinero = $fila['total_dias_dinero'] ?? 0;
+            $dias_generados = $fila['dias_generados'] ?? 0;
 
-        $_SESSION['total_dias_generados'] = $dias_generados + $total_dias_totales;
-        $_SESSION['total_dias'] = $_SESSION['total_dias_generados'] - ($total_dias_disfrutados + $total_dias_dinero);
-    } else {
-        $_SESSION['total_dias_generados'] = 0;
-        $_SESSION['total_dias'] = 0;
-        $total_dias_totales = $total_dias_disfrutados = $total_dias_dinero = 0;
-    }
+            $_SESSION['total_dias_generados'] = $dias_generados + $total_dias_totales;
+            $_SESSION['total_dias'] = $_SESSION['total_dias_generados'] - ($total_dias_disfrutados + $total_dias_dinero);
+        } else {
+            $_SESSION['total_dias_generados'] = 0;
+            $_SESSION['total_dias'] = 0;
+            $total_dias_totales = $total_dias_disfrutados = $total_dias_dinero = 0;
+        }
 
-    $stmt->close();
-    ?>
+        $stmt->close();
 
-    <div class="row justify-content-center">
-        <!-- Días Generados -->
-        <div class="col-md-3 mb-4">
-            <div class="card card-hover shadow-lg border-0 text-center">
-                <div class="card-body">
-                    <i class="bi bi-plus-circle-fill icono-card mb-2" style="font-size: 2rem;"></i>
-                    <h5 class="card-title">Días Totales</h5>
-                    <h3 class="mb-0 cantidad-card"><?php echo $_SESSION['total_dias_generados']; ?></h3>
+        $sql = "SELECT * FROM vacaciones WHERE cedula = '$cedula'";
+        $resultado2 = mysqli_query($conexion, $sql);
+        $fila2 = mysqli_fetch_assoc($resultado2);
+
+
+        ?>
+
+        <div class="row justify-content-center">
+            <!-- Días Generados -->
+            <div class="col-md-3 mb-4">
+                <div class="card card-hover shadow-lg border-0 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-plus-circle-fill icono-card mb-2" style="font-size: 2rem;"></i>
+                        <h5 class="card-title">Días Totales</h5>
+                        <h3 class="mb-0 cantidad-card"><?php echo $_SESSION['total_dias_generados']; ?></h3>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Días Disfrutados -->
-        <div class="col-md-3 mb-4">
-            <div class="card card-hover shadow-lg border-0 text-center">
-                <div class="card-body">
-                    <i class="bi bi-calendar-check-fill icono-card mb-2" style="font-size: 2rem;"></i>
-                    <h5 class="card-title">Días Disfrutados</h5>
-                    <h3 class="mb-0 cantidad-card"><?php echo $total_dias_disfrutados; ?></h3>
+            <!-- Días Disfrutados -->
+            <div class="col-md-3 mb-4">
+                <div class="card card-hover shadow-lg border-0 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-calendar-check-fill icono-card mb-2" style="font-size: 2rem;"></i>
+                        <h5 class="card-title">Días Disfrutados</h5>
+                        <h3 class="mb-0 cantidad-card"><?php echo $total_dias_disfrutados; ?></h3>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Días Pagados en Dinero -->
-        <div class="col-md-3 mb-4">
-            <div class="card card-hover shadow-lg border-0 text-center">
-                <div class="card-body">
-                    <i class="bi bi-cash-coin icono-card mb-2" style="font-size: 2rem;"></i>
-                    <h5 class="card-title">Días Pagados</h5>
-                    <h3 class="mb-0 cantidad-card"><?php echo $total_dias_dinero; ?></h3>
+            <!-- Días Pagados en Dinero -->
+            <div class="col-md-3 mb-4">
+                <div class="card card-hover shadow-lg border-0 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-cash-coin icono-card mb-2" style="font-size: 2rem;"></i>
+                        <h5 class="card-title">Días Pagados</h5>
+                        <h3 class="mb-0 cantidad-card"><?php echo $total_dias_dinero; ?></h3>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Días Disponibles -->
-        <div class="col-md-3 mb-4">
-            <div class="card card-hover shadow-lg border-0 text-center">
-                <div class="card-body">
-                    <i class="bi bi-hourglass-split icono-card mb-2" style="font-size: 2rem;"></i>
-                    <h5 class="card-title">Días Disponibles</h5>
-                    <h3 class="mb-0 cantidad-card"><?php echo $_SESSION['total_dias']; ?></h3>
+            <!-- Días Disponibles -->
+            <div class="col-md-3 mb-4">
+                <div class="card card-hover shadow-lg border-0 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-hourglass-split icono-card mb-2" style="font-size: 2rem;"></i>
+                        <h5 class="card-title">Días Disponibles</h5>
+                        <h3 class="mb-0 cantidad-card"><?php echo $_SESSION['total_dias']; ?></h3>
+                    </div>
                 </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Periodo</th>
+                            <th>Fecha Ingreso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $contador = 1;
+                        mysqli_data_seek($resultado2, 0); // Asegura que se reinicie el puntero del resultado
+                        while ($fila2 = mysqli_fetch_assoc($resultado2)) {
+                            echo "<tr>";
+                            echo "<td>{$contador}</td>";
+                            echo "<td>{$fila2['periodo']}</td>";
+                            echo "<td>{$fila2['fecha_ingreso']}</td>";
+                            echo "</tr>";
+                            $contador++;
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-</div>
 
 </body>
+
 </html>
