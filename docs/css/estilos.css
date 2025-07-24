@@ -439,7 +439,9 @@ header {
 }
 
 #contenido-cerrar-sesion a.btn.btn-danger {
-    width: 80%;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10px;
 }
 
 /* OLD STYLES FOR empleado-info, empleado-foto, empleado-datos, etc. - REMOVED */
