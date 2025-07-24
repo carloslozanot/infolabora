@@ -275,21 +275,27 @@ if (!isset($_SESSION['usuario'])) {
         </div>
 
         <div id="contenido-certificados" class="contenido" style="display: none;">
-            <div class="container mt-2 seccion-certificados text-center p-4 shadow-lg rounded">
-                <h2 class="titulo-certificados">CERTIFICADOS</h2>
-                <p class="subtitulo-certificados">
-                    En esta pestaña puede descargar certificados laborales y desprendibles de pago.
-                </p>
-                <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mt-4">
-                    <a href="certificado_laboral.php" target="_blank" class="btn boton-certificados">
-                        <i class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL
-                    </a>
-                    <a href="desprendible_pago.php" target="_blank" class="btn boton-certificados">
-                        <i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO
-                    </a>
+            <div class="tarjeta-certificados">
+                <div class="texto-certificados">
+                    <h2 class="titulo-certificados">CERTIFICADOS</h2>
+                    <p class="descripcion-certificados">
+                        En esta pestaña puede descargar certificados laborales a quien interese.
+                    </p>
+                    <div class="botones-certificados">
+                        <a href="desprendible_pago.php" target="_blank" class="btn boton-certificado">
+                            <i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO
+                        </a>
+                        <a href="certificado_laboral.php" target="_blank" class="btn boton-certificado">
+                            <i class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL
+                        </a>
+                    </div>
+                </div>
+                <div class="ilustracion-certificados">
+                    <img src="docs/img/certificado-icono.png" alt="Ilustración certificados">
                 </div>
             </div>
         </div>
+
 
         <div id="contenido-vacaciones" class="contenido container my-5" style="display: none;">
             <div class="row align-items-center seccion-vacaciones">

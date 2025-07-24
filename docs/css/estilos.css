@@ -390,54 +390,66 @@ header {
     overflow: auto;
 }
 
-.titulo-desprendible {
-    font-size: 36px;
-    font-weight: 900;
-    color: #150940;
-    margin-bottom: 10px;
+.tarjeta-certificados {
+    background: #f9f9f9;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(24, 46, 89, 0.3);
+    flex-wrap: wrap;
 }
 
-.subtitulo-desprendible {
-    font-size: 18px;
-    font-weight: 400;
-    color: #555;
-}
-
-.custom-select-desprendible {
-    font-size: 16px;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    width: 100%;
+.texto-certificados {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
 }
 
 .titulo-certificados {
-    font-size: 36px;
+    font-size: 35px;
     font-weight: 900;
     color: #150940;
     margin-bottom: 10px;
 }
 
-.subtitulo-certificados {
+.descripcion-certificados {
     font-size: 18px;
-    font-weight: 400;
     color: #444;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-.boton-certificados {
+.botones-certificados {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.boton-certificado {
     background-color: #150940;
-    color: #fff;
+    color: white;
     font-weight: 600;
-    padding: 12px 24px;
     font-size: 16px;
+    padding: 12px 20px;
     border-radius: 12px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    display: inline-block;
-    width: 100%;
-    max-width: 280px;
+    border: none;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.boton-certificado:hover {
+    background-color: #321f84;
+    transform: translateY(-2px);
+}
+
+.ilustracion-certificados img {
+    max-width: 180px;
+    height: auto;
+    margin-left: 20px;
 }
 
 .boton-vacaciones:hover {
