@@ -49,10 +49,12 @@ include("php/conexion.php");
             $total_dias_totales = $fila['total_dias_totales'];
             $total_dias_disfrutados = $fila['total_dias_disfrutados'];
             $total_dias_dinero = $fila['total_dias_dinero'];
+            $_SESSION['total_dias_generados'] = $fila['dias_generados'] + $fila['total_dias_totales'];
         } else {
             $total_dias_totales = "0";
             $total_dias_disfrutados = "0";
             $total_dias_dinero = "0";
+            $_SESSION['total_dias_generados'] = "0";
         }
 
         $stmt->close();
@@ -67,7 +69,7 @@ include("php/conexion.php");
                                 <i class="bi bi-file-earmark-check-fill icono-card"></i>
                             </div>
                             <h5 class="card-title mb-1">Total Días</h5>
-                            <h3 class="mb-0 cantidad-card"><?php echo $total_dias_totales; ?></h3>
+                            <h3 class="mb-0 cantidad-card"><?php echo $_SESSION['total_dias_generados']; ?></h3>
                         </div>
                     </div>
                 </div>
