@@ -282,37 +282,39 @@ if (!isset($_SESSION['usuario'])) {
                         class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
             </div>
         </div>
-        <div id="contenido-vacaciones" class="contenido" style="display: none;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <!-- Columna izquierda: información -->
-                    <div class="col-md-6 text-center">
-                        <h2 style="font-size: 40px; font-weight: 1000;">VACACIONES</h2>
-                        <p style="font-size: 100px; font-weight: bold; margin-bottom: 0px; color: #150940;">
-                            <?php echo $_SESSION['diferencia_dias']; ?>
-                        </p>
-                        <p style="font-size: 22px; font-weight: bold;">Días pendientes por disfrutar</p>
+        <div id="contenido-vacaciones" class="container my-5">
+            <div class="row align-items-center shadow-lg p-4 rounded" style="background-color: #f4f4f4;">
 
-                        <div class="d-flex flex-column gap-2 mt-4">
-                            <a href="detalle_vacaciones.php" target="_blank" class="btn boton-vacaciones">
-                                <i class="fa-solid fa-clipboard-list"></i> DETALLE
-                            </a>
-                            <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones">
-                                <i class="fa-solid fa-file-signature"></i> SOLICITAR VACACIONES
-                            </a>
-                            <a href="historial_vacaciones.php" target="_blank" class="btn boton-vacaciones">
-                                <i class="fa-solid fa-book-open"></i> HISTORIAL DE SOLICITUDES
-                            </a>
-                        </div>
-                    </div>
+                <!-- Columna Izquierda: Información y Botones -->
+                <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
+                    <h2 class="font-weight-bold" style="font-size: 36px;">VACACIONES</h2>
+                    <p class="display-3 font-weight-bold my-3" style="color: #150940;">
+                        <?php echo $_SESSION['diferencia_dias']; ?>
+                    </p>
+                    <p class="h5 mb-4">Días pendientes por disfrutar</p>
 
-                    <!-- Columna derecha: imagen -->
-                    <div class="col-md-6 text-center">
-                        <img src="docs/images/vacaciones.png" alt="Vacaciones" class="img-fluid" style="max-height: 400px;">
+                    <div class="d-flex flex-column gap-2">
+                        <a href="detalle_vacaciones.php" target="_blank" class="btn boton-vacaciones mb-2">
+                            <i class="fa-solid fa-clipboard-list"></i> DETALLE
+                        </a>
+                        <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones mb-2">
+                            <i class="fa-solid fa-file-signature"></i> SOLICITAR VACACIONES
+                        </a>
+                        <a href="historial_vacaciones.php" target="_blank" class="btn boton-vacaciones">
+                            <i class="fa-solid fa-book-open"></i> HISTORIAL DE SOLICITUDES
+                        </a>
                     </div>
                 </div>
+
+                <!-- Columna Derecha: Imagen -->
+                <div class="col-md-6 text-center">
+                    <img src="docs/images/vacaciones_ilustracion.png" alt="Ilustración vacaciones" class="img-fluid"
+                        style="max-height: 300px;">
+                </div>
+
             </div>
         </div>
+
 
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
