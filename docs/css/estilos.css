@@ -216,6 +216,17 @@ header {
     overflow: auto;
 } 
 
+#contenido-certificados-lab {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(24, 46, 89);
+    width: 50%;
+    overflow: auto;
+} 
+
 #contenido-bitacora {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
@@ -416,6 +427,14 @@ header {
     font-size: 18px;
     color: #444;
     margin-bottom: 20px;
+}
+
+.custom-select-desprendible {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
 }
 
 .boton-certificados {
