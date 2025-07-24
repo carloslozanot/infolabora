@@ -34,7 +34,7 @@ $cedula = $_SESSION['usuario'];
 
 <body>
     <div id="contenido-certificados container mt-5">
-        <div class="d-flex flex-column align-items-center seccion-certificados text-center">
+        <div class="card shadow-lg p-4 seccion-certificados text-center">
             <h2 style="font-size: 35px; font-weight: 1000;">CERTIFICADO LABORAL</h2>
 
             <div style="width: 100%; max-width: 600px; margin-top: 20px;">
