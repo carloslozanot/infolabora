@@ -241,26 +241,6 @@ header {
     overflow: auto;
 }
 
-.boton-certificados {
-    background-color: #150940;
-    color: #fff;
-    font-weight: bold;
-    box-shadow: 2px 2px 4px #000;
-    border: none;
-    width: 48%;
-    margin: 5px;
-    padding: 15px;
-    transition: all 0.2s ease;
-    margin-left: 26%;
-}
-
-.boton-certificados:hover {
-    background-color: #fff;
-    color: #150940;
-    transform: scale(1.05);
-    box-shadow: 4px 4px 8px #000;
-}
-
 .boton-vacaciones {
     background-color: #150940;
     color: white;
@@ -816,25 +796,6 @@ ul li {
 }
 
 .boton-desprendible:hover {
-    background-color: #fff;
-    color: #150940;
-    transform: scale(1.05);
-    box-shadow: 4px 4px 8px #000;
-}
-
-.boton-certificado {
-    background-color: #150940;
-    color: #fff;
-    font-weight: bold;
-    box-shadow: 2px 2px 4px #000;
-    border: none;
-    margin: 5px;
-    transition: all 0.2s ease;
-    margin-top: 3%;
-    margin-left: 26%;
-}
-
-.boton-certificado:hover {
     background-color: #fff;
     color: #150940;
     transform: scale(1.05);
