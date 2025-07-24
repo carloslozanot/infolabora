@@ -113,7 +113,7 @@ include("php/conexion.php");
                 <div class="col-12 mb-4">
                     <div class="card card-hover shadow-lg border-0 text-center">
                         <div class="card-body">
-                            <i class="bi bi-people-fill icono-card mb-2" style="font-size: 2rem;"></i>
+                            <i class="bi bi-journal-text icono-card mb-2" style="font-size: 2rem;"></i>
                             <h5 class="card-title mb-3">Detalle de vacaciones por periodo</h5>
 
                             <div class="table-responsive">

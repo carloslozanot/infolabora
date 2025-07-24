@@ -1083,7 +1083,7 @@ a.selected {
 }
 
 .carde-hover {
-    background-color: #666;
+    background-color: #c5c3c3;
     border-radius: 15px;
     transition: transform 0.3s, background-color 0.3s, color 0.3s;
     padding: 1.25rem;
@@ -1105,7 +1105,7 @@ a.selected {
 .carde-hover:hover h5,
 .carde-hover:hover h3,
 .carde-hover:hover i {
-    color: #666;
+    color: #c5c3c3;
 }
 
 .table-dark th {
