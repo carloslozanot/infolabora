@@ -94,6 +94,7 @@ if (!isset($_SESSION['usuario'])) {
             <p style="font-size: 16px;">🌴 Consultar y validar los días de vacaciones pendientes por tomar.</p>
         </div>
         <div id="contenido-datos" class="contenido" style="display: none;">
+        <div class="row align-items-center seccion-datos">
             <div class="seccion-superior-boceto">
                 <div class="empleado-foto-boceto">
                     <img src="<?php echo $_SESSION['imagen'] ?? 'placeholder.png'; ?>" alt="Foto del empleado">
@@ -270,9 +271,9 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
         </div>
-
+                                </div>
         <div id="contenido-certificados" class="contenido" style="display: none;">
-            <div class="row align-items-center seccion-vacaciones">
+            <div class="row align-items-center seccion-certificados">
                 <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
                 <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar
                     certificados
