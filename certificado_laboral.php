@@ -35,7 +35,7 @@ $cedula = $_SESSION['usuario'];
 <body>
     <div id="contenido-certificados">
         <div class="row justify-content-center align-items-center seccion-certificados text-center">
-            <h2 style="font-size: 35px; font-weight: 1000;">CERTIFICADO LABORAL</h2>
+            <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO LABORAL</h2>
 
             <div style="width: 100%; max-width: 600px; margin-top: 20px;">
                 <form method="post" action="fpdf/certificado.php">
