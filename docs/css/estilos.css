@@ -954,17 +954,11 @@ a.selected {
 
 .empleado-foto-boceto {
     width: 200px;
-    /* Tamaño de la elipse de la foto */
     height: 200px;
-    /* Altura para hacerla elíptica */
     border: 2px solid #000;
-    /* Borde negro de la elipse */
     border-radius: 50%;
-    /* Para hacerla elíptica o circular si width y height son iguales */
     overflow: hidden;
-    /* Recorta la imagen si sobresale del borde */
     display: flex;
-    /* Para centrar la imagen dentro de la elipse */
     justify-content: center;
     align-items: center;
 }
@@ -973,14 +967,14 @@ a.selected {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Asegura que la imagen cubra el área sin distorsionarse */
     border-radius: 50%;
-    /* Para mantener la forma si la imagen es cuadrada */
 }
 
 .empleado-nombre-cargo {
     flex-grow: 1;
-    /* Permite que ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .nombre-empleado-boceto {
@@ -992,9 +986,9 @@ a.selected {
 
 .cargo-empleado-boceto {
     font-size: 18px;
-    /* Tamaño de cargo */
     color: #666;
     margin: 0 0 0 20px;
+    margin-top: 5px;
 }
 
 .seccion-inferior-boceto {
