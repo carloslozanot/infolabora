@@ -276,9 +276,6 @@ if (!isset($_SESSION['usuario'])) {
 
         <div id="contenido-certificados" class="contenido" style="display: none;">
             <div class="tarjeta-certificados">
-                <div class="col-md-6 text-center">
-                    <img src="docs/images/certificados.png" alt="Ilustración certificados" class="vacaciones-img">
-                </div>
                 <div class="texto-certificados">
                     <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">CERTIFICADOS</h2>
                     <p class="descripcion-certificados">
@@ -291,6 +288,9 @@ if (!isset($_SESSION['usuario'])) {
                         <a href="desprendible_pago.php" target="_blank" class="btn boton-certificado">
                             <i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO
                         </a>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <img src="docs/images/certificados.png" alt="Ilustración certificados" class="vacaciones-img">
                     </div>
                 </div>
             </div>
