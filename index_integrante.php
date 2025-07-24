@@ -84,14 +84,16 @@ if (!isset($_SESSION['usuario'])) {
 
     <main>
         <div id="contenido-inicio" class="contenido" style="display: block;">
-            <p style="font-size: 32px; font-weight:1000;">¡Bienvenido,
-                <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br>
-            </p>
-            <p style="font-size: 20px;">Este es el <strong>portal corporativo</strong>, a través del cual podrás
-                realizar las siguientes acciones:<br><br></p>
-            <p style="font-size: 16px;">📌 Consultar tus datos personales relacionados con la compañía</p>
-            <p style="font-size: 16px;">📥 Descargar documentos corporativos</p>
-            <p style="font-size: 16px;">🌴 Consultar y validar los días de vacaciones pendientes por tomar.</p>
+            <div class="row align-items-center seccion-cerrar-sesion">
+                <p style="font-size: 32px; font-weight:1000;">¡Bienvenido,
+                    <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br>
+                </p>
+                <p style="font-size: 20px;">Este es el <strong>portal corporativo</strong>, a través del cual podrás
+                    realizar las siguientes acciones:<br><br></p>
+                <p style="font-size: 16px;">📌 Consultar tus datos personales relacionados con la compañía</p>
+                <p style="font-size: 16px;">📥 Descargar documentos corporativos</p>
+                <p style="font-size: 16px;">🌴 Consultar y validar los días de vacaciones pendientes por tomar.</p>
+            </div>
         </div>
         <div id="contenido-datos" class="contenido" style="display: none;">
             <div class="row align-items-center seccion-datos">

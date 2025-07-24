@@ -315,7 +315,7 @@ header {
     color: #150940;
 }
 
-.seccion-cerrar-sesion {
+.seccion-inicio {
     background-color: #fdfdfd;
     border-radius: 20px;
     padding: 30px;
@@ -336,6 +336,13 @@ header {
 }
 
 .seccion-vacaciones {
+    background-color: #fdfdfd;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.seccion-cerrar-sesion {
     background-color: #fdfdfd;
     border-radius: 20px;
     padding: 30px;
@@ -432,7 +439,7 @@ header {
 }
 
 #contenido-cerrar-sesion a.btn.btn-danger {
-    margin-left: 190px;
+    width: 80%;
 }
 
 /* OLD STYLES FOR empleado-info, empleado-foto, empleado-datos, etc. - REMOVED */
