@@ -33,7 +33,7 @@ $cedula = $_SESSION['usuario'];
 </head>
 
 <body>
-    <div class="contenido-certificado">
+    <div class="contenido-certificados">
         <div class="row align-items-center seccion-certificados">
             <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">CERTIFICADO LABORAL</h2><br>
 
