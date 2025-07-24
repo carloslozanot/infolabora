@@ -277,11 +277,11 @@ if (!isset($_SESSION['usuario'])) {
         <div id="contenido-certificados" class="contenido" style="display: none;">
             <div class="tarjeta-certificados">
                 <div class="texto-certificados">
-                    <h2 class="titulo-certificados">CERTIFICADOS</h2>
+                <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">CERTIFICADOS</h2>
                     <p class="descripcion-certificados">
                         En esta pestaña puede descargar certificados laborales a quien interese.
                     </p>
-                    <div class="botones-certificados">
+                    <div class="d-flex flex-column gap-3">
                         <a href="desprendible_pago.php" target="_blank" class="btn boton-certificado">
                             <i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO
                         </a>
@@ -290,7 +290,7 @@ if (!isset($_SESSION['usuario'])) {
                         </a>
                     </div>
                 </div>
-                <div class="ilustracion-certificados">
+                <div class="col-md-6 text-center">
                     <img src="docs/img/certificado-icono.png" alt="Ilustración certificados">
                 </div>
             </div>
@@ -300,7 +300,6 @@ if (!isset($_SESSION['usuario'])) {
         <div id="contenido-vacaciones" class="contenido container my-5" style="display: none;">
             <div class="row align-items-center seccion-vacaciones">
 
-                <!-- Columna Izquierda: Información -->
                 <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
                     <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">VACACIONES</h2>
                     <div class="dias-pendientes-circle mx-auto my-4">
@@ -321,7 +320,6 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                 </div>
 
-                <!-- Columna Derecha: Imagen -->
                 <div class="col-md-6 text-center">
                     <img src="docs/images/vacaciones.png" alt="Ilustración vacaciones" class="vacaciones-img">
                 </div>
