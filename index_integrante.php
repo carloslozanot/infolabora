@@ -289,9 +289,9 @@ if (!isset($_SESSION['usuario'])) {
                             <i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO
                         </a>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <img src="docs/images/certificados.png" alt="Ilustración certificados" class="vacaciones-img">
-                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="docs/images/certificados.png" alt="Ilustración certificados" class="vacaciones-img">
                 </div>
             </div>
         </div>
