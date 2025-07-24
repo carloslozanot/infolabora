@@ -21,7 +21,7 @@ $cedula = $_SESSION['usuario'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificado Laboral</title>
+    <title>Detalle Vsacaciones</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -35,12 +35,12 @@ $cedula = $_SESSION['usuario'];
 
 </body>
 
-<div id="contenido-bitacora" class="contenido" style="display: none;">
-    <h2 style="text-align: center;font-size: 40px; font-weight: 800;">BITÁCORA</h2><br>
+<div id="contenido-det-vacaciones" class="contenido" style="display: none;">
+    <h2 style="text-align: center;font-size: 40px; font-weight: 800;">DETALLE DE VACACIONES</h2><br>
 
     <?php
     include("php/conexion.php");
-    $sql = "SELECT * FROM vacaciones WHERE ceduula = '$cedula'";
+    $sql = "SELECT * FROM vacaciones WHERE cedula = '$cedula'";
     $resultado = mysqli_query($conexion, $sql);
     $fila = mysqli_fetch_assoc($resultado);
     ?>
