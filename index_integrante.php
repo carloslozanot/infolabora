@@ -282,10 +282,10 @@ if (!isset($_SESSION['usuario'])) {
                     En esta pestaña podrás descargar certificados laborales, con o sin información salarial, con o sin destinatario, según lo requieras. Además, tienes la opción de generar desprendibles de pago del mes que desees.
                     </p>
                     <div class="d-flex flex-column gap-3">
-                        <a href="certificado_laboral.php" target="_blank" class="btn boton-certificado">
+                        <a href="certificado_laboral.php" target="_blank" class="btn boton-certificados">
                             <i class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL
                         </a>
-                        <a href="desprendible_pago.php" target="_blank" class="btn boton-certificado">
+                        <a href="desprendible_pago.php" target="_blank" class="btn boton-certificados">
                             <i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO
                         </a>
                     </div>
