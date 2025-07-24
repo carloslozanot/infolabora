@@ -1056,6 +1056,31 @@ a.selected {
     color: #150940;
 }
 
+.carda-hover {
+    background-color: #150940;
+    border-radius: 15px;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.carda-hover h5,
+.carda-hover h3,
+.carda-hover i {
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.carda-hover:hover {
+    background-color: #ffffff;
+    transform: scale(1.02);    
+    box-shadow: 0 0 10px rgba(24, 46, 89);
+}
+
+.carda-hover:hover h5,
+.carda-hover:hover h3,
+.carda-hover:hover i {
+    color: #150940;
+}
+
 .table-dark th {
     background-color: #150940 !important;
     color: white;

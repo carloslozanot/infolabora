@@ -95,11 +95,11 @@ include("php/conexion.php");
             </div>
             <!-- Días Disponibles -->
             <div class="col-md-3 mb-4">
-                <div class="card card-hover shadow-lg border-0 text-center">
-                    <div class="card-body">
-                        <i class="bi bi-hourglass-split icono-card mb-2" style="font-size: 2rem;"></i>
-                        <h5 class="card-title">Días Disponibles</h5>
-                        <h3 class="mb-0 cantidad-card"><?php echo $_SESSION['total_dias']; ?></h3>
+                <div class="carda carda-hover shadow-lg border-0 text-center">
+                    <div class="carda-body">
+                        <i class="bi bi-hourglass-split icono-carda mb-2" style="font-size: 2rem;"></i>
+                        <h5 class="carda-title">Días Disponibles</h5>
+                        <h3 class="mb-0 cantidad-carda"><?php echo $_SESSION['total_dias']; ?></h3>
                     </div>
                 </div>
             </div>
