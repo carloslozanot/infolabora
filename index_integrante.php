@@ -275,19 +275,23 @@ if (!isset($_SESSION['usuario'])) {
         </div>
 
         <div id="contenido-certificados" class="contenido" style="display: none;">
-            <div class="row align-items-center seccion-certificados">
-                <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
-                <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar
-                    certificados
-                    laborales a quien interese</p>
-                <div>
-                    <a href="desprendible_pago.php" target="_blank" class="btn boton-certificados"><i
-                            class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO</a>
-                    <a href="certificado_laboral.php" target="_blank" class="btn boton-certificados"><i
-                            class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
+            <div class="container mt-5 seccion-certificados text-center p-4 shadow-lg rounded">
+                <h2 class="titulo-certificados">CERTIFICADOS</h2>
+                <p class="subtitulo-certificados">
+                    En esta pestaña puede descargar certificados laborales a quien interese.
+                </p>
+
+                <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mt-4">
+                    <a href="desprendible_pago.php" target="_blank" class="btn boton-certificados">
+                        <i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO
+                    </a>
+                    <a href="certificado_laboral.php" target="_blank" class="btn boton-certificados">
+                        <i class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL
+                    </a>
                 </div>
             </div>
         </div>
+
         <div id="contenido-vacaciones" class="contenido container my-5" style="display: none;">
             <div class="row align-items-center seccion-vacaciones">
 

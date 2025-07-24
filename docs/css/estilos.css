@@ -411,21 +411,39 @@ header {
     width: 100%;
 }
 
+.titulo-certificados {
+    font-size: 36px;
+    font-weight: 900;
+    color: #150940;
+    margin-bottom: 10px;
+}
+
+.subtitulo-certificados {
+    font-size: 18px;
+    font-weight: 400;
+    color: #444;
+    margin-bottom: 25px;
+}
+
 .boton-certificados {
     background-color: #150940;
-    color: white;
+    color: #fff;
     font-weight: 600;
-    padding: 12px 20px;
+    padding: 12px 24px;
     font-size: 16px;
     border-radius: 10px;
+    text-transform: uppercase;
     transition: all 0.3s ease;
+    display: inline-block;
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
+    text-align: center;
 }
 
 .boton-certificados:hover {
     background-color: #2e1b68;
-    transform: scale(1.03);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .contenido-certificados {
