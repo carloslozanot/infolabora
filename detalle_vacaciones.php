@@ -109,6 +109,7 @@ include("php/conexion.php");
                     <div class="card-body">
                         <div class="mb-3">
                             <i class="bi bi-people-fill icono-card"></i>
+                            <h5 class="card-title mb-3">Detalle de vacaciones por periodo</h5>
                             <div class="tabla-vacaciones">
                                 <table class="table table-bordered table-hover table-striped tabla-vacaciones">
                                     <thead class="table-dark">
