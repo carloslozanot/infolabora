@@ -391,7 +391,6 @@ header {
     border-radius: 20px;
     padding: 30px;
     margin: 30px auto;
-    max-width: 1000px;
     display: flex;
     justify-content: space-between;
     align-items: center;
