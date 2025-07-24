@@ -429,7 +429,7 @@ header {
     flex-wrap: wrap;
 }
 
-.boton-certificado {
+.boton-certificados {
     background-color: #150940;
     color: white;
     font-weight: 600;
@@ -441,7 +441,7 @@ header {
     transition: all 0.3s ease;
 }
 
-.boton-certificado:hover {
+.boton-certificados:hover {
     background-color: #321f84;
     transform: translateY(-2px);
 }
