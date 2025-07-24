@@ -1057,7 +1057,7 @@ a.selected {
 }
 
 .carda-hover {
-    background-color: #150940;
+    background-color: #ffffff;
     border-radius: 15px;
     transition: transform 0.3s, background-color 0.3s, color 0.3s;
 }
@@ -1065,12 +1065,12 @@ a.selected {
 .carda-hover h5,
 .carda-hover h3,
 .carda-hover i {
-    color: #ffffff;
+    color: #150940;
     transition: color 0.3s;
 }
 
 .carda-hover:hover {
-    background-color: #ffffff;
+    background-color: #150940;
     transform: scale(1.02);    
     box-shadow: 0 0 10px rgba(24, 46, 89);
 }
@@ -1078,7 +1078,7 @@ a.selected {
 .carda-hover:hover h5,
 .carda-hover:hover h3,
 .carda-hover:hover i {
-    color: #150940;
+    color: #ffffff;
 }
 
 .table-dark th {
