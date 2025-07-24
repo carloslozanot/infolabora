@@ -1081,6 +1081,11 @@ a.selected {
     color: white !important;
 }
 
+.tabla-vacaciones{
+    display: block;
+    width: 80%;
+}
+
 @media (max-width: 768px) {
     .body_index_login {
         background-size: cover;
