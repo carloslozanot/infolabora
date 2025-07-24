@@ -36,7 +36,18 @@ $cedula = $_SESSION['usuario'];
 
     <div id="contenido-det-vacaciones">
         <h2 style="text-align: center;font-size: 40px; font-weight: 800;">DETALLE DE VACACIONES</h2><br>
-        
+
+        <div class="col-md-5 mb-4">
+            <div class="card card-hover shadow-lg border-0 text-center">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                    <div class="mb-2">
+                        <i class="bi bi-file-earmark-check-fill icono-card"></i>
+                    </div>
+                    <h5 class="card-title mb-1">Desprendibles de Pago generados</h5>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </body>
