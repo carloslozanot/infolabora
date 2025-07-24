@@ -34,63 +34,9 @@ $cedula = $_SESSION['usuario'];
 
 <body>
 
-    <div id="contenido-det-vacaciones" class="contenido" style="display: none;">
+    <div id="contenido-det-vacaciones">
         <h2 style="text-align: center;font-size: 40px; font-weight: 800;">DETALLE DE VACACIONES</h2><br>
-
-        <?php
-        include("php/conexion.php");
-        $sql = "SELECT * FROM vacaciones WHERE cedula = '$cedula'";
-        $resultado = mysqli_query($conexion, $sql);
-        ?>
-
-        <div class="row justify-content-center">
-            <div class="col-md-5 mb-4">
-                <div class="card card-hover shadow-lg border-0 text-center">
-                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                        <div class="mb-2">
-                            <i class="bi bi-person-check-fill icono-card"></i>
-                        </div>
-                        <h5 class="card-title mb-1">Ingresos al sistema</h5>
-                        <h3 class="mb-0 cantidad-card"></h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-10 mb-4">
-                <div class="card card-hover shadow-lg border-0 text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <i class="bi bi-people-fill icono-card"></i>
-                        </div>
-                        <h5 class="card-title mb-3">Top ingresos al sistema</h5>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover table-striped">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Cédula</th>
-                                        <th>Fecha de Vacaciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $contador = 1;
-                                    while ($fila = mysqli_fetch_assoc($resultado)) {
-                                        echo "<tr>";
-                                        echo "<td>{$contador}</td>";
-                                        echo "<td>{$fila['cedula']}</td>";
-                                        echo "<td>{$fila['cedula']}</td>"; // Reemplaza con la columna correcta
-                                        echo "</tr>";
-                                        $contador++;
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
 </body>
