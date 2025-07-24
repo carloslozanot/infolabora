@@ -61,8 +61,7 @@ include("php/conexion.php");
         ?>
 
         <div class="row justify-content-center">
-            <!-- Días Generados -->
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-6 mb-4">
                 <div class="card card-hover shadow-lg border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-plus-circle-fill icono-card mb-2" style="font-size: 2rem;"></i>
@@ -71,8 +70,8 @@ include("php/conexion.php");
                     </div>
                 </div>
             </div>
-            <!-- Días Disfrutados -->
-            <div class="col-md-3 mb-4">
+
+            <<div class="col-md-6 col-lg-6 mb-4">
                 <div class="card card-hover shadow-lg border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-calendar-check-fill icono-card mb-2" style="font-size: 2rem;"></i>
@@ -81,8 +80,8 @@ include("php/conexion.php");
                     </div>
                 </div>
             </div>
-            <!-- Días Pagados en Dinero -->
-            <div class="col-md-3 mb-4">
+
+            <div class="col-md-6 col-lg-6 mb-4"></div>
                 <div class="card card-hover shadow-lg border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-cash-coin icono-card mb-2" style="font-size: 2rem;"></i>
@@ -91,8 +90,8 @@ include("php/conexion.php");
                     </div>
                 </div>
             </div>
-            <!-- Días Disponibles -->
-            <div class="col-md-3 mb-4">
+            
+            <div class="col-md-6 col-lg-6 mb-4">
                 <div class="carda carda-hover shadow-lg border-0 text-center">
                     <div class="carda-body">
                         <i class="bi bi-hourglass-split icono-carda mb-2" style="font-size: 2rem;"></i>
