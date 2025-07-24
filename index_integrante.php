@@ -308,7 +308,7 @@ if (!isset($_SESSION['usuario'])) {
                         class="fa-solid fa-clipboard-list"></i> DETALLE</a>
                 <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones"><i
                         class="fa-solid fa-file-signature"></i> SOLICITAR VACACIONES</a> 
-                <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones-hist"><i
+                <a href="historial_vacaciones.php" target="_blank" class="btn boton-vacaciones-hist"><i
                         class="fa-solid fa-book-open"></i> HISTORIAL DE SOLICITUDES</a>
             </div>
 
