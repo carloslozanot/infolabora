@@ -46,22 +46,52 @@ include("php/conexion.php");
         $resultado = $stmt->get_result();
 
         if ($fila = $resultado->fetch_assoc()) {
-            $total_dias_totales = $fila['total_dias_totales']; 
+            $total_dias_totales = $fila['total_dias_totales'];
+            $total_dias_disfrutados = $fila['total_dias_disfrutados'];
+            $total_dias_dinero = $fila['total_dias_dinero'];
         } else {
             $total_dias_totales = "0";
+            $total_dias_disfrutados = "0";
+            $total_dias_dinero = "0";
         }
 
         $stmt->close();
         ?>
 
-        <div class="col-md-5 mb-4">
-            <div class="card card-hover shadow-lg border-0 text-center">
-                <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                    <div class="mb-2">
-                        <i class="bi bi-file-earmark-check-fill icono-card"></i>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card card-hover shadow-lg border-0 text-center">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-2">
+                                <i class="bi bi-file-earmark-check-fill icono-card"></i>
+                            </div>
+                            <h5 class="card-title mb-1">Total Días</h5>
+                            <h3 class="mb-0 cantidad-card"><?php echo $total_dias_totales; ?></h3>
+                        </div>
                     </div>
-                    <h5 class="card-title mb-1">Total Días</h5>
-                    <h3 class="mb-0 cantidad-card"><?php echo $total_dias_totales; ?></h3>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-hover shadow-lg border-0 text-center">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-2">
+                                <i class="bi bi-calendar-check-fill icono-card"></i>
+                            </div>
+                            <h5 class="card-title mb-1">Días Disfrutados</h5>
+                            <h3 class="mb-0 cantidad-card"><?php echo $total_dias_disfrutados; ?></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-hover shadow-lg border-0 text-center">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-2">
+                                <i class="bi bi-cash-coin icono-card"></i>
+                            </div>
+                            <h5 class="card-title mb-1">Días Pagados en Dinero</h5>
+                            <h3 class="mb-0 cantidad-card"><?php echo $total_dias_dinero; ?></h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
