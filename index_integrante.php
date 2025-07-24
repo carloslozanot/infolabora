@@ -277,7 +277,7 @@ if (!isset($_SESSION['usuario'])) {
         <div id="contenido-certificados" class="contenido" style="display: none;">
             <div class="tarjeta-certificados">
                 <div class="col-md-6 text-center">
-                    <img src="docs/img/certificado-icono.png" alt="Ilustración certificados">
+                    <img src="docs/img/certificados.png" alt="Ilustración certificados">
                 </div>
                 <div class="texto-certificados">
                     <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">CERTIFICADOS</h2>
