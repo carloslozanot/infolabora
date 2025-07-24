@@ -138,7 +138,7 @@ include("php/conexion.php");
                 </table>
             </div>
             <div class="botones-vacaciones">
-                <a href="index_admin.php" class="btn btn-danger">Regresar</a>
+                <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
             </div>
         </div>
     </div>
