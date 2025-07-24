@@ -37,7 +37,7 @@ $cedula = $_SESSION['usuario'];
         <div class="row justify-content-center align-items-center seccion-certificados text-center">
             <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO LABORAL</h2>
 
-            <div style="width: 100%; max-width: 600px; margin-top: 20px;">
+            <div style="margin-top: 20px;">
                 <form method="post" action="fpdf/certificado.php">
                     <!-- Título personal -->
                     <label style="font-weight: 600;">Título personal:</label><br>
@@ -61,13 +61,11 @@ $cedula = $_SESSION['usuario'];
                             onchange="toggleDestinatario()">
                         <label class="form-check-label" for="blanco">En blanco</label>
                     </div>
-
                     <br><br>
                     <label style="font-weight: 600;">Dirigido a:</label>
                     <input type="text" id="destinatario" name="destinatario" class="form-control mx-auto"
                         style="width: 350px;" placeholder="Escriba a quién va dirigido" required>
-
-                    <br><br>
+                    <br>
                     <label style="font-weight: 600;">¿Desea presentar su salario?</label><br>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="salario_sn" id="salario_si" value="SI"
@@ -79,9 +77,8 @@ $cedula = $_SESSION['usuario'];
                             onchange="toggleDestinatario()">
                         <label class="form-check-label" for="salario_no">No</label>
                     </div>
-
+                    <br>
                     <input type="hidden" name="id" value="<?php echo $cedula; ?>">
-
                     <br>
                     <button type="submit" class="btn boton-certificados">
                         <i class="fa-solid fa-file"></i> GENERAR CERTIFICADO
