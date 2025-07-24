@@ -57,46 +57,36 @@ include("php/conexion.php");
     $resultado2 = mysqli_query($conexion, $sql);
     ?>
 
-    <!-- Contenedor de las cards -->
     <div id="contenido-det-vacaciones">
-        <div class="container" style="max-width: 700px;">
-            <div class="row justify-content-center">
-                <!-- Días Totales -->
-                <div class="col-12 col-md-6 mb-4">
-                    <div class="carda carda-hover h-100 w-100 shadow-lg border-0 text-center">
+        <div class="container mt-4">
+            <div class="row">
+                <!-- Columna de tarjetas -->
+                <div class="col-md-4 d-flex flex-column gap-4">
+                    <div class="carda shadow-lg border-0 text-center">
                         <div class="carda-body">
                             <i class="bi bi-plus-circle-fill icono-carda mb-2" style="font-size: 2rem;"></i>
                             <h5 class="carda-title">Días Totales</h5>
                             <h3 class="mb-0 cantidad-carda"><?php echo $_SESSION['total_dias_generados']; ?></h3>
                         </div>
                     </div>
-                </div>
 
-                <!-- Días Disfrutados -->
-                <div class="col-12 col-md-6 mb-4">
-                    <div class="carda carda-hover h-100 w-100 shadow-lg border-0 text-center">
+                    <div class="carda shadow-lg border-0 text-center">
                         <div class="carda-body">
                             <i class="bi bi-calendar-check-fill icono-carda mb-2" style="font-size: 2rem;"></i>
                             <h5 class="carda-title">Días Disfrutados</h5>
                             <h3 class="mb-0 cantidad-carda"><?php echo $total_dias_disfrutados; ?></h3>
                         </div>
                     </div>
-                </div>
 
-                <!-- Días Pagados -->
-                <div class="col-12 col-md-6 mb-4">
-                    <div class="carda carda-hover h-100 w-100 shadow-lg border-0 text-center">
+                    <div class="carda shadow-lg border-0 text-center">
                         <div class="carda-body">
                             <i class="bi bi-cash-coin icono-carda mb-2" style="font-size: 2rem;"></i>
                             <h5 class="carda-title">Días Pagados</h5>
                             <h3 class="mb-0 cantidad-carda"><?php echo $total_dias_dinero; ?></h3>
                         </div>
                     </div>
-                </div>
 
-                <!-- Días Disponibles -->
-                <div class="col-12 col-md-6 mb-4">
-                    <div class="carde carde-hover h-100 w-100 shadow-lg border-0 text-center">
+                    <div class="carde shadow-lg border-0 text-center">
                         <div class="carde-body">
                             <i class="bi bi-hourglass-split icono-carde mb-2" style="font-size: 2rem;"></i>
                             <h5 class="carde-title">Días Disponibles</h5>
@@ -104,14 +94,10 @@ include("php/conexion.php");
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Contenedor de la tabla -->
-        <div class="container" style="max-width: 900px;">
-            <div class="row justify-content-center">
-                <div class="col-12 mb-4">
-                    <div class="card card-hover shadow-lg border-0 text-center">
+                <!-- Columna de tabla -->
+                <div class="col-md-8">
+                    <div class="card shadow-lg border-0 text-center">
                         <div class="card-body">
                             <i class="bi bi-calendar-event-fill icono-card mb-2" style="font-size: 2rem;"></i>
                             <h5 class="card-title mb-3">Detalle de vacaciones por periodo</h5>
@@ -148,16 +134,18 @@ include("php/conexion.php");
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
+                    </div>
+
+                    <!-- Botón regresar -->
+                    <div class="botones-vacaciones mt-4 d-flex justify-content-center">
+                        <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="botones-vacaciones mt-3 d-flex justify-content-center">
-            <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
-        </div>
     </div>
+
 
 </body>
 
