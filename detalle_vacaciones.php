@@ -58,7 +58,7 @@ include("php/conexion.php");
     ?>
 
     <!-- Contenedor de las cards -->
-    <div class="contenido-det-vacaciones">
+    <div id="contenido-det-vacaciones">
         <div class="container" style="max-width: 700px;">
             <div class="row justify-content-center">
                 <!-- Días Totales -->
