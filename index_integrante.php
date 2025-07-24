@@ -279,7 +279,7 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="texto-certificados">
                     <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">CERTIFICADOS</h2>
                     <p class="descripcion-certificados">
-                    En esta pestaña podrás descargar certificados laborales, con o sin información salarial, según lo requieras. Además, tienes la opción de generar desprendibles de pago del mes que desees.
+                    En esta pestaña podrás descargar certificados laborales, con o sin información salarial, con o sin destinatario, según lo requieras. Además, tienes la opción de generar desprendibles de pago del mes que desees.
                     </p>
                     <div class="d-flex flex-column gap-3">
                         <a href="certificado_laboral.php" target="_blank" class="btn boton-certificado">
