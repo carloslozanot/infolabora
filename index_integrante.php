@@ -276,8 +276,11 @@ if (!isset($_SESSION['usuario'])) {
 
         <div id="contenido-certificados" class="contenido" style="display: none;">
             <div class="tarjeta-certificados">
+                <div class="col-md-6 text-center">
+                    <img src="docs/img/certificado-icono.png" alt="Ilustración certificados">
+                </div>
                 <div class="texto-certificados">
-                <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">CERTIFICADOS</h2>
+                    <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">CERTIFICADOS</h2>
                     <p class="descripcion-certificados">
                         En esta pestaña puede descargar certificados laborales a quien interese.
                     </p>
@@ -289,9 +292,6 @@ if (!isset($_SESSION['usuario'])) {
                             <i class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL
                         </a>
                     </div>
-                </div>
-                <div class="col-md-6 text-center">
-                    <img src="docs/img/certificado-icono.png" alt="Ilustración certificados">
                 </div>
             </div>
         </div>
