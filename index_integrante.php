@@ -288,9 +288,9 @@ if (!isset($_SESSION['usuario'])) {
                 <!-- Columna Izquierda: Información -->
                 <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
                     <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">VACACIONES</h2>
-                    <p class="display-3 font-weight-bold my-3" style="color: #150940;">
+                    <div class="dias-pendientes-circle mx-auto my-4">
                         <?php echo $_SESSION['diferencia_dias']; ?>
-                    </p>
+                    </div>
                     <p class="h5 mb-4">Días pendientes por disfrutar</p>
 
                     <div class="d-flex flex-column gap-3">
@@ -308,8 +308,7 @@ if (!isset($_SESSION['usuario'])) {
 
                 <!-- Columna Derecha: Imagen -->
                 <div class="col-md-6 text-center">
-                    <img src="docs/images/vacaciones.png" alt="Ilustración vacaciones"
-                        class="vacaciones-img">
+                    <img src="docs/images/vacaciones.png" alt="Ilustración vacaciones" class="vacaciones-img">
                 </div>
 
             </div>
