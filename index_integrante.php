@@ -285,11 +285,11 @@ if (!isset($_SESSION['usuario'])) {
                         En esta pestaña puede descargar certificados laborales a quien interese.
                     </p>
                     <div class="d-flex flex-column gap-3">
-                        <a href="desprendible_pago.php" target="_blank" class="btn boton-certificado">
-                            <i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO
-                        </a>
                         <a href="certificado_laboral.php" target="_blank" class="btn boton-certificado">
                             <i class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL
+                        </a>
+                        <a href="desprendible_pago.php" target="_blank" class="btn boton-certificado">
+                            <i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO
                         </a>
                     </div>
                 </div>
