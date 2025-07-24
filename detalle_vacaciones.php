@@ -154,9 +154,10 @@ include("php/conexion.php");
                 </div>
             </div>
         </div>
-        <div class="botones-vacaciones mt-3">
+        <div class="botones-vacaciones mt-3 d-flex justify-content-center">
             <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
         </div>
+
     </div>
 
 </body>
