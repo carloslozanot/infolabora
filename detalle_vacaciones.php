@@ -1,81 +1,99 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    echo '
+        <script>
+            alert("Debe iniciar sesión");
+            window.location = "index.php";
+        </script>
+    ';
+    exit;
+}
+
+$cedula = $_SESSION['usuario'];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Módulo de Vacaciones</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f8f9fa;
-      padding: 2rem;
-    }
-
-    .dashboard-card {
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 2rem;
-      background: white;
-    }
-
-    .info-box {
-      background: #e9f7f9;
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      text-align: center;
-    }
-
-    .info-box i {
-      font-size: 2rem;
-      color: #0d6efd;
-    }
-
-    .btn-vacaciones {
-      border-radius: 30px;
-      font-weight: 600;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado Laboral</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="docs/css/estilos.css">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div class="container">
-    <h2 class="mb-4 text-center">Panel de Vacaciones</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="info-box">
-          <i class="fas fa-plane-departure"></i>
-          <h5 class="mt-2">Días Disponibles</h5>
-          <p class="fs-4 text-success fw-bold">12</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="info-box">
-          <i class="fas fa-calendar-check"></i>
-          <h5 class="mt-2">Solicitudes Aprobadas</h5>
-          <p class="fs-4 fw-bold">3</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="info-box">
-          <i class="fas fa-file-alt"></i>
-          <h5 class="mt-2">Historial de Solicitudes</h5>
-          <p class="fs-4">Ver Detalles</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="text-center mt-5">
-      <a href="#" class="btn btn-primary btn-lg btn-vacaciones me-3">
-        <i class="fas fa-file-signature me-2"></i>Solicitar Vacaciones
-      </a>
-      <a href="#" class="btn btn-outline-secondary btn-lg btn-vacaciones">
-        <i class="fas fa-clipboard-list me-2"></i>Historial de Solicitudes
-      </a>
-    </div>
-  </div>
 </body>
+
+<div id="contenido-bitacora" class="contenido" style="display: none;">
+    <h2 style="text-align: center;font-size: 40px; font-weight: 800;">BITÁCORA</h2><br>
+
+    <?php
+    include("php/conexion.php");
+    $sql = "SELECT * FROM vacaciones WHERE ceduula = '$cedula'";
+    $resultado = mysqli_query($conexion, $sql);
+    $fila = mysqli_fetch_assoc($resultado);
+    ?>
+
+    <div class="row justify-content-center">
+        <div class="col-md-5 mb-4">
+            <div class="card card-hover shadow-lg border-0 text-center">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                    <div class="mb-2">
+                        <i class="bi bi-person-check-fill icono-card"></i>
+                    </div>
+                    <h5 class="card-title mb-1">Ingresos al sistema</h5>
+                    <h3 class="mb-0 cantidad-card"></h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10 mb-4">
+            <div class="card card-hover shadow-lg border-0 text-center">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <i class="bi bi-people-fill icono-card"></i>
+                    </div>
+                    <h5 class="card-title mb-3">Top ingresos al sistema</h5>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre Completo</th>
+                                    <th>Total Ingresos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--<?php
+                                $contador = 1;
+                                mysqli_data_seek($resultado_integrantes, 0); 
+                                while ($fila = mysqli_fetch_assoc($resultado_integrantes)) {
+                                    echo "<tr>";
+                                    echo "<td>{$contador}</td>";
+                                    echo "<td>{$fila['nombre_completo']}</td>";
+                                    echo "<td>{$fila['total_ingreso']}</td>";
+                                    echo "</tr>";
+                                    $contador++;
+                                }
+                                ?>-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </html>
