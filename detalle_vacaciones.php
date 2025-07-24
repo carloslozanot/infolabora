@@ -28,6 +28,7 @@ $cedula = $_SESSION['usuario'];
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="docs/css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
@@ -40,7 +41,6 @@ $cedula = $_SESSION['usuario'];
         include("php/conexion.php");
         $sql = "SELECT * FROM vacaciones WHERE cedula = '$cedula'";
         $resultado = mysqli_query($conexion, $sql);
-        $fila = mysqli_fetch_assoc($resultado);
         ?>
 
         <div class="row justify-content-center">
@@ -68,23 +68,22 @@ $cedula = $_SESSION['usuario'];
                                 <thead class="table-dark">
                                     <tr>
                                         <th>#</th>
-                                        <th>Nombre Completo</th>
-                                        <th>Total Ingresos</th>
+                                        <th>Cédula</th>
+                                        <th>Fecha de Vacaciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!--<?php
+                                    <?php
                                     $contador = 1;
-                                    mysqli_data_seek($resultado_integrantes, 0);
-                                    while ($fila = mysqli_fetch_assoc($resultado_integrantes)) {
+                                    while ($fila = mysqli_fetch_assoc($resultado)) {
                                         echo "<tr>";
                                         echo "<td>{$contador}</td>";
-                                        echo "<td>{$fila['nombre_completo']}</td>";
-                                        echo "<td>{$fila['total_ingreso']}</td>";
+                                        echo "<td>{$fila['cedula']}</td>";
+                                        echo "<td>{$fila['cedula']}</td>"; // Reemplaza con la columna correcta
                                         echo "</tr>";
                                         $contador++;
                                     }
-                                    ?>-->
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
