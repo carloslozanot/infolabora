@@ -950,6 +950,7 @@ a.selected {
     overflow: auto;
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
 .empleado-foto-boceto {
@@ -961,6 +962,8 @@ a.selected {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
+    margin-right: 20px; 
 }
 
 .empleado-foto-boceto img {
@@ -971,11 +974,11 @@ a.selected {
 }
 
 .empleado-nombre-cargo {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 
 .nombre-empleado-boceto {
     font-size: 36px;
