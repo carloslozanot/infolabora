@@ -321,13 +321,6 @@ header {
     padding: 30px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
-.seccion-datos {
-    background-color: #fdfdfd;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    width: 101%;
-}
 
 .seccion-certificados {
     background-color: #fdfdfd;
@@ -417,14 +410,42 @@ header {
     overflow: auto;
 }
 
-.desplegable_periodo {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+.titulo-desprendible {
+    font-size: 36px;
+    font-weight: 900;
+    color: #150940;
     margin-bottom: 10px;
-    margin-left: 100px;
-    width: 60%;
+}
+
+.subtitulo-desprendible {
+    font-size: 18px;
+    font-weight: 400;
+    color: #555;
+}
+
+.custom-select-desprendible {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.boton-certificado {
+    background-color: #150940;
+    color: white;
+    font-weight: 600;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.boton-certificado:hover {
+    background-color: #2e1b68;
+    transform: scale(1.03);
 }
 
 .contenido-certificado {
@@ -950,35 +971,38 @@ a.selected {
     overflow: auto;
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
 }
 
 .empleado-foto-boceto {
     width: 200px;
+    /* Tamaño de la elipse de la foto */
     height: 200px;
+    /* Altura para hacerla elíptica */
     border: 2px solid #000;
+    /* Borde negro de la elipse */
     border-radius: 50%;
+    /* Para hacerla elíptica o circular si width y height son iguales */
     overflow: hidden;
+    /* Recorta la imagen si sobresale del borde */
     display: flex;
+    /* Para centrar la imagen dentro de la elipse */
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
-    margin-right: 20px; 
 }
 
 .empleado-foto-boceto img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Asegura que la imagen cubra el área sin distorsionarse */
     border-radius: 50%;
+    /* Para mantener la forma si la imagen es cuadrada */
 }
 
 .empleado-nombre-cargo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-grow: 1;
+    /* Permite que ocupe el espacio restante */
 }
-
 
 .nombre-empleado-boceto {
     font-size: 36px;
@@ -989,9 +1013,9 @@ a.selected {
 
 .cargo-empleado-boceto {
     font-size: 18px;
+    /* Tamaño de cargo */
     color: #666;
     margin: 0 0 0 20px;
-    margin-top: 5px;
 }
 
 .seccion-inferior-boceto {

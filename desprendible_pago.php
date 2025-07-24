@@ -36,60 +36,58 @@ $cedula = $_SESSION['usuario'];
 </head>
 
 <body>
-    <div class="contenido-desprendible">
-        <div class="row align-items-center seccion-certificados">
-            <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">DESPRENDIBLE DE PAGO</h2><br>
+    <div class="contenido-desprendible container mt-5">
+        <div class="card shadow-lg p-4 seccion-certificados text-center">
+            <h2 class="titulo-desprendible">DESPRENDIBLE DE PAGO</h2>
+            <p class="subtitulo-desprendible">Seleccione el periodo que desea generar</p>
 
-            <form method="post" action="fpdf/desprendible.php">
-                <select name="periodo" class="desplegable_periodo" required>
-                    <option selected disabled>SELECCIONE EL PERIODO</option>
+            <form method="post" action="fpdf/desprendible.php" class="mt-4">
+                <div class="form-group">
+                    <select name="periodo" class="form-control custom-select-desprendible" required>
+                        <option selected disabled>SELECCIONE EL PERIODO</option>
+                        <?php
+                        $query = "SELECT periodo FROM desprendibles WHERE cedula = '$cedula' ORDER BY periodo DESC";
+                        $resultado = mysqli_query($conexion, $query);
 
-                    <?php
-                    $query = "SELECT periodo FROM desprendibles WHERE cedula = '$cedula' ORDER BY periodo DESC";
-                    $resultado = mysqli_query($conexion, $query);
+                        $meses = [
+                            '01' => 'Enero',
+                            '02' => 'Febrero',
+                            '03' => 'Marzo',
+                            '04' => 'Abril',
+                            '05' => 'Mayo',
+                            '06' => 'Junio',
+                            '07' => 'Julio',
+                            '08' => 'Agosto',
+                            '09' => 'Septiembre',
+                            '10' => 'Octubre',
+                            '11' => 'Noviembre',
+                            '12' => 'Diciembre'
+                        ];
 
-                    $meses = [
-                        '01' => 'Enero',
-                        '02' => 'Febrero',
-                        '03' => 'Marzo',
-                        '04' => 'Abril',
-                        '05' => 'Mayo',
-                        '06' => 'Junio',
-                        '07' => 'Julio',
-                        '08' => 'Agosto',
-                        '09' => 'Septiembre',
-                        '10' => 'Octubre',
-                        '11' => 'Noviembre',
-                        '12' => 'Diciembre'
-                    ];
-
-                    if ($resultado && mysqli_num_rows($resultado) > 0) {
-                        while ($row = mysqli_fetch_assoc($resultado)) {
-                            $periodo = $row['periodo']; // Ejemplo: 202501
-                            $anio = substr($periodo, 0, 4);    // "2025"
-                            $mes = substr($periodo, 4, 2);     // "01"
-                    
-                            $mesNombre = isset($meses[$mes]) ? $meses[$mes] : 'Mes inválido';
-                            $label = "$mesNombre-$anio";
-
-                            echo "<option value='$periodo'>$label</option>";
+                        if ($resultado && mysqli_num_rows($resultado) > 0) {
+                            while ($row = mysqli_fetch_assoc($resultado)) {
+                                $periodo = $row['periodo'];
+                                $anio = substr($periodo, 0, 4);
+                                $mes = substr($periodo, 4, 2);
+                                $mesNombre = $meses[$mes] ?? 'Mes inválido';
+                                echo "<option value='$periodo'>$mesNombre-$anio</option>";
+                            }
+                        } else {
+                            echo "<option disabled>No hay periodos disponibles</option>";
                         }
-                    } else {
-                        echo "<option disabled>No hay periodos disponibles para la cédula $cedula</option>";
-                    }
-                    ?>
-                </select>
-
-
+                        ?>
+                    </select>
+                </div>
 
                 <input type="hidden" name="id" value="<?php echo $cedula; ?>">
 
-                <button type="submit" class="btn boton-certificado">
+                <button type="submit" class="btn boton-certificado mt-3">
                     <i class="fa-solid fa-file"></i> GENERAR DESPRENDIBLE
                 </button>
             </form>
         </div>
     </div>
+
 </body>
 
 </html>
