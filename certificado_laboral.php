@@ -34,55 +34,57 @@ $cedula = $_SESSION['usuario'];
 
 <body>
     <div class="contenido-certificado">
-        <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">CERTIFICADO LABORAL</h2><br>
+        <div class="row align-items-center seccion-certificados">
+            <h2 style="text-align: center; font-size: 35px; font-weight: 1000;">CERTIFICADO LABORAL</h2><br>
 
-        <form method="post" action="fpdf/certificado.php">
-            <!-- Título personal -->
-            <label style="font-weight: 600;">Título personal:</label><br>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="titulo" id="senor" value="Señor" required
-                    onchange="toggleDestinatario()">
-                <label class="form-check-label" for="senor">Señor</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="titulo" id="senora" value="Señora"
-                    onchange="toggleDestinatario()">
-                <label class="form-check-label" for="senora">Señora</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="titulo" id="senores" value="Señores"
-                    onchange="toggleDestinatario()">
-                <label class="form-check-label" for="senores">Señores</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="titulo" id="blanco" value="En blanco"
-                    onchange="toggleDestinatario()">
-                <label class="form-check-label" for="blanco">En blanco</label>
-            </div>
-            <br><br>
-            <label style="font-weight: 600;">¿Desea presentar su salario?</label><br>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="salario_sn" id="salario_si" value="SI" required
-                    onchange="toggleDestinatario()">
-                <label class="form-check-label" for="salario_si">Si </label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="salario_sn" id="salario_no" value="NO"
-                    onchange="toggleDestinatario()">
-                <label class="form-check-label" for="salario_no">No</label>
-            </div>
-            <br><br>
-            <label style="font-weight: 600;">Dirigido a:</label>
-            <input type="text" id="destinatario" name="destinatario" class="form-control"
-                style="width: 350px; height: 30px;" placeholder="Escriba a quién va dirigido" required>
+            <form method="post" action="fpdf/certificado.php">
+                <!-- Título personal -->
+                <label style="font-weight: 600;">Título personal:</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="titulo" id="senor" value="Señor" required
+                        onchange="toggleDestinatario()">
+                    <label class="form-check-label" for="senor">Señor</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="titulo" id="senora" value="Señora"
+                        onchange="toggleDestinatario()">
+                    <label class="form-check-label" for="senora">Señora</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="titulo" id="senores" value="Señores"
+                        onchange="toggleDestinatario()">
+                    <label class="form-check-label" for="senores">Señores</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="titulo" id="blanco" value="En blanco"
+                        onchange="toggleDestinatario()">
+                    <label class="form-check-label" for="blanco">En blanco</label>
+                </div>
+                <br><br>
+                <label style="font-weight: 600;">¿Desea presentar su salario?</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="salario_sn" id="salario_si" value="SI" required
+                        onchange="toggleDestinatario()">
+                    <label class="form-check-label" for="salario_si">Si </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="salario_sn" id="salario_no" value="NO"
+                        onchange="toggleDestinatario()">
+                    <label class="form-check-label" for="salario_no">No</label>
+                </div>
+                <br><br>
+                <label style="font-weight: 600;">Dirigido a:</label>
+                <input type="text" id="destinatario" name="destinatario" class="form-control"
+                    style="width: 350px; height: 30px;" placeholder="Escriba a quién va dirigido" required>
 
-            <input type="hidden" name="id" value="<?php echo $cedula; ?>">
+                <input type="hidden" name="id" value="<?php echo $cedula; ?>">
 
-            <br>
-            <button type="submit" class="btn boton-certificado">
-                <i class="fa-solid fa-file"></i> GENERAR CERTIFICADO
-            </button>
-        </form>
+                <br>
+                <button type="submit" class="btn boton-certificado">
+                    <i class="fa-solid fa-file"></i> GENERAR CERTIFICADO
+                </button>
+            </form>
+        </div>
     </div>
 
     <script>
