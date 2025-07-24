@@ -12,6 +12,8 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 $cedula = $_SESSION['usuario'];
+
+include("php/conexion.php");
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +38,17 @@ $cedula = $_SESSION['usuario'];
 
     <div id="contenido-det-vacaciones">
         <h2 style="text-align: center;font-size: 40px; font-weight: 800;">DETALLE DE VACACIONES</h2><br>
+        <?php
+        $stmt = $conexion->prepare("CALL infolabora.pr_inicial(?)");
+        $stmt->bind_param("s", $cedula);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        $total_dias_totales = $$fila['total_dias_totales'];
+
+        $stmt->close();
+        ?>
+
 
         <div class="col-md-5 mb-4">
             <div class="card card-hover shadow-lg border-0 text-center">
@@ -43,7 +56,9 @@ $cedula = $_SESSION['usuario'];
                     <div class="mb-2">
                         <i class="bi bi-file-earmark-check-fill icono-card"></i>
                     </div>
-                    <h5 class="card-title mb-1">Desprendibles de Pago generados</h5>
+                    <h5 class="card-title mb-1">Total Días</h5>
+                    <h3 class="mb-0 cantidad-card"><?php echo $total_dias_totales; ?></h3>
+
                 </div>
             </div>
         </div>
