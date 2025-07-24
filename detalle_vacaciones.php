@@ -104,44 +104,52 @@ include("php/conexion.php");
                 </div>
             </div>
 
-            <div class="tabla-vacaciones">
-                <table class="table table-bordered table-hover table-striped tabla-vacaciones">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Periodo</th>
-                            <th>Dias totales</th>
-                            <th>Dias disfrutados</th>
-                            <th>Dias remunerados</th>
-                            <th>Dias faltantes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $contador = 1;
-                        mysqli_data_seek($resultado2, 0); // Asegura que se reinicie el puntero del resultado
-                        while ($fila2 = mysqli_fetch_assoc($resultado2)) {
-                            $total_faltantes = ($fila2["dias_disfrutados"] + $fila2["dias_dinero"]) - $fila2["dias_totales"];
-                            echo "<tr>";
-                            echo "<td>{$contador}</td>";
-                            echo "<td>" . date("Y", strtotime($fila2['periodo'])) . "</td>";
-                            echo "<td>{$fila2['dias_totales']}</td>";
-                            echo "<td>{$fila2['dias_disfrutados']}</td>";
-                            echo "<td>{$fila2['dias_dinero']}</td>";
-                            echo "<td>{$total_faltantes}</td>";
-                            echo "</tr>";
-                            $contador++;
-                        }
+            <div class="col-md-10 mb-4">
+                <div class="card card-hover shadow-lg border-0 text-center">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-people-fill icono-card"></i>
+                            <div class="tabla-vacaciones">
+                                <table class="table table-bordered table-hover table-striped tabla-vacaciones">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Periodo</th>
+                                            <th>Dias totales</th>
+                                            <th>Dias disfrutados</th>
+                                            <th>Dias remunerados</th>
+                                            <th>Dias faltantes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $contador = 1;
+                                        mysqli_data_seek($resultado2, 0); // Asegura que se reinicie el puntero del resultado
+                                        while ($fila2 = mysqli_fetch_assoc($resultado2)) {
+                                            $total_faltantes = ($fila2["dias_disfrutados"] + $fila2["dias_dinero"]) - $fila2["dias_totales"];
+                                            echo "<tr>";
+                                            echo "<td>{$contador}</td>";
+                                            echo "<td>" . date("Y", strtotime($fila2['periodo'])) . "</td>";
+                                            echo "<td>{$fila2['dias_totales']}</td>";
+                                            echo "<td>{$fila2['dias_disfrutados']}</td>";
+                                            echo "<td>{$fila2['dias_dinero']}</td>";
+                                            echo "<td>{$total_faltantes}</td>";
+                                            echo "</tr>";
+                                            $contador++;
+                                        }
 
-                        ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="botones-vacaciones">
-                <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="botones-vacaciones">
+                                <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
 </body>
 
