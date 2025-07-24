@@ -276,10 +276,12 @@ if (!isset($_SESSION['usuario'])) {
 
         <div id="contenido-certificados" class="contenido container my-2" style="display: none;">
             <div class="row align-items-center seccion-certificados">
-                <div class="texto-certificados">
+                <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
                     <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">CERTIFICADOS</h2>
                     <p class="descripcion-certificados">
-                    En esta pestaña podrás descargar certificados laborales, con o sin información salarial, con o sin destinatario, según lo requieras. Además, tienes la opción de generar desprendibles de pago del mes que desees.
+                        En esta pestaña podrás descargar certificados laborales, con o sin información salarial, con o
+                        sin destinatario, según lo requieras. Además, tienes la opción de generar desprendibles de pago
+                        del mes que desees.
                     </p>
                     <div class="d-flex flex-column gap-3">
                         <a href="certificado_laboral.php" target="_blank" class="btn boton-certificados">
