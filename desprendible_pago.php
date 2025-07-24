@@ -81,7 +81,7 @@ $cedula = $_SESSION['usuario'];
 
                 <input type="hidden" name="id" value="<?php echo $cedula; ?>">
 
-                <button type="submit" class="btn boton-certificado mt-3">
+                <button type="submit" class="btn boton-certificados mt-3">
                     <i class="fa-solid fa-file"></i> GENERAR DESPRENDIBLE
                 </button>
             </form>

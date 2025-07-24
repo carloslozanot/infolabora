@@ -411,7 +411,7 @@ header {
     width: 100%;
 }
 
-.boton-certificado {
+.boton-certificados {
     background-color: #150940;
     color: white;
     font-weight: 600;
@@ -423,12 +423,12 @@ header {
     max-width: 300px;
 }
 
-.boton-certificado:hover {
+.boton-certificados:hover {
     background-color: #2e1b68;
     transform: scale(1.03);
 }
 
-.contenido-certificado {
+.contenido-certificados {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 20px;
