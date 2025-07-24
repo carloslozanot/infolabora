@@ -274,7 +274,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </div>
 
-        <div id="contenido-certificados" class="contenido" style="display: none;">
+        <div id="contenido-certificados" class="contenido container my-2" style="display: none;">
             <div class="tarjeta-certificados">
                 <div class="texto-certificados">
                     <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">CERTIFICADOS</h2>
@@ -297,7 +297,7 @@ if (!isset($_SESSION['usuario'])) {
         </div>
 
 
-        <div id="contenido-vacaciones" class="contenido container my-5" style="display: none;">
+        <div id="contenido-vacaciones" class="contenido container my-2" style="display: none;">
             <div class="row align-items-center seccion-vacaciones">
 
                 <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
