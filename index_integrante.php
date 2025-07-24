@@ -94,184 +94,184 @@ if (!isset($_SESSION['usuario'])) {
             <p style="font-size: 16px;">🌴 Consultar y validar los días de vacaciones pendientes por tomar.</p>
         </div>
         <div id="contenido-datos" class="contenido" style="display: none;">
-        <div class="row align-items-center seccion-datos">
-            <div class="seccion-superior-boceto">
-                <div class="empleado-foto-boceto">
-                    <img src="<?php echo $_SESSION['imagen'] ?? 'placeholder.png'; ?>" alt="Foto del empleado">
-                </div>
-                <div class="empleado-nombre-cargo">
-                    <p class="nombre-empleado-boceto"><?php echo $_SESSION['nombreUsuario'] ?? ''; ?>
-                        <?php echo $_SESSION['apellidoUsuario'] ?? ''; ?>
-                    </p>
-                    <p class="cargo-empleado-boceto"><?php echo $_SESSION['cargo'] ?? 'Cargo no definido'; ?></p>
-                </div>
-            </div>
-
-            <div class="seccion-inferior-boceto">
-                <div class="datos-personales-container">
-                    <p class="titulo-datos">DATOS PERSONALES</p>
-                    <div class="datos-grid">
-                        <div class="grupo-dato">
-                            <div class="icono-circular"><i class="bi bi-at"></i></div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">CORREO CORPORATIVO</p>
-                            </div>
-                        </div>
-                        <div class="grupo-dato">
-                            <div class="icono-circular"><i class="bi bi-person-vcard"></i></div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">NÚMERO DE DOCUMENTO</p>
-                            </div>
-                        </div>
-                        <div class="grupo-dato">
-                            <div class="icono-circular"><i class="bi bi-house-door-fill"></i></div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['direccion'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">DIRECCIÓN</p>
-                            </div>
-                        </div>
-                        <div class="grupo-dato">
-                            <div class="icono-circular"><i class="bi bi-house-door-fill"></i></div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['ciudad_residencia'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">CIUDAD DE RESIDENCIA</p>
-                            </div>
-                        </div>
-                        <div class="grupo-dato">
-                            <div class="icono-circular"><i class="bi bi-phone"></i></div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">NÚMERO CELULAR</p>
-                            </div>
-                        </div>
+            <div class="row align-items-center seccion-datos">
+                <div class="seccion-superior-boceto">
+                    <div class="empleado-foto-boceto">
+                        <img src="<?php echo $_SESSION['imagen'] ?? 'placeholder.png'; ?>" alt="Foto del empleado">
+                    </div>
+                    <div class="empleado-nombre-cargo">
+                        <p class="nombre-empleado-boceto"><?php echo $_SESSION['nombreUsuario'] ?? ''; ?>
+                            <?php echo $_SESSION['apellidoUsuario'] ?? ''; ?>
+                        </p>
+                        <p class="cargo-empleado-boceto"><?php echo $_SESSION['cargo'] ?? 'Cargo no definido'; ?></p>
                     </div>
                 </div>
 
-                <hr class="linea-divisoria-boceto">
-                <div class="datos-personales-container">
-                    <p class="titulo-datos">DATOS LABORALES</p>
-                    <div class="datos-grid">
-                        <div class="grupo-dato">
-                            <div class="icono-circular">
-                                <i class="bi bi bi-file-earmark-check"></i>
+                <div class="seccion-inferior-boceto">
+                    <div class="datos-personales-container">
+                        <p class="titulo-datos">DATOS PERSONALES</p>
+                        <div class="datos-grid">
+                            <div class="grupo-dato">
+                                <div class="icono-circular"><i class="bi bi-at"></i></div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['correo'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">CORREO CORPORATIVO</p>
+                                </div>
                             </div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['tipo_contrato'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">TIPO DE CONTRATO</p>
+                            <div class="grupo-dato">
+                                <div class="icono-circular"><i class="bi bi-person-vcard"></i></div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['usuario'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">NÚMERO DE DOCUMENTO</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="grupo-dato">
-                            <div class="icono-circular">
-                                <i class="bi bi-calendar-event"></i>
+                            <div class="grupo-dato">
+                                <div class="icono-circular"><i class="bi bi-house-door-fill"></i></div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['direccion'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">DIRECCIÓN</p>
+                                </div>
                             </div>
-                            <div class="texto">
-                                <span class="valor-dato">
-                                    <?php
-                                    if (!empty($_SESSION['fecha_ingreso'])) {
-                                        $fecha_cruda = $_SESSION['fecha_ingreso']; // formato: Y-m-d
-                                        $fecha_obj = DateTime::createFromFormat('Y-m-d', $fecha_cruda);
-                                        $meses = [
-                                            '01' => 'Enero',
-                                            '02' => 'Febrero',
-                                            '03' => 'Marzo',
-                                            '04' => 'Abril',
-                                            '05' => 'Mayo',
-                                            '06' => 'Junio',
-                                            '07' => 'Julio',
-                                            '08' => 'Agosto',
-                                            '09' => 'Septiembre',
-                                            '10' => 'Octubre',
-                                            '11' => 'Noviembre',
-                                            '12' => 'Diciembre'
-                                        ];
-                                        $dia = $fecha_obj->format('d');
-                                        $mes = $meses[$fecha_obj->format('m')];
-                                        $anio = $fecha_obj->format('Y');
-                                        echo "$dia de $mes del $anio";
-                                    } else {
-                                        echo "Fecha no disponible";
-                                    }
-                                    ?>
-                                </span>
-                                <p class="etiqueta-dato">FECHA DE INGRESO</p>
+                            <div class="grupo-dato">
+                                <div class="icono-circular"><i class="bi bi-house-door-fill"></i></div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['ciudad_residencia'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">CIUDAD DE RESIDENCIA</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="grupo-dato">
-                            <div class="icono-circular">
-                                <i class="bi bi-person-workspace"></i>
-                            </div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">ÁREA</p>
-                            </div>
-                        </div>
-                        <div class="grupo-dato">
-                            <div class="icono-circular">
-                                <i class="bi bi-person-workspace"></i>
-                            </div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['lider_inmediato'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">LÍDER INMEDIATO</p>
+                            <div class="grupo-dato">
+                                <div class="icono-circular"><i class="bi bi-phone"></i></div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['celular'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">NÚMERO CELULAR</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <hr class="linea-divisoria-boceto">
-                <div class="datos-personales-container">
-                    <p class="titulo-datos">BENEFICIOS</p>
-                    <div class="datos-grid">
-                        <div class="grupo-dato">
-                            <div class="icono-circular">
-                                <i class="bi-briefcase"></i>
+
+                    <hr class="linea-divisoria-boceto">
+                    <div class="datos-personales-container">
+                        <p class="titulo-datos">DATOS LABORALES</p>
+                        <div class="datos-grid">
+                            <div class="grupo-dato">
+                                <div class="icono-circular">
+                                    <i class="bi bi bi-file-earmark-check"></i>
+                                </div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['tipo_contrato'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">TIPO DE CONTRATO</p>
+                                </div>
                             </div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
+                            <div class="grupo-dato">
+                                <div class="icono-circular">
+                                    <i class="bi bi-calendar-event"></i>
+                                </div>
+                                <div class="texto">
+                                    <span class="valor-dato">
+                                        <?php
+                                        if (!empty($_SESSION['fecha_ingreso'])) {
+                                            $fecha_cruda = $_SESSION['fecha_ingreso']; // formato: Y-m-d
+                                            $fecha_obj = DateTime::createFromFormat('Y-m-d', $fecha_cruda);
+                                            $meses = [
+                                                '01' => 'Enero',
+                                                '02' => 'Febrero',
+                                                '03' => 'Marzo',
+                                                '04' => 'Abril',
+                                                '05' => 'Mayo',
+                                                '06' => 'Junio',
+                                                '07' => 'Julio',
+                                                '08' => 'Agosto',
+                                                '09' => 'Septiembre',
+                                                '10' => 'Octubre',
+                                                '11' => 'Noviembre',
+                                                '12' => 'Diciembre'
+                                            ];
+                                            $dia = $fecha_obj->format('d');
+                                            $mes = $meses[$fecha_obj->format('m')];
+                                            $anio = $fecha_obj->format('Y');
+                                            echo "$dia de $mes del $anio";
+                                        } else {
+                                            echo "Fecha no disponible";
+                                        }
+                                        ?>
+                                    </span>
+                                    <p class="etiqueta-dato">FECHA DE INGRESO</p>
+                                </div>
+                            </div>
+                            <div class="grupo-dato">
+                                <div class="icono-circular">
+                                    <i class="bi bi-person-workspace"></i>
+                                </div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['area'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">ÁREA</p>
+                                </div>
+                            </div>
+                            <div class="grupo-dato">
+                                <div class="icono-circular">
+                                    <i class="bi bi-person-workspace"></i>
+                                </div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['lider_inmediato'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">LÍDER INMEDIATO</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="grupo-dato">
-                            <div class="icono-circular">
-                                <i class="bi bi-hospital"></i>
+                    </div>
+                    <hr class="linea-divisoria-boceto">
+                    <div class="datos-personales-container">
+                        <p class="titulo-datos">BENEFICIOS</p>
+                        <div class="datos-grid">
+                            <div class="grupo-dato">
+                                <div class="icono-circular">
+                                    <i class="bi-briefcase"></i>
+                                </div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['caja'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">CAJA DE COMPENSACIÓN</p>
+                                </div>
                             </div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['eps'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">EPS</p>
+                            <div class="grupo-dato">
+                                <div class="icono-circular">
+                                    <i class="bi bi-hospital"></i>
+                                </div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['eps'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">EPS</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="grupo-dato">
-                            <div class="icono-circular">
-                                <i class="bi bi-coin"></i>
+                            <div class="grupo-dato">
+                                <div class="icono-circular">
+                                    <i class="bi bi-coin"></i>
+                                </div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">PENSIONES</p>
+                                </div>
                             </div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['pensiones'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">PENSIONES</p>
+                            <div class="grupo-dato">
+                                <div class="icono-circular">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">ARL</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="grupo-dato">
-                            <div class="icono-circular">
-                                <i class="bi bi-shield-check"></i>
-                            </div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['arl'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">ARL</p>
-                            </div>
-                        </div>
-                        <div class="grupo-dato">
-                            <div class="icono-circular">
-                                <i class="bi bi-piggy-bank	"></i>
-                            </div>
-                            <div class="texto">
-                                <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
-                                <p class="etiqueta-dato">CESANTIAS</p>
+                            <div class="grupo-dato">
+                                <div class="icono-circular">
+                                    <i class="bi bi-piggy-bank	"></i>
+                                </div>
+                                <div class="texto">
+                                    <span class="valor-dato"><?php echo $_SESSION['cesantias'] ?? ''; ?></span>
+                                    <p class="etiqueta-dato">CESANTIAS</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-                                </div>
         <div id="contenido-certificados" class="contenido" style="display: none;">
             <div class="row align-items-center seccion-certificados">
                 <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
@@ -322,13 +322,15 @@ if (!isset($_SESSION['usuario'])) {
 
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
-            <br>
-            <label style="display: block; text-align: center;font-weight: 700; font-size: 40px">¿Esta seguro de
-                cerrar
-                sesion?</label><br>
-            <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i>
-                CERRAR
-                SESION</a>
+            <div class="row align-items-center seccion-cerrar-sesion">
+                <br>
+                <label style="display: block; text-align: center;font-weight: 700; font-size: 40px">¿Esta seguro de
+                    cerrar
+                    sesion?</label><br>
+                <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i>
+                    CERRAR
+                    SESION</a>
+            </div>
         </div>
 
     </main>
