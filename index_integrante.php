@@ -309,7 +309,7 @@ if (!isset($_SESSION['usuario'])) {
                 <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones"><i
                         class="fa-solid fa-file-signature"></i> SOLICITAR VACACIONES</a> 
                 <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones-hist"><i
-                        class="fa-solid fa-file-signature"></i> HISTORIAL DE SOLICITUDES</a>
+                        class="fa-solid fa-book-open"></i> HISTORIAL DE SOLICITUDES</a>
             </div>
 
 
