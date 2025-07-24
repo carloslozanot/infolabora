@@ -136,7 +136,7 @@ include("php/conexion.php");
                                             $total_faltantes = ($fila2["dias_disfrutados"] + $fila2["dias_dinero"]) - $fila2["dias_totales"];
                                             echo "<tr>";
                                             echo "<td>{$contador}</td>";
-                                            echo "<td>" . date("Y", strtotime($fila2['periodo'])) . "</td>";
+                                            echo "<td>{$fila2['periodo']}</td>";
                                             echo "<td>{$fila2['dias_totales']}</td>";
                                             echo "<td>{$fila2['dias_disfrutados']}</td>";
                                             echo "<td>{$fila2['dias_dinero']}</td>";
@@ -157,7 +157,6 @@ include("php/conexion.php");
         <div class="botones-vacaciones mt-3 d-flex justify-content-center">
             <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
         </div>
-
     </div>
 
 </body>
