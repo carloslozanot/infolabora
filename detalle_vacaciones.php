@@ -50,11 +50,13 @@ include("php/conexion.php");
             $total_dias_disfrutados = $fila['total_dias_disfrutados'];
             $total_dias_dinero = $fila['total_dias_dinero'];
             $_SESSION['total_dias_generados'] = $fila['dias_generados'] + $fila['total_dias_totales'];
+            $_SESSION['total_dias'] = $_SESSION['total_dias_generados'] - $fila['total_dias_disfrutados'] + $fila['total_dias_dinero'];
         } else {
             $total_dias_totales = "0";
             $total_dias_disfrutados = "0";
             $total_dias_dinero = "0";
             $_SESSION['total_dias_generados'] = "0";
+            $_SESSION['total_dias'] = "0";
         }
 
         $stmt->close();
@@ -92,6 +94,17 @@ include("php/conexion.php");
                             </div>
                             <h5 class="card-title mb-1">Días Pagados en Dinero</h5>
                             <h3 class="mb-0 cantidad-card"><?php echo $total_dias_dinero; ?></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-hover shadow-lg border-0 text-center">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                            <div class="mb-2">
+                                <i class="bi bi-cash-coin icono-card"></i>
+                            </div>
+                            <h5 class="card-title mb-1">Días Disponibles</h5>
+                            <h3 class="mb-0 cantidad-card"><?php echo $_SESSION['total_dias']; ?></h3>
                         </div>
                     </div>
                 </div>
