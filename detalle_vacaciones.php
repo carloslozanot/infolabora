@@ -61,8 +61,8 @@ include("php/conexion.php");
         ?>
 
         <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-6 mb-4">
-                <div class="card card-hover shadow-lg border-0 text-center">
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card card-hover h-100 w-100 shadow-lg border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-plus-circle-fill icono-card mb-2" style="font-size: 2rem;"></i>
                         <h5 class="card-title">Días Totales</h5>
@@ -71,8 +71,8 @@ include("php/conexion.php");
                 </div>
             </div>
 
-            <<div class="col-md-6 col-lg-6 mb-4">
-                <div class="card card-hover shadow-lg border-0 text-center">
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card card-hover h-100 w-100 shadow-lg border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-calendar-check-fill icono-card mb-2" style="font-size: 2rem;"></i>
                         <h5 class="card-title">Días Disfrutados</h5>
@@ -81,8 +81,8 @@ include("php/conexion.php");
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-6 mb-4"></div>
-                <div class="card card-hover shadow-lg border-0 text-center">
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card card-hover h-100 w-100 shadow-lg border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-cash-coin icono-card mb-2" style="font-size: 2rem;"></i>
                         <h5 class="card-title">Días Pagados</h5>
@@ -90,9 +90,9 @@ include("php/conexion.php");
                     </div>
                 </div>
             </div>
-            
-            <div class="col-md-6 col-lg-6 mb-4">
-                <div class="carda carda-hover shadow-lg border-0 text-center">
+
+            <div class="col-12 col-md-6 mb-4">
+                <div class="carda carda-hover h-100 w-100 shadow-lg border-0 text-center">
                     <div class="carda-body">
                         <i class="bi bi-hourglass-split icono-carda mb-2" style="font-size: 2rem;"></i>
                         <h5 class="carda-title">Días Disponibles</h5>
