@@ -1082,11 +1082,11 @@ a.selected {
 }
 
 .tabla-vacaciones {
-    border-radius: 15px; /* Bordes redondeados */
-    overflow: hidden;    /* Esconde los bordes sobresalientes */
-    border: 1px solid #dee2e6; /* Opcional: agrega borde exterior */
-    margin: 0 auto;       /* Centra horizontalmente */
-    width: 80%;
+    border-radius: 5px; 
+    overflow: hidden; 
+    border: 1px solid #dee2e6; 
+    margin: 0 auto;      
+    width: 90%;
 }
 
 
