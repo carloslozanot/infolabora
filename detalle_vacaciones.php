@@ -38,17 +38,21 @@ include("php/conexion.php");
 
     <div id="contenido-det-vacaciones">
         <h2 style="text-align: center;font-size: 40px; font-weight: 800;">DETALLE DE VACACIONES</h2><br>
+
         <?php
         $stmt = $conexion->prepare("CALL infolabora.pr_inicial(?)");
         $stmt->bind_param("s", $cedula);
         $stmt->execute();
         $resultado = $stmt->get_result();
 
-        $total_dias_totales = $$fila['total_dias_totales'];
+        if ($fila = $resultado->fetch_assoc()) {
+            $total_dias_totales = $fila['total_dias_totales']; 
+        } else {
+            $total_dias_totales = "0";
+        }
 
         $stmt->close();
         ?>
-
 
         <div class="col-md-5 mb-4">
             <div class="card card-hover shadow-lg border-0 text-center">
@@ -58,7 +62,6 @@ include("php/conexion.php");
                     </div>
                     <h5 class="card-title mb-1">Total Días</h5>
                     <h3 class="mb-0 cantidad-card"><?php echo $total_dias_totales; ?></h3>
-
                 </div>
             </div>
         </div>
