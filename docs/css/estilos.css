@@ -1056,6 +1056,10 @@ a.selected {
     color: #150940;
 }
 
+.carga-body {
+    padding: 1.25rem;
+}
+
 .carda-hover {
     background-color: #ffffff;
     border-radius: 15px;
