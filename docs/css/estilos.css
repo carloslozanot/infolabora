@@ -286,9 +286,9 @@ header {
 
 .dias-pendientes-circle:hover {
     transform: scale(1.05);
-    background-color: white;
+    background-color: 150940;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    color: #150940;
+    color: white;
 }
 
 .seccion-inicio {
