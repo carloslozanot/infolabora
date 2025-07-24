@@ -207,16 +207,15 @@ header {
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
 
-#contenido-descargas {
+#contenido-certificados {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
     box-shadow: 0 0 10px rgba(24, 46, 89);
-    width: 70%;
+    width: 40%;
     overflow: auto;
-    /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
 
 #contenido-bitacora {
@@ -242,7 +241,7 @@ header {
     overflow: auto;
 }
 
-.boton-descargas {
+.boton-certificados {
     background-color: #150940;
     color: #fff;
     font-weight: bold;
@@ -255,7 +254,7 @@ header {
     margin-left: 26%;
 }
 
-.boton-descargas:hover {
+.boton-certificados:hover {
     background-color: #fff;
     color: #150940;
     transform: scale(1.05);
