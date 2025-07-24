@@ -35,11 +35,11 @@ $cedula = $_SESSION['usuario'];
 <body>
     <div id="contenido-certificados container mt-5">
         <div class="card shadow-lg p-4 seccion-certificados text-center">
-            <h2 style="font-size: 35px; font-weight: 1000;">CERTIFICADO LABORAL</h2>
+            <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO LABORAL</h2>
 
-            <div style="width: 100%; max-width: 600px; margin-top: 20px;">
-                <form method="post" action="fpdf/certificado.php">
-                    <!-- Título personal -->
+            
+                <form method="post" action="fpdf/certificado.php" class="mt-4">
+                <div class="form-group">
                     <label style="font-weight: 600;">Título personal:</label><br>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="titulo" id="senor" value="Señor" required
@@ -86,8 +86,8 @@ $cedula = $_SESSION['usuario'];
                     <button type="submit" class="btn boton-certificados">
                         <i class="fa-solid fa-file"></i> GENERAR CERTIFICADO
                     </button>
-                </form>
-            </div>
+                    </div>
+                </form>            
         </div>
     </div>
 
