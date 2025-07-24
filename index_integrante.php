@@ -282,7 +282,7 @@ if (!isset($_SESSION['usuario'])) {
                         class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
             </div>
         </div>
-        <div id="contenido-vacaciones" class="container my-5" style="display: none;">
+        <div id="contenido-vacaciones" class="contenido container my-5" style="display: none;">
             <div class="row align-items-center shadow-lg p-4 rounded" style="background-color: #f4f4f4;">
 
                 <!-- Columna Izquierda: Información y Botones -->
