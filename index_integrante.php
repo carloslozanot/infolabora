@@ -272,14 +272,17 @@ if (!isset($_SESSION['usuario'])) {
         </div>
 
         <div id="contenido-certificados" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
-            <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar certificados
-                laborales a quien interese</p>
-            <div>
-                <a href="desprendible_pago.php" target="_blank" class="btn boton-certificados"><i
-                        class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO</a>
-                <a href="certificado_laboral.php" target="_blank" class="btn boton-certificados"><i
-                        class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
+            <div class="row align-items-center seccion-vacaciones">
+                <h2 style="text-align: center;font-size: 40px; font-weight: 1000;">CERTIFICADOS</h2><br>
+                <p style="text-align: center;font-size: 18px;font-weight:300;">En esta pestaña puede descargar
+                    certificados
+                    laborales a quien interese</p>
+                <div>
+                    <a href="desprendible_pago.php" target="_blank" class="btn boton-certificados"><i
+                            class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO</a>
+                    <a href="certificado_laboral.php" target="_blank" class="btn boton-certificados"><i
+                            class="fa-solid fa-file-circle-check"></i> CERTIFICADO LABORAL</a>
+                </div>
             </div>
         </div>
         <div id="contenido-vacaciones" class="contenido container my-5" style="display: none;">
