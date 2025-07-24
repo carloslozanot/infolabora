@@ -278,7 +278,7 @@ if (!isset($_SESSION['usuario'])) {
             <div class="container mt-2 seccion-certificados text-center p-4 shadow-lg rounded">
                 <h2 class="titulo-certificados">CERTIFICADOS</h2>
                 <p class="subtitulo-certificados">
-                    En esta pestaña puede descargar certificados laborales a quien interese.
+                    En esta pestaña puede descargar certificados laborales y desprendibles de pago.
                 </p>
                 <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mt-4">
                     <a href="certificado_laboral.php" target="_blank" class="btn boton-certificados">
