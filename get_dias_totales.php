@@ -26,7 +26,7 @@ if (!empty($cedula) && !empty($periodo)) {
         $faltantes = $dias_totales - $dias_disfrutados - $dias_dinero;
 
         // Si faltantes es 0 o negativo, usar la variable de sesión
-        if ($faltantes <= 0 && isset($_SESSION['dias_generados'])) {
+        if ($faltantes = 0) {
             $faltantes = $_SESSION['dias_generados'];
         }
 
