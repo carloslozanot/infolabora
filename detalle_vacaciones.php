@@ -60,7 +60,6 @@ include("php/conexion.php");
     <div id="contenido-det-vacaciones">
         <div class="container mt-4">
             <div class="row">
-                <!-- Columna de tarjetas -->
                 <div class="col-md-4 d-flex flex-column gap-4">
                     <div class="carda shadow-lg border-0 text-center">
                         <div class="carda-body">
@@ -95,7 +94,6 @@ include("php/conexion.php");
                     </div>
                 </div>
 
-                <!-- Columna de tabla -->
                 <div class="col-md-8">
                     <div class="carde shadow-lg border-0 text-center">
                         <div class="carde-body">
@@ -136,11 +134,10 @@ include("php/conexion.php");
                             </div>
                         </div>
                     </div>
-
-                    <!-- Botón regresar -->
-                    <div class="botones-vacaciones mt-4 d-flex justify-content-center">
-                        <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
-                    </div>
+                </div>
+                <!-- Botón regresar -->
+                <div class="botones-vacaciones mt-4 d-flex justify-content-center">
+                    <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
                 </div>
             </div>
         </div>
