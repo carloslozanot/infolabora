@@ -30,119 +30,124 @@ include("php/conexion.php");
 </head>
 
 <body>
+<?php
+$stmt = $conexion->prepare("CALL infolabora.pr_inicial(?)");
+$stmt->bind_param("s", $cedula);
+$stmt->execute();
+$resultado = $stmt->get_result();
 
-    <?php
-    $stmt = $conexion->prepare("CALL infolabora.pr_inicial(?)");
-    $stmt->bind_param("s", $cedula);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
+if ($fila = $resultado->fetch_assoc()) {
+    $total_dias_totales = $fila['total_dias_totales'] ?? 0;
+    $total_dias_disfrutados = $fila['total_dias_disfrutados'] ?? 0;
+    $total_dias_dinero = $fila['total_dias_dinero'] ?? 0;
+    $dias_generados = $fila['dias_generados'] ?? 0;
 
-    if ($fila = $resultado->fetch_assoc()) {
-        $total_dias_totales = $fila['total_dias_totales'] ?? 0;
-        $total_dias_disfrutados = $fila['total_dias_disfrutados'] ?? 0;
-        $total_dias_dinero = $fila['total_dias_dinero'] ?? 0;
-        $dias_generados = $fila['dias_generados'] ?? 0;
+    $_SESSION['total_dias_generados'] = $dias_generados + $total_dias_totales;
+    $_SESSION['total_dias'] = $_SESSION['total_dias_generados'] - ($total_dias_disfrutados + $total_dias_dinero);
+} else {
+    $_SESSION['total_dias_generados'] = 0;
+    $_SESSION['total_dias'] = 0;
+    $total_dias_totales = $total_dias_disfrutados = $total_dias_dinero = 0;
+}
+$stmt->close();
 
-        $_SESSION['total_dias_generados'] = $dias_generados + $total_dias_totales;
-        $_SESSION['total_dias'] = $_SESSION['total_dias_generados'] - ($total_dias_disfrutados + $total_dias_dinero);
-    } else {
-        $_SESSION['total_dias_generados'] = 0;
-        $_SESSION['total_dias'] = 0;
-        $total_dias_totales = $total_dias_disfrutados = $total_dias_dinero = 0;
-    }
-    $stmt->close();
+$sql = "SELECT * FROM vacaciones WHERE cedula = '$cedula'";
+$resultado2 = mysqli_query($conexion, $sql);
+?>
 
-    $sql = "SELECT * FROM vacaciones WHERE cedula = '$cedula'";
-    $resultado2 = mysqli_query($conexion, $sql);
-    ?>
+<div id="contenido-det-vacaciones">
+    <div class="container mt-5 tarjeta-certificados">
+        <!-- Título -->
+        <div class="text-center mb-4">
+            <h2 style="font-weight: 700; font-size: 35px;">DETALLE DE VACACIONES</h2>
+        </div>
 
-    <div id="contenido-det-vacaciones">
-        <div class="tarjeta-certificados">
-            <h2 class="text-center mb-4" style="font-weight: 700; font-size: 35px;">DETALLE DE VACACIONES</h2>
-            <div class="row">
-                <div class="col-md-4 d-flex flex-column gap-4">
-                    <div class="carda shadow-lg border-0 text-center">
-                        <div class="carda-body">
-                            <i class="bi bi-plus-circle-fill icono-carda mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="carda-title">Días Totales</h5>
-                            <h3 class="mb-0 cantidad-carda"><?php echo $_SESSION['total_dias_generados']; ?></h3>
-                        </div>
-                    </div>
-
-                    <div class="carda shadow-lg border-0 text-center">
-                        <div class="carda-body">
-                            <i class="bi bi-calendar-check-fill icono-carda mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="carda-title">Días Disfrutados</h5>
-                            <h3 class="mb-0 cantidad-carda"><?php echo $total_dias_disfrutados; ?></h3>
-                        </div>
-                    </div>
-
-                    <div class="carda shadow-lg border-0 text-center">
-                        <div class="carda-body">
-                            <i class="bi bi-cash-coin icono-carda mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="carda-title">Días Pagados</h5>
-                            <h3 class="mb-0 cantidad-carda"><?php echo $total_dias_dinero; ?></h3>
-                        </div>
-                    </div>
-
-                    <div class="carda shadow-lg border-0 text-center">
-                        <div class="carda-body">
-                            <i class="bi bi-hourglass-split icono-carda mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="carda-title">Días Disponibles</h5>
-                            <h3 class="mb-0 cantidad-carda"><?php echo $_SESSION['total_dias']; ?></h3>
-                        </div>
+        <div class="row">
+            <!-- Tarjetas -->
+            <div class="col-md-4 d-flex flex-column gap-4">
+                <div class="carda shadow-lg border-0 text-center">
+                    <div class="carda-body">
+                        <i class="bi bi-plus-circle-fill icono-carda mb-2" style="font-size: 2rem;"></i>
+                        <h5 class="carda-title">Días Totales</h5>
+                        <h3 class="mb-0 cantidad-carda"><?php echo $_SESSION['total_dias_generados']; ?></h3>
                     </div>
                 </div>
 
-                <div class="col-md-8">
-                    <div class="carde shadow-lg border-0 text-center">
-                        <div class="carde-body">
-                            <i class="bi bi-calendar-event-fill icono-carde mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="carde-title mb-3">Detalle de vacaciones por periodo</h5>
+                <div class="carda shadow-lg border-0 text-center">
+                    <div class="carda-body">
+                        <i class="bi bi-calendar-check-fill icono-carda mb-2" style="font-size: 2rem;"></i>
+                        <h5 class="carda-title">Días Disfrutados</h5>
+                        <h3 class="mb-0 cantidad-carda"><?php echo $total_dias_disfrutados; ?></h3>
+                    </div>
+                </div>
 
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped tabla-vacaciones">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Periodo</th>
-                                            <th>Días Totales</th>
-                                            <th>Días Disfrutados</th>
-                                            <th>Días Remunerados</th>
-                                            <th>Días Faltantes</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $contador = 1;
-                                        mysqli_data_seek($resultado2, 0);
-                                        while ($fila2 = mysqli_fetch_assoc($resultado2)) {
-                                            $total_faltantes = ($fila2["dias_disfrutados"] + $fila2["dias_dinero"]) - $fila2["dias_totales"];
-                                            echo "<tr>";
-                                            echo "<td>{$contador}</td>";
-                                            echo "<td>{$fila2['periodo']}</td>";
-                                            echo "<td>{$fila2['dias_totales']}</td>";
-                                            echo "<td>{$fila2['dias_disfrutados']}</td>";
-                                            echo "<td>{$fila2['dias_dinero']}</td>";
-                                            echo "<td>{$total_faltantes}</td>";
-                                            echo "</tr>";
-                                            $contador++;
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                <div class="carda shadow-lg border-0 text-center">
+                    <div class="carda-body">
+                        <i class="bi bi-cash-coin icono-carda mb-2" style="font-size: 2rem;"></i>
+                        <h5 class="carda-title">Días Pagados</h5>
+                        <h3 class="mb-0 cantidad-carda"><?php echo $total_dias_dinero; ?></h3>
+                    </div>
+                </div>
+
+                <div class="carda shadow-lg border-0 text-center">
+                    <div class="carda-body">
+                        <i class="bi bi-hourglass-split icono-carda mb-2" style="font-size: 2rem;"></i>
+                        <h5 class="carda-title">Días Disponibles</h5>
+                        <h3 class="mb-0 cantidad-carda"><?php echo $_SESSION['total_dias']; ?></h3>
                     </div>
                 </div>
             </div>
-            <div class="container my-4">
-                <div class="botones-vacaciones d-flex justify-content-center">
-                    <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+
+            <!-- Tabla -->
+            <div class="col-md-8">
+                <div class="carde shadow-lg border-0 text-center">
+                    <div class="carde-body">
+                        <i class="bi bi-calendar-event-fill icono-carde mb-2" style="font-size: 2rem;"></i>
+                        <h5 class="carde-title mb-3">Detalle de vacaciones por periodo</h5>
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped tabla-vacaciones">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Periodo</th>
+                                        <th>Días Totales</th>
+                                        <th>Días Disfrutados</th>
+                                        <th>Días Remunerados</th>
+                                        <th>Días Faltantes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $contador = 1;
+                                    mysqli_data_seek($resultado2, 0);
+                                    while ($fila2 = mysqli_fetch_assoc($resultado2)) {
+                                        $total_faltantes = ($fila2["dias_disfrutados"] + $fila2["dias_dinero"]) - $fila2["dias_totales"];
+                                        echo "<tr>";
+                                        echo "<td>{$contador}</td>";
+                                        echo "<td>{$fila2['periodo']}</td>";
+                                        echo "<td>{$fila2['dias_totales']}</td>";
+                                        echo "<td>{$fila2['dias_disfrutados']}</td>";
+                                        echo "<td>{$fila2['dias_dinero']}</td>";
+                                        echo "<td>{$total_faltantes}</td>";
+                                        echo "</tr>";
+                                        $contador++;
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Botón regresar -->
+        <div class="my-4 text-center">
+            <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+        </div>
     </div>
+</div>
 </body>
 
 </html>
