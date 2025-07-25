@@ -307,10 +307,10 @@ if (!isset($_SESSION['usuario'])) {
                     <p class="h5 mb-4">Días pendientes por disfrutar</p>
 
                     <div class="d-flex flex-column gap-3">
-                        <a href="detalle_vacaciones.php" class="btn boton-vacaciones mb-2">
+                        <a href="detalle_vacaciones.php" class="btn boton-vacaciones">
                             <i class="fa-solid fa-clipboard-list"></i> DETALLE
                         </a>
-                        <a href="solicitar_vacaciones.php" class="btn boton-vacaciones mb-2">
+                        <a href="solicitar_vacaciones.php" class="btn boton-vacaciones">
                             <i class="fa-solid fa-file-signature"></i> SOLICITAR VACACIONES
                         </a>
                         <a href="historial_vacaciones.php" class="btn boton-vacaciones">
