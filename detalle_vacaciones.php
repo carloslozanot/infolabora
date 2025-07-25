@@ -121,7 +121,11 @@ include("php/conexion.php");
                                             echo "<tr>";
                                             echo "<td>{$contador}</td>";
                                             echo "<td>{$fila2['periodo']}</td>";
-                                            echo "<td>{$fila2['dias_totales']}</td>";
+                                            if ($fila2['dias_totales'] == 0) {
+                                                echo "<td>{$dias_generados}</td>";
+                                            } else {
+                                                echo "<td>{$fila2['dias_totales']}</td>";
+                                            }
                                             echo "<td>{$fila2['dias_disfrutados']}</td>";
                                             echo "<td>{$fila2['dias_dinero']}</td>";
                                             echo "<td>{$total_faltantes}</td>";
