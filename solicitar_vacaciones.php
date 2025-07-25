@@ -137,7 +137,7 @@ if (!isset($_SESSION['usuario'])) {
                 <input type="date" name="fecha_reintegro" class="form-control mb-2">
 
                 <h5>Disfrutar en Días</h5>
-                <input type="text" name="disfrutar" id="disfrutar" class="form-control mb-4">
+                <input type="text" name="disfrutar" id="disfrutar" class="form-control mb-2">
 
 
                 <h5>Remunerado en Dinero</h5>
@@ -147,6 +147,8 @@ if (!isset($_SESSION['usuario'])) {
 
             <script>
                 $(document).ready(function () {
+                    let campoActivo = '';
+
                     function toggleCampos(dias_faltantes) {
                         const disable = parseFloat(dias_faltantes) === 0;
 
@@ -164,34 +166,37 @@ if (!isset($_SESSION['usuario'])) {
                     function calcularDias() {
                         const fechaInicio = new Date($('input[name="fecha_inicio"]').val());
                         const fechaReintegro = new Date($('input[name="fecha_reintegro"]').val());
-                        const diasFaltantes = parseFloat($('#dias_faltantes').val());
+
+                        let diffDays = 0;
 
                         if (!isNaN(fechaInicio) && !isNaN(fechaReintegro)) {
                             const diffTime = fechaReintegro - fechaInicio;
-                            const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-
-                            if (diffDays > diasFaltantes) {
-                                alert("El número de días a disfrutar no puede ser mayor a los días faltantes (" + diasFaltantes + ").");
-                                $('#disfrutar').val('');
-                                $('#btn-enviar').prop('disabled', true);
-                            } else {
-                                $('#disfrutar').val(diffDays >= 0 ? diffDays : 0);
-                                $('#btn-enviar').prop('disabled', false);
-                            }
+                            diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+                            $('#disfrutar').val(diffDays >= 0 ? diffDays : 0);
                         } else {
                             $('#disfrutar').val('');
-                            $('#btn-enviar').prop('disabled', true);
                         }
+
+                        validarTotal(diffDays);
                     }
 
-                    function toggleCampos(dias_faltantes) {
-                        const disable = parseInt(dias_faltantes) === 0;
+                    function validarTotal(diasDisfrutar) {
+                        const remunerado = parseFloat($('#remunerado').val()) || 0;
+                        const diasFaltantes = parseFloat($('#dias_faltantes').val()) || 0;
+                        const total = diasDisfrutar + remunerado;
 
-                        $('#remunerado, #disfrutar').prop('disabled', disable);
-                        $('input[name="fecha_inicio"], input[name="fecha_reintegro"]').prop('disabled', disable);
+                        if (total > diasFaltantes) {
+                            alert("La suma de los días a disfrutar y los días remunerados no puede superar los días faltantes (" + diasFaltantes + ").");
 
-                        if (disable) {
-                            $('#remunerado, #disfrutar').val('');
+                            if (campoActivo === 'remunerado') {
+                                $('#remunerado').val('');
+                            } else if (campoActivo === 'disfrutar') {
+                                $('#disfrutar').val('');
+                            }
+
+                            $('#btn-enviar').prop('disabled', true);
+                        } else {
+                            $('#btn-enviar').prop('disabled', false);
                         }
                     }
 
@@ -222,6 +227,18 @@ if (!isset($_SESSION['usuario'])) {
                     });
 
                     $('input[name="fecha_inicio"], input[name="fecha_reintegro"]').on('change', calcularDias);
+
+                    $('#remunerado').on('input', function () {
+                        campoActivo = 'remunerado';
+                        const diasDisfrutar = parseFloat($('#disfrutar').val()) || 0;
+                        validarTotal(diasDisfrutar);
+                    });
+
+                    $('#disfrutar').on('input', function () {
+                        campoActivo = 'disfrutar';
+                        const diasDisfrutar = parseFloat($(this).val()) || 0;
+                        validarTotal(diasDisfrutar);
+                    });
                 });
             </script>
 
