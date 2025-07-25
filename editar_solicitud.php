@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
     if (mysqli_query($conexion, $sql_update)) {
         echo "<script>
             alert('✅ Solicitud actualizada con éxito.');
-            window.location.href='historial_solicitudes.php';
+            window.location.href='index_integrante.php';
         </script>";
         exit;
     } else {
