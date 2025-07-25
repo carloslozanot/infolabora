@@ -174,10 +174,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                                     echo '<option value="' . $row['periodo'] . '">' . $row['periodo'] . '</option>';
                                 } ?>
                             </select>
-                            <div class="mb-3">
-                                <label class="form-label">Días Faltantes</label>
-                                <input type="text" id="dias_faltantes" class="form-control" readonly>
-                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Días Faltantes</label>
+                            <input type="text" id="dias_faltantes" class="form-control" readonly>
                         </div>
                     </div>
 
