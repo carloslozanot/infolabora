@@ -133,6 +133,10 @@ if (!isset($_SESSION['usuario'])) {
 
             <h2>Fecha de reintegro a la organización</h2>
 
+            <h2>Remunerado en Dinero</h2>
+
+            <h2>Disfrutar en Días</h2>
+
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
