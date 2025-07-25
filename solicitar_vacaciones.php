@@ -226,7 +226,7 @@ if (!isset($_SESSION['usuario'])) {
             </script>
 
             <div class="botones-agregar-solicitud">
-                <button type="submit" class="btn btn-success" id="btn-enviar" name="enviar">Agregar</button>
+                <button type="submit" class="btn btn-success" id="btn-enviar" name="enviar">Solicitar</button>
                 <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
             </div>
         </form>
