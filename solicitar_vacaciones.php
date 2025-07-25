@@ -117,17 +117,21 @@ if (!isset($_SESSION['usuario'])) {
                 ?>
             </select>
 
-            <h2>Días Totales</h2>
+            <!--<h2>Días Totales</h2>
             <input type="text" id="dias_totales" class="form-control" readonly>
 
             <h2>Días Disfrutados</h2>
             <input type="text" id="dias_disfrutados" class="form-control" readonly>
 
             <h2>Días en Dinero</h2>
-            <input type="text" id="dias_dinero" class="form-control" readonly>
+            <input type="text" id="dias_dinero" class="form-control" readonly>-->
 
             <h2>Días Faltantes</h2>
             <input type="text" id="dias_faltantes" class="form-control" readonly>
+
+            <h2>Fecha Inicio del periodo vacacional</h2>
+
+            <h2>Fecha de reintegro a la organización</h2>
 
 
             <div class="botones-agregar-solicitud">
