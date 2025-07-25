@@ -97,8 +97,8 @@ include("php/conexion.php");
                 <div class="col-md-8">
                     <div class="carde shadow-lg border-0 text-center">
                         <div class="carde-body">
-                            <i class="bi bi-calendar-event-fill icono-carde mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="carde-title mb-3">Detalle de vacaciones por periodo</h5>
+                            <i class="bi bi-calendar-event-fill icono-carde mb-2" style="font-size: 42px;"></i>
+                            <h5 class="carde-title mt-3 mb-3">Detalle de vacaciones por periodo</h5>
 
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover table-striped tabla-vacaciones">
