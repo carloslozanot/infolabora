@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Integrante</title>
+    <title>Solicitud Vacaciones</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -73,8 +73,8 @@
         }
         ?>
 
-        <div class="titulo-agregar-integrante">
-            <h1>Agregar Integrante</h1>
+        <div class="titulo-agregar-solicitud">
+            <h1>Solicitud de vacaciones</h1>
         </div>
 
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
@@ -142,7 +142,7 @@
             <h3>Fecha Retiro</h3>
             <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>" disabled><br>
             
-            <div class="botones-agregar-integrante">
+            <div class="botones-agregar-solicituf">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
                 <a href="index_admin.php" class="btn btn-danger">Regresar</a>
             </div>
