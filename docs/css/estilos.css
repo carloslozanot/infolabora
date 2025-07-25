@@ -933,20 +933,14 @@ a.selected {
 
 #mensaje.success {
     background-color: #d4edda;
-    /* Color de fondo para mensajes de éxito */
     color: #155724;
-    /* Color del texto para mensajes de éxito */
     border-color: #c3e6cb;
-    /* Borde para mensajes de éxito */
 }
 
 #mensaje.error {
     background-color: #f8d7da;
-    /* Color de fondo para mensajes de error */
     color: #721c24;
-    /* Color del texto para mensajes de error */
     border-color: #f5c6cb;
-    /* Borde para mensajes de error */
 }
 
 .seccion-superior-boceto {
@@ -963,17 +957,11 @@ a.selected {
 
 .empleado-foto-boceto {
     width: 200px;
-    /* Tamaño de la elipse de la foto */
     height: 200px;
-    /* Altura para hacerla elíptica */
     border: 2px solid #000;
-    /* Borde negro de la elipse */
     border-radius: 50%;
-    /* Para hacerla elíptica o circular si width y height son iguales */
     overflow: hidden;
-    /* Recorta la imagen si sobresale del borde */
     display: flex;
-    /* Para centrar la imagen dentro de la elipse */
     justify-content: center;
     align-items: center;
 }
@@ -982,14 +970,11 @@ a.selected {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Asegura que la imagen cubra el área sin distorsionarse */
     border-radius: 50%;
-    /* Para mantener la forma si la imagen es cuadrada */
 }
 
 .empleado-nombre-cargo {
     flex-grow: 1;
-    /* Permite que ocupe el espacio restante */
 }
 
 .nombre-empleado-boceto {
@@ -1116,7 +1101,7 @@ a.selected {
 }
 
 .icono-carda, .icono-carde {
-    color: #193d7d;
+    color: #150940;
 }
 
 .carda-title, .carde-title {
@@ -1129,7 +1114,7 @@ a.selected {
 .cantidad-carda, .cantidad-carde {
     font-size: 28px;
     font-weight: 700;
-    color: #0a58ca;
+    color: #150940;
 }
 
 .table-dark th {
