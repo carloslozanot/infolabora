@@ -5,7 +5,7 @@ include("php/conexion.php");
 $cedula = $_GET['cedula'] ?? '';
 $periodo = $_GET['periodo'] ?? '';
 
-if ($cedula !== '' && $periodo !== '') {
+if ($cedula != '' && $periodo != '') {
     $sql = "SELECT dias_totales, dias_disfrutados, dias_dinero 
             FROM vacaciones 
             WHERE cedula = '$cedula' AND periodo = '$periodo'";
@@ -13,12 +13,13 @@ if ($cedula !== '' && $periodo !== '') {
 
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        $dias_totales = floatval($row['dias_totales']);
-        $dias_disfrutados = floatval($row['dias_disfrutados']);
-        $dias_dinero = floatval($row['dias_dinero']);
+        $dias_totales = intval($row['dias_totales']);
+        $dias_disfrutados = intval($row['dias_disfrutados']);
+        $dias_dinero = intval($row['dias_dinero']);
 
-        if ($dias_totales === 0) {
-            $dias_totales = floatval($_SESSION['dias_generados'] ?? 0);
+        // Si dias_totales es 0, se usa dias_generados de la sesión
+        if ($dias_totales <= 0) {
+            $dias_totales = intval($_SESSION['dias_generados'] ?? 0);
         }
 
         $dias_faltantes = $dias_totales - $dias_disfrutados - $dias_dinero;
@@ -30,13 +31,11 @@ if ($cedula !== '' && $periodo !== '') {
             'dias_faltantes' => $dias_faltantes
         ]);
     } else {
-        // Si no hay registro para ese período, usamos solo lo que hay en la sesión
-        $dias_generados = floatval($_SESSION['dias_generados'] ?? 0);
         echo json_encode([
-            'dias_totales' => $dias_generados,
+            'dias_totales' => 0,
             'dias_disfrutados' => 0,
             'dias_dinero' => 0,
-            'dias_faltantes' => $dias_generados
+            'dias_faltantes' => intval($_SESSION['dias_generados'] ?? 0)
         ]);
     }
 } else {
@@ -47,3 +46,4 @@ if ($cedula !== '' && $periodo !== '') {
         'dias_faltantes' => 0
     ]);
 }
+?>
