@@ -5,38 +5,44 @@ include("php/conexion.php");
 $cedula = $_GET['cedula'] ?? '';
 $periodo = $_GET['periodo'] ?? '';
 
-$response = [
-    'dias_totales' => 0,
-    'dias_disfrutados' => 0,
-    'dias_dinero' => 0,
-    'dias_faltantes' => 0
-];
-
-if (!empty($cedula) && !empty($periodo)) {
+if ($cedula != '' && $periodo != '') {
     $sql = "SELECT dias_totales, dias_disfrutados, dias_dinero 
             FROM vacaciones 
-            WHERE cedula = '$cedula' AND periodo = '$periodo' 
-            LIMIT 1";
-    $resultado = mysqli_query($conexion, $sql);
+            WHERE cedula = '$cedula' AND periodo = '$periodo'";
+    $result = mysqli_query($conexion, $sql);
 
-    if ($resultado && $row = mysqli_fetch_assoc($resultado)) {
-        $dias_totales = floatval($row['dias_totales']);
-        $dias_disfrutados = floatval($row['dias_disfrutados']);
-        $dias_dinero = floatval($row['dias_dinero']);
-        $faltantes = $dias_totales - $dias_disfrutados - $dias_dinero;
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $dias_totales = intval($row['dias_totales']);
+        $dias_disfrutados = intval($row['dias_disfrutados']);
+        $dias_dinero = intval($row['dias_dinero']);
 
-        // Si faltantes es 0 o negativo, usar la variable de sesión
-        if ($faltantes = 0) {
-            $faltantes = $_SESSION['dias_generados'];
+        $dias_faltantes = $dias_totales - $dias_disfrutados - $dias_dinero;
+
+        if ($dias_faltantes <= 0) {
+            $dias_faltantes = $_SESSION['dias_generados'] ?? 0;
         }
 
-        $response = [
+        echo json_encode([
             'dias_totales' => $dias_totales,
             'dias_disfrutados' => $dias_disfrutados,
             'dias_dinero' => $dias_dinero,
-            'dias_faltantes' => $faltantes
-        ];
+            'dias_faltantes' => $dias_faltantes
+        ]);
+    } else {
+        echo json_encode([
+            'dias_totales' => 0,
+            'dias_disfrutados' => 0,
+            'dias_dinero' => 0,
+            'dias_faltantes' => $_SESSION['dias_generados'] ?? 0
+        ]);
     }
+} else {
+    echo json_encode([
+        'dias_totales' => 0,
+        'dias_disfrutados' => 0,
+        'dias_dinero' => 0,
+        'dias_faltantes' => 0
+    ]);
 }
-
-echo json_encode($response);
+?>
