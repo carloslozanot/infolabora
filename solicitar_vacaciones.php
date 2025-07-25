@@ -139,7 +139,7 @@ if (!isset($_SESSION['usuario'])) {
             <input type="text" name="fecha_ingreso" class="form-control" value="<?php echo $fecha_ingreso ?>" disabled>
 
             <h2>Numero Documento</h2>
-            <input type="text" name="cedula" class="form-control" value="<?php echo $cedula ?>" disabled>
+            <input type="text" name="cedula" id="cedula" class="form-control" value="<?php echo $cedula ?>" readonly>
 
             <h2>Nombre del trabajador</h2>
             <input type="text" class="form-control" value="<?php echo $nombres . ' ' . $apellidos ?>" disabled>
