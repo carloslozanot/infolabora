@@ -1,14 +1,14 @@
 <?php
 include("php/conexion.php");
 
-if (isset($_POST['cedula']) && isset($_POST['periodo'])) {
-    $cedula = $_POST['cedula'];
-    $periodo = $_POST['periodo'];
+if (isset($_GET['cedula']) && isset($_GET['periodo'])) {
+    $cedula = $_GET['cedula'];
+    $periodo = $_GET['periodo'];
 
     $sql = "SELECT dias_totales FROM vacaciones WHERE cedula = '$cedula' AND periodo = '$periodo' LIMIT 1";
-    $resultado = mysqli_query($conexion, $sql);
-    $row = mysqli_fetch_assoc($resultado);
+    $result = mysqli_query($conexion, $sql);
+    $data = mysqli_fetch_assoc($result);
 
-    echo $row['dias_totales'] ?? '0';
+    echo $data ? $data['dias_totales'] : 0;
 }
 ?>
