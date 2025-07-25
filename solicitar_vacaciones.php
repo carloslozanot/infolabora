@@ -129,17 +129,60 @@ if (!isset($_SESSION['usuario'])) {
             <h2>Días Faltantes</h2>
             <input type="text" id="dias_faltantes" class="form-control" readonly>
 
-            <h2>Fecha Inicio del periodo vacacional</h2>
-            <input type="date" name="fecha_inicio" value="<?= date('Y-m-d') ?>" class="form-control">
+            <div id="bloque_vacaciones">
+                <h5>Fecha Inicio del periodo vacacional</h5>
+                <input type="date" name="fecha_inicio" class="form-control mb-2">
 
-            <h2>Fecha de reintegro a la organización</h2>
-            <input type="date" name="fecha_reintegro" value="<?= date('Y-m-d') ?>" class="form-control">
+                <h5>Fecha de reintegro a la organización</h5>
+                <input type="date" name="fecha_reintegro" class="form-control mb-2">
 
-            <h2>Remunerado en Dinero</h2>
-            <input type="text" id="remunerado" class="form-control">
+                <h5>Remunerado en Dinero</h5>
+                <input type="text" name="remunerado" id="remunerado" class="form-control mb-2">
 
-            <h2>Disfrutar en Días</h2>
-            <input type="text" id="disfrutar" class="form-control">
+                <h5>Disfrutar en Días</h5>
+                <input type="text" name="disfrutar" id="disfrutar" class="form-control mb-4">
+            </div>
+
+            <script>
+                $(document).ready(function () {
+                    function toggleCampos(dias_faltantes) {
+                        const disable = parseInt(dias_faltantes) === 0;
+
+                        $('#remunerado, #disfrutar').prop('disabled', disable);
+                        $('input[name="fecha_inicio"], input[name="fecha_reintegro"]').prop('disabled', disable);
+
+                        if (disable) {
+                            $('#remunerado, #disfrutar').val('');
+                        }
+                    }
+
+                    $('#periodo').change(function () {
+                        const periodo = $(this).val();
+                        const cedula = '<?= $_SESSION['usuario'] ?>';
+
+                        if (periodo !== "") {
+                            $.ajax({
+                                url: 'get_dias_totales.php',
+                                type: 'GET',
+                                data: { cedula: cedula, periodo: periodo },
+                                dataType: 'json',
+                                success: function (data) {
+                                    $('#dias_totales').val(data.dias_totales);
+                                    $('#dias_disfrutados').val(data.dias_disfrutados);
+                                    $('#dias_dinero').val(data.dias_dinero);
+                                    $('#dias_faltantes').val(data.dias_faltantes);
+                                    toggleCampos(data.dias_faltantes);
+                                },
+                                error: function () {
+                                    $('#dias_totales, #dias_disfrutados, #dias_dinero, #dias_faltantes').val('Error');
+                                }
+                            });
+                        } else {
+                            $('#dias_totales, #dias_disfrutados, #dias_dinero, #dias_faltantes').val('');
+                        }
+                    });
+                });
+            </script>
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
