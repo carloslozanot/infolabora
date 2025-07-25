@@ -127,7 +127,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
         ?>
         <div class="card shadow">
             <div class="card-header text-white" style="background-color: #150940">
-                <h3 class="mb-0"><i class="fas fa-plane-departure"></i> SOLICITUD DE VACACIONES</h3>
+                <h3 class="mb-0 titulo-banner">
+                    <i class="fas fa-plane-departure"></i> SOLICITUD DE VACACIONES
+                </h3>
             </div>
 
             <div class="card-body">
