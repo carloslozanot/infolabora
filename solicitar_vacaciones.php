@@ -74,7 +74,7 @@ if (!isset($_SESSION['usuario'])) {
 
         $cedula = $_SESSION['usuario'];
         $nombres = $_SESSION['nombreUsuario'] ?? '';
-        $apellidos = $_SESSION['apellidos'] ?? '';
+        $apellidos = $_SESSION['apellidoUsuario'] ?? '';
         $cargo = $_SESSION['cargo'] ?? '';
         $area = $_SESSION['area'] ?? '';
         $fecha_ingreso = $_SESSION['fecha_ingreso'] ?? '';
