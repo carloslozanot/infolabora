@@ -20,7 +20,12 @@
     <div id="agregar-solicitud">
         <?php
         session_start();
-        
+
+        if (!isset($_SESSION['usuario'])) {
+            echo '<script>alert("Debe iniciar sesión"); window.location = "index.php";</script>';
+            exit;
+        }
+
         include("php/conexion.php");
 
         $cedula = $_SESSION['usuario'];
