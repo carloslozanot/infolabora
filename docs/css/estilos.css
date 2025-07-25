@@ -1145,8 +1145,15 @@ a.selected {
     color: #f0f0f0;
 }
 
-.carda-title, .carde-title {
+.carda-title {
     font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.carde-title {
+    font-size: 26px;
     font-weight: 600;
     margin-bottom: 5px;
     color: #333;
