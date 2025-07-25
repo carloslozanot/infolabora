@@ -22,7 +22,17 @@
         if (isset($_POST['enviar'])) {
             include("php/conexion.php");
 
-            $cedula = $_POST['cedula'];
+            $cedula = $_SESSION['usuario'];
+
+            $sql_info = "SELECT * FROM integrantes WHERE cedula = '$cedula'";
+            $resultado_info = mysqli_query($conexion, $sql_info);
+            $datos = mysqli_fetch_assoc($resultado_info);
+
+            $nombres = $datos['nombres'] ?? '';
+            $cargo = $datos['cargo'] ?? '';
+            $area = $datos['area'] ?? '';
+
+            /*$cedula = $_POST['cedula'];
             $nombres = $_POST['nombres'];
             $apellidos = $_POST['apellidos'];
             $edad = $_POST['edad'];
@@ -43,7 +53,7 @@
             $tipo_contrato = $_POST['tipo_contrato'];
             $estado = $_POST['estado'];
 
-            $sql = "INSERT INTO integrantes (
+            $sql = "INSERT INTO solicitudes (
                         id_empleado, cedula, nombres, apellidos, edad, celular, correo,
                         fecha_ingreso, cargo, area, lider_inmediato,
                         caja, eps, arl, pensiones, cesantias, imagen, direccion, ciudad_residencia, tipo_contrato, estado, fecha_retiro
@@ -56,7 +66,6 @@
 
             $resultado = mysqli_query($conexion, $sql);
 
-            // 4. Verificación
             if ($resultado) {
                 echo "<script language='JavaScript'>
                         alert('Los datos se han creado correctamente');
@@ -67,7 +76,7 @@
                         alert('Los datos NO se han creado correctamente');
                         location.assign('index_admin.php');
                       </script>";
-            }
+            }*/
 
             mysqli_close($conexion);
         }
@@ -80,71 +89,20 @@
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 
             <h3>Fecha de Diligenciamiento</h3>
-            <input type="text" name="fecha_diligenciamiento" class="form-control" value="<?php echo $cedula ?>">
+            <input type="text" class="form-control" value="<?= date('Y-m-d') ?>" disabled>
 
             <h3>Nombre del trabajador</h3>
-            <input type="text" name="nombre" class="form-control" value="<?php echo $nombres ?>">
+            <input type="text" class="form-control" value="<?php echo $nombres . ' ' . $apellidos ?>" disabled>
 
             <h3>Cargo</h3>
-            <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>">
+            <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>" disabled>
 
             <h3>Area</h3>
-            <input type="text" name="area" class="form-control" value="<?php echo $area ?>">
+            <input type="text" name="area" class="form-control" value="<?php echo $area ?>" disabled>
 
-            <h3>Celular</h3>
-            <input type="text" name="celular" class="form-control"><br>
-
-            <h3>Correo</h3>
-            <input type="text" name="correo" class="form-control"><br>
-
-            <h3>Fecha Ingreso</h3>
-            <input type="date" name="fecha_ingreso" class="form-control"><br>
-
-            <h3>Direccion</h3>
-            <input type="text" name="direccion" class="form-control"><br>
-
-            <h3>Ciudad Residencia</h3>
-            <input type="text" name="ciudad_residencia" class="form-control"><br>
-
-            <h3>Cargo</h3>
-            <input type="text" name="cargo" class="form-control"><br>
-
-            <h3>Área</h3>
-            <input type="text" name="area" class="form-control"><br>
-
-            <h3>Tipo Contrato</h3>
-            <input type="text" name="tipo_contrato" class="form-control"><br>
-
-            <h3>Lider Inmediato</h3>
-            <input type="text" name="lider_inmediato" class="form-control"><br>
-
-            <h3>Caja</h3>
-            <input type="text" name="caja" class="form-control"><br>
-
-            <h3>EPS</h3>
-            <input type="text" name="eps" class="form-control"><br>
-
-            <h3>ARL</h3>
-            <input type="text" name="arl" class="form-control"><br>
-
-            <h3>Pensiones</h3>
-            <input type="text" name="pensiones" class="form-control"><br>
-
-            <h3>Cesantías</h3>
-            <input type="text" name="cesantias" class="form-control"><br>
-
-            <h3>Imagen</h3>
-            <input type="text" name="imagen" class="form-control"><br>
-
-            <h3>Estado</h3>
-            <input type="text" name="estado" class="form-control"><br>
-
-            <h3>Fecha Retiro</h3>
-            <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>" disabled><br>
-            
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
-                <a href="index_admin.php" class="btn btn-danger">Regresar</a>
+                <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
             </div>
         </form>
     </div>
