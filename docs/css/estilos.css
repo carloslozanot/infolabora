@@ -249,6 +249,20 @@ header {
     overflow: auto;
 }
 
+#contenido-det-vacaciones h2 {
+    font-weight: 700;
+    font-size: 35px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#contenido-det-vacaciones h2.carda-title,
+#contenido-det-vacaciones h2.carde-title {
+    font-size: 35px !important;
+    font-weight: 700 !important;
+    margin: 0 auto !important;
+}
+
 .boton-vacaciones {
     background-color: #150940;
     color: white;
@@ -279,6 +293,13 @@ header {
 
 .vacaciones-img:hover {
     transform: scale(1.05);
+}
+
+#titulo-vacaciones {
+    font-weight: 700;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .dias-pendientes-circle {
