@@ -108,22 +108,22 @@ if (!isset($_SESSION['usuario'])) {
 
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 
-            <h3>Fecha de Diligenciamiento</h3>
+            <h2>Fecha de Diligenciamiento</h2>
             <input type="text" class="form-control" value="<?= date('Y-m-d') ?>" disabled>
 
-            <h3>Fecha Inicio Contrato</h3>
+            <h2>Fecha Inicio Contrato</h2>
             <input type="text" name="fecha_ingreso" class="form-control" value="<?php echo $fecha_ingreso ?>" disabled>
 
-            <h3>Numero Documento</h3>
+            <h2>Numero Documento</h2>
             <input type="text" name="cedula" class="form-control" value="<?php echo $cedula ?>" disabled>
 
-            <h3>Nombre del trabajador</h3>
+            <h2>Nombre del trabajador</h2>
             <input type="text" class="form-control" value="<?php echo $nombres . ' ' . $apellidos ?>" disabled>
 
-            <h3>Cargo</h3>
+            <h2>Cargo</h2>
             <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>" disabled>
 
-            <h3>Area</h3>
+            <h2>Area</h2>
             <input type="text" name="area" class="form-control" value="<?php echo $area ?>" disabled>
 
             <div class="botones-agregar-solicitud">
