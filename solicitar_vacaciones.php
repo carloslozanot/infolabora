@@ -35,13 +35,21 @@ if (!isset($_SESSION['usuario'])) {
 
 <script>
     $(document).ready(function () {
-        $('select[name="periodo"]').on('change', function () {
+        $('#periodo').change(function () {
             const periodo = $(this).val();
             const cedula = '<?php echo $cedula; ?>';
 
-            if (periodo) {
-                $.get('get_dias_totales.php', { cedula: cedula, periodo: periodo }, function (data) {
-                    $('#dias_totales').val(data);
+            if (periodo !== "") {
+                $.ajax({
+                    url: 'get_dias_totales.php',
+                    type: 'GET',
+                    data: { cedula: cedula, periodo: periodo },
+                    success: function (data) {
+                        $('#dias_totales').val(data);
+                    },
+                    error: function () {
+                        $('#dias_totales').val('Error');
+                    }
                 });
             } else {
                 $('#dias_totales').val('');
@@ -49,7 +57,6 @@ if (!isset($_SESSION['usuario'])) {
         });
     });
 </script>
-
 
 
 <body>
@@ -144,7 +151,7 @@ if (!isset($_SESSION['usuario'])) {
             <input type="text" name="area" class="form-control" value="<?php echo $area ?>" disabled>
 
             <h2>Periodo</h2>
-            <select name="periodo" class="form-control" required>
+            <select name="periodo" id="periodo" class="form-control" required>
                 <option value="">Seleccione un periodo</option>
                 <?php
                 while ($row = mysqli_fetch_assoc($resultado_periodos)) {
@@ -153,8 +160,9 @@ if (!isset($_SESSION['usuario'])) {
                 ?>
             </select>
 
-            <h2>Dias totales</h2>
+            <h2>Días totales</h2>
             <input type="text" id="dias_totales" class="form-control" readonly>
+
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
