@@ -79,17 +79,17 @@
 
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 
-            <h3>Cedula*</h3>
-            <input type="text" name="cedula" class="form-control"><br>
+            <h3>Fecha de Diligenciamiento</h3>
+            <input type="text" name="fecha_diligenciamiento" class="form-control" value="<?php echo $cedula ?>">
 
-            <h3>Nombres*</h3>
-            <input type="text" name="nombres" class="form-control"><br>
+            <h3>Nombre del trabajador</h3>
+            <input type="text" name="nombre" class="form-control" value="<?php echo $nombres ?>">
 
-            <h3>Apellidos*</h3>
-            <input type="text" name="apellidos" class="form-control"><br>
+            <h3>Cargo</h3>
+            <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>">
 
-            <h3>Edad</h3>
-            <input type="text" name="edad" class="form-control"><br>
+            <h3>Area</h3>
+            <input type="text" name="area" class="form-control" value="<?php echo $area ?>">
 
             <h3>Celular</h3>
             <input type="text" name="celular" class="form-control"><br>
