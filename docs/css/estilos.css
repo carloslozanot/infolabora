@@ -1083,13 +1083,22 @@ a.selected {
     color: #150940;
 }
 
-.carda, .carde {
+.carda {
     border-radius: 15px;
     background-color: #f8f9fa;
     padding: 20px;
     transition: transform 0.2s ease;
     margin-bottom: 20px;
     height: 100%;
+}
+
+.carde {
+    border-radius: 15px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    transition: transform 0.2s ease;
+    margin-bottom: 20px;
+    height: 97.5%;
 }
 
 .carda:hover, .carde:hover {
