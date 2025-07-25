@@ -133,7 +133,7 @@ if (!isset($_SESSION['usuario'])) {
             <input type="date" name="fecha_inicio" value="<?= date('Y-m-d') ?>" class="form-control">
 
             <h2>Fecha de reintegro a la organización</h2>
-            <input type="date" name="fecha_reintegro" value="<?= date('Y-m-d') ?>" class="form-control">
+            <input type="date" name="fecha_reintegro" value="fecha_inicio" class="form-control">
 
             <h2>Remunerado en Dinero</h2>
             <input type="text" id="remunerado" class="form-control">
