@@ -87,7 +87,7 @@ include("php/conexion.php");
                     </div>
 
                     <div class="carde shadow-lg border-0 text-center">
-                        <div class="carde-body">
+                        <div class="carda-body">
                             <i class="bi bi-hourglass-split icono-carde mb-2" style="font-size: 2rem;"></i>
                             <h5 class="carde-title">Días Disponibles</h5>
                             <h3 class="mb-0 cantidad-carde"><?php echo $_SESSION['total_dias']; ?></h3>
@@ -97,10 +97,10 @@ include("php/conexion.php");
 
                 <!-- Columna de tabla -->
                 <div class="col-md-8">
-                    <div class="card shadow-lg border-0 text-center">
-                        <div class="card-body">
-                            <i class="bi bi-calendar-event-fill icono-card mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="card-title mb-3">Detalle de vacaciones por periodo</h5>
+                    <div class="carde shadow-lg border-0 text-center">
+                        <div class="carde-body">
+                            <i class="bi bi-calendar-event-fill icono-carde mb-2" style="font-size: 2rem;"></i>
+                            <h5 class="carde-title mb-3">Detalle de vacaciones por periodo</h5>
 
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover table-striped tabla-vacaciones">
