@@ -142,7 +142,7 @@
             <h3>Fecha Retiro</h3>
             <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>" disabled><br>
             
-            <div class="botones-agregar-solicituf">
+            <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
                 <a href="index_admin.php" class="btn btn-danger">Regresar</a>
             </div>
