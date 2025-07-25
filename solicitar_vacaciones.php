@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
         $resultado_periodos = mysqli_query($conexion, $sql_periodos);
         ?>
         <div class="card shadow">
-            <div class="card-header text-white" style="background-color: #150940">
+            <div class="card-header text-white" style="background-color: #150940: font-size: 32px; font-weight: bold;">
                 <h3 class="mb-0"><i class="fas fa-plane-departure"></i> SOLICITUD DE VACACIONES</h3>
             </div>
 
@@ -138,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                             <input type="text" class="form-control" value="<?= date('Y-m-d') ?>" disabled>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Fecha Inicio Contrato</label>
+                            <label class="form-label">FECHA INICIO CONTRATO</label>
                             <input type="text" class="form-control" value="<?= $fecha_ingreso ?>" disabled>
                         </div>
                     </div>
@@ -183,7 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Fecha Inicio del Periodo Vacacional</label>
+                            <label class="form-label">FECHA INICIO DEL PERIODO VACACIONAL</label>
                             <input type="date" name="fecha_inicio" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
@@ -194,11 +194,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Días a Disfrutar</label>
+                            <label class="form-label">DÍAS A DISFRUTAR</label>
                             <input type="number" name="disfrutar" id="disfrutar" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Remunerado en Dinero</label>
+                            <label class="form-label">REMUNERADO EN DINERO</label>
                             <input type="number" name="remunerado" id="remunerado" class="form-control">
                         </div>
                     </div>
