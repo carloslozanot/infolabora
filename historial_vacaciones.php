@@ -50,7 +50,7 @@ $resultado = mysqli_query($conexion, $sql);
     </style>
 </head>
 
-<body class="p-4">
+<body class="bg-light">
     <div id="agregar-solicitud">
         <div class="container">
             <div class="card">
