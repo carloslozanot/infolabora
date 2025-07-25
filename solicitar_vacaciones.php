@@ -19,7 +19,8 @@
 <body>
     <div id="agregar-solicitud">
         <?php
-
+        session_start();
+        
         include("php/conexion.php");
 
         $cedula = $_SESSION['usuario'];
