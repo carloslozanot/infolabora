@@ -67,6 +67,7 @@ $resultado = mysqli_query($conexion, $sql);
                                 <th>Días</th>
                                 <th>Dinero</th>
                                 <th>Estado</th>
+                                <th>Comentario</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,6 +81,7 @@ $resultado = mysqli_query($conexion, $sql);
                                     <td>{$fila['fecha_reintegro']}</td>
                                     <td>{$fila['dias']}</td>
                                     <td>{$fila['dinero']}</td>
+                                    <td>{$fila['comentario']}</td>
                                     <td><span class='badge bg-secondary'>{$fila['estado']}</span></td>
                                 </tr>";
                             }
