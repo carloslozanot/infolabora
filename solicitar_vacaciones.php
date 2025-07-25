@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
             $radicado = "VAC-" . date('Y') . "-" . str_pad($id_generado, 5, "0", STR_PAD_LEFT);
 
             // Actualiza el registro recién insertado con el radicado generado
-            $sql_update_radicado = "UPDATE solicitudes SET radicado = '$radicado' WHERE id = $id_generado";
+            $sql_update_radicado = "UPDATE solicitudes SET radicado = '$radicado' WHERE id_solicitud = $id_generado";
             mysqli_query($conexion, $sql_update_radicado);
 
             echo "<script>
