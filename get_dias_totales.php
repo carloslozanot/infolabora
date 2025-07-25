@@ -13,12 +13,12 @@ if ($cedula !== '' && $periodo !== '') {
 
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        $dias_totales = intval($row['dias_totales']);
-        $dias_disfrutados = intval($row['dias_disfrutados']);
-        $dias_dinero = intval($row['dias_dinero']);
+        $dias_totales = floatval($row['dias_totales']);
+        $dias_disfrutados = floatval($row['dias_disfrutados']);
+        $dias_dinero = floatval($row['dias_dinero']);
 
         if ($dias_totales === 0) {
-            $dias_totales = intval($_SESSION['dias_generados'] ?? 0);
+            $dias_totales = floatval($_SESSION['dias_generados'] ?? 0);
         }
 
         $dias_faltantes = $dias_totales - $dias_disfrutados - $dias_dinero;
@@ -31,7 +31,7 @@ if ($cedula !== '' && $periodo !== '') {
         ]);
     } else {
         // Si no hay registro para ese período, usamos solo lo que hay en la sesión
-        $dias_generados = intval($_SESSION['dias_generados'] ?? 0);
+        $dias_generados = floatval($_SESSION['dias_generados'] ?? 0);
         echo json_encode([
             'dias_totales' => $dias_generados,
             'dias_disfrutados' => 0,
