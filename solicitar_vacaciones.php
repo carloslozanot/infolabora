@@ -41,19 +41,25 @@ if (!isset($_SESSION['usuario'])) {
                     url: 'get_dias_totales.php',
                     type: 'GET',
                     data: { cedula: cedula, periodo: periodo },
+                    dataType: 'json',
                     success: function (data) {
-                        $('#dias_totales').val(data);
+                        $('#dias_totales').val(data.dias_totales);
+                        $('#dias_disfrutados').val(data.dias_disfrutados);
+                        $('#dias_dinero').val(data.dias_dinero);
                     },
                     error: function () {
                         $('#dias_totales').val('Error');
+                        $('#dias_disfrutados').val('Error');
+                        $('#dias_dinero').val('Error');
                     }
                 });
             } else {
-                $('#dias_totales').val('');
+                $('#dias_totales, #dias_disfrutados, #dias_dinero').val('');
             }
         });
     });
 </script>
+
 
 <body>
     <div id="agregar-solicitud">
@@ -106,6 +112,12 @@ if (!isset($_SESSION['usuario'])) {
 
             <h2>Días totales</h2>
             <input type="text" id="dias_totales" class="form-control" readonly>
+
+            <h2>Días Disfrutados</h2>
+            <input type="text" id="dias_disfrutados" class="form-control" readonly>
+
+            <h2>Días Dinero</h2>
+            <input type="text" id="dias_dinero" class="form-control" readonly>
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
