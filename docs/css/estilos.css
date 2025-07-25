@@ -340,16 +340,12 @@ header {
     box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 590px;
     overflow: auto;
-    /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
 
 #contenido-cerrar-sesion a.btn:hover {
     background-color: #fff;
-    /* Cambiamos el fondo del enlace al hacer hover */
     color: #ff0000;
-    /* Cambiamos el color del texto del enlace al hacer hover */
     box-shadow: 2px 2px 4px #000;
-    /* Agregamos un sombreado al hacer hover en el enlace */
 }
 
 #contenido-th {
@@ -361,7 +357,6 @@ header {
     box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 70%;
     overflow: auto;
-    /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
 
 .boton-vacantes {
