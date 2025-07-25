@@ -33,6 +33,31 @@ if (!isset($_SESSION['usuario'])) {
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
+<script>
+    $(document).ready(function () {
+        $('select[name="periodo"]').change(function () {
+            var periodo = $(this).val();
+            var cedula = '<?php echo $cedula; ?>';
+
+            if (periodo !== '') {
+                $.ajax({
+                    url: 'get_dias_totales.php',
+                    type: 'POST',
+                    data: { periodo: periodo, cedula: cedula },
+                    success: function (data) {
+                        $('#dias_totales').val(data); 
+                        $('#dias_totales_hidden').val(data); 
+                    }
+                });
+            } else {
+                $('#dias_totales').val('');
+                $('#dias_totales_hidden').val('');
+            }
+        });
+    });
+</script>
+
+
 <body>
     <div id="agregar-solicitud">
         <?php
@@ -125,7 +150,6 @@ if (!isset($_SESSION['usuario'])) {
             <input type="text" name="area" class="form-control" value="<?php echo $area ?>" disabled>
 
             <h2>Periodo</h2>
-            <h2>Periodo</h2>
             <select name="periodo" class="form-control" required>
                 <option value="">Seleccione un periodo</option>
                 <?php
@@ -135,6 +159,9 @@ if (!isset($_SESSION['usuario'])) {
                 ?>
             </select>
 
+            <h2>Dias totales</h2>
+            <input type="text" id="dias_totales" class="form-control" disabled>
+            <input type="hidden" name="dias_totales" id="dias_totales_hidden">
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
