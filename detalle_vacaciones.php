@@ -57,9 +57,9 @@ include("php/conexion.php");
     ?>
 
     <div id="contenido-det-vacaciones">
-        <div class="container mt-4">
+        <div class="seccion-det-vacaciones container mt-4">
             <div class="row">
-                <div class="card shadow-lg p-4 seccion-det-vacaciones">
+                <div class="card shadow-lg p-4">
                     <div class="carda shadow-lg border-0 text-center">
                         <div class="carda-body">
                             <i class="bi bi-plus-circle-fill icono-carda mb-2" style="font-size: 2rem;"></i>
