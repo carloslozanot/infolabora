@@ -310,10 +310,10 @@ if (!isset($_SESSION['usuario'])) {
                         <a href="detalle_vacaciones.php" target="_blank" class="btn boton-vacaciones mb-2">
                             <i class="fa-solid fa-clipboard-list"></i> DETALLE
                         </a>
-                        <a href="solicitar_vacaciones.php" target="_blank" class="btn boton-vacaciones mb-2">
+                        <a href="solicitar_vacaciones.php" class="btn boton-vacaciones mb-2">
                             <i class="fa-solid fa-file-signature"></i> SOLICITAR VACACIONES
                         </a>
-                        <a href="historial_vacaciones.php" target="_blank" class="btn boton-vacaciones">
+                        <a href="historial_vacaciones.php" class="btn boton-vacaciones">
                             <i class="fa-solid fa-book-open"></i> HISTORIAL DE SOLICITUDES
                         </a>
                     </div>
