@@ -34,7 +34,7 @@ if (!isset($_SESSION['usuario'])) {
     $(document).ready(function () {
         $('#periodo').change(function () {
             const periodo = $(this).val();
-            const cedula = '<?php echo $cedula; ?>';
+            const cedula = '<?php echo $_SESSION['usuario']; ?>';
 
             if (periodo !== "") {
                 $.ajax({
