@@ -29,20 +29,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
     // Validar que todos los campos obligatorios tengan valores
     if ($periodo && $fecha_inicio && $fecha_reintegro && $dias !== '' && $dinero !== '') {
         $sql_insert = "INSERT INTO solicitudes (
-            fecha_diligenciamiento, fecha_ingreso, cedula, nombre_completo, cargo, area, periodo, fecha_inicio, fecha_reintegro, dias, dinero, estado
+            fecha_diligenciamiento, fecha_ingreso, cedula, nombre_completo, cargo, area, periodo, fecha_inicio, fecha_reintegro, dias, dinero, estado, radicado
         ) VALUES (
-            '$fecha_diligenciamiento', '$fecha_ingreso', '$cedula', '$nombre_completo', '$cargo', '$area', '$periodo', '$fecha_inicio', '$fecha_reintegro', '$dias', '$dinero', 'Solicitadas'
+            '$fecha_diligenciamiento', '$fecha_ingreso', '$cedula', '$nombre_completo', '$cargo', '$area', '$periodo', '$fecha_inicio', '$fecha_reintegro', '$dias', '$dinero', 'Solicitadas', NULL
         )";
 
 
         if (mysqli_query($conexion, $sql_insert)) {
-            echo "<script>alert('Solicitud registrada correctamente.'); window.location.href='index_integrante.php';</script>";
+            $id_generado = mysqli_insert_id($conexion);
+            $radicado = "VAC-" . date('Y') . "-" . str_pad($id_generado, 5, "0", STR_PAD_LEFT);
+
+            // Actualiza el registro recién insertado con el radicado generado
+            $sql_update_radicado = "UPDATE solicitudes SET radicado = '$radicado' WHERE id = $id_generado";
+            mysqli_query($conexion, $sql_update_radicado);
+
+            echo "<script>
+        alert('✅ Solicitud registrada con éxito.\\nNúmero de radicado: $radicado');
+        window.location.href='index_integrante.php';
+    </script>";
             exit;
-        } else {
-            echo "<script>alert('Error al registrar la solicitud.');</script>";
         }
-    } else {
-        echo "<script>alert('Debe completar todos los campos antes de enviar.');</script>";
     }
 }
 ?>
