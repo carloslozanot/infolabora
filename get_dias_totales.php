@@ -19,7 +19,7 @@ if ($cedula != '' && $periodo != '') {
 
         // Si dias_totales es 0, se usa dias_generados de la sesión
         if ($dias_totales <= 0) {
-            $dias_totales = intval($_SESSION['dias_generados'] ?? 0);
+            $dias_totales = floatval($_SESSION['dias_generados'] ?? 0);
         }
 
         $dias_faltantes = $dias_totales - $dias_disfrutados - $dias_dinero;
@@ -35,7 +35,7 @@ if ($cedula != '' && $periodo != '') {
             'dias_totales' => 0,
             'dias_disfrutados' => 0,
             'dias_dinero' => 0,
-            'dias_faltantes' => intval($_SESSION['dias_generados'] ?? 0)
+            'dias_faltantes' => floatval($_SESSION['dias_generados'] ?? 0)
         ]);
     }
 } else {
