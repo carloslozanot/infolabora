@@ -58,7 +58,7 @@ if (!isset($_SESSION['usuario'])) {
         include("php/conexion.php");
 
         $cedula = $_SESSION['usuario'];
-        $nombres = $_SESSION['nombres'] ?? '';
+        $nombres = $_SESSION['nombreUsuario'] ?? '';
         $apellidos = $_SESSION['apellidos'] ?? '';
         $cargo = $_SESSION['cargo'] ?? '';
         $area = $_SESSION['area'] ?? '';
