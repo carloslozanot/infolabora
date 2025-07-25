@@ -57,39 +57,54 @@ include("php/conexion.php");
     ?>
 
     <div id="contenido-det-vacaciones">
-    <h2 style="font-size: 35px; font-weight: 700; color: #150940; text-align: center;">DETALLE DE VACACIONES</h2>
+        <h2 style="font-size: 35px; font-weight: 700; color: #150940; text-align: center;">DETALLE DE VACACIONES</h2>
         <div class="container mt-4">
             <div class="row">
-                <div class="col-md-4 d-flex flex-column gap-4">
-                    <div class="carda shadow-lg border-0 text-center">
-                        <div class="carda-body">
-                            <i class="bi bi-plus-circle-fill icono-carda mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="carda-title">Días Totales</h5>
-                            <h3 class="mb-0 cantidad-carda"><?php echo $_SESSION['total_dias_generados']; ?></h3>
+                <div class="col-md-4">
+                    <div class="row">
+                        <!-- Tarjeta 1 -->
+                        <div class="col-6 mb-4">
+                            <div class="carda shadow-lg border-0 text-center">
+                                <div class="carda-body">
+                                    <i class="bi bi-plus-circle-fill icono-carda mb-2" style="font-size: 2rem;"></i>
+                                    <h5 class="carda-title">Días Totales</h5>
+                                    <h3 class="mb-0 cantidad-carda"><?php echo $_SESSION['total_dias_generados']; ?>
+                                    </h3>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="carda shadow-lg border-0 text-center">
-                        <div class="carda-body">
-                            <i class="bi bi-calendar-check-fill icono-carda mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="carda-title">Días Disfrutados</h5>
-                            <h3 class="mb-0 cantidad-carda"><?php echo $total_dias_disfrutados; ?></h3>
+                        <!-- Tarjeta 2 -->
+                        <div class="col-6 mb-4">
+                            <div class="carda shadow-lg border-0 text-center">
+                                <div class="carda-body">
+                                    <i class="bi bi-calendar-check-fill icono-carda mb-2" style="font-size: 2rem;"></i>
+                                    <h5 class="carda-title">Días Disfrutados</h5>
+                                    <h3 class="mb-0 cantidad-carda"><?php echo $total_dias_disfrutados; ?></h3>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="carda shadow-lg border-0 text-center">
-                        <div class="carda-body">
-                            <i class="bi bi-cash-coin icono-carda mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="carda-title">Días Pagados</h5>
-                            <h3 class="mb-0 cantidad-carda"><?php echo $total_dias_dinero; ?></h3>
+                        <!-- Tarjeta 3 -->
+                        <div class="col-6">
+                            <div class="carda shadow-lg border-0 text-center">
+                                <div class="carda-body">
+                                    <i class="bi bi-cash-coin icono-carda mb-2" style="font-size: 2rem;"></i>
+                                    <h5 class="carda-title">Días Pagados</h5>
+                                    <h3 class="mb-0 cantidad-carda"><?php echo $total_dias_dinero; ?></h3>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="cardi shadow-lg border-0 text-center">
-                        <div class="cardi-body">
-                            <i class="bi bi-hourglass-split icono-cardi mb-2" style="font-size: 2rem;"></i>
-                            <h5 class="cardi-title">Días Disponibles</h5>
-                            <h3 class="mb-0 cantidad-cardi"><?php echo $_SESSION['total_dias']; ?></h3>
+                        <!-- Tarjeta 4 -->
+                        <div class="col-6">
+                            <div class="carda shadow-lg border-0 text-center">
+                                <div class="carda-body">
+                                    <i class="bi bi-hourglass-split icono-carda mb-2" style="font-size: 2rem;"></i>
+                                    <h5 class="carda-title">Días Disponibles</h5>
+                                    <h3 class="mb-0 cantidad-carda"><?php echo $_SESSION['total_dias']; ?></h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
