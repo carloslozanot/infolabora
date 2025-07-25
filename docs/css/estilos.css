@@ -1160,7 +1160,7 @@ a.selected {
 }
 
 .tabla-vacaciones thead th {
-    background-color: #193d7d;
+    background-color: #150940;
     color: #fff;
     text-align: center;
 }
@@ -1172,7 +1172,7 @@ a.selected {
 
 /* Ícono en la tabla */
 .icono-card {
-    color: #0a58ca;
+    color: #150940;
 }
 
 /* Botón regresar */
