@@ -34,7 +34,7 @@ if (!isset($_SESSION['usuario'])) {
     $(document).ready(function () {
         $('#periodo').change(function () {
             const periodo = $(this).val();
-            const cedula = '<?php echo $cedula; ?>';
+            const cedula = '<?php echo $_SESSION['usuario']; ?>';
 
             if (periodo !== "") {
                 $.ajax({
@@ -69,6 +69,7 @@ if (!isset($_SESSION['usuario'])) {
         });
     });
 </script>
+
 
 <body>
     <div id="agregar-solicitud">
@@ -130,7 +131,7 @@ if (!isset($_SESSION['usuario'])) {
 
             <h2>Días Faltantes</h2>
             <input type="text" id="dias_faltantes" class="form-control" readonly>
-            
+
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
