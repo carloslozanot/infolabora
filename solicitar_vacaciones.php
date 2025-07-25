@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
         $resultado_periodos = mysqli_query($conexion, $sql_periodos);
         ?>
         <div class="card shadow">
-            <div class="card-header text-white" style="background-color: #150940: font-size: 32px; font-weight: bold;">
+            <div class="card-header text-white" style="background-color: #150940">
                 <h3 class="mb-0"><i class="fas fa-plane-departure"></i> SOLICITUD DE VACACIONES</h3>
             </div>
 
