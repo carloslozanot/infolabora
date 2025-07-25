@@ -1170,18 +1170,21 @@ a.selected {
     vertical-align: middle;
 }
 
-/* Ícono en la tabla */
 .icono-card {
     color: #150940;
 }
 
-/* Botón regresar */
+.botones-vacaciones {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .botones-vacaciones a.btn-danger {
     font-weight: 600;
     padding: 10px 25px;
     border-radius: 8px;
 }
-
 
 @media (max-width: 768px) {
     .body_index_login {
