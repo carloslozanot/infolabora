@@ -120,18 +120,8 @@ if (!isset($_SESSION['usuario'])) {
                 ?>
             </select>
 
-            <h2>Días totales</h2>
-            <input type="text" id="dias_totales" class="form-control" readonly>
-
-            <h2>Días Disfrutados</h2>
-            <input type="text" id="dias_disfrutados" class="form-control" readonly>
-
-            <h2>Días Dinero</h2>
-            <input type="text" id="dias_dinero" class="form-control" readonly>
-
-            <h2>Días Faltantes</h2>
+            <h2>Días para tomar</h2>
             <input type="text" id="dias_faltantes" class="form-control" readonly>
-
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
