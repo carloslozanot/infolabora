@@ -28,13 +28,6 @@ $resultado = mysqli_query($conexion, $sql);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://kit.fontawesome.com/41bcea2ae3.css" crossorigin="anonymous">
     <style>
-        .btn-volver {
-            width: 140px;
-            height: 40px;
-            font-size: 14px;
-            border-radius: 8px;
-        }
-
         .card {
             border-radius: 12px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -44,12 +37,17 @@ $resultado = mysqli_query($conexion, $sql);
             background-color: #150940;
             color: white;
         }
+
+        .btn-warning {
+            font-size: 14px;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
     </style>
 </head>
 
 <body class="p-4">
     <div id="agregar-solicitud">
-
         <div class="container">
             <div class="card">
                 <div class="card-header text-white" style="background-color: #150940">
@@ -69,29 +67,35 @@ $resultado = mysqli_query($conexion, $sql);
                                     <th>Dinero</th>
                                     <th>Estado</th>
                                     <th>Comentario</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 while ($fila = mysqli_fetch_assoc($resultado)) {
                                     echo "<tr>
-                                    <td>{$fila['radicado']}</td>
-                                    <td>{$fila['fecha_diligenciamiento']}</td>
-                                    <td>{$fila['periodo']}</td>
-                                    <td>{$fila['fecha_inicio']}</td>
-                                    <td>{$fila['fecha_reintegro']}</td>
-                                    <td>{$fila['dias']}</td>
-                                    <td>{$fila['dinero']}</td>
-                                    <td><span class='badge bg-secondary'>{$fila['estado']}</span></td>
-                                    <td>{$fila['comentarios']}</td>
-                                </tr>";
+                                        <td>{$fila['radicado']}</td>
+                                        <td>{$fila['fecha_diligenciamiento']}</td>
+                                        <td>{$fila['periodo']}</td>
+                                        <td>{$fila['fecha_inicio']}</td>
+                                        <td>{$fila['fecha_reintegro']}</td>
+                                        <td>{$fila['dias']}</td>
+                                        <td>{$fila['dinero']}</td>
+                                        <td><span class='badge bg-secondary'>{$fila['estado']}</span></td>
+                                        <td>{$fila['comentarios']}</td>
+                                        <td>" .
+                                        ($fila['estado'] === 'Solicitadas'
+                                            ? "<a href='editar_solicitud.php?id={$fila['radicado']}' class='btn btn-warning btn-sm'><i class='fas fa-edit'></i> Editar</a>"
+                                            : "—") .
+                                        "</td>
+                                    </tr>";
                                 }
                                 ?>
                             </tbody>
                         </table>
                     </div>
                     <div class="text-center mt-3">
-                        <a href="index_integrante.php" class="btn btn-danger btn-volver btn-lg">Regresar</a>
+                        <a href="index_integrante.php" class="btn btn-danger btn-lg">Regresar</a>
                     </div>
                 </div>
             </div>
