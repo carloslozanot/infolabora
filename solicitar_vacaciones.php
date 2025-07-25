@@ -175,7 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                                 } ?>
                             </select>
                         </div>
-                        <div class="mb-3">
+                        <div class="col-md-6 mb-3">
                             <label class="form-label">Días Faltantes</label>
                             <input type="text" id="dias_faltantes" class="form-control" readonly>
                         </div>
