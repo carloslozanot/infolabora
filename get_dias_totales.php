@@ -19,8 +19,8 @@ if ($cedula != '' && $periodo != '') {
 
         $dias_faltantes = $dias_totales - $dias_disfrutados - $dias_dinero;
 
-        if ($dias_faltantes <= 0) {
-            $dias_faltantes = $_SESSION['dias_generados'] ?? 0;
+        if ($dias_totales <= 0) {
+            $dias_totales = $_SESSION['dias_generados'] ?? 0;
         }
 
         echo json_encode([
