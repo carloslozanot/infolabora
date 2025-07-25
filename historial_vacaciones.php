@@ -89,8 +89,8 @@ $resultado = mysqli_query($conexion, $sql);
                         </tbody>
                     </table>
                 </div>
-                <div class="text-end mt-3">
-                    <a href="index_integrante.php" class="btn btn-danger btn-volver">Regresar</a>
+                <div class="text-center mt-3">
+                    <a href="index_integrante.php" class="btn btn-danger btn-volver btn-lg">Regresar</a>
                 </div>
             </div>
         </div>
