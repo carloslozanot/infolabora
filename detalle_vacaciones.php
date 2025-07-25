@@ -60,10 +60,11 @@ include("php/conexion.php");
         <h2 style="font-size: 35px; font-weight: 700; color: #150940; text-align: center;">DETALLE DE VACACIONES</h2>
         <div class="container mt-4">
             <div class="row">
-                <div class="col-md-4">
+                <!-- Sección de tarjetas 2x2 -->
+                <div class="col-12 mb-4">
                     <div class="row">
                         <!-- Tarjeta 1 -->
-                        <div class="col-6 mb-4">
+                        <div class="col-12 col-md-6 col-lg-3 mb-4">
                             <div class="carda shadow-lg border-0 text-center">
                                 <div class="carda-body">
                                     <i class="bi bi-plus-circle-fill icono-carda mb-2" style="font-size: 2rem;"></i>
@@ -75,7 +76,7 @@ include("php/conexion.php");
                         </div>
 
                         <!-- Tarjeta 2 -->
-                        <div class="col-6 mb-4">
+                        <div class="col-12 col-md-6 col-lg-3 mb-4">
                             <div class="carda shadow-lg border-0 text-center">
                                 <div class="carda-body">
                                     <i class="bi bi-calendar-check-fill icono-carda mb-2" style="font-size: 2rem;"></i>
@@ -86,7 +87,7 @@ include("php/conexion.php");
                         </div>
 
                         <!-- Tarjeta 3 -->
-                        <div class="col-6">
+                        <div class="col-12 col-md-6 col-lg-3 mb-4">
                             <div class="carda shadow-lg border-0 text-center">
                                 <div class="carda-body">
                                     <i class="bi bi-cash-coin icono-carda mb-2" style="font-size: 2rem;"></i>
@@ -97,7 +98,7 @@ include("php/conexion.php");
                         </div>
 
                         <!-- Tarjeta 4 -->
-                        <div class="col-6">
+                        <div class="col-12 col-md-6 col-lg-3 mb-4">
                             <div class="carda shadow-lg border-0 text-center">
                                 <div class="carda-body">
                                     <i class="bi bi-hourglass-split icono-carda mb-2" style="font-size: 2rem;"></i>
@@ -109,7 +110,8 @@ include("php/conexion.php");
                     </div>
                 </div>
 
-                <div class="col-md-8">
+                <!-- Sección de tabla -->
+                <div class="col-12">
                     <div class="carde shadow-lg border-0 text-center">
                         <div class="carde-body">
                             <i class="bi bi-calendar-event-fill icono-carde mb-2" style="font-size: 2rem;"></i>
@@ -151,14 +153,15 @@ include("php/conexion.php");
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container my-4">
-            <div class="botones-vacaciones d-flex justify-content-center">
-                <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+            <!-- Botón regresar -->
+            <div class="container my-4">
+                <div class="botones-vacaciones d-flex justify-content-center">
+                    <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+                </div>
             </div>
         </div>
-    </div>
+
 
 </body>
 
