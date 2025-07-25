@@ -85,7 +85,7 @@ include("php/conexion.php");
                         </div>
                     </div>
 
-                    <div class="carda shadow-lg border-0 text-center">
+                    <div class="cardi shadow-lg border-0 text-center">
                         <div class="cardi-body">
                             <i class="bi bi-hourglass-split icono-cardi mb-2" style="font-size: 2rem;"></i>
                             <h5 class="cardi-title">Días Disponibles</h5>
