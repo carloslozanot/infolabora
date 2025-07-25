@@ -146,6 +146,34 @@ if (!isset($_SESSION['usuario'])) {
             <script>
                 $(document).ready(function () {
                     function toggleCampos(dias_faltantes) {
+                        const disable = parseFloat(dias_faltantes) === 0;
+
+                        $('#remunerado').prop('disabled', disable);
+                        $('#disfrutar').prop('disabled', disable);
+                        $('input[name="fecha_inicio"]').prop('disabled', disable);
+                        $('input[name="fecha_reintegro"]').prop('disabled', disable);
+
+                        if (disable) {
+                            $('#remunerado').val('');
+                            $('#disfrutar').val('');
+                        }
+                    }
+
+                    function calcularDias() {
+                        const fechaInicio = new Date($('input[name="fecha_inicio"]').val());
+                        const fechaReintegro = new Date($('input[name="fecha_reintegro"]').val());
+
+                        if (!isNaN(fechaInicio) && !isNaN(fechaReintegro)) {
+                            const diffTime = fechaReintegro - fechaInicio;
+                            const diffDays = diffTime / (1000 * 60 * 60 * 24);
+                            $('#disfrutar').val(diffDays >= 0 ? Math.round(diffDays) : 0);
+                        } else {
+                            $('#disfrutar').val('');
+                        }
+                    }
+
+
+                    function toggleCampos(dias_faltantes) {
                         const disable = parseInt(dias_faltantes) === 0;
 
                         $('#remunerado, #disfrutar').prop('disabled', disable);
@@ -181,6 +209,8 @@ if (!isset($_SESSION['usuario'])) {
                             $('#dias_totales, #dias_disfrutados, #dias_dinero, #dias_faltantes').val('');
                         }
                     });
+
+                    $('input[name="fecha_inicio"], input[name="fecha_reintegro"]').on('change', calcularDias);
                 });
             </script>
 

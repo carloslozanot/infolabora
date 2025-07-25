@@ -13,11 +13,11 @@ if ($cedula != '' && $periodo != '') {
 
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        $dias_totales = intval($row['dias_totales']);
-        $dias_disfrutados = intval($row['dias_disfrutados']);
-        $dias_dinero = intval($row['dias_dinero']);
+        $dias_totales = floatval($row['dias_totales']);
+        $dias_disfrutados = floatval($row['dias_disfrutados']);
+        $dias_dinero = floatval($row['dias_dinero']);
 
-        // Si dias_totales es 0, se usa dias_generados de la sesión
+        // Si dias_totales es 0, usar dias_generados de la sesión
         if ($dias_totales <= 0) {
             $dias_totales = floatval($_SESSION['dias_generados'] ?? 0);
         }
@@ -31,11 +31,13 @@ if ($cedula != '' && $periodo != '') {
             'dias_faltantes' => $dias_faltantes
         ]);
     } else {
+        // No hay registro en BD, usar dias_generados de la sesión
+        $generados = floatval($_SESSION['dias_generados'] ?? 0);
         echo json_encode([
-            'dias_totales' => 0,
+            'dias_totales' => $generados,
             'dias_disfrutados' => 0,
             'dias_dinero' => 0,
-            'dias_faltantes' => floatval($_SESSION['dias_generados'] ?? 0)
+            'dias_faltantes' => $generados
         ]);
     }
 } else {
