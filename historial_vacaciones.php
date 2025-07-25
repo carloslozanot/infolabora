@@ -43,6 +43,10 @@ $resultado = mysqli_query($conexion, $sql);
             padding: 4px 12px;
             border-radius: 6px;
         }
+
+        .table {
+            font-size: 16px;
+        }
     </style>
 </head>
 
@@ -85,7 +89,7 @@ $resultado = mysqli_query($conexion, $sql);
                                         <td>{$fila['comentarios']}</td>
                                         <td>" .
                                         ($fila['estado'] === 'Solicitadas'
-                                            ? "<a href='editar_solicitud.php?id={$fila['radicado']}' class='btn btn-warning btn-sm'><i class='fas fa-edit'></i> Editar</a>"
+                                            ? "<a href='editar_solicitud.php?id={$fila['radicado']}' class='btn btn-warning btn-md'><i class='fas fa-edit'></i> Editar</a>"
                                             : "—") .
                                         "</td>
                                     </tr>";
