@@ -52,32 +52,31 @@ $resultado = mysqli_query($conexion, $sql);
 
 <body class="bg-light">
     <div id="agregar-solicitud">
-        <div class="container">
-            <div class="card shadow">
-                <div class="card-header text-white" style="background-color: #150940">
-                    <h3 class="mb-0"><i class="fas fa-history"></i> HISTORIAL DE SOLICITUDES</h3>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered align-middle text-center">
-                            <thead>
-                                <tr>
-                                    <th>Radicado</th>
-                                    <th>Fecha Diligenciamiento</th>
-                                    <th>Periodo</th>
-                                    <th>Fecha Inicio</th>
-                                    <th>Fecha Reintegro</th>
-                                    <th>Días</th>
-                                    <th>Dinero</th>
-                                    <th>Estado</th>
-                                    <th>Comentario</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                while ($fila = mysqli_fetch_assoc($resultado)) {
-                                    echo "<tr>
+        <div class="card shadow">
+            <div class="card-header text-white" style="background-color: #150940">
+                <h3 class="mb-0"><i class="fas fa-history"></i> HISTORIAL DE SOLICITUDES</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered align-middle text-center">
+                        <thead>
+                            <tr>
+                                <th>Radicado</th>
+                                <th>Fecha Diligenciamiento</th>
+                                <th>Periodo</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Reintegro</th>
+                                <th>Días</th>
+                                <th>Dinero</th>
+                                <th>Estado</th>
+                                <th>Comentario</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            while ($fila = mysqli_fetch_assoc($resultado)) {
+                                echo "<tr>
                                         <td>{$fila['radicado']}</td>
                                         <td>{$fila['fecha_diligenciamiento']}</td>
                                         <td>{$fila['periodo']}</td>
@@ -88,19 +87,18 @@ $resultado = mysqli_query($conexion, $sql);
                                         <td><span class='badge bg-secondary'>{$fila['estado']}</span></td>
                                         <td>{$fila['comentarios']}</td>
                                         <td>" .
-                                        ($fila['estado'] === 'Solicitadas'
-                                            ? "<a href='editar_solicitud.php?id={$fila['radicado']}' class='btn btn-warning btn-md'><i class='fas fa-edit'></i> Editar</a>"
-                                            : "—") .
-                                        "</td>
+                                    ($fila['estado'] === 'Solicitadas'
+                                        ? "<a href='editar_solicitud.php?id={$fila['radicado']}' class='btn btn-warning btn-md'><i class='fas fa-edit'></i> Editar</a>"
+                                        : "—") .
+                                    "</td>
                                     </tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="text-center mt-3">
-                        <a href="index_integrante.php" class="btn btn-danger btn-lg">Regresar</a>
-                    </div>
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="index_integrante.php" class="btn btn-danger btn-lg">Regresar</a>
                 </div>
             </div>
         </div>
