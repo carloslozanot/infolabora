@@ -136,11 +136,13 @@ if (!isset($_SESSION['usuario'])) {
                 <h5>Fecha de reintegro a la organización</h5>
                 <input type="date" name="fecha_reintegro" class="form-control mb-2">
 
+                <h5>Disfrutar en Días</h5>
+                <input type="text" name="disfrutar" id="disfrutar" class="form-control mb-4">
+
+
                 <h5>Remunerado en Dinero</h5>
                 <input type="text" name="remunerado" id="remunerado" class="form-control mb-2">
 
-                <h5>Disfrutar en Días</h5>
-                <input type="text" name="disfrutar" id="disfrutar" class="form-control mb-4">
             </div>
 
             <script>
@@ -162,16 +164,25 @@ if (!isset($_SESSION['usuario'])) {
                     function calcularDias() {
                         const fechaInicio = new Date($('input[name="fecha_inicio"]').val());
                         const fechaReintegro = new Date($('input[name="fecha_reintegro"]').val());
+                        const diasFaltantes = parseFloat($('#dias_faltantes').val());
 
                         if (!isNaN(fechaInicio) && !isNaN(fechaReintegro)) {
                             const diffTime = fechaReintegro - fechaInicio;
-                            const diffDays = diffTime / (1000 * 60 * 60 * 24);
-                            $('#disfrutar').val(diffDays >= 0 ? Math.round(diffDays) : 0);
+                            const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+                            if (diffDays > diasFaltantes) {
+                                alert("El número de días a disfrutar no puede ser mayor a los días faltantes (" + diasFaltantes + ").");
+                                $('#disfrutar').val('');
+                                $('#btn-enviar').prop('disabled', true);
+                            } else {
+                                $('#disfrutar').val(diffDays >= 0 ? diffDays : 0);
+                                $('#btn-enviar').prop('disabled', false);
+                            }
                         } else {
                             $('#disfrutar').val('');
+                            $('#btn-enviar').prop('disabled', true);
                         }
                     }
-
 
                     function toggleCampos(dias_faltantes) {
                         const disable = parseInt(dias_faltantes) === 0;
@@ -215,7 +226,7 @@ if (!isset($_SESSION['usuario'])) {
             </script>
 
             <div class="botones-agregar-solicitud">
-                <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
+                <button type="submit" class="btn btn-success" id="btn-enviar" name="enviar">Agregar</button>
                 <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
             </div>
         </form>
