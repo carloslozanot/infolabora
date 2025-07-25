@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                     <div class="alert alert-warning">Solo se pueden editar solicitudes en estado <strong>Solicitadas</strong>.</div>
                 <?php endif; ?>
 
-                <a href="historial_solicitudes.php" class="btn btn-secondary ms-2">Volver</a>
+                <a href="index_integrante.php" class="btn btn-secondary ms-2">Volver</a>
             </form>
         </div>
     </div>
