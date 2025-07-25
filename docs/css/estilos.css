@@ -1129,7 +1129,11 @@ a.selected {
     transform: translateY(-5px);
 }
 
-.carda-body, .carde-body, .cardi-body {
+.carda-body, .cardi-body {
+    padding: 10px;
+}
+
+.carde-body{
     padding: 10px;
 }
 
