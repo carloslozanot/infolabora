@@ -1110,7 +1110,7 @@ a.selected {
 
 .carde {
     border-radius: 15px;
-    background-color: #150940;
+    background-color: #f8f9fa;
     padding: 20px;
     transition: transform 0.2s ease;
     margin-bottom: 20px;
@@ -1133,21 +1133,38 @@ a.selected {
     padding: 10px;
 }
 
-.icono-carda, .icono-carde, .icono-cardi {
+.icono-carda, .icono-carde {
     color: #150940;
 }
 
-.carda-title, .carde-title, .cardi-title {
+.icono-cardi {
+    color: #f0f0f0;
+}
+
+.carda-title, .carde-title {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 5px;
     color: #333;
 }
 
-.cantidad-carda, .cantidad-carde, .cantidad-cardi {
+.cardi-title{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #f0f0f0;
+}
+
+.cantidad-carda, .cantidad-carde {
     font-size: 28px;
     font-weight: 700;
     color: #150940;
+}
+
+.cantidad-cardi {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f0f0f0;
 }
 
 .table-dark th {
