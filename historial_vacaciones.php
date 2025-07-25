@@ -53,7 +53,7 @@ $resultado = mysqli_query($conexion, $sql);
 <body class="bg-light">
     <div id="agregar-solicitud">
         <div class="container">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header text-white" style="background-color: #150940">
                     <h3 class="mb-0"><i class="fas fa-history"></i> HISTORIAL DE SOLICITUDES</h3>
                 </div>
