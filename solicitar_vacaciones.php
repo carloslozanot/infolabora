@@ -48,6 +48,7 @@ if (!isset($_SESSION['usuario'])) {
         $apellidos = $datos['apellidos'] ?? '';
         $cargo = $datos['cargo'] ?? '';
         $area = $datos['area'] ?? '';
+        $fecha_ingreso = $datos['fecha_ingreso'] ?? '';
 
         if (isset($_POST['enviar'])) {
 
@@ -109,6 +110,12 @@ if (!isset($_SESSION['usuario'])) {
 
             <h3>Fecha de Diligenciamiento</h3>
             <input type="text" class="form-control" value="<?= date('Y-m-d') ?>" disabled>
+
+            <h3>Fecha Inicio Contrato</h3>
+            <input type="text" name="fecha_ingreso" class="form-control" value="<?php echo $fecha_ingreso ?>" disabled>
+
+            <h3>Numero Documento</h3>
+            <input type="text" name="cedula" class="form-control" value="<?php echo $cedula ?>" disabled>
 
             <h3>Nombre del trabajador</h3>
             <input type="text" class="form-control" value="<?php echo $nombres . ' ' . $apellidos ?>" disabled>
