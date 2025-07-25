@@ -29,9 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
     // Validar que todos los campos obligatorios tengan valores
     if ($periodo && $fecha_inicio && $fecha_reintegro && $dias !== '' && $dinero !== '') {
         $sql_insert = "INSERT INTO solicitudes (
-            fecha_diligenciamiento, fecha_ingreso, cedula, nombre_completo, cargo, area, periodo, fecha_inicio, fecha_reintegro, dias, dinero, estado, radicado
+            fecha_diligenciamiento, fecha_ingreso, cedula, nombre_completo, cargo, area, periodo, fecha_inicio, fecha_reintegro, dias, dinero, estado, radicado, comentarios
         ) VALUES (
-            '$fecha_diligenciamiento', '$fecha_ingreso', '$cedula', '$nombre_completo', '$cargo', '$area', '$periodo', '$fecha_inicio', '$fecha_reintegro', '$dias', '$dinero', 'Solicitadas', NULL
+            '$fecha_diligenciamiento', '$fecha_ingreso', '$cedula', '$nombre_completo', '$cargo', '$area', '$periodo', '$fecha_inicio', '$fecha_reintegro', '$dias', '$dinero', 'Solicitadas', NULL, NULL
         )";
 
 
