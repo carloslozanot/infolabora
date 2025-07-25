@@ -57,8 +57,9 @@ include("php/conexion.php");
     ?>
 
     <div id="contenido-det-vacaciones">
-        <h2 style="font-size: 35px; font-weight: 700; color: #150940; text-align: center;">DETALLE DE VACACIONES</h2>
         <div class="tarjeta-certificados">
+            <h2 style="font-size: 35px; font-weight: 700; color: #150940; text-align: center;">DETALLE DE VACACIONES
+            </h2>
             <div class="row">
                 <div class="col-md-4 d-flex flex-column gap-4">
                     <div class="carda shadow-lg border-0 text-center">
@@ -136,15 +137,13 @@ include("php/conexion.php");
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="container my-4">
-            <div class="botones-vacaciones d-flex justify-content-center">
-                <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+            <div class="container my-4">
+                <div class="botones-vacaciones d-flex justify-content-center">
+                    <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+                </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
