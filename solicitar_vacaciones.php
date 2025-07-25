@@ -130,13 +130,16 @@ if (!isset($_SESSION['usuario'])) {
             <input type="text" id="dias_faltantes" class="form-control" readonly>
 
             <h2>Fecha Inicio del periodo vacacional</h2>
+            <input type="date" name="fecha_inicio" value="<?= date('Y-m-d') ?>" class="form-control">
 
             <h2>Fecha de reintegro a la organización</h2>
+            <input type="date" name="fecha_reintegro" value="<?= date('Y-m-d') ?>" class="form-control">
 
             <h2>Remunerado en Dinero</h2>
+            <input type="text" id="remunerado" class="form-control">
 
             <h2>Disfrutar en Días</h2>
-
+            <input type="text" id="disfrutar" class="form-control">
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
