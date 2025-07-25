@@ -65,10 +65,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="docs/css/estilos.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <script>
@@ -326,9 +327,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                 });
             </script>
 
-            <div class="botones-agregar-solicitud">
-                <button type="submit" class="btn btn-success" id="btn-enviar" name="enviar">Solicitar</button>
-                <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+            <div class="text-center mt-4">
+                <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success me-2">
+                    <i class="fas fa-check-circle"></i> Solicitar
+                </button>
+                <a href="index_integrante.php" class="btn btn-danger">
+                    <i class="fas fa-arrow-left"></i> Regresar
+                </a>
             </div>
         </form>
     </div>
