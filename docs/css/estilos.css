@@ -1101,20 +1101,28 @@ a.selected {
 
 .carda {
     border-radius: 15px;
-    background-color: #150940;
+    background-color: #f8f9fa;
     padding: 20px;
     transition: transform 0.2s ease;
     margin-bottom: 20px;
     height: 100%;
 }
 
-.carde, .cardi {
+.carde {
     border-radius: 15px;
-    background-color: #f8f9fa;
+    background-color: #150940;
     padding: 20px;
     transition: transform 0.2s ease;
     margin-bottom: 20px;
     width: 790px;
+}
+
+.cardi {
+    border-radius: 15px;
+    background-color: #150940;
+    padding: 20px;
+    transition: transform 0.2s ease;
+    margin-bottom: 20px;
 }
 
 .carda:hover, .carde:hover, .cardi:hover {
