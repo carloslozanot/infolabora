@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
 
 
 
-<body>
+<body class="bg-light">
     <div id="agregar-solicitud">
         <?php
         include("php/conexion.php");
