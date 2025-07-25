@@ -128,7 +128,12 @@ include("php/conexion.php");
                                             }
                                             echo "<td>{$fila2['dias_disfrutados']}</td>";
                                             echo "<td>{$fila2['dias_dinero']}</td>";
-                                            echo "<td>{$total_faltantes}</td>";
+                                            if ($total_faltantes == 0 && isset($dias_generados)) {
+                                                $faltantes_estimados = $dias_generados - $fila2['dias_disfrutados'] - $fila2['dias_dinero'];
+                                                echo "<td>{$faltantes_estimados}</td>";
+                                            } else {
+                                                echo "<td>{$total_faltantes}</td>";
+                                            }
                                             echo "</tr>";
                                             $contador++;
                                         }
