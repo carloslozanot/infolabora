@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
         $resultado_periodos = mysqli_query($conexion, $sql_periodos);
         ?>
         <div class="card shadow">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header titulo-solicitudes text-white">
                 <h3 class="mb-0"><i class="fas fa-plane-departure"></i> Solicitud de Vacaciones</h3>
             </div>
 
@@ -165,28 +165,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Periodo</label>
-                        <select name="periodo" id="periodo" class="form-select" required>
-                            <option value="">Seleccione un periodo</option>
-                            <?php while ($row = mysqli_fetch_assoc($resultado_periodos)) {
-                                echo '<option value="' . $row['periodo'] . '">' . $row['periodo'] . '</option>';
-                            } ?>
-                        </select>
-                    </div>
-
-                    <!--<h2>Días Totales</h2>
-                <input type="text" id="dias_totales" class="form-control" readonly>
-
-                <h2>Días Disfrutados</h2>
-                <input type="text" id="dias_disfrutados" class="form-control" readonly>
-
-                <h2>Días en Dinero</h2>
-                <input type="text" id="dias_dinero" class="form-control" readonly>-->
-
-                    <div class="mb-3">
-                        <label class="form-label">Días Faltantes</label>
-                        <input type="text" id="dias_faltantes" class="form-control" readonly>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Periodo</label>
+                            <select name="periodo" id="periodo" class="form-select" required>
+                                <option value="">Seleccione un periodo</option>
+                                <?php while ($row = mysqli_fetch_assoc($resultado_periodos)) {
+                                    echo '<option value="' . $row['periodo'] . '">' . $row['periodo'] . '</option>';
+                                } ?>
+                            </select>
+                            <div class="mb-3">
+                                <label class="form-label">Días Faltantes</label>
+                                <input type="text" id="dias_faltantes" class="form-control" readonly>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row">

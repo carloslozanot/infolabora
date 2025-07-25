@@ -750,6 +750,10 @@ header {
     margin-bottom: 30px;
 }
 
+.titulo-solicitud {
+    background-color: #150940; 
+}
+
 .botones-vacaciones {
     margin-top: 20px;
 }
