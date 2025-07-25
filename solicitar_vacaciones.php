@@ -1,175 +1,126 @@
 <?php
-
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
     echo '
-            <script>
-                alert("Debe iniciar sesión");
-                window.location = "index.php";
-            </script>
-        ';
+        <script>
+            alert("Debe iniciar sesión");
+            window.location = "index.php";
+        </script>
+    ';
     exit;
-
 }
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitud Vacaciones</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="docs/css/estilos.css">
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
 <script>
-    $(document).ready(function () {
-        $('#periodo').change(function () {
-            const periodo = $(this).val();
-            const cedula = '<?php echo $cedula; ?>';
+$(document).ready(function () {
+    $('#periodo').change(function () {
+        const periodo = $(this).val();
+        const cedula = '<?php echo $_SESSION['usuario']; ?>';
 
-            if (periodo !== "") {
-                $.ajax({
-                    url: 'get_dias_totales.php',
-                    type: 'GET',
-                    data: { cedula: cedula, periodo: periodo },
-                    success: function (data) {
-                        $('#dias_totales').val(data);
-                    },
-                    error: function () {
-                        $('#dias_totales').val('Error');
-                    }
-                });
-            } else {
-                $('#dias_totales').val('');
-            }
-        });
+        if (periodo !== "") {
+            $.ajax({
+                url: 'get_dias_totales.php',
+                type: 'GET',
+                data: { cedula: cedula, periodo: periodo },
+                success: function (data) {
+                    $('#dias_totales').val(data);
+                },
+                error: function () {
+                    $('#dias_totales').val('Error');
+                }
+            });
+        } else {
+            $('#dias_totales').val('');
+        }
     });
+});
 </script>
 
-
 <body>
-    <div id="agregar-solicitud">
-        <?php
-        include("php/conexion.php");
+<div class="container mt-5" id="agregar-solicitud">
+    <?php
+    include("php/conexion.php");
 
-        $cedula = $_SESSION['usuario'];
-        $nombres = $_SESSION['nombreUsuario'] ?? '';
-        $apellidos = $_SESSION['apellidos'] ?? '';
-        $cargo = $_SESSION['cargo'] ?? '';
-        $area = $_SESSION['area'] ?? '';
-        $fecha_ingreso = $_SESSION['fecha_ingreso'] ?? '';
+    $cedula = $_SESSION['usuario'];
+    $nombres = $_SESSION['nombreUsuario'] ?? '';
+    $apellidos = $_SESSION['apellidos'] ?? '';
+    $cargo = $_SESSION['cargo'] ?? '';
+    $area = $_SESSION['area'] ?? '';
+    $fecha_ingreso = $_SESSION['fecha_ingreso'] ?? '';
 
-        $sql_periodos = "SELECT DISTINCT periodo FROM vacaciones WHERE cedula = '$cedula' ORDER BY periodo DESC";
-        $resultado_periodos = mysqli_query($conexion, $sql_periodos);
+    $sql_periodos = "SELECT DISTINCT periodo FROM vacaciones WHERE cedula = '$cedula' ORDER BY periodo DESC";
+    $resultado_periodos = mysqli_query($conexion, $sql_periodos);
+    ?>
 
-        if (isset($_POST['enviar'])) {
+    <div class="titulo-agregar-solicitud mb-4">
+        <h1>Solicitud de vacaciones</h1>
+    </div>
 
-            /*$cedula = $_POST['cedula'];
-            $nombres = $_POST['nombres'];
-            $apellidos = $_POST['apellidos'];
-            $edad = $_POST['edad'];
-            $celular = $_POST['celular'];
-            $correo = $_POST['correo'];
-            $fecha_ingreso = $_POST['fecha_ingreso'];
-            $cargo = $_POST['cargo'];
-            $area = $_POST['area'];
-            $lider_inmediato = $_POST['lider_inmediato'];
-            $caja = $_POST['caja'];
-            $eps = $_POST['eps'];
-            $arl = $_POST['arl'];
-            $pensiones = $_POST['pensiones'];
-            $cesantias = $_POST['cesantias'];
-            $imagen = $_POST['imagen'];
-            $direccion = $_POST['direccion'];
-            $ciudad_residencia = $_POST['ciudad_residencia'];
-            $tipo_contrato = $_POST['tipo_contrato'];
-            $estado = $_POST['estado'];
-
-            $sql = "INSERT INTO solicitudes (
-                        id_empleado, cedula, nombres, apellidos, edad, celular, correo,
-                        fecha_ingreso, cargo, area, lider_inmediato,
-                        caja, eps, arl, pensiones, cesantias, imagen, direccion, ciudad_residencia, tipo_contrato, estado, fecha_retiro
-                    ) VALUES (
-                        $nuevo_id, '$cedula', '$nombres', '$apellidos', '$edad', '$celular', '$correo',
-                        '$fecha_ingreso', '$cargo', '$area', '$lider_inmediato', '$caja', '$eps', '$arl', 
-                        '$pensiones', '$cesantias', '$imagen', '$direccion', '$ciudad_residencia', '$tipo_contrato',
-                        '$estado', '$fecha_retiro'
-                    )";
-
-            $resultado = mysqli_query($conexion, $sql);
-
-            if ($resultado) {
-                echo "<script language='JavaScript'>
-                        alert('Los datos se han creado correctamente');
-                        location.assign('index_admin.php');
-                      </script>";
-            } else {
-                echo "<script language='JavaScript'>
-                        alert('Los datos NO se han creado correctamente');
-                        location.assign('index_admin.php');
-                      </script>";
-            }*/
-
-            mysqli_close($conexion);
-        }
-        ?>
-
-        <div class="titulo-agregar-solicitud">
-            <h1>Solicitud de vacaciones</h1>
+    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+        <div class="mb-3">
+            <label>Fecha de Diligenciamiento</label>
+            <input type="text" class="form-control" value="<?= date('Y-m-d') ?>" disabled>
         </div>
 
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-
-            <h2>Fecha de Diligenciamiento</h2>
-            <input type="text" class="form-control" value="<?= date('Y-m-d') ?>" disabled>
-
-            <h2>Fecha Inicio Contrato</h2>
+        <div class="mb-3">
+            <label>Fecha Inicio Contrato</label>
             <input type="text" name="fecha_ingreso" class="form-control" value="<?php echo $fecha_ingreso ?>" disabled>
+        </div>
 
-            <h2>Numero Documento</h2>
-            <input type="text" name="cedula" id="cedula" class="form-control" value="<?php echo $cedula ?>" readonly>
+        <div class="mb-3">
+            <label>Número Documento</label>
+            <input type="text" class="form-control" value="<?php echo $cedula ?>" disabled>
+            <input type="hidden" name="cedula" value="<?php echo $cedula ?>">
+        </div>
 
-            <h2>Nombre del trabajador</h2>
+        <div class="mb-3">
+            <label>Nombre del trabajador</label>
             <input type="text" class="form-control" value="<?php echo $nombres . ' ' . $apellidos ?>" disabled>
+        </div>
 
-            <h2>Cargo</h2>
-            <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>" disabled>
+        <div class="mb-3">
+            <label>Cargo</label>
+            <input type="text" class="form-control" value="<?php echo $cargo ?>" disabled>
+        </div>
 
-            <h2>Area</h2>
-            <input type="text" name="area" class="form-control" value="<?php echo $area ?>" disabled>
+        <div class="mb-3">
+            <label>Área</label>
+            <input type="text" class="form-control" value="<?php echo $area ?>" disabled>
+        </div>
 
-            <h2>Periodo</h2>
+        <div class="mb-3">
+            <label>Período</label>
             <select name="periodo" id="periodo" class="form-control" required>
-                <option value="">Seleccione un periodo</option>
+                <option value="">Seleccione un período</option>
                 <?php
                 while ($row = mysqli_fetch_assoc($resultado_periodos)) {
                     echo '<option value="' . $row['periodo'] . '">' . $row['periodo'] . '</option>';
                 }
                 ?>
             </select>
+        </div>
 
-            <h2>Días totales</h2>
+        <div class="mb-3">
+            <label>Días totales</label>
             <input type="text" id="dias_totales" class="form-control" readonly>
+        </div>
 
-
-            <div class="botones-agregar-solicitud">
-                <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
-                <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
-            </div>
-        </form>
-    </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
+            <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+        </div>
+    </form>
+</div>
 </body>
-
 </html>
