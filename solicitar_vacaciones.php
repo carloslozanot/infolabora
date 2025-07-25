@@ -145,29 +145,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Número de Documento</label>
+                            <label class="form-label">NÚMERO DE DOCUMENTO</label>
                             <input type="text" class="form-control" value="<?= $cedula ?>" disabled>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Nombre del Trabajador</label>
+                            <label class="form-label">NOMBRE DEL TRABAJADOR</label>
                             <input type="text" class="form-control" value="<?= $nombres . ' ' . $apellidos ?>" disabled>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Cargo</label>
+                            <label class="form-label">CARGO</label>
                             <input type="text" class="form-control" value="<?= $cargo ?>" disabled>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Área</label>
+                            <label class="form-label">ÁREA</label>
                             <input type="text" class="form-control" value="<?= $area ?>" disabled>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Periodo</label>
+                            <label class="form-label">PERIODO</label>
                             <select name="periodo" id="periodo" class="form-select" required>
                                 <option value="">Seleccione un periodo</option>
                                 <?php while ($row = mysqli_fetch_assoc($resultado_periodos)) {
@@ -187,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                             <input type="date" name="fecha_inicio" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Fecha de Reintegro</label>
+                            <label class="form-label">FECHA DE REINTEGRO</label>
                             <input type="date" name="fecha_reintegro" class="form-control">
                         </div>
                     </div>
