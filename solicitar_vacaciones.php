@@ -127,14 +127,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
         ?>
         <div class="card shadow">
             <div class="card-header text-white" style="background-color: #150940">
-                <h3 class="mb-0"><i class="fas fa-plane-departure"></i> Solicitud de Vacaciones</h3>
+                <h3 class="mb-0"><i class="fas fa-plane-departure"></i> SOLICITUD DE VACACIONES</h3>
             </div>
 
             <div class="card-body">
                 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Fecha de Diligenciamiento</label>
+                            <label class="form-label">FECHA DE DILIGENCIAMIENTO</label>
                             <input type="text" class="form-control" value="<?= date('Y-m-d') ?>" disabled>
                         </div>
                         <div class="col-md-6 mb-3">
@@ -176,7 +176,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Días Faltantes</label>
+                            <label class="form-label">DÍAS PARA TOMAR</label>
                             <input type="text" id="dias_faltantes" class="form-control" readonly>
                         </div>
                     </div>
