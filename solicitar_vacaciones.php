@@ -143,28 +143,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                         </div>
                     </div>
 
-                    <h2>Numero Documento</h2>
-                    <input type="text" name="cedula_visible" class="form-control" value="<?php echo $cedula ?>"
-                        disabled>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Número de Documento</label>
+                            <input type="text" class="form-control" value="<?= $cedula ?>" disabled>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nombre del Trabajador</label>
+                            <input type="text" class="form-control" value="<?= $nombres . ' ' . $apellidos ?>" disabled>
+                        </div>
+                    </div>
 
-                    <h2>Nombre del trabajador</h2>
-                    <input type="text" class="form-control" value="<?php echo $nombres . ' ' . $apellidos ?>" disabled>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Cargo</label>
+                            <input type="text" class="form-control" value="<?= $cargo ?>" disabled>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Área</label>
+                            <input type="text" class="form-control" value="<?= $area ?>" disabled>
+                        </div>
+                    </div>
 
-                    <h2>Cargo</h2>
-                    <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>" disabled>
-
-                    <h2>Area</h2>
-                    <input type="text" name="area" class="form-control" value="<?php echo $area ?>" disabled>
-
-                    <h2>Periodo</h2>
-                    <select name="periodo" id="periodo" class="form-control" required>
-                        <option value="">Seleccione un periodo</option>
-                        <?php
-                        while ($row = mysqli_fetch_assoc($resultado_periodos)) {
-                            echo '<option value="' . $row['periodo'] . '">' . $row['periodo'] . '</option>';
-                        }
-                        ?>
-                    </select>
+                    <div class="mb-3">
+                        <label class="form-label">Periodo</label>
+                        <select name="periodo" id="periodo" class="form-select" required>
+                            <option value="">Seleccione un periodo</option>
+                            <?php while ($row = mysqli_fetch_assoc($resultado_periodos)) {
+                                echo '<option value="' . $row['periodo'] . '">' . $row['periodo'] . '</option>';
+                            } ?>
+                        </select>
+                    </div>
 
                     <!--<h2>Días Totales</h2>
                 <input type="text" id="dias_totales" class="form-control" readonly>
@@ -175,22 +184,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                 <h2>Días en Dinero</h2>
                 <input type="text" id="dias_dinero" class="form-control" readonly>-->
 
-                    <h2>Días Faltantes</h2>
-                    <input type="text" id="dias_faltantes" class="form-control" readonly>
+                    <div class="mb-3">
+                        <label class="form-label">Días Faltantes</label>
+                        <input type="text" id="dias_faltantes" class="form-control" readonly>
+                    </div>
 
-                    <div id="bloque_vacaciones">
-                        <h5>Fecha Inicio del periodo vacacional</h5>
-                        <input type="date" name="fecha_inicio" class="form-control mb-2">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Fecha Inicio del Periodo Vacacional</label>
+                            <input type="date" name="fecha_inicio" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Fecha de Reintegro</label>
+                            <input type="date" name="fecha_reintegro" class="form-control">
+                        </div>
+                    </div>
 
-                        <h5>Fecha de reintegro a la organización</h5>
-                        <input type="date" name="fecha_reintegro" class="form-control mb-2">
-
-                        <h5>Disfrutar en Días</h5>
-                        <input type="number" name="disfrutar" id="disfrutar" class="form-control mb-2">
-
-                        <h5>Remunerado en Dinero</h5>
-                        <input type="number" name="remunerado" id="remunerado" class="form-control mb-2">
-
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Días a Disfrutar</label>
+                            <input type="number" name="disfrutar" id="disfrutar" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Remunerado en Dinero</label>
+                            <input type="number" name="remunerado" id="remunerado" class="form-control">
+                        </div>
                     </div>
 
                     <script>
