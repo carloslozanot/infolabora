@@ -39,12 +39,14 @@ if (!isset($_SESSION['usuario'])) {
         include("php/conexion.php");
 
         $cedula = $_SESSION['usuario'];
-
         $nombres = $_SESSION['nombres'] ?? '';
         $apellidos = $_SESSION['apellidos'] ?? '';
         $cargo = $_SESSION['cargo'] ?? '';
         $area = $_SESSION['area'] ?? '';
         $fecha_ingreso = $_SESSION['fecha_ingreso'] ?? '';
+
+        $sql_periodos = "SELECT DISTINCT periodo FROM vacaciones WHERE cedula = '$cedula' ORDER BY periodo DESC";
+        $resultado_periodos = mysqli_query($conexion, $sql_periodos);
 
         if (isset($_POST['enviar'])) {
 
@@ -123,6 +125,16 @@ if (!isset($_SESSION['usuario'])) {
             <input type="text" name="area" class="form-control" value="<?php echo $area ?>" disabled>
 
             <h2>Periodo</h2>
+            <h2>Periodo</h2>
+            <select name="periodo" class="form-control" required>
+                <option value="">Seleccione un periodo</option>
+                <?php
+                while ($row = mysqli_fetch_assoc($resultado_periodos)) {
+                    echo '<option value="' . $row['periodo'] . '">' . $row['periodo'] . '</option>';
+                }
+                ?>
+            </select>
+
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
