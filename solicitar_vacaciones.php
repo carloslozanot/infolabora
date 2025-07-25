@@ -82,6 +82,7 @@ if (!isset($_SESSION['usuario'])) {
         $cargo = $_SESSION['cargo'] ?? '';
         $area = $_SESSION['area'] ?? '';
         $fecha_ingreso = $_SESSION['fecha_ingreso'] ?? '';
+        $dias_generados = $_SESSION['dias_generados'] ?? '';
 
         $sql_periodos = "SELECT DISTINCT periodo FROM vacaciones WHERE cedula = '$cedula' ORDER BY periodo DESC";
         $resultado_periodos = mysqli_query($conexion, $sql_periodos);
