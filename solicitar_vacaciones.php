@@ -137,8 +137,7 @@ if (!isset($_SESSION['usuario'])) {
                 <input type="date" name="fecha_reintegro" class="form-control mb-2">
 
                 <h5>Disfrutar en Días</h5>
-                <input type="text" name="disfrutar" id="disfrutar" class="form-control mb-2">
-
+                <input type="number" name="disfrutar" id="disfrutar" class="form-control mb-2">
 
                 <h5>Remunerado en Dinero</h5>
                 <input type="number" name="remunerado" id="remunerado" class="form-control mb-2">
