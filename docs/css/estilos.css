@@ -1101,14 +1101,14 @@ a.selected {
 
 .carda {
     border-radius: 15px;
-    background-color: #f8f9fa;
+    background-color: #150940;
     padding: 20px;
     transition: transform 0.2s ease;
     margin-bottom: 20px;
     height: 100%;
 }
 
-.carde {
+.carde, .cardi {
     border-radius: 15px;
     background-color: #f8f9fa;
     padding: 20px;
@@ -1117,26 +1117,26 @@ a.selected {
     width: 790px;
 }
 
-.carda:hover, .carde:hover {
+.carda:hover, .carde:hover, .cardi:hover {
     transform: translateY(-5px);
 }
 
-.carda-body, .carde-body {
+.carda-body, .carde-body, .cardi-body {
     padding: 10px;
 }
 
-.icono-carda, .icono-carde {
+.icono-carda, .icono-carde, .icono-cardi {
     color: #150940;
 }
 
-.carda-title, .carde-title {
+.carda-title, .carde-title, .cardi-title {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 5px;
     color: #333;
 }
 
-.cantidad-carda, .cantidad-carde {
+.cantidad-carda, .cantidad-carde, .cantidad-cardi {
     font-size: 28px;
     font-weight: 700;
     color: #150940;
