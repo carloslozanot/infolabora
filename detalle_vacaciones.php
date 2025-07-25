@@ -57,7 +57,7 @@ include("php/conexion.php");
     ?>
 
     <div id="contenido-det-vacaciones">
-    <h2 style="font-size: 35px; font-weight: 700; color: #150940; text-align: center;">DETALLE DE VACACIONES</h2>
+        <h2 style="font-size: 35px; font-weight: 700; color: #150940; text-align: center;">DETALLE DE VACACIONES</h2>
         <div class="container mt-4">
             <div class="row">
                 <div class="col-md-4 d-flex flex-column gap-4">
@@ -117,15 +117,21 @@ include("php/conexion.php");
                                         $contador = 1;
                                         mysqli_data_seek($resultado2, 0);
                                         while ($fila2 = mysqli_fetch_assoc($resultado2)) {
-                                            $total_faltantes = ($fila2["dias_disfrutados"] + $fila2["dias_dinero"]) - $fila2["dias_totales"];
+                                            // Usamos dias_generados si dias_totales es 0
+                                            $dias_totales = ($fila2["dias_totales"] == 0) ? $dias_generados : $fila2["dias_totales"];
+
+                                            // Calculamos faltantes
+                                            $total_faltantes = ($fila2["dias_disfrutados"] + $fila2["dias_dinero"]) - $dias_totales;
+
+                                            // Si total_faltantes es 0, recalcular como dias_generados - disfrutados - dinero
+                                            if ($total_faltantes == 0) {
+                                                $total_faltantes = $dias_generados - $fila2["dias_disfrutados"] - $fila2["dias_dinero"];
+                                            }
+
                                             echo "<tr>";
                                             echo "<td>{$contador}</td>";
                                             echo "<td>{$fila2['periodo']}</td>";
-                                            if ($fila2['dias_totales'] == 0) {
-                                                echo "<td>{$dias_generados}</td>";
-                                            } else {
-                                                echo "<td>{$fila2['dias_totales']}</td>";
-                                            }
+                                            echo "<td>{$dias_totales}</td>";
                                             echo "<td>{$fila2['dias_disfrutados']}</td>";
                                             echo "<td>{$fila2['dias_dinero']}</td>";
                                             echo "<td>{$total_faltantes}</td>";
