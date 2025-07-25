@@ -19,18 +19,21 @@
 <body>
     <div id="agregar-solicitud">
         <?php
+
+        include("php/conexion.php");
+
+        $cedula = $_SESSION['usuario'];
+
+        $sql_info = "SELECT * FROM integrantes WHERE cedula = '$cedula'";
+        $resultado_info = mysqli_query($conexion, $sql_info);
+        $datos = mysqli_fetch_assoc($resultado_info);
+
+        $nombres = $datos['nombres'] ?? '';
+        $apellidos = $datos['apellidos'] ?? '';
+        $cargo = $datos['cargo'] ?? '';
+        $area = $datos['area'] ?? '';
+
         if (isset($_POST['enviar'])) {
-            include("php/conexion.php");
-
-            $cedula = $_SESSION['usuario'];
-
-            $sql_info = "SELECT * FROM integrantes WHERE cedula = '$cedula'";
-            $resultado_info = mysqli_query($conexion, $sql_info);
-            $datos = mysqli_fetch_assoc($resultado_info);
-
-            $nombres = $datos['nombres'] ?? '';
-            $cargo = $datos['cargo'] ?? '';
-            $area = $datos['area'] ?? '';
 
             /*$cedula = $_POST['cedula'];
             $nombres = $_POST['nombres'];
