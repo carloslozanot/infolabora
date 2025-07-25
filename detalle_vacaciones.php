@@ -123,11 +123,6 @@ include("php/conexion.php");
                                             // Calculamos faltantes
                                             $total_faltantes = $dias_totales - ($fila2["dias_disfrutados"] + $fila2["dias_dinero"]);
 
-                                            // Si total_faltantes es 0, recalcular como dias_generados - disfrutados - dinero
-                                            //if ($total_faltantes == 0) {
-                                            //    $total_faltantes = $dias_generados - $fila2["dias_disfrutados"] - $fila2["dias_dinero"];
-                                            //}
-
                                             echo "<tr>";
                                             echo "<td>{$contador}</td>";
                                             echo "<td>{$fila2['periodo']}</td>";
