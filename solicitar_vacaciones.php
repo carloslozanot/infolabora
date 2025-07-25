@@ -141,7 +141,7 @@ if (!isset($_SESSION['usuario'])) {
 
 
                 <h5>Remunerado en Dinero</h5>
-                <input type="text" name="remunerado" id="remunerado" class="form-control mb-2">
+                <input type="text" name="remunerado" id="remunerado" class="form-control mb-2" value="0">
 
             </div>
 
@@ -181,6 +181,10 @@ if (!isset($_SESSION['usuario'])) {
                     }
 
                     function validarTotal(diasDisfrutar) {
+                        if ($('#remunerado').val() === '') {
+                            $('#remunerado').val('0');
+                        }
+
                         const remunerado = parseFloat($('#remunerado').val()) || 0;
                         const diasFaltantes = parseFloat($('#dias_faltantes').val()) || 0;
                         const total = diasDisfrutar + remunerado;
@@ -189,7 +193,7 @@ if (!isset($_SESSION['usuario'])) {
                             alert("La suma de los días a disfrutar y los días remunerados no puede superar los días faltantes (" + diasFaltantes + ").");
 
                             if (campoActivo === 'remunerado') {
-                                $('#remunerado').val('');
+                                $('#remunerado').val('0');
                             } else if (campoActivo === 'disfrutar') {
                                 $('#disfrutar').val('');
                             }
@@ -199,6 +203,7 @@ if (!isset($_SESSION['usuario'])) {
                             $('#btn-enviar').prop('disabled', false);
                         }
                     }
+
 
                     $('#periodo').change(function () {
                         const periodo = $(this).val();
