@@ -29,10 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
     // Validar que todos los campos obligatorios tengan valores
     if ($periodo && $fecha_inicio && $fecha_reintegro && $dias !== '' && $dinero !== '') {
         $sql_insert = "INSERT INTO solicitudes (
-                fecha_diligenciamiento, fecha_ingreso, cedula, nombre_completo, cargo, area, periodo, fecha_inicio, fecha_reintegro, dias, dinero, estado
-            ) VALUES (
-                '$fecha_diligenciamiento', '$fecha_ingreso', '$cedula', '$nombre_completo', '$cargo', '$area', '$periodo', '$fecha_inicio', '$fecha_reintegro', '$dias', '$dinero'. 'Solicitadas'
-            )";
+            fecha_diligenciamiento, fecha_ingreso, cedula, nombre_completo, cargo, area, periodo, fecha_inicio, fecha_reintegro, dias, dinero, estado
+        ) VALUES (
+            '$fecha_diligenciamiento', '$fecha_ingreso', '$cedula', '$nombre_completo', '$cargo', '$area', '$periodo', '$fecha_inicio', '$fecha_reintegro', '$dias', '$dinero', 'Solicitadas'
+        )";
+
 
         if (mysqli_query($conexion, $sql_insert)) {
             echo "<script>alert('Solicitud registrada correctamente.'); window.location.href='index_integrante.php';</script>";
