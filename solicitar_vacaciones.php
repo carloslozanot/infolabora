@@ -34,32 +34,41 @@ if (!isset($_SESSION['usuario'])) {
     $(document).ready(function () {
         $('#periodo').change(function () {
             const periodo = $(this).val();
-            const cedula = '<?php echo $_SESSION['usuario']; ?>';
+            const cedula = '<?php echo $cedula; ?>';
 
             if (periodo !== "") {
                 $.ajax({
                     url: 'get_dias_totales.php',
                     type: 'GET',
-                    data: { cedula: cedula, periodo: periodo },
                     dataType: 'json',
+                    data: { cedula: cedula, periodo: periodo },
                     success: function (data) {
-                        $('#dias_totales').val(data.dias_totales);
-                        $('#dias_disfrutados').val(data.dias_disfrutados);
-                        $('#dias_dinero').val(data.dias_dinero);
+                        const totales = parseFloat(data.dias_totales) || 0;
+                        const disfrutados = parseFloat(data.dias_disfrutados) || 0;
+                        const dinero = parseFloat(data.dias_dinero) || 0;
+                        const faltantes = totales - disfrutados - dinero;
+
+                        $('#dias_totales').val(totales);
+                        $('#dias_disfrutados').val(disfrutados);
+                        $('#dias_dinero').val(dinero);
+                        $('#dias_faltantes').val(faltantes);
                     },
                     error: function () {
                         $('#dias_totales').val('Error');
-                        $('#dias_disfrutados').val('Error');
-                        $('#dias_dinero').val('Error');
+                        $('#dias_disfrutados').val('');
+                        $('#dias_dinero').val('');
+                        $('#dias_faltantes').val('');
                     }
                 });
             } else {
-                $('#dias_totales, #dias_disfrutados, #dias_dinero').val('');
+                $('#dias_totales').val('');
+                $('#dias_disfrutados').val('');
+                $('#dias_dinero').val('');
+                $('#dias_faltantes').val('');
             }
         });
     });
 </script>
-
 
 <body>
     <div id="agregar-solicitud">
@@ -118,6 +127,10 @@ if (!isset($_SESSION['usuario'])) {
 
             <h2>Días Dinero</h2>
             <input type="text" id="dias_dinero" class="form-control" readonly>
+
+            <h2>Días Faltantes</h2>
+            <input type="text" id="dias_faltantes" class="form-control" readonly>
+            
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
