@@ -50,7 +50,6 @@ include("php/conexion.php");
         $_SESSION['total_dias'] = 0;
         $total_dias_totales = $total_dias_disfrutados = $total_dias_dinero = 0;
     }
-
     $stmt->close();
 
     $sql = "SELECT * FROM vacaciones WHERE cedula = '$cedula'";
@@ -135,14 +134,15 @@ include("php/conexion.php");
                         </div>
                     </div>
                 </div>
-                <!-- Botón regresar -->
-                <div class="botones-vacaciones mt-4 d-flex justify-content-center">
-                    <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
-                </div>
+            </div>
+        </div>
+
+        <div class="container my-4">
+            <div class="botones-vacaciones d-flex justify-content-center">
+                <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
             </div>
         </div>
     </div>
-
 
 </body>
 

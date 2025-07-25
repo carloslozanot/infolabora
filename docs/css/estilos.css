@@ -1174,12 +1174,6 @@ a.selected {
     color: #150940;
 }
 
-.botones-vacaciones {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
 .botones-vacaciones a.btn-danger {
     font-weight: 600;
     padding: 10px 25px;
