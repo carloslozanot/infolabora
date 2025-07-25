@@ -40,15 +40,11 @@ if (!isset($_SESSION['usuario'])) {
 
         $cedula = $_SESSION['usuario'];
 
-        $sql_info = "SELECT * FROM integrantes WHERE cedula = '$cedula'";
-        $resultado_info = mysqli_query($conexion, $sql_info);
-        $datos = mysqli_fetch_assoc($resultado_info);
-
-        $nombres = $datos['nombres'] ?? '';
-        $apellidos = $datos['apellidos'] ?? '';
-        $cargo = $datos['cargo'] ?? '';
-        $area = $datos['area'] ?? '';
-        $fecha_ingreso = $datos['fecha_ingreso'] ?? '';
+        $nombres = $_SESSION['nombres'] ?? '';
+        $apellidos = $_SESSION['apellidos'] ?? '';
+        $cargo = $_SESSION['cargo'] ?? '';
+        $area = $_SESSION['area'] ?? '';
+        $fecha_ingreso = $_SESSION['fecha_ingreso'] ?? '';
 
         if (isset($_POST['enviar'])) {
 
@@ -125,6 +121,8 @@ if (!isset($_SESSION['usuario'])) {
 
             <h2>Area</h2>
             <input type="text" name="area" class="form-control" value="<?php echo $area ?>" disabled>
+
+            <h2>Periodo</h2>
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
