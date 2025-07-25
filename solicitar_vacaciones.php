@@ -3,12 +3,46 @@ session_start();
 
 if (!isset($_SESSION['usuario'])) {
     echo '
-        <script>
-            alert("Debe iniciar sesión");
-            window.location = "index.php";
-        </script>
-    ';
+            <script>
+                alert("Debe iniciar sesión");
+                window.location = "index.php";
+            </script>
+        ';
     exit;
+}
+
+include("php/conexion.php");
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
+    $fecha_diligenciamiento = date('Y-m-d');
+    $fecha_ingreso = $_SESSION['fecha_ingreso'] ?? null;
+    $cedula = $_SESSION['usuario'];
+    $nombre_completo = ($_SESSION['nombreUsuario'] ?? '') . ' ' . ($_SESSION['apellidoUsuario'] ?? '');
+    $cargo = $_SESSION['cargo'] ?? null;
+    $area = $_SESSION['area'] ?? null;
+    $periodo = $_POST['periodo'] ?? null;
+    $fecha_inicio = $_POST['fecha_inicio'] ?? null;
+    $fecha_reintegro = $_POST['fecha_reintegro'] ?? null;
+    $dias = $_POST['disfrutar'] ?? 0;
+    $dinero = $_POST['remunerado'] ?? 0;
+
+    // Validar que todos los campos obligatorios tengan valores
+    if ($periodo && $fecha_inicio && $fecha_reintegro && $dias !== '' && $dinero !== '') {
+        $sql_insert = "INSERT INTO solicitudes (
+                fecha_diligenciamiento, fecha_ingreso, cedula, nombre_completo, cargo, area, periodo, fecha_inicio, fecha_reintegro, dias, dinero, estado
+            ) VALUES (
+                '$fecha_diligenciamiento', '$fecha_ingreso', '$cedula', '$nombre_completo', '$cargo', '$area', '$periodo', '$fecha_inicio', '$fecha_reintegro', '$dias', '$dinero'. 'Solicitadas'
+            )";
+
+        if (mysqli_query($conexion, $sql_insert)) {
+            echo "<script>alert('Solicitud registrada correctamente.'); window.location.href='index_integrante.php';</script>";
+            exit;
+        } else {
+            echo "<script>alert('Error al registrar la solicitud.');</script>";
+        }
+    } else {
+        echo "<script>alert('Debe completar todos los campos antes de enviar.');</script>";
+    }
 }
 ?>
 
@@ -118,13 +152,13 @@ if (!isset($_SESSION['usuario'])) {
             </select>
 
             <!--<h2>Días Totales</h2>
-            <input type="text" id="dias_totales" class="form-control" readonly>
+                <input type="text" id="dias_totales" class="form-control" readonly>
 
-            <h2>Días Disfrutados</h2>
-            <input type="text" id="dias_disfrutados" class="form-control" readonly>
+                <h2>Días Disfrutados</h2>
+                <input type="text" id="dias_disfrutados" class="form-control" readonly>
 
-            <h2>Días en Dinero</h2>
-            <input type="text" id="dias_dinero" class="form-control" readonly>-->
+                <h2>Días en Dinero</h2>
+                <input type="text" id="dias_dinero" class="form-control" readonly>-->
 
             <h2>Días Faltantes</h2>
             <input type="text" id="dias_faltantes" class="form-control" readonly>
@@ -241,17 +275,49 @@ if (!isset($_SESSION['usuario'])) {
 
                     // ✅ Validación final antes de enviar
                     $('#btn-enviar').on('click', function (e) {
-                        const remuneradoVal = $('#remunerado').val().trim();
+                        const periodo = $('#periodo').val();
+                        const fechaInicio = $('input[name="fecha_inicio"]').val();
+                        const fechaReintegro = $('input[name="fecha_reintegro"]').val();
+                        const disfrutar = $('#disfrutar').val().trim();
+                        const remunerado = $('#remunerado').val().trim();
 
-                        if (remuneradoVal === '') {
+                        if (periodo === '') {
+                            alert("Debe seleccionar un periodo.");
+                            $('#periodo').focus();
+                            e.preventDefault();
+                            return;
+                        }
+
+                        if (fechaInicio === '') {
+                            alert("Debe ingresar la fecha de inicio de vacaciones.");
+                            $('input[name="fecha_inicio"]').focus();
+                            e.preventDefault();
+                            return;
+                        }
+
+                        if (fechaReintegro === '') {
+                            alert("Debe ingresar la fecha de reintegro.");
+                            $('input[name="fecha_reintegro"]').focus();
+                            e.preventDefault();
+                            return;
+                        }
+
+                        if (disfrutar === '') {
+                            alert("Debe indicar los días a disfrutar.");
+                            $('#disfrutar').focus();
+                            e.preventDefault();
+                            return;
+                        }
+
+                        if (remunerado === '') {
                             alert("El campo 'Remunerado en Dinero' es obligatorio.");
                             $('#remunerado').focus();
-                            e.preventDefault(); // Evita envío del formulario
+                            e.preventDefault();
+                            return;
                         }
                     });
                 });
             </script>
-
 
             <div class="botones-agregar-solicitud">
                 <button type="submit" class="btn btn-success" id="btn-enviar" name="enviar">Solicitar</button>
