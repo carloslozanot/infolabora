@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['usuario'])) {
     echo '<script>alert("Debe iniciar sesión"); window.location = "index.php";</script>';
     exit;
@@ -8,35 +9,24 @@ if (!isset($_SESSION['usuario'])) {
 include("php/conexion.php");
 
 $cedula = $_SESSION['usuario'];
-$radicado = $_GET['id'] ?? null;
+$radicado = $_GET['id'] ?? '';
 
-if (!$radicado) {
-    echo '<script>alert("Radicado no especificado"); window.location = "historial_solicitudes.php";</script>';
-    exit;
-}
-
-// Obtener la solicitud
-$sql = "SELECT * FROM solicitudes WHERE cedula = '$cedula' AND radicado = '$radicado'";
+$sql = "SELECT * FROM solicitudes WHERE radicado = '$radicado' AND cedula = '$cedula'";
 $resultado = mysqli_query($conexion, $sql);
 $solicitud = mysqli_fetch_assoc($resultado);
 
-if (!$solicitud) {
-    echo '<script>alert("Solicitud no encontrada"); window.location = "historial_solicitudes.php";</script>';
-    exit;
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
-    $fecha_inicio = $_POST['fecha_inicio'];
-    $fecha_reintegro = $_POST['fecha_reintegro'];
-    $dias = $_POST['disfrutar'];
-    $dinero = $_POST['remunerado'];
+    $fecha_inicio = $_POST['fecha_inicio'] ?? null;
+    $fecha_reintegro = $_POST['fecha_reintegro'] ?? null;
+    $dias = $_POST['disfrutar'] ?? 0;
+    $dinero = $_POST['remunerado'] ?? 0;
 
     $sql_update = "UPDATE solicitudes SET 
         fecha_inicio = '$fecha_inicio', 
         fecha_reintegro = '$fecha_reintegro', 
         dias = '$dias', 
-        dinero = '$dinero' 
-        WHERE radicado = '$radicado' AND estado = 'Solicitadas'";
+        dinero = '$dinero'
+        WHERE radicado = '$radicado' AND cedula = '$cedula'";
 
     if (mysqli_query($conexion, $sql_update)) {
         echo "<script>
@@ -44,8 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
             window.location.href='index_integrante.php';
         </script>";
         exit;
-    } else {
-        echo "<script>alert('❌ Error al actualizar la solicitud.');</script>";
     }
 }
 ?>
@@ -57,231 +45,78 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
     <meta charset="UTF-8">
     <title>Editar Solicitud</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/41bcea2ae3.css" crossorigin="anonymous">
     <style>
-        .form-control[disabled],
-        .form-select[disabled] {
-            background-color: #f1f1f1;
-        }
-
-        .titulo {
-            background-color: #150940;
-            color: white;
-            padding: 15px;
-            border-radius: 8px 8px 0 0;
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 
 <body class="p-4">
     <div class="container">
-        <div class="card shadow">
-            <div class="titulo">
-                <h3><i class="fas fa-edit"></i> Editar Solicitud</h3>
+        <div class="card">
+            <div class="card-header text-white" style="background-color: #150940">
+                <h3 class="mb-0"><i class="fas fa-edit"></i> EDITAR SOLICITUD</h3>
             </div>
             <div class="card-body">
                 <form method="post">
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label>Radicado</label>
-                            <input type="text" class="form-control" value="<?= $solicitud['radicado'] ?>" disabled>
+                            <label>Fecha Inicio del periodo vacacional</label>
+                            <input type="date" name="fecha_inicio" class="form-control"
+                                value="<?= $solicitud['fecha_inicio'] ?>">
                         </div>
                         <div class="col-md-6">
-                            <label>Fecha Diligenciamiento</label>
-                            <input type="text" class="form-control" value="<?= $solicitud['fecha_diligenciamiento'] ?>"
-                                disabled>
+                            <label>Fecha de reintegro a la organización</label>
+                            <input type="date" name="fecha_reintegro" class="form-control"
+                                value="<?= $solicitud['fecha_reintegro'] ?>">
                         </div>
                     </div>
-
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label>Periodo</label>
-                            <input type="text" class="form-control" value="<?= $solicitud['periodo'] ?>" disabled>
+                            <label>Disfrutar en Días</label>
+                            <input type="number" name="disfrutar" id="disfrutar" class="form-control"
+                                value="<?= $solicitud['dias'] ?>">
                         </div>
                         <div class="col-md-6">
-                            <label>Estado</label>
-                            <input type="text" class="form-control" value="<?= $solicitud['estado'] ?>" disabled>
+                            <label>Remunerado en Dinero</label>
+                            <input type="number" name="remunerado" id="remunerado" class="form-control"
+                                value="<?= $solicitud['dinero'] ?>">
                         </div>
                     </div>
 
-                    <?php if ($solicitud['estado'] === 'Solicitadas'): ?>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label>Fecha Inicio</label>
-                                <input type="date" name="fecha_inicio" class="form-control"
-                                    value="<?= $solicitud['fecha_inicio'] ?>" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Fecha Reintegro</label>
-                                <input type="date" name="fecha_reintegro" class="form-control"
-                                    value="<?= $solicitud['fecha_reintegro'] ?>" required>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label>Días a disfrutar</label>
-                                <input type="number" name="disfrutar" class="form-control" value="<?= $solicitud['dias'] ?>"
-                                    required>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Remunerado en dinero</label>
-                                <input type="number" name="remunerado" class="form-control"
-                                    value="<?= $solicitud['dinero'] ?>" required>
-                            </div>
-                        </div>
-
-                        <script>
-                            $(document).ready(function () {
-                                let campoActivo = '';
-
-                                function toggleCampos(dias_faltantes) {
-                                    const disable = parseFloat(dias_faltantes) === 0;
-
-                                    $('#remunerado').prop('disabled', disable);
-                                    $('#disfrutar').prop('disabled', disable);
-                                    $('input[name="fecha_inicio"]').prop('disabled', disable);
-                                    $('input[name="fecha_reintegro"]').prop('disabled', disable);
-
-                                    if (disable) {
-                                        $('#remunerado').val('');
-                                        $('#disfrutar').val('');
-                                    }
-                                }
-
-                                function calcularDias() {
-                                    const fechaInicio = new Date($('input[name="fecha_inicio"]').val());
-                                    const fechaReintegro = new Date($('input[name="fecha_reintegro"]').val());
-
-                                    let diffDays = 0;
-
-                                    if (!isNaN(fechaInicio) && !isNaN(fechaReintegro)) {
-                                        const diffTime = fechaReintegro - fechaInicio;
-                                        diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-                                        $('#disfrutar').val(diffDays >= 0 ? diffDays : 0);
-                                    } else {
-                                        $('#disfrutar').val('');
-                                    }
-
-                                    validarTotal(diffDays);
-                                }
-
-                                function validarTotal(diasDisfrutar) {
-                                    const remunerado = parseFloat($('#remunerado').val()) || 0;
-                                    const diasFaltantes = parseFloat($('#dias_faltantes').val()) || 0;
-                                    const total = diasDisfrutar + remunerado;
-
-                                    if (total > diasFaltantes) {
-                                        alert("La suma de los días a disfrutar y los días remunerados no puede superar los días faltantes (" + diasFaltantes + ").");
-
-                                        if (campoActivo === 'remunerado') {
-                                            $('#remunerado').val('');
-                                        } else if (campoActivo === 'disfrutar') {
-                                            $('#disfrutar').val('');
-                                        }
-
-                                        $('#btn-enviar').prop('disabled', true);
-                                    } else {
-                                        $('#btn-enviar').prop('disabled', false);
-                                    }
-                                }
-
-                                $('#periodo').change(function () {
-                                    const periodo = $(this).val();
-                                    const cedula = '<?= $_SESSION['usuario'] ?>';
-
-                                    if (periodo !== "") {
-                                        $.ajax({
-                                            url: 'get_dias_totales.php',
-                                            type: 'GET',
-                                            data: { cedula: cedula, periodo: periodo },
-                                            dataType: 'json',
-                                            success: function (data) {
-                                                $('#dias_totales').val(data.dias_totales);
-                                                $('#dias_disfrutados').val(data.dias_disfrutados);
-                                                $('#dias_dinero').val(data.dias_dinero);
-                                                $('#dias_faltantes').val(data.dias_faltantes);
-                                                toggleCampos(data.dias_faltantes);
-                                            },
-                                            error: function () {
-                                                $('#dias_totales, #dias_disfrutados, #dias_dinero, #dias_faltantes').val('Error');
-                                            }
-                                        });
-                                    } else {
-                                        $('#dias_totales, #dias_disfrutados, #dias_dinero, #dias_faltantes').val('');
-                                    }
-                                });
-
-                                $('input[name="fecha_inicio"], input[name="fecha_reintegro"]').on('change', calcularDias);
-
-                                $('#remunerado').on('input', function () {
-                                    campoActivo = 'remunerado';
-                                    const diasDisfrutar = parseFloat($('#disfrutar').val()) || 0;
-                                    validarTotal(diasDisfrutar);
-                                });
-
-                                $('#disfrutar').on('input', function () {
-                                    campoActivo = 'disfrutar';
-                                    const diasDisfrutar = parseFloat($(this).val()) || 0;
-                                    validarTotal(diasDisfrutar);
-                                });
-
-                                // ✅ Validación final antes de enviar
-                                $('#btn-enviar').on('click', function (e) {
-                                    const periodo = $('#periodo').val();
-                                    const fechaInicio = $('input[name="fecha_inicio"]').val();
-                                    const fechaReintegro = $('input[name="fecha_reintegro"]').val();
-                                    const disfrutar = $('#disfrutar').val().trim();
-                                    const remunerado = $('#remunerado').val().trim();
-
-                                    if (periodo === '') {
-                                        alert("Debe seleccionar un periodo.");
-                                        $('#periodo').focus();
-                                        e.preventDefault();
-                                        return;
-                                    }
-
-                                    if (fechaInicio === '') {
-                                        alert("Debe ingresar la fecha de inicio de vacaciones.");
-                                        $('input[name="fecha_inicio"]').focus();
-                                        e.preventDefault();
-                                        return;
-                                    }
-
-                                    if (fechaReintegro === '') {
-                                        alert("Debe ingresar la fecha de reintegro.");
-                                        $('input[name="fecha_reintegro"]').focus();
-                                        e.preventDefault();
-                                        return;
-                                    }
-
-                                    if (disfrutar === '') {
-                                        alert("Debe indicar los días a disfrutar.");
-                                        $('#disfrutar').focus();
-                                        e.preventDefault();
-                                        return;
-                                    }
-
-                                    if (remunerado === '') {
-                                        alert("El campo 'Remunerado en Dinero' es obligatorio.");
-                                        $('#remunerado').focus();
-                                        e.preventDefault();
-                                        return;
-                                    }
-                                });
-                            });
-                        </script>
-
-                        <button type="submit" name="actualizar" class="btn btn-primary">Actualizar</button>
-                    <?php else: ?>
-                        <div class="alert alert-warning">Solo se pueden editar solicitudes en estado
-                            <strong>Solicitadas</strong>.</div>
-                    <?php endif; ?>
-
-                    <a href="index_integrante.php" class="btn btn-secondary ms-2">Volver</a>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-success" id="btn-enviar"
+                            name="actualizar">Actualizar</button>
+                        <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function validarTotal() {
+                const diasDisfrutar = parseFloat(document.getElementById("disfrutar").value) || 0;
+                const remunerado = parseFloat(document.getElementById("remunerado").value) || 0;
+                const diasFaltantes = <?= (int) $_SESSION['dias_generados'] ?>;
+                const total = diasDisfrutar + remunerado;
+
+                if (total > diasFaltantes) {
+                    alert("La suma de los días no puede superar los días faltantes: " + diasFaltantes);
+                    document.getElementById("btn-enviar").disabled = true;
+                } else {
+                    document.getElementById("btn-enviar").disabled = false;
+                }
+            }
+
+            document.getElementById("disfrutar").addEventListener("input", validarTotal);
+            document.getElementById("remunerado").addEventListener("input", validarTotal);
+        });
+    </script>
 </body>
 
 </html>
