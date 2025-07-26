@@ -65,14 +65,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                     <input type="hidden" id="dias_faltantes" value="<?= (int) $_SESSION['dias_generados'] ?>">
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label>Fecha Inicio del periodo vacacional</label>
-                            <input type="date" name="periodo" class="form-control"
-                                value="<?= $solicitud['periodo'] ?>">
+                            <label>PERIODO</label>
+                            <input type="date" name="dias_faltantes" class="form-control"
+                                value="<?= $solicitud['dias_faltantes'] ?>">
                         </div>
                         <div class="col-md-6">
-                            <label>Fecha de reintegro a la organización</label>
-                            <input type="date" name="fecha_reintegro" class="form-control"
-                                value="<?= $solicitud['fecha_reintegro'] ?>">
+                            <label>DÍAS PARA TOMAR</label>
+                            <input type="date" name="dias_faltantes" class="form-control"
+                                value="<?= $solicitud['dias_faltantes'] ?>">
                         </div>
                     </div>
                     <div class="row mb-3">
