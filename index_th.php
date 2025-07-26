@@ -385,6 +385,7 @@ $result = mysqli_query($conexion, $sql);
                         <th>Dinero</th>
                         <th>Estado</th>
                         <th>Comentario</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -403,6 +404,11 @@ $result = mysqli_query($conexion, $sql);
                             <td>{$row['dinero']}</td>
                             <td><span class='badge bg-secondary'>{$row['estado']}</span></td>
                             <td>{$row['comentarios']}</td>
+                            <td>" .
+                            ($fila['estado'] === 'Solicitadas'
+                                ? "<a href='editar_solicitud.php?id={$fila['radicado']}' class='btn btn-success btn-md'><i class='fas fa-edit'></i> Aprobar</a>"
+                                : "<a href='editar_solicitud.php?id={$fila['radicado']}' class='btn btn-danger btn-md'><i class='fas fa-edit'></i> Rechazar</a>") .
+                            "</td>
                             </tr>";
                     }
                     ?>
