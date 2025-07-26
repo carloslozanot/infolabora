@@ -376,6 +376,8 @@ $result = mysqli_query($conexion, $sql);
                 <thead class="table-dark">
                     <tr>
                         <th>Radicado</th>
+                        <th>Numero de Documneto</th>
+                        <th>Nombre completo</th>
                         <th>Fecha Diligenciamiento</th>
                         <th>Periodo</th>
                         <th>Fecha Inicio</th>
@@ -388,11 +390,13 @@ $result = mysqli_query($conexion, $sql);
                 </thead>
                 <tbody>
                     <?php
-                    $sql_vacaciones = "SELECT * FROM solicitudes WHERE cedula = '$cedula' ORDER BY fecha_diligenciamiento DESC";
+                    $sql_vacaciones = "SELECT * FROM solicitudes ORDER BY fecha_diligenciamiento DESC";
                     $res_vacaciones = mysqli_query($conexion, $sql_vacaciones);
                     while ($row = mysqli_fetch_assoc($res_vacaciones)) {
                         echo "<tr>
                             <td>{$fila['radicado']}</td>
+                            <td>{$fila['cedula']}</td>
+                            <td>{$fila['nombre_completo']}</td>
                             <td>{$fila['fecha_diligenciamiento']}</td>
                             <td>{$fila['periodo']}</td>
                             <td>{$fila['fecha_inicio']}</td>
