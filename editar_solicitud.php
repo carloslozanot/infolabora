@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                         </div>
                         <div class="col-md-6">
                             <label>DÍAS PARA TOMAR</label>
-                            <input type="number" class="form-control" value="<?= $_SESSION['dias_generados'] ?>"
+                            <input type="number" class="form-control" value="<?= $solicitud['dias_faltantes'] ?>"
                                 readonly>
                         </div>
                     </div>
