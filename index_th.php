@@ -394,22 +394,22 @@ $result = mysqli_query($conexion, $sql);
                     $res_vacaciones = mysqli_query($conexion, $sql_vacaciones);
                     while ($row = mysqli_fetch_assoc($res_vacaciones)) {
                         echo "<tr>
-                            <td>{$row['radicado']}</td>
-                            <td>{$row['nombre_completo']}</td>
-                            <td>{$row['fecha_diligenciamiento']}</td>
-                            <td>{$row['periodo']}</td>
-                            <td>{$row['fecha_inicio']}</td>
-                            <td>{$row['fecha_reintegro']}</td>
-                            <td>{$row['dias']}</td>
-                            <td>{$row['dinero']}</td>
-                            <td><span class='badge bg-secondary'>{$row['estado']}</span></td>
-                            <td>{$row['comentarios']}</td>
-                            <td>" .
-                            ($fila['estado'] === 'Solicitadas'
-                                ? "<a href='editar_solicitud.php?id={$fila['radicado']}' class='btn btn-success btn-md'><i class='fas fa-edit'></i> Aprobar</a>"
-                                : "<a href='editar_solicitud.php?id={$fila['radicado']}' class='btn btn-danger btn-md'><i class='fas fa-edit'></i> Rechazar</a>") .
+            <td>{$row['radicado']}</td>
+            <td>{$row['nombre_completo']}</td>
+            <td>{$row['fecha_diligenciamiento']}</td>
+            <td>{$row['periodo']}</td>
+            <td>{$row['fecha_inicio']}</td>
+            <td>{$row['fecha_reintegro']}</td>
+            <td>{$row['dias']}</td>
+            <td>{$row['dinero']}</td>
+            <td><span class='badge bg-secondary'>{$row['estado']}</span></td>
+            <td>{$row['comentarios']}</td>
+            <td>" .
+                            ($row['estado'] === 'Solicitadas'
+                                ? "<a href='editar_solicitud.php?id={$row['radicado']}' class='btn btn-success btn-md'><i class='fas fa-edit'></i> Aprobar</a>"
+                                : "<a href='editar_solicitud.php?id={$row['radicado']}' class='btn btn-danger btn-md'><i class='fas fa-edit'></i> Rechazar</a>") .
                             "</td>
-                            </tr>";
+        </tr>";
                     }
                     ?>
                 </tbody>
