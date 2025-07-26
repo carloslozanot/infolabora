@@ -376,9 +376,8 @@ $result = mysqli_query($conexion, $sql);
                 <thead class="table-dark">
                     <tr>
                         <th>Radicado</th>
-                        <th>Numero de Documneto</th>
                         <th>Nombre completo</th>
-                        <th>Fecha Diligenciamiento</th>
+                        <th>Fecha Diligencia</th>
                         <th>Periodo</th>
                         <th>Fecha Inicio</th>
                         <th>Fecha Reintegro</th>
@@ -395,7 +394,6 @@ $result = mysqli_query($conexion, $sql);
                     while ($row = mysqli_fetch_assoc($res_vacaciones)) {
                         echo "<tr>
                             <td>{$row['radicado']}</td>
-                            <td>{$row['cedula']}</td>
                             <td>{$row['nombre_completo']}</td>
                             <td>{$row['fecha_diligenciamiento']}</td>
                             <td>{$row['periodo']}</td>
