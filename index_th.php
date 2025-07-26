@@ -375,29 +375,33 @@ $result = mysqli_query($conexion, $sql);
             <table class="table table-bordered table-hover" id="tabla_historial_vacaciones">
                 <thead class="table-dark">
                     <tr>
-                        <th>Cédula</th>
-                        <th>Nombre</th>
+                        <th>Radicado</th>
+                        <th>Fecha Diligenciamiento</th>
                         <th>Periodo</th>
-                        <th>Días Totales</th>
-                        <th>Días Disfrutados</th>
-                        <th>Días en Dinero</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Reintegro</th>
+                        <th>Días</th>
+                        <th>Dinero</th>
+                        <th>Estado</th>
+                        <th>Comentario</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $sql_vacaciones = "SELECT v.*, CONCAT(i.nombres, ' ', i.apellidos) AS nombre 
-                               FROM vacaciones v 
-                               JOIN integrantes i ON v.cedula = i.cedula";
+                    $sql_vacaciones = "SELECT * FROM solicitudes WHERE cedula = '$cedula' ORDER BY fecha_diligenciamiento DESC";
                     $res_vacaciones = mysqli_query($conexion, $sql_vacaciones);
                     while ($row = mysqli_fetch_assoc($res_vacaciones)) {
                         echo "<tr>
-                        <td>{$row['cedula']}</td>
-                        <td>{$row['nombre']}</td>
-                        <td>{$row['periodo']}</td>
-                        <td>{$row['dias_totales']}</td>
-                        <td>{$row['dias_disfrutados']}</td>
-                        <td>{$row['dias_dinero']}</td>
-                      </tr>";
+                            <td>{$fila['radicado']}</td>
+                            <td>{$fila['fecha_diligenciamiento']}</td>
+                            <td>{$fila['periodo']}</td>
+                            <td>{$fila['fecha_inicio']}</td>
+                            <td>{$fila['fecha_reintegro']}</td>
+                            <td>{$fila['dias']}</td>
+                            <td>{$fila['dinero']}</td>
+                            <td><span class='badge bg-secondary'>{$fila['estado']}</span></td>
+                            <td>{$fila['comentarios']}</td>
+                            </tr>";
                     }
                     ?>
                 </tbody>
@@ -415,28 +419,28 @@ $result = mysqli_query($conexion, $sql);
     </main>
 
     <script>
-    $(document).ready(function () {
-        const opciones = {
-            language: {
-                search: "Buscar:",
-                lengthMenu: "Mostrar _MENU_ registros",
-                info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
-                paginate: {
-                    first: "Primero",
-                    last: "Último",
-                    next: "Siguiente",
-                    previous: "Anterior"
-                },
-                zeroRecords: "No se encontraron resultados",
-                infoEmpty: "Mostrando 0 a 0 de 0 registros",
-                infoFiltered: "(filtrado de _MAX_ registros totales)"
-            }
-        };
+        $(document).ready(function () {
+            const opciones = {
+                language: {
+                    search: "Buscar:",
+                    lengthMenu: "Mostrar _MENU_ registros",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                    paginate: {
+                        first: "Primero",
+                        last: "Último",
+                        next: "Siguiente",
+                        previous: "Anterior"
+                    },
+                    zeroRecords: "No se encontraron resultados",
+                    infoEmpty: "Mostrando 0 a 0 de 0 registros",
+                    infoFiltered: "(filtrado de _MAX_ registros totales)"
+                }
+            };
 
-        $('#tabla_integrantes').DataTable(opciones);
-        $('#tabla_historial_vacaciones').DataTable(opciones);
-    });
-</script>
+            $('#tabla_integrantes').DataTable(opciones);
+            $('#tabla_historial_vacaciones').DataTable(opciones);
+        });
+    </script>
 
     <!-- Otros scripts de tu sistema -->
     <script src="docs/js/script.js"></script>
