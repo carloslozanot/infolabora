@@ -11,10 +11,25 @@ include("php/conexion.php");
 $cedula = $_SESSION['usuario'];
 $radicado = $_GET['id'] ?? '';
 
+// Obtener la solicitud
 $sql = "SELECT * FROM solicitudes WHERE radicado = '$radicado' AND cedula = '$cedula'";
 $resultado = mysqli_query($conexion, $sql);
 $solicitud = mysqli_fetch_assoc($resultado);
 
+// Obtener los días faltantes desde la tabla vacaciones usando el periodo
+$dias_faltantes = 0;
+if (!empty($solicitud['periodo'])) {
+    $periodo = $solicitud['periodo'];
+    $sql_vac = "SELECT dias_totales, dias_disfrutados, dias_dinero 
+                FROM vacaciones 
+                WHERE cedula = '$cedula' AND periodo = '$periodo'";
+    $res_vac = mysqli_query($conexion, $sql_vac);
+    if ($row = mysqli_fetch_assoc($res_vac)) {
+        $dias_faltantes = $row['dias_totales'] - $row['dias_disfrutados'] - $row['dias_dinero'];
+    }
+}
+
+// Actualizar solicitud
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
     $fecha_inicio = $_POST['fecha_inicio'] ?? null;
     $fecha_reintegro = $_POST['fecha_reintegro'] ?? null;
@@ -37,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -62,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
             </div>
             <div class="card-body">
                 <form method="post">
-                    <input type="hidden" id="dias_faltantes" value="<?= (int) $_SESSION['dias_generados'] ?>">
+                    <input type="hidden" id="dias_faltantes" value="<?= $dias_faltantes ?>">
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label>PERIODO</label>
@@ -71,8 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                         </div>
                         <div class="col-md-6">
                             <label>DÍAS PARA TOMAR</label>
-                            <input type="number" class="form-control" value="<?= $solicitud['dias_faltantes'] ?>"
-                                readonly>
+                            <input type="number" class="form-control" value="<?= $dias_faltantes ?>" readonly>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -156,6 +171,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
             inputRemunerado.addEventListener("input", validarTotal);
             inputInicio.addEventListener("change", calcularDias);
             inputReintegro.addEventListener("change", calcularDias);
+
+            calcularDias();
         });
     </script>
 </body>
