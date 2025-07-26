@@ -99,7 +99,7 @@ $resultado = mysqli_query($conexion, $sql);
                         </table>
                     </div>
                     <div class="text-center mt-3">
-                        <a href="index_integrante.php" class="btn btn-danger btn-lg">Regresar</a>
+                        <a href="index_integrante.php" class="btn btn-danger btn-md">Regresar</a>
                     </div>
                 </div>
             </div>

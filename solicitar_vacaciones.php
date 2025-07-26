@@ -366,10 +366,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
 
 
                     <div class="text-center mt-4">
-                        <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-lg me-2">
+                        <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-md me-2">
                             <i class="fas fa-check-circle"></i> Solicitar
                         </button>
-                        <a href="index_integrante.php" class="btn btn-danger btn-lg">
+                        <a href="index_integrante.php" class="btn btn-danger btn-md">
                             <i class="fas fa-arrow-left"></i> Regresar
                         </a>
                     </div>
