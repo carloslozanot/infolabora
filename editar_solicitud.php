@@ -29,6 +29,10 @@ if (!empty($solicitud['periodo'])) {
     }
 }
 
+if ($dias_faltantes <= 0) {
+    $dias_faltantes = $_SESSION['dias_generados'] ?? 0;
+}
+
 // Actualizar solicitud
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
     $fecha_inicio = $_POST['fecha_inicio'] ?? null;
