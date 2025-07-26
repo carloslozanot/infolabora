@@ -66,6 +66,11 @@ $result = mysqli_query($conexion, $sql);
                 </div>
             </a>
             <a href="#">
+                <div class="option" data-pagina="th-vacaciones"><i class="bi bi-umbrella"></i>
+                    <h4>Vacaciones</h4>
+                </div>
+            </a>
+            <a href="#">
                 <div class="option" data-pagina="cerrar-sesion"><i class="bi bi-box-arrow-right"></i>
                     <h4>Cerrar Sesión</h4>
                 </div>
@@ -363,6 +368,14 @@ $result = mysqli_query($conexion, $sql);
                 </div>
             </div>
 
+        </div>
+
+        <div id="contenido-th-vacaciones" class="contenido" style="display: none;">
+            <br>
+            <label style="display: block; text-align: center;font-weight: bold; font-size: 40px">¿Está seguro de cerrar
+                sesión?</label><br>
+            <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
+                SESIÓN</a>
         </div>
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
