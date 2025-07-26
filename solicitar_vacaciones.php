@@ -207,10 +207,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
 
                     <script>
                         $(document).ready(function () {
+                            const inputInicio = document.querySelector('input[name="fecha_inicio"]');
+                            const inputReintegro = document.querySelector('input[name="fecha_reintegro"]');
+                            const inputDisfrutar = document.getElementById("disfrutar");
+                            const btn = document.getElementById("btn-enviar");
+
                             let campoActivo = '';
 
-                            function toggleCampos(dias_faltantes) {
-                                const disable = parseFloat(dias_faltantes) === 0;
+                            const diasFaltantes = () => parseFloat($('#dias_faltantes').val()) || 0;
+
+                            function toggleCampos(dias) {
+                                const disable = parseFloat(dias) === 0;
 
                                 $('#remunerado').prop('disabled', disable);
                                 $('#disfrutar').prop('disabled', disable);
@@ -224,39 +231,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                             }
 
                             function calcularDias() {
-                                const fechaInicio = new Date($('input[name="fecha_inicio"]').val());
-                                const fechaReintegro = new Date($('input[name="fecha_reintegro"]').val());
-
-                                let diffDays = 0;
+                                const fechaInicio = new Date(inputInicio.value);
+                                const fechaReintegro = new Date(inputReintegro.value);
 
                                 if (!isNaN(fechaInicio) && !isNaN(fechaReintegro)) {
-                                    const diffTime = fechaReintegro - fechaInicio;
-                                    diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-                                    $('#disfrutar').val(diffDays >= 0 ? diffDays : 0);
-                                } else {
-                                    $('#disfrutar').val('');
-                                }
+                                    if (fechaInicio >= fechaReintegro) {
+                                        alert("⚠️ La fecha de inicio debe ser menor que la fecha de reintegro.");
+                                        inputReintegro.value = '';
+                                        inputDisfrutar.value = '';
+                                        btn.disabled = true;
+                                        return;
+                                    }
 
-                                validarTotal(diffDays);
+                                    const diffTime = fechaReintegro - fechaInicio;
+                                    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+                                    const disponibles = diasFaltantes();
+
+                                    if (diffDays > disponibles) {
+                                        alert("⚠️ La diferencia entre las fechas no puede ser mayor a los días disponibles (" + disponibles + ").");
+                                        inputReintegro.value = '';
+                                        inputDisfrutar.value = '';
+                                        btn.disabled = true;
+                                    } else {
+                                        inputDisfrutar.value = diffDays >= 0 ? diffDays : 0;
+                                        btn.disabled = false;
+                                        validarTotal(diffDays);
+                                    }
+                                }
                             }
 
                             function validarTotal(diasDisfrutar) {
                                 const remunerado = parseFloat($('#remunerado').val()) || 0;
-                                const diasFaltantes = parseFloat($('#dias_faltantes').val()) || 0;
                                 const total = diasDisfrutar + remunerado;
+                                const disponibles = diasFaltantes();
 
-                                if (total > diasFaltantes) {
-                                    alert("La suma de los días a disfrutar y los días remunerados no puede superar los días faltantes (" + diasFaltantes + ").");
-
+                                if (total > disponibles) {
+                                    alert("La suma de los días no puede superar los días disponibles (" + disponibles + ").");
                                     if (campoActivo === 'remunerado') {
                                         $('#remunerado').val('');
                                     } else if (campoActivo === 'disfrutar') {
                                         $('#disfrutar').val('');
                                     }
-
-                                    $('#btn-enviar').prop('disabled', true);
+                                    btn.disabled = true;
                                 } else {
-                                    $('#btn-enviar').prop('disabled', false);
+                                    btn.disabled = false;
                                 }
                             }
 
@@ -300,7 +318,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                                 validarTotal(diasDisfrutar);
                             });
 
-                            // ✅ Validación final antes de enviar
+                            // Validación final antes de enviar
                             $('#btn-enviar').on('click', function (e) {
                                 const periodo = $('#periodo').val();
                                 const fechaInicio = $('input[name="fecha_inicio"]').val();
@@ -345,6 +363,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                             });
                         });
                     </script>
+
 
                     <div class="text-center mt-4">
                         <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-lg me-2">
