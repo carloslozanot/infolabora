@@ -394,38 +394,54 @@ $result = mysqli_query($conexion, $sql);
                     $res_vacaciones = mysqli_query($conexion, $sql_vacaciones);
                     while ($row = mysqli_fetch_assoc($res_vacaciones)) {
                         echo "<tr>
-                    <td>{$row['radicado']}</td>
-                    <td>{$row['nombre_completo']}</td>
-                    <td>{$row['fecha_diligenciamiento']}</td>
-                    <td>{$row['periodo']}</td>
-                    <td>{$row['fecha_inicio']}</td>
-                    <td>{$row['fecha_reintegro']}</td>
-                    <td>{$row['dias']}</td>
-                    <td>{$row['dinero']}</td>
-                    <td><span class='badge bg-secondary'>{$row['estado']}</span></td>
-                    <td>{$row['comentarios']}</td>
-                    <td>";
+        <td>{$row['radicado']}</td>
+        <td>{$row['nombre_completo']}</td>
+        <td>{$row['fecha_diligenciamiento']}</td>
+        <td>{$row['periodo']}</td>
+        <td>{$row['fecha_inicio']}</td>
+        <td>{$row['fecha_reintegro']}</td>
+        <td>{$row['dias']}</td>
+        <td>{$row['dinero']}</td>
+        <td>";
+
+                        // Mostrar el estado con color
+                        $estado = $row['estado'];
+                        if ($estado === 'Solicitadas') {
+                            echo "<span class='badge bg-secondary'>{$estado}</span>";
+                        } elseif ($estado === 'Aprobadas') {
+                            echo "<span class='badge bg-success'>{$estado}</span>";
+                        } elseif ($estado === 'Rechazadas') {
+                            echo "<span class='badge bg-danger'>{$estado}</span>";
+                        } else {
+                            echo "<span class='badge bg-light text-dark'>{$estado}</span>";
+                        }
+
+                        echo "</td>
+        <td>{$row['comentarios']}</td>
+        <td>";
+
+                        // Acciones según estado
                         if ($row['estado'] === 'Solicitadas') {
                             echo "
-        <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=aprobar' 
-           class='btn btn-success btn-sm mb-1'
-           onclick=\"return confirm('¿Estás seguro de aprobar esta solicitud?')\">
-            <i class='fas fa-check'></i> Aprobar
-        </a><br>
-        <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=rechazar' 
-           class='btn btn-danger btn-sm'
-           onclick=\"return confirm('¿Estás seguro de rechazar esta solicitud?')\">
-            <i class='fas fa-times'></i> Rechazar
-        </a>
-    ";
+            <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=aprobar' 
+               class='btn btn-success btn-sm mb-1'
+               onclick=\"return confirm('¿Estás seguro de aprobar esta solicitud?')\">
+                <i class='fas fa-check'></i> Aprobar
+            </a><br>
+            <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=rechazar' 
+               class='btn btn-danger btn-sm'
+               onclick=\"return confirm('¿Estás seguro de rechazar esta solicitud?')\">
+                <i class='fas fa-times'></i> Rechazar
+            </a>";
                         } else {
                             echo "<span class='text-muted'>Finalizada</span>";
                         }
-                        echo "</td>";
 
+                        echo "</td></tr>";
                     }
                     ?>
                 </tbody>
+
             </table>
         </div>
 

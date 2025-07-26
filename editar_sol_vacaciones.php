@@ -5,9 +5,9 @@ $radicado = $_GET['id'];
 $accion = $_GET['accion'];
 
 if ($accion === 'aprobar') {
-    $sql = "UPDATE solicitudes SET estado = 'Aprobada' WHERE radicado = '$radicado'";
+    $sql = "UPDATE solicitudes SET estado = 'Aprobadas' WHERE radicado = '$radicado'";
 } elseif ($accion === 'rechazar') {
-    $sql = "UPDATE solicitudes SET estado = 'Rechazada' WHERE radicado = '$radicado'";
+    $sql = "UPDATE solicitudes SET estado = 'Rechazadas' WHERE radicado = '$radicado'";
 }
 
 if (mysqli_query($conexion, $sql)) {
