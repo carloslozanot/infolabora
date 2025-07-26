@@ -407,12 +407,12 @@ $result = mysqli_query($conexion, $sql);
                     <td>";
                         if ($row['estado'] === 'Solicitadas') {
                             echo "
-        <a href='editar_solicitud.php?id={$row['radicado']}&accion=aprobar' 
+        <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=aprobar' 
            class='btn btn-success btn-sm mb-1'
            onclick=\"return confirm('¿Estás seguro de aprobar esta solicitud?')\">
             <i class='fas fa-check'></i> Aprobar
         </a><br>
-        <a href='editar_solicitud.php?id={$row['radicado']}&accion=rechazar' 
+        <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=rechazar' 
            class='btn btn-danger btn-sm'
            onclick=\"return confirm('¿Estás seguro de rechazar esta solicitud?')\">
             <i class='fas fa-times'></i> Rechazar
