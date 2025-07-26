@@ -25,7 +25,7 @@ if ($accion === 'aprobar') {
     $sql = "UPDATE solicitudes SET estado = 'Aprobadas' WHERE radicado = '$radicado'";
 
     // Actualizar días disfrutados en vacaciones
-    $sql_2 = "UPDATE vacaciones SET dias_disfrutados = '$dias_totales' WHERE cedula = '$cedula' AND radicado = '$radicado'";
+    $sql_2 = "UPDATE vacaciones SET dias_disfrutados = '$dias_totales' WHERE cedula = '$cedula'";
 
     // Ejecutar ambas actualizaciones
     mysqli_query($conexion, $sql_2);
