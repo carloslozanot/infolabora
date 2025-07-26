@@ -394,17 +394,17 @@ $result = mysqli_query($conexion, $sql);
                     $res_vacaciones = mysqli_query($conexion, $sql_vacaciones);
                     while ($row = mysqli_fetch_assoc($res_vacaciones)) {
                         echo "<tr>
-                            <td>{$fila['radicado']}</td>
-                            <td>{$fila['cedula']}</td>
-                            <td>{$fila['nombre_completo']}</td>
-                            <td>{$fila['fecha_diligenciamiento']}</td>
-                            <td>{$fila['periodo']}</td>
-                            <td>{$fila['fecha_inicio']}</td>
-                            <td>{$fila['fecha_reintegro']}</td>
-                            <td>{$fila['dias']}</td>
-                            <td>{$fila['dinero']}</td>
-                            <td><span class='badge bg-secondary'>{$fila['estado']}</span></td>
-                            <td>{$fila['comentarios']}</td>
+                            <td>{$row['radicado']}</td>
+                            <td>{$row['cedula']}</td>
+                            <td>{$row['nombre_completo']}</td>
+                            <td>{$row['fecha_diligenciamiento']}</td>
+                            <td>{$row['periodo']}</td>
+                            <td>{$row['fecha_inicio']}</td>
+                            <td>{$row['fecha_reintegro']}</td>
+                            <td>{$row['dias']}</td>
+                            <td>{$row['dinero']}</td>
+                            <td><span class='badge bg-secondary'>{$row['estado']}</span></td>
+                            <td>{$row['comentarios']}</td>
                             </tr>";
                     }
                     ?>
