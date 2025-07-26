@@ -62,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
             </div>
             <div class="card-body">
                 <form method="post">
+                    <input type="hidden" id="dias_faltantes" value="<?= (int) $_SESSION['dias_generados'] ?>">
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label>Fecha Inicio del periodo vacacional</label>
@@ -99,22 +100,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const btn = document.getElementById("btn-enviar");
+            const inputDisfrutar = document.getElementById("disfrutar");
+            const inputRemunerado = document.getElementById("remunerado");
+            const inputInicio = document.querySelector('input[name="fecha_inicio"]');
+            const inputReintegro = document.querySelector('input[name="fecha_reintegro"]');
+            const diasFaltantes = parseFloat(document.getElementById("dias_faltantes").value) || 0;
+
             function validarTotal() {
-                const diasDisfrutar = parseFloat(document.getElementById("disfrutar").value) || 0;
-                const remunerado = parseFloat(document.getElementById("remunerado").value) || 0;
-                const diasFaltantes = <?= (int) $_SESSION['dias_generados'] ?>;
-                const total = diasDisfrutar + remunerado;
+                const disfrutar = parseFloat(inputDisfrutar.value) || 0;
+                const dinero = parseFloat(inputRemunerado.value) || 0;
+                const total = disfrutar + dinero;
 
                 if (total > diasFaltantes) {
                     alert("La suma de los días no puede superar los días faltantes: " + diasFaltantes);
-                    document.getElementById("btn-enviar").disabled = true;
+                    btn.disabled = true;
                 } else {
-                    document.getElementById("btn-enviar").disabled = false;
+                    btn.disabled = false;
                 }
             }
 
-            document.getElementById("disfrutar").addEventListener("input", validarTotal);
-            document.getElementById("remunerado").addEventListener("input", validarTotal);
+            function calcularDias() {
+                const fechaInicio = new Date(inputInicio.value);
+                const fechaReintegro = new Date(inputReintegro.value);
+
+                if (!isNaN(fechaInicio) && !isNaN(fechaReintegro)) {
+                    const diffTime = fechaReintegro - fechaInicio;
+                    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+                    if (diffDays > diasFaltantes) {
+                        alert("⚠️ La diferencia entre la fecha de reintegro y la de inicio no puede ser mayor a los días faltantes (" + diasFaltantes + ").");
+                        inputReintegro.value = '';
+                        inputDisfrutar.value = '';
+                        btn.disabled = true;
+                    } else {
+                        inputDisfrutar.value = diffDays >= 0 ? diffDays : 0;
+                        validarTotal();
+                    }
+                }
+            }
+
+            inputDisfrutar.addEventListener("input", validarTotal);
+            inputRemunerado.addEventListener("input", validarTotal);
+            inputInicio.addEventListener("change", calcularDias);
+            inputReintegro.addEventListener("change", calcularDias);
         });
     </script>
 </body>
