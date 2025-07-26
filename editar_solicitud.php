@@ -66,6 +66,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label>Fecha Inicio del periodo vacacional</label>
+                            <input type="date" name="periodo" class="form-control"
+                                value="<?= $solicitud['periodo'] ?>">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Fecha de reintegro a la organización</label>
+                            <input type="date" name="fecha_reintegro" class="form-control"
+                                value="<?= $solicitud['fecha_reintegro'] ?>">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label>Fecha Inicio del periodo vacacional</label>
                             <input type="date" name="fecha_inicio" class="form-control"
                                 value="<?= $solicitud['fecha_inicio'] ?>">
                         </div>
@@ -137,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                         inputDisfrutar.value = diffDays >= 0 ? diffDays : 0;
                         validarTotal();
                     }
-                }
+                }   
             }
 
             inputDisfrutar.addEventListener("input", validarTotal);
