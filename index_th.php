@@ -219,7 +219,7 @@ $result = mysqli_query($conexion, $sql);
             $resultado_desprendible = mysqli_query($conexion, $sql_desprendible);
             $fila_desprendible = mysqli_fetch_assoc($resultado_desprendible);
             $nombres_desprendible = $fila_desprendible['nombre_completo'];
-            $ingreso_desprendible = $fila_desprendible['total_ingreso'];            
+            $ingreso_desprendible = $fila_desprendible['total_ingreso'];
             ?>
 
             <div class="row justify-content-center">
@@ -371,12 +371,39 @@ $result = mysqli_query($conexion, $sql);
         </div>
 
         <div id="contenido-th-vacaciones" class="contenido" style="display: none;">
-            <br>
-            <label style="display: block; text-align: center;font-weight: bold; font-size: 40px">¿Está seguro de cerrar
-                sesión?</label><br>
-            <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
-                SESIÓN</a>
+            <h2 class="text-center mb-4">Historial de Vacaciones</h2>
+            <table class="table table-bordered table-hover" id="tabla_historial_vacaciones">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Periodo</th>
+                        <th>Días Totales</th>
+                        <th>Días Disfrutados</th>
+                        <th>Días en Dinero</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $sql_vacaciones = "SELECT v.*, CONCAT(i.nombres, ' ', i.apellidos) AS nombre 
+                               FROM vacaciones v 
+                               JOIN integrantes i ON v.cedula = i.cedula";
+                    $res_vacaciones = mysqli_query($conexion, $sql_vacaciones);
+                    while ($row = mysqli_fetch_assoc($res_vacaciones)) {
+                        echo "<tr>
+                        <td>{$row['cedula']}</td>
+                        <td>{$row['nombre']}</td>
+                        <td>{$row['periodo']}</td>
+                        <td>{$row['dias_totales']}</td>
+                        <td>{$row['dias_disfrutados']}</td>
+                        <td>{$row['dias_dinero']}</td>
+                      </tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
+
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <br>
@@ -388,25 +415,28 @@ $result = mysqli_query($conexion, $sql);
     </main>
 
     <script>
-        $(document).ready(function () {
-            $('#tabla_integrantes').DataTable({
-                language: {
-                    search: "Buscar:",
-                    lengthMenu: "Mostrar _MENU_ registros",
-                    info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
-                    paginate: {
-                        first: "Primero",
-                        last: "Último",
-                        next: "Siguiente",
-                        previous: "Anterior"
-                    },
-                    zeroRecords: "No se encontraron resultados",
-                    infoEmpty: "Mostrando 0 a 0 de 0 registros",
-                    infoFiltered: "(filtrado de _MAX_ registros totales)"
-                }
-            });
-        });
-    </script>
+    $(document).ready(function () {
+        const opciones = {
+            language: {
+                search: "Buscar:",
+                lengthMenu: "Mostrar _MENU_ registros",
+                info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                paginate: {
+                    first: "Primero",
+                    last: "Último",
+                    next: "Siguiente",
+                    previous: "Anterior"
+                },
+                zeroRecords: "No se encontraron resultados",
+                infoEmpty: "Mostrando 0 a 0 de 0 registros",
+                infoFiltered: "(filtrado de _MAX_ registros totales)"
+            }
+        };
+
+        $('#tabla_integrantes').DataTable(opciones);
+        $('#tabla_historial_vacaciones').DataTable(opciones);
+    });
+</script>
 
     <!-- Otros scripts de tu sistema -->
     <script src="docs/js/script.js"></script>
