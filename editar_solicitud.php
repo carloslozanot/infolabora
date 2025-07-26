@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                 const total = disfrutar + dinero;
 
                 if (total > diasFaltantes) {
-                    alert("La suma de los días no puede superar los días faltantes: " + diasFaltantes);
+                    alert("⚠️ La suma de los días no puede superar los días disponibles: " + diasFaltantes);
                     btn.disabled = true;
                 } else {
                     btn.disabled = false;
@@ -156,11 +156,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                 const fechaReintegro = new Date(inputReintegro.value);
 
                 if (!isNaN(fechaInicio) && !isNaN(fechaReintegro)) {
+                    if (fechaInicio >= fechaReintegro) {
+                        alert("⚠️ La fecha de inicio debe ser menor que la fecha de reintegro.");
+                        inputReintegro.value = '';
+                        inputDisfrutar.value = '';
+                        btn.disabled = true;
+                        return;
+                    }
+
                     const diffTime = fechaReintegro - fechaInicio;
                     const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
 
                     if (diffDays > diasFaltantes) {
-                        alert("⚠️ La diferencia entre la fecha de reintegro y la de inicio no puede ser mayor a los días faltantes (" + diasFaltantes + ").");
+                        alert("⚠️ La diferencia entre la fecha de reintegro y la de inicio no puede ser mayor a los días disponibles (" + diasFaltantes + ").");
                         inputReintegro.value = '';
                         inputDisfrutar.value = '';
                         btn.disabled = true;
@@ -176,9 +184,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
             inputInicio.addEventListener("change", calcularDias);
             inputReintegro.addEventListener("change", calcularDias);
 
-            calcularDias();
+            calcularDias(); // Llama al cargar por si ya hay valores
         });
     </script>
+
 </body>
 
 </html>
