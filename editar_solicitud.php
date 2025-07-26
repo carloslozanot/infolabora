@@ -66,13 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label>PERIODO</label>
-                            <input type="text" name="dias_faltantes" class="form-control"
-                                value="<?= $solicitud['dias_faltantes'] ?>">
+                            <input type="text" name="periodo" class="form-control" value="<?= $solicitud['periodo'] ?>"
+                                readonly>
                         </div>
                         <div class="col-md-6">
                             <label>DÍAS PARA TOMAR</label>
-                            <input type="number" name="dias_faltantes" class="form-control"
-                                value="<?= $solicitud['dias_faltantes'] ?>">
+                            <input type="number" class="form-control" value="<?= $_SESSION['dias_generados'] ?>"
+                                readonly>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                         inputDisfrutar.value = diffDays >= 0 ? diffDays : 0;
                         validarTotal();
                     }
-                }   
+                }
             }
 
             inputDisfrutar.addEventListener("input", validarTotal);
