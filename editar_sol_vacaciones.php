@@ -13,7 +13,7 @@ if ($accion === 'aprobar') {
     $dias_solicitados = $row['dias'];
 
     // Obtener los días disfrutados actuales desde vacaciones
-    $consulta2 = "SELECT dias_disfrutados FROM vacaciones WHERE cedula = '$cedula' AND radicado = '$radicado'";
+    $consulta2 = "SELECT dias_disfrutados FROM vacaciones WHERE cedula = '$cedula'";
     $resultado2 = mysqli_query($conexion, $consulta2);
     $row2 = mysqli_fetch_assoc($resultado2);
     $dias_actuales = $row2 ? $row2['dias_disfrutados'] : 0;
