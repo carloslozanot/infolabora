@@ -66,12 +66,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label>PERIODO</label>
-                            <input type="date" name="dias_faltantes" class="form-control"
+                            <input type="text" name="dias_faltantes" class="form-control"
                                 value="<?= $solicitud['dias_faltantes'] ?>">
                         </div>
                         <div class="col-md-6">
                             <label>DÍAS PARA TOMAR</label>
-                            <input type="date" name="dias_faltantes" class="form-control"
+                            <input type="number" name="dias_faltantes" class="form-control"
                                 value="<?= $solicitud['dias_faltantes'] ?>">
                         </div>
                     </div>
