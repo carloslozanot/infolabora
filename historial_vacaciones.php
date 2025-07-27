@@ -86,7 +86,7 @@ $resultado = mysqli_query($conexion, $sql);
                                         <td>{$fila['dias']}</td>
                                         <td>{$fila['dinero']}</td>
                                         <td>";
-                                    $estado = $row['estado'];
+                                    $estado = $fila['estado'];
                                     if ($estado === 'Solicitadas') {
                                         echo "<span class='badge bg-secondary'>{$estado}</span>";
                                     } elseif ($estado === 'Aprobadas') {
