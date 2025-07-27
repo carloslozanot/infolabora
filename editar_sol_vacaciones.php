@@ -37,7 +37,7 @@ if ($accion === 'aprobar') {
 
 // Ejecutar actualización del estado
 if (mysqli_query($conexion, $sql)) {
-    header("Location: ../index_th.php");
+    header("Location: ../index_th.php?mensaje=ok");
 } else {
     echo "Error al actualizar: " . mysqli_error($conexion);
 }

@@ -404,7 +404,6 @@ $result = mysqli_query($conexion, $sql);
         <td>{$row['dinero']}</td>
         <td>";
 
-                        // Mostrar el estado con color
                         $estado = $row['estado'];
                         if ($estado === 'Solicitadas') {
                             echo "<span class='badge bg-secondary'>{$estado}</span>";
@@ -420,19 +419,18 @@ $result = mysqli_query($conexion, $sql);
         <td>{$row['comentarios']}</td>
         <td>";
 
-                        // Acciones según estado
                         if ($row['estado'] === 'Solicitadas') {
                             echo "
-            <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=aprobar' 
-               class='btn btn-success btn-sm mb-1'
-               onclick=\"return confirm('¿Estás seguro de aprobar esta solicitud?')\">
-                <i class='fas fa-check'></i> Aprobar
-            </a><br>
-            <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=rechazar' 
-               class='btn btn-danger btn-sm'
-               onclick=\"return confirm('¿Estás seguro de rechazar esta solicitud?')\">
-                <i class='fas fa-times'></i> Rechazar
-            </a>";
+        <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=aprobar' 
+           class='btn btn-success btn-sm mb-1'
+           onclick=\"return confirm('¿Estás seguro de aprobar esta solicitud?')\">
+            <i class='fas fa-check'></i> Aprobar
+        </a><br>
+        <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=rechazar' 
+           class='btn btn-danger btn-sm'
+           onclick=\"return confirm('¿Estás seguro de rechazar esta solicitud?')\">
+            <i class='fas fa-times'></i> Rechazar
+        </a>";
                         } else {
                             echo "<span class='text-muted'>Finalizada</span>";
                         }
@@ -441,11 +439,16 @@ $result = mysqli_query($conexion, $sql);
                     }
                     ?>
                 </tbody>
-
             </table>
         </div>
 
-
+        <?php if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'ok'): ?>
+            <script>
+                window.onload = function () {
+                    alert('Solicitud procesada exitosamente.');
+                };
+            </script>
+        <?php endif; ?>
 
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <br>
