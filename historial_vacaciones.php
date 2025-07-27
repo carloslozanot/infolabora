@@ -85,7 +85,19 @@ $resultado = mysqli_query($conexion, $sql);
                                         <td>{$fila['fecha_reintegro']}</td>
                                         <td>{$fila['dias']}</td>
                                         <td>{$fila['dinero']}</td>
-                                        <td><span class='badge bg-secondary'>{$fila['estado']}</span></td>
+                                        <td>";
+                                    $estado = $row['estado'];
+                                    if ($estado === 'Solicitadas') {
+                                        echo "<span class='badge bg-secondary'>{$estado}</span>";
+                                    } elseif ($estado === 'Aprobadas') {
+                                        echo "<span class='badge bg-success'>{$estado}</span>";
+                                    } elseif ($estado === 'Rechazadas') {
+                                        echo "<span class='badge bg-danger'>{$estado}</span>";
+                                    } else {
+                                        echo "<span class='badge bg-light text-dark'>{$estado}</span>";
+                                    }
+
+                                    echo "</td>
                                         <td>{$fila['comentarios']}</td>
                                         <td>" .
                                         ($fila['estado'] === 'Solicitadas'
