@@ -123,7 +123,7 @@ if ($permiso == '1') {
         </div>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 
-            <h3>Cedula</h3>
+            <h3>Cédula</h3>
             <input type="text" name="cedula" class="form-control" value="<?php echo $cedula ?>"><br>
 
             <h3>Nombres</h3>

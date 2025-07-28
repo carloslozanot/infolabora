@@ -52,7 +52,7 @@
             <h1>Agregar Vacaciones</h1>
         </div>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-            <h3>Cedula</h3>
+            <h3>Cédula</h3>
             <input type="text" name="id" class="form-control"><br>
 
             <h3>Dias Totales</h3>
