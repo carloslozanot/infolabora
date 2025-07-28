@@ -22,8 +22,7 @@
         if (isset($_POST['enviar'])) {
             include("php/conexion.php");
 
-            // 1. Obtener el último id_empleado actual
-            $consulta = "SELECT MAX(id_empleado) AS ultimo_id FROM integrantes";
+            $consulta = "SELECT MAX(id_integrante) AS ultimo_id FROM integrantes";
             $resultado_id = mysqli_query($conexion, $consulta);
             $fila = mysqli_fetch_assoc($resultado_id);
             $ultimo_id = $fila['ultimo_id'] ?? 0;
@@ -52,7 +51,7 @@
             $estado = $_POST['estado'];
 
             $sql = "INSERT INTO integrantes (
-                        id_empleado, cedula, nombres, apellidos, edad, celular, correo,
+                        id_integrante, cedula, nombres, apellidos, edad, celular, correo,
                         fecha_ingreso, cargo, area, lider_inmediato,
                         caja, eps, arl, pensiones, cesantias, imagen, direccion, ciudad_residencia, tipo_contrato, estado, fecha_retiro
                     ) VALUES (

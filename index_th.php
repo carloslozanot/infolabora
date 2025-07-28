@@ -194,9 +194,9 @@ $result = mysqli_query($conexion, $sql);
                 $total_certificados = $fila_certificados['total_certificados'];
                 $sql_integrantes = "select CONCAT(nombres, ' ', apellidos) AS nombre_completo, COUNT(*) AS total_ingreso
             from bitacora b, integrantes i
-            where b.cedula_empleado = i.cedula
+            where b.cedula_integrante = i.cedula
             and tipo = 'Ingreso al Sistema'
-            and cedula_empleado not in (100, 123)
+            and cedula_integrante not in (100, 123)
             group by nombre_completo
             order by total_ingreso desc
             limit 5";
@@ -206,9 +206,9 @@ $result = mysqli_query($conexion, $sql);
                 $total_cantidad = $fila_integrantes['total_ingreso'];
                 $sql_cert_laboral = "select CONCAT(nombres, ' ', apellidos) AS nombre_completo, COUNT(*) AS total_ingreso
             from bitacora b, integrantes i
-            where b.cedula_empleado = i.cedula
+            where b.cedula_integrante = i.cedula
             and tipo = 'Certificado Laboral'
-            and cedula_empleado not in (100, 123)
+            and cedula_integrante not in (100, 123)
             group by nombre_completo
             order by total_ingreso desc
             limit 5";
@@ -218,9 +218,9 @@ $result = mysqli_query($conexion, $sql);
                 $total_cantidades = $fila_integrantes['total_ingreso'];
                 $sql_desprendible = "select CONCAT(nombres, ' ', apellidos) AS nombre_completo, COUNT(*) AS total_ingreso
             from bitacora b, integrantes i
-            where b.cedula_empleado = i.cedula
+            where b.cedula_integrante = i.cedula
             and tipo = 'Desprendible de Pago'
-            and cedula_empleado not in (100, 123)
+            and cedula_integrante not in (100, 123)
             group by nombre_completo
             order by total_ingreso desc
             limit 5";
@@ -377,7 +377,7 @@ $result = mysqli_query($conexion, $sql);
                 </div>
             </div>
             <div class="text-center">
-                <a class="btn btn-info" href="exportar_excel.php" target="_blank">
+                <a class="btn btn-info" href="exportar_excel_bitacora.php" target="_blank">
                     <i class="fa-solid fa-file-excel"></i> Exportar a Excel
                 </a>
             </div>

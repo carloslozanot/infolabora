@@ -19,7 +19,7 @@ $fecha_generacion = date('Y-m-d H:i:s');
 $tipo = 'Desprendible de Pago';
 $observaciones = '';
 
-$sql_bitacora = "INSERT INTO bitacora (cedula_empleado, fecha_generacion, tipo, observaciones)
+$sql_bitacora = "INSERT INTO bitacora (cedula_integrante, fecha_generacion, tipo, observaciones)
                          VALUES (?, ?, ?, ?)";
 $stmt = $conexion->prepare($sql_bitacora);
 $stmt->bind_param("ssss", $cedula, $fecha_generacion, $tipo, $observaciones);
@@ -59,7 +59,7 @@ class PDF extends FPDF
 
       $this->SetFont('Arial', '', 10);
       foreach ($conceptos as $nombre => $valor) {
-         if ($nombre === 'TOTAL NETO A PAGAR AL EMPLEADO') {
+         if ($nombre === 'TOTAL NETO A PAGAR AL INTEGRANTE') {
             $this->SetFont('Arial', 'B', 10); // Negrilla
          } else {
             $this->SetFont('Arial', '', 10); // Normal
@@ -79,13 +79,12 @@ function normalizar_num($valor)
 $pdf = new PDF();
 $pdf->AddPage();
 
-// Empresa y empleado
 $pdf->Titulo('EMPRESA');
 $pdf->LineaTexto('Nombre:', 'Empresa');
 $pdf->LineaTexto('NIT:', '123.456.789');
 
 $pdf->Ln(2);
-$pdf->Titulo('EMPLEADO');
+$pdf->Titulo('INTEGRANTE');
 $pdf->LineaTexto('Nombre:', utf8_decode($datos['nombre_completo']));
 $pdf->LineaTexto('C.C.:', $datos['cedula']);
 $pdf->LineaTexto('Cargo:', utf8_decode($datos['cargo']));
@@ -106,7 +105,7 @@ $pdf->TablaConceptos('Item', [
    'Ingresos adicionales' => normalizar_num($datos['otros_devengados']),
    'TOTAL DEVENGADO' => normalizar_num($datos['total_devengado']),
    'Retenciones y deducciones' => -normalizar_num($datos['total_descuento']),
-   'TOTAL NETO A PAGAR AL EMPLEADO' => normalizar_num($datos['neto_pagar']) + normalizar_num($datos['aportes_pension']) + normalizar_num($datos['aportes_pension']) - normalizar_num($datos['aportes_pension'])
+   'TOTAL NETO A PAGAR AL INTEGRANTE' => normalizar_num($datos['neto_pagar']) + normalizar_num($datos['aportes_pension']) + normalizar_num($datos['aportes_pension']) - normalizar_num($datos['aportes_pension'])
 ]);
 
 $pdf->Ln(4);
