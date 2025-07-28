@@ -396,6 +396,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                         });
                     </script>
 
+
                     <div class="text-center mt-4">
                         <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-md me-2">
                             <i class="fas fa-check-circle"></i> Solicitar
@@ -408,6 +409,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
             </div>
         </div>
     </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("form");
+    if (!form) return;
+
+    form.addEventListener("submit", function(e) {
+        const inicio = new Date(document.getElementById("fecha_inicio").value);
+        const fin = new Date(document.getElementById("fecha_reintegro").value);
+
+        if (isNaN(inicio) || isNaN(fin)) return; // Si no hay fechas válidas, salir
+
+        let contieneHabil = false;
+        let dia = new Date(inicio);
+
+        while (dia <= fin) {
+            const day = dia.getDay(); // 0=domingo, 6=sábado
+            if (day !== 0 && day !== 6) {
+                contieneHabil = true;
+                break;
+            }
+            dia.setDate(dia.getDate() + 1);
+        }
+
+        if (!contieneHabil) {
+            e.preventDefault();
+            alert("Debe seleccionar al menos un día hábil entre las fechas.");
+        }
+    });
+});
+</script>
+
 </body>
 
 </html>
