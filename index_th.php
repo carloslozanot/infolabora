@@ -179,8 +179,9 @@ $result = mysqli_query($conexion, $sql);
 
         <div id="contenido-bitacora" class="contenido" style="display: none;">
             <div class="tarjeta-certificados">
-                <h2 style="text-align: center;font-size: 40px; font-weight: 800;">BITÁCORA</h2><br>
-
+                <div class="texto-certificados">
+                    <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">CERTIFICADOS</h2>
+                </div>
                 <?php
                 include("php/conexion.php");
                 $sql = "SELECT COUNT(*) AS total_ingresos FROM bitacora WHERE tipo = 'Ingreso al Sistema'";
