@@ -243,8 +243,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                                         return;
                                     }
 
-                                    const diffTime = fechaReintegro - fechaInicio;
-                                    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+                                    const festivos = ["2025-01-01", "2025-05-01", "2025-07-20", "2025-08-07"];
+                                    const diffDays = calcularDiasHabiles(inputInicio.value, inputReintegro.value, festivos);
                                     const disponibles = diasFaltantes();
 
                                     if (diffDays > disponibles) {
@@ -258,6 +258,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                                         validarTotal(diffDays);
                                     }
                                 }
+                            }
+
+                            function calcularDiasHabiles(fechaInicio, fechaReintegro, festivos = []) {
+                                let contador = 0;
+                                const fInicio = new Date(fechaInicio);
+                                const fReintegro = new Date(fechaReintegro);
+                                fReintegro.setDate(fReintegro.getDate() - 1); // El día anterior al reintegro
+
+                                while (fInicio <= fReintegro) {
+                                    const dia = fInicio.getDay();
+                                    const formatoFecha = fInicio.toISOString().split("T")[0];
+
+                                    if (dia !== 0 && dia !== 6 && !festivos.includes(formatoFecha)) {
+                                        contador++;
+                                    }
+
+                                    fInicio.setDate(fInicio.getDate() + 1);
+                                }
+
+                                return contador;
                             }
 
                             function validarTotal(diasDisfrutar) {
