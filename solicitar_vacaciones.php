@@ -13,29 +13,6 @@ if (!isset($_SESSION['usuario'])) {
 
 include("php/conexion.php");
 
-
-function contarDiasHabiles($fecha_inicio, $fecha_fin, $festivos = [])
-{
-    $inicio = new DateTime($fecha_inicio);
-    $fin = new DateTime($fecha_fin);
-    $fin->modify('+1 day'); // incluir el día final
-
-    $diasHabiles = 0;
-    $periodo = new DatePeriod($inicio, new DateInterval('P1D'), $fin);
-
-    foreach ($periodo as $dia) {
-        $esFinDeSemana = in_array($dia->format('N'), [6, 7]); // sábado o domingo
-        $esFestivo = in_array($dia->format('Y-m-d'), $festivos);
-
-        if (!$esFinDeSemana && !$esFestivo) {
-            $diasHabiles++;
-        }
-    }
-
-    return $diasHabiles;
-}
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
     $fecha_diligenciamiento = date('Y-m-d');
     $fecha_ingreso = $_SESSION['fecha_ingreso'] ?? null;
@@ -48,16 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
     $fecha_reintegro = $_POST['fecha_reintegro'] ?? null;
     $dias = $_POST['disfrutar'] ?? 0;
     $dinero = $_POST['remunerado'] ?? 0;
-
-    // Validar que existan días hábiles en el rango
-    $festivos = ['2025-01-01', '2025-05-01', '2025-07-20']; // ejemplo de festivos
-    $diasHabiles = contarDiasHabiles($fecha_inicio, $fecha_reintegro, $festivos);
-
-    if ($diasHabiles == 0) {
-        echo "<script>alert('La solicitud no contiene días hábiles.'); window.history.back();</script>";
-        exit;
-    }
-
 
     // Validar que todos los campos obligatorios tengan valores
     if ($periodo && $fecha_inicio && $fecha_reintegro && $dias !== '' && $dinero !== '') {
@@ -219,11 +186,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label">FECHA INICIO DEL PERIODO VACACIONAL</label>
-                            <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control">
+                            <input type="date" name="fecha_inicio" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label">FECHA DE REINTEGRO</label>
-                            <input type="date" name="fecha_reintegro" id="fecha_reintegro" class="form-control">
+                            <input type="date" name="fecha_reintegro" class="form-control">
                         </div>
                     </div>
 
@@ -399,10 +366,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
 
 
                     <div class="text-center mt-4">
-                        <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-md me-2">
+                        <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-lg me-2">
                             <i class="fas fa-check-circle"></i> Solicitar
                         </button>
-                        <a href="index_integrante.php" class="btn btn-danger btn-md">
+                        <a href="index_integrante.php" class="btn btn-danger btn-lg">
                             <i class="fas fa-arrow-left"></i> Regresar
                         </a>
                     </div>
@@ -413,54 +380,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const form = document.querySelector("form");
-            const inicioInput = document.getElementById("fecha_inicio");
-            const reintegroInput = document.getElementById("fecha_reintegro");
+            const festivos = ["2025-01-01", "2025-05-01", "2025-07-20"]; // Agrega más si es necesario
 
-            form.addEventListener("submit", function (e) {
-                const inicio = new Date(inicioInput.value);
-                const reintegro = new Date(reintegroInput.value);
+            const fechaInicio = document.getElementById("fecha_inicio");
+            const fechaReintegro = document.getElementById("fecha_reintegro");
 
-                if (isNaN(inicio.getTime()) || isNaN(reintegro.getTime())) {
-                    alert("Debe ingresar fechas válidas.");
-                    e.preventDefault();
-                    return;
-                }
+            function bloquearDiasNoHabiles(input) {
+                input.addEventListener("input", function () {
+                    const fecha = new Date(this.value);
+                    const diaSemana = fecha.getDay(); // 0 = domingo, 6 = sábado
+                    const yyyyMMdd = fecha.toISOString().split("T")[0];
 
-                if (inicio >= reintegro) {
-                    alert("La fecha de inicio debe ser menor que la fecha de reintegro.");
-                    e.preventDefault();
-                    return;
-                }
-
-                const festivos = ["2025-01-01", "2025-05-01", "2025-07-20"]; // Puedes expandir esta lista
-                let contieneHabil = false;
-
-                const diaActual = new Date(inicio);
-                diaActual.setHours(0, 0, 0, 0);
-                const fechaFin = new Date(reintegro);
-                fechaFin.setHours(0, 0, 0, 0);
-
-                while (diaActual < fechaFin) {
-                    const diaSemana = diaActual.getDay(); // 0 = domingo, 6 = sábado
-                    const yyyyMMdd = diaActual.toISOString().split("T")[0];
-
-                    if (diaSemana >= 1 && diaSemana <= 5 && !festivos.includes(yyyyMMdd)) {
-                        contieneHabil = true;
-                        break;
+                    if (diaSemana === 0 || diaSemana === 6 || festivos.includes(yyyyMMdd)) {
+                        alert("⚠️ La fecha seleccionada no es un día hábil. Seleccione un día entre lunes y viernes que no sea festivo.");
+                        this.value = "";
                     }
+                });
+            }
 
-                    diaActual.setDate(diaActual.getDate() + 1);
-                }
-
-                if (!contieneHabil) {
-                    alert("⚠️ Debe seleccionar al menos un día hábil (lunes a viernes no festivo) entre las fechas.");
-                    e.preventDefault();
-                }
-            });
+            bloquearDiasNoHabiles(fechaInicio);
+            bloquearDiasNoHabiles(fechaReintegro);
         });
     </script>
-
 
 </body>
 
