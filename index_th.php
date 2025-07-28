@@ -81,7 +81,7 @@ $result = mysqli_query($conexion, $sql);
     <main>
         <div id="contenido-inicio" class="contenido" style="display: block;">
             <div class="row justify-content-center text-center seccion-cerrar-sesion">
-                <div class="col-md-12"> 
+                <div class="col-md-12">
                     <p style="font-size: 32px; font-weight:1000;">¡Bienvenido,
                         <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br>
                     </p>
@@ -178,19 +178,20 @@ $result = mysqli_query($conexion, $sql);
         </div>
 
         <div id="contenido-bitacora" class="contenido" style="display: none;">
-            <h2 style="text-align: center;font-size: 40px; font-weight: 800;">BITÁCORA</h2><br>
+            <div class="tarjeta-certificados">
+                <h2 style="text-align: center;font-size: 40px; font-weight: 800;">BITÁCORA</h2><br>
 
-            <?php
-            include("php/conexion.php");
-            $sql = "SELECT COUNT(*) AS total_ingresos FROM bitacora WHERE tipo = 'Ingreso al Sistema'";
-            $resultado = mysqli_query($conexion, $sql);
-            $fila = mysqli_fetch_assoc($resultado);
-            $total_ingresos = $fila['total_ingresos'];
-            $sql_certificados = "SELECT COUNT(*) AS total_certificados FROM bitacora WHERE tipo = 'Certificado Laboral'";
-            $resultado_certificados = mysqli_query($conexion, $sql_certificados);
-            $fila_certificados = mysqli_fetch_assoc($resultado_certificados);
-            $total_certificados = $fila_certificados['total_certificados'];
-            $sql_integrantes = "select CONCAT(nombres, ' ', apellidos) AS nombre_completo, COUNT(*) AS total_ingreso
+                <?php
+                include("php/conexion.php");
+                $sql = "SELECT COUNT(*) AS total_ingresos FROM bitacora WHERE tipo = 'Ingreso al Sistema'";
+                $resultado = mysqli_query($conexion, $sql);
+                $fila = mysqli_fetch_assoc($resultado);
+                $total_ingresos = $fila['total_ingresos'];
+                $sql_certificados = "SELECT COUNT(*) AS total_certificados FROM bitacora WHERE tipo = 'Certificado Laboral'";
+                $resultado_certificados = mysqli_query($conexion, $sql_certificados);
+                $fila_certificados = mysqli_fetch_assoc($resultado_certificados);
+                $total_certificados = $fila_certificados['total_certificados'];
+                $sql_integrantes = "select CONCAT(nombres, ' ', apellidos) AS nombre_completo, COUNT(*) AS total_ingreso
             from bitacora b, integrantes i
             where b.cedula_empleado = i.cedula
             and tipo = 'Ingreso al Sistema'
@@ -198,11 +199,11 @@ $result = mysqli_query($conexion, $sql);
             group by nombre_completo
             order by total_ingreso desc
             limit 5";
-            $resultado_integrantes = mysqli_query($conexion, $sql_integrantes);
-            $fila_integrantes = mysqli_fetch_assoc($resultado_integrantes);
-            $total_nombre = $fila_integrantes['nombre_completo'];
-            $total_cantidad = $fila_integrantes['total_ingreso'];
-            $sql_cert_laboral = "select CONCAT(nombres, ' ', apellidos) AS nombre_completo, COUNT(*) AS total_ingreso
+                $resultado_integrantes = mysqli_query($conexion, $sql_integrantes);
+                $fila_integrantes = mysqli_fetch_assoc($resultado_integrantes);
+                $total_nombre = $fila_integrantes['nombre_completo'];
+                $total_cantidad = $fila_integrantes['total_ingreso'];
+                $sql_cert_laboral = "select CONCAT(nombres, ' ', apellidos) AS nombre_completo, COUNT(*) AS total_ingreso
             from bitacora b, integrantes i
             where b.cedula_empleado = i.cedula
             and tipo = 'Certificado Laboral'
@@ -210,11 +211,11 @@ $result = mysqli_query($conexion, $sql);
             group by nombre_completo
             order by total_ingreso desc
             limit 5";
-            $resultado_cert_laboral = mysqli_query($conexion, $sql_cert_laboral);
-            $fila_cert_laboral = mysqli_fetch_assoc($resultado_cert_laboral);
-            $total_nombres = $fila_integrantes['nombre_completo'];
-            $total_cantidades = $fila_integrantes['total_ingreso'];
-            $sql_desprendible = "select CONCAT(nombres, ' ', apellidos) AS nombre_completo, COUNT(*) AS total_ingreso
+                $resultado_cert_laboral = mysqli_query($conexion, $sql_cert_laboral);
+                $fila_cert_laboral = mysqli_fetch_assoc($resultado_cert_laboral);
+                $total_nombres = $fila_integrantes['nombre_completo'];
+                $total_cantidades = $fila_integrantes['total_ingreso'];
+                $sql_desprendible = "select CONCAT(nombres, ' ', apellidos) AS nombre_completo, COUNT(*) AS total_ingreso
             from bitacora b, integrantes i
             where b.cedula_empleado = i.cedula
             and tipo = 'Desprendible de Pago'
@@ -222,152 +223,153 @@ $result = mysqli_query($conexion, $sql);
             group by nombre_completo
             order by total_ingreso desc
             limit 5";
-            $resultado_desprendible = mysqli_query($conexion, $sql_desprendible);
-            $fila_desprendible = mysqli_fetch_assoc($resultado_desprendible);
-            $nombres_desprendible = $fila_desprendible['nombre_completo'];
-            $ingreso_desprendible = $fila_desprendible['total_ingreso'];
-            ?>
+                $resultado_desprendible = mysqli_query($conexion, $sql_desprendible);
+                $fila_desprendible = mysqli_fetch_assoc($resultado_desprendible);
+                $nombres_desprendible = $fila_desprendible['nombre_completo'];
+                $ingreso_desprendible = $fila_desprendible['total_ingreso'];
+                ?>
 
-            <div class="row justify-content-center">
-                <div class="col-md-5 mb-4">
-                    <div class="card card-hover shadow-lg border-0 text-center">
-                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                            <div class="mb-2">
-                                <i class="bi bi-person-check-fill icono-card"></i>
-                            </div>
-                            <h5 class="card-title mb-1">Ingresos al sistema</h5>
-                            <h3 class="mb-0 cantidad-card"><?php echo $total_ingresos; ?></h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-10 mb-4">
-                    <div class="card card-hover shadow-lg border-0 text-center">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <i class="bi bi-people-fill icono-card"></i>
-                            </div>
-                            <h5 class="card-title mb-3">Top ingresos al sistema</h5>
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre Completo</th>
-                                            <th>Total Ingresos</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $contador = 1;
-                                        mysqli_data_seek($resultado_integrantes, 0); // Asegura que se reinicie el puntero del resultado
-                                        while ($fila = mysqli_fetch_assoc($resultado_integrantes)) {
-                                            echo "<tr>";
-                                            echo "<td>{$contador}</td>";
-                                            echo "<td>{$fila['nombre_completo']}</td>";
-                                            echo "<td>{$fila['total_ingreso']}</td>";
-                                            echo "</tr>";
-                                            $contador++;
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 mb-4">
+                        <div class="card card-hover shadow-lg border-0 text-center">
+                            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                <div class="mb-2">
+                                    <i class="bi bi-person-check-fill icono-card"></i>
+                                </div>
+                                <h5 class="card-title mb-1">Ingresos al sistema</h5>
+                                <h3 class="mb-0 cantidad-card"><?php echo $total_ingresos; ?></h3>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-md-5 mb-4">
-                    <div class="card card-hover shadow-lg border-0 text-center">
-                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                            <div class="mb-2">
-                                <i class="bi bi-file-earmark-check-fill icono-card"></i>
-                            </div>
-                            <h5 class="card-title mb-1">Certificados laborales generados</h5>
-                            <h3 class="mb-0 cantidad-card"><?php echo $total_certificados; ?></h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-10 mb-4">
-                    <div class="card card-hover shadow-lg border-0 text-center">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <i class="bi bi-people-fill icono-card"></i>
-                            </div>
-                            <h5 class="card-title mb-3">Top Certificados laborales generados</h5>
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre Completo</th>
-                                            <th>Total Ingresos</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $contador = 1;
-                                        mysqli_data_seek($resultado_cert_laboral, 0); // Asegura que se reinicie el puntero del resultado
-                                        while ($fila = mysqli_fetch_assoc($resultado_cert_laboral)) {
-                                            echo "<tr>";
-                                            echo "<td>{$contador}</td>";
-                                            echo "<td>{$fila['nombre_completo']}</td>";
-                                            echo "<td>{$fila['total_ingreso']}</td>";
-                                            echo "</tr>";
-                                            $contador++;
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+                    <div class="col-md-10 mb-4">
+                        <div class="card card-hover shadow-lg border-0 text-center">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="bi bi-people-fill icono-card"></i>
+                                </div>
+                                <h5 class="card-title mb-3">Top ingresos al sistema</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nombre Completo</th>
+                                                <th>Total Ingresos</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $contador = 1;
+                                            mysqli_data_seek($resultado_integrantes, 0);
+                                            while ($fila = mysqli_fetch_assoc($resultado_integrantes)) {
+                                                echo "<tr>";
+                                                echo "<td>{$contador}</td>";
+                                                echo "<td>{$fila['nombre_completo']}</td>";
+                                                echo "<td>{$fila['total_ingreso']}</td>";
+                                                echo "</tr>";
+                                                $contador++;
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-md-5 mb-4">
-                    <div class="card card-hover shadow-lg border-0 text-center">
-                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                            <div class="mb-2">
-                                <i class="bi bi-file-earmark-check-fill icono-card"></i>
+                    <div class="col-md-5 mb-4">
+                        <div class="card card-hover shadow-lg border-0 text-center">
+                            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                <div class="mb-2">
+                                    <i class="bi bi-file-earmark-check-fill icono-card"></i>
+                                </div>
+                                <h5 class="card-title mb-1">Certificados laborales generados</h5>
+                                <h3 class="mb-0 cantidad-card"><?php echo $total_certificados; ?></h3>
                             </div>
-                            <h5 class="card-title mb-1">Desprendibles de Pago generados</h5>
-                            <h3 class="mb-0 cantidad-card"><?php echo $ingreso_desprendible; ?></h3>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-md-10 mb-4">
-                    <div class="card card-hover shadow-lg border-0 text-center">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <i class="bi bi-people-fill icono-card"></i>
+                    <div class="col-md-10 mb-4">
+                        <div class="card card-hover shadow-lg border-0 text-center">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="bi bi-people-fill icono-card"></i>
+                                </div>
+                                <h5 class="card-title mb-3">Top Certificados laborales generados</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nombre Completo</th>
+                                                <th>Total Ingresos</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $contador = 1;
+                                            mysqli_data_seek($resultado_cert_laboral, 0); // Asegura que se reinicie el puntero del resultado
+                                            while ($fila = mysqli_fetch_assoc($resultado_cert_laboral)) {
+                                                echo "<tr>";
+                                                echo "<td>{$contador}</td>";
+                                                echo "<td>{$fila['nombre_completo']}</td>";
+                                                echo "<td>{$fila['total_ingreso']}</td>";
+                                                echo "</tr>";
+                                                $contador++;
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <h5 class="card-title mb-3">Top Desprendibles de Pago generados</h5>
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre Completo</th>
-                                            <th>Total Ingresos</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $contador = 1;
-                                        mysqli_data_seek($resultado_desprendible, 0); // Asegura que se reinicie el puntero del resultado
-                                        while ($fila = mysqli_fetch_assoc($resultado_desprendible)) {
-                                            echo "<tr>";
-                                            echo "<td>{$contador}</td>";
-                                            echo "<td>{$fila['nombre_completo']}</td>";
-                                            echo "<td>{$fila['total_ingreso']}</td>";
-                                            echo "</tr>";
-                                            $contador++;
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 mb-4">
+                        <div class="card card-hover shadow-lg border-0 text-center">
+                            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                <div class="mb-2">
+                                    <i class="bi bi-file-earmark-check-fill icono-card"></i>
+                                </div>
+                                <h5 class="card-title mb-1">Desprendibles de Pago generados</h5>
+                                <h3 class="mb-0 cantidad-card"><?php echo $ingreso_desprendible; ?></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-10 mb-4">
+                        <div class="card card-hover shadow-lg border-0 text-center">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="bi bi-people-fill icono-card"></i>
+                                </div>
+                                <h5 class="card-title mb-3">Top Desprendibles de Pago generados</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nombre Completo</th>
+                                                <th>Total Ingresos</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $contador = 1;
+                                            mysqli_data_seek($resultado_desprendible, 0); // Asegura que se reinicie el puntero del resultado
+                                            while ($fila = mysqli_fetch_assoc($resultado_desprendible)) {
+                                                echo "<tr>";
+                                                echo "<td>{$contador}</td>";
+                                                echo "<td>{$fila['nombre_completo']}</td>";
+                                                echo "<td>{$fila['total_ingreso']}</td>";
+                                                echo "</tr>";
+                                                $contador++;
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

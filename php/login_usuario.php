@@ -72,7 +72,6 @@ if ($result->num_rows > 0) {
         $result->free();
         $stmt->close();
 
-        // Insertar en bitácora
         $sql_bitacora = "INSERT INTO bitacora (cedula_empleado, fecha_generacion, tipo, observaciones) VALUES (?, ?, ?, ?)";
         $stmt_bitacora = $conexion->prepare($sql_bitacora);
         $stmt_bitacora->bind_param("ssss", $row['cedula'], $fecha_generacion, $tipo, $observaciones);
