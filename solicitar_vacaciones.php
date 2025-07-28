@@ -13,6 +13,28 @@ if (!isset($_SESSION['usuario'])) {
 
 include("php/conexion.php");
 
+
+function contarDiasHabiles($fecha_inicio, $fecha_fin, $festivos = []) {
+    $inicio = new DateTime($fecha_inicio);
+    $fin = new DateTime($fecha_fin);
+    $fin->modify('+1 day'); // incluir el día final
+
+    $diasHabiles = 0;
+    $periodo = new DatePeriod($inicio, new DateInterval('P1D'), $fin);
+
+    foreach ($periodo as $dia) {
+        $esFinDeSemana = in_array($dia->format('N'), [6, 7]); // sábado o domingo
+        $esFestivo = in_array($dia->format('Y-m-d'), $festivos);
+
+        if (!$esFinDeSemana && !$esFestivo) {
+            $diasHabiles++;
+        }
+    }
+
+    return $diasHabiles;
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
     $fecha_diligenciamiento = date('Y-m-d');
     $fecha_ingreso = $_SESSION['fecha_ingreso'] ?? null;
@@ -25,6 +47,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
     $fecha_reintegro = $_POST['fecha_reintegro'] ?? null;
     $dias = $_POST['disfrutar'] ?? 0;
     $dinero = $_POST['remunerado'] ?? 0;
+
+    // Validar que existan días hábiles en el rango
+    $festivos = ['2025-01-01', '2025-05-01', '2025-07-20']; // ejemplo de festivos
+    $diasHabiles = contarDiasHabiles($fecha_inicio, $fecha_reintegro, $festivos);
+
+    if ($diasHabiles == 0) {
+        echo "<script>alert('La solicitud no contiene días hábiles.'); window.history.back();</script>";
+        exit;
+    }
+
 
     // Validar que todos los campos obligatorios tengan valores
     if ($periodo && $fecha_inicio && $fecha_reintegro && $dias !== '' && $dinero !== '') {
@@ -363,7 +395,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                             });
                         });
                     </script>
-
 
                     <div class="text-center mt-4">
                         <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-md me-2">
