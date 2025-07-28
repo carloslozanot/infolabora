@@ -14,7 +14,8 @@ if (!isset($_SESSION['usuario'])) {
 include("php/conexion.php");
 
 
-function contarDiasHabiles($fecha_inicio, $fecha_fin, $festivos = []) {
+function contarDiasHabiles($fecha_inicio, $fecha_fin, $festivos = [])
+{
     $inicio = new DateTime($fecha_inicio);
     $fin = new DateTime($fecha_fin);
     $fin->modify('+1 day'); // incluir el día final
@@ -411,60 +412,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
     </div>
 
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-    const inicioInput = document.getElementById("fecha_inicio");
-    const reintegroInput = document.getElementById("fecha_reintegro");
-    const disfrutarInput = document.getElementById("disfrutar");
-    const remuneradoInput = document.getElementById("remunerado");
-    const faltantesInput = document.getElementById("dias_faltantes");
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const inicioInput = document.getElementById("fecha_inicio");
+            const reintegroInput = document.getElementById("fecha_reintegro");
 
-    form.addEventListener("submit", function (e) {
-        const inicio = new Date(inicioInput.value);
-        const reintegro = new Date(reintegroInput.value);
+            form.addEventListener("submit", function (e) {
+                const inicio = new Date(inicioInput.value);
+                const reintegro = new Date(reintegroInput.value);
 
-        if (isNaN(inicio) || isNaN(reintegro)) {
-            alert("Debe ingresar fechas válidas.");
-            e.preventDefault();
-            return;
-        }
+                if (isNaN(inicio.getTime()) || isNaN(reintegro.getTime())) {
+                    alert("Debe ingresar fechas válidas.");
+                    e.preventDefault();
+                    return;
+                }
 
-        if (inicio >= reintegro) {
-            alert("⚠️ La fecha de inicio debe ser menor que la de reintegro.");
-            e.preventDefault();
-            return;
-        }
+                if (inicio >= reintegro) {
+                    alert("La fecha de inicio debe ser menor que la fecha de reintegro.");
+                    e.preventDefault();
+                    return;
+                }
 
-        let contieneHabil = false;
-        let dia = new Date(inicio);
+                const festivos = ["2025-01-01", "2025-05-01", "2025-07-20"]; // Puedes expandir esta lista
+                let contieneHabil = false;
 
-        while (dia <= reintegro) {
-            const day = dia.getDay();
-            if (day >= 1 && day <= 5) {
-                contieneHabil = true;
-                break;
-            }
-            dia.setDate(dia.getDate() + 1);
-        }
+                const diaActual = new Date(inicio);
+                diaActual.setHours(0, 0, 0, 0);
+                const fechaFin = new Date(reintegro);
+                fechaFin.setHours(0, 0, 0, 0);
 
-        if (!contieneHabil) {
-            alert("Debe seleccionar al menos un día hábil entre las fechas.");
-            e.preventDefault();
-            return;
-        }
+                while (diaActual < fechaFin) {
+                    const diaSemana = diaActual.getDay(); // 0 = domingo, 6 = sábado
+                    const yyyyMMdd = diaActual.toISOString().split("T")[0];
 
-        const disfrutar = parseFloat(disfrutarInput.value) || 0;
-        const remunerado = parseFloat(remuneradoInput.value) || 0;
-        const faltantes = parseFloat(faltantesInput.value) || 0;
+                    if (diaSemana >= 1 && diaSemana <= 5 && !festivos.includes(yyyyMMdd)) {
+                        contieneHabil = true;
+                        break;
+                    }
 
-        if ((disfrutar + remunerado) > faltantes) {
-            alert(`⚠️ La suma de días a disfrutar y en dinero (${disfrutar + remunerado}) excede los días disponibles (${faltantes}).`);
-            e.preventDefault();
-            return;
-        }
-    });
-});
-</script>
+                    diaActual.setDate(diaActual.getDate() + 1);
+                }
+
+                if (!contieneHabil) {
+                    alert("⚠️ Debe seleccionar al menos un día hábil (lunes a viernes no festivo) entre las fechas.");
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+
 
 </body>
 
