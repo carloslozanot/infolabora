@@ -18,10 +18,7 @@ function numero_a_letras($numero)
 }
 
 /* ───────  ENTRADAS  ─────── */
-$cedula = $_POST['id'] ?? '';
-$destinatario = $_POST['destinatario'] ?? '';
-$salario_sn = $_POST['salario_sn'] ?? 'NO';
-$titulo = $_POST['titulo'] ?? '';
+$cedula = $_GET['id'] ?? '';
 
 include("../php/conexion.php");
 $consulta_info = $conexion->query("
@@ -52,13 +49,6 @@ if ($consulta_info->num_rows > 0) {
     $cargo = mb_strtoupper($d->cargo, 'UTF-8');
     $fecha_ingreso = $d->fecha_ingreso;
     $fecha_retiro = $d->fecha_retiro;
-    $tipo_contrato = mb_strtoupper($d->tipo_contrato, 'UTF-8');
-    $salario = isset($d->salario) ? floatval(str_replace('.', '', $d->salario)) : 0;
-    $salario_letras = mb_strtoupper(numero_a_letras($salario), 'UTF-8');
-    $auxilio = isset($d->auxilio) ? floatval(str_replace('.', '', $d->auxilio)) : 0;
-    $auxilio_letras = mb_strtoupper(numero_a_letras($auxilio), 'UTF-8');
-    $neto_pagar = isset($d->total) ? floatval(str_replace('.', '', $d->total)) : 0;
-    $neto_letras = mb_strtoupper(numero_a_letras($neto_pagar), 'UTF-8');
     $integral = $d->integral;
 
     $fecha_actual = date('d') . ' de ' . $meses[date('m')] . ' del ' . date('Y');
