@@ -186,11 +186,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label">FECHA INICIO DEL PERIODO VACACIONAL</label>
-                            <input type="date" name="fecha_inicio" class="form-control">
+                            <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label">FECHA DE REINTEGRO</label>
-                            <input type="date" name="fecha_reintegro" class="form-control">
+                            <input type="date" name="fecha_reintegro" id="fecha_reintegro" class="form-control">
                         </div>
                     </div>
 
