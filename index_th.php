@@ -81,7 +81,7 @@ $result = mysqli_query($conexion, $sql);
     <main>
         <div id="contenido-inicio" class="contenido" style="display: block;">
             <div class="row justify-content-center text-center seccion-cerrar-sesion">
-                <div class="col-md-8"> 
+                <div class="col-md-12"> 
                     <p style="font-size: 32px; font-weight:1000;">¡Bienvenido,
                         <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br>
                     </p>
