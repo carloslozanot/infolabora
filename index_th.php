@@ -89,7 +89,7 @@ $result = mysqli_query($conexion, $sql);
                         Este es el portal de Talento Humano en el cual podrá realizar las siguientes acciones:<br><br>
                     </p>
                     <p style="font-size: 16px;">🔍 Consultar los datos de los integrantes de la compañia</p>
-                    <p style="font-size: 16px;">📋 Consultar bitacora</p>
+                    <p style="font-size: 16px;">📋 Consultar y descargar bitacora</p>
                     <p style="font-size: 16px;">📎 Descargar referencias laborales</p>
                     <p style="font-size: 16px;">🌴 Autorizar o rechazar solicitudes de vacaciones</p>
                 </div>
