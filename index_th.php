@@ -61,13 +61,13 @@ $result = mysqli_query($conexion, $sql);
                 </div>
             </a>
             <a href="#">
-                <div class="option" data-pagina="bitacora"><i class="bi bi-journal-text"></i>
-                    <h4>Bitácora</h4>
+                <div class="option" data-pagina="th-vacaciones"><i class="bi bi-umbrella"></i>
+                    <h4>Vacaciones</h4>
                 </div>
             </a>
             <a href="#">
-                <div class="option" data-pagina="th-vacaciones"><i class="bi bi-umbrella"></i>
-                    <h4>Vacaciones</h4>
+                <div class="option" data-pagina="bitacora"><i class="bi bi-journal-text"></i>
+                    <h4>Bitácora</h4>
                 </div>
             </a>
             <a href="#">
@@ -175,6 +175,78 @@ $result = mysqli_query($conexion, $sql);
                     <i class="fa-solid fa-file-excel"></i> Exportar a excel
                 </a>
             </div>
+        </div>
+
+        <div id="contenido-th-vacaciones" class="contenido" style="display: none;">
+            <h2 class="text-center mb-4">Historial de Solicitudes de Vacaciones</h2>
+            <table class="table table-bordered table-hover" id="tabla_historial_vacaciones">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Radicado</th>
+                        <th>Nombre completo</th>
+                        <th>Fecha Diligencia</th>
+                        <th>Periodo</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Reintegro</th>
+                        <th>Días</th>
+                        <th>Dinero</th>
+                        <th>Estado</th>
+                        <th>Comentario</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $sql_vacaciones = "SELECT * FROM solicitudes ORDER BY fecha_diligenciamiento DESC";
+                    $res_vacaciones = mysqli_query($conexion, $sql_vacaciones);
+                    while ($row = mysqli_fetch_assoc($res_vacaciones)) {
+                        echo "<tr>
+        <td>{$row['radicado']}</td>
+        <td>{$row['nombre_completo']}</td>
+        <td>{$row['fecha_diligenciamiento']}</td>
+        <td>{$row['periodo']}</td>
+        <td>{$row['fecha_inicio']}</td>
+        <td>{$row['fecha_reintegro']}</td>
+        <td>{$row['dias']}</td>
+        <td>{$row['dinero']}</td>
+        <td>";
+
+                        $estado = $row['estado'];
+                        if ($estado === 'Solicitadas') {
+                            echo "<span class='badge bg-secondary'>{$estado}</span>";
+                        } elseif ($estado === 'Aprobadas') {
+                            echo "<span class='badge bg-success'>{$estado}</span>";
+                        } elseif ($estado === 'Rechazadas') {
+                            echo "<span class='badge bg-danger'>{$estado}</span>";
+                        } else {
+                            echo "<span class='badge bg-light text-dark'>{$estado}</span>";
+                        }
+
+                        echo "</td>
+        <td>{$row['comentarios']}</td>
+        <td>";
+
+                        if ($row['estado'] === 'Solicitadas') {
+                            echo "
+        <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=aprobar' 
+           class='btn btn-success btn-sm mb-1'
+           onclick=\"return confirm('¿Estás seguro de aprobar esta solicitud?')\">
+            <i class='fas fa-check'></i> Aprobar
+        </a><br>
+        <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=rechazar' 
+           class='btn btn-danger btn-sm'
+           onclick=\"return confirm('¿Estás seguro de rechazar esta solicitud?')\">
+            <i class='fas fa-times'></i> Rechazar
+        </a>";
+                        } else {
+                            echo "<span class='text-muted'>Finalizada</span>";
+                        }
+
+                        echo "</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
 
         <div id="contenido-bitacora" class="contenido" style="display: none;">
@@ -381,78 +453,6 @@ $result = mysqli_query($conexion, $sql);
                     <i class="fa-solid fa-file-excel"></i> Exportar a Excel
                 </a>
             </div>
-        </div>
-
-        <div id="contenido-th-vacaciones" class="contenido" style="display: none;">
-            <h2 class="text-center mb-4">Historial de Solicitudes de Vacaciones</h2>
-            <table class="table table-bordered table-hover" id="tabla_historial_vacaciones">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Radicado</th>
-                        <th>Nombre completo</th>
-                        <th>Fecha Diligencia</th>
-                        <th>Periodo</th>
-                        <th>Fecha Inicio</th>
-                        <th>Fecha Reintegro</th>
-                        <th>Días</th>
-                        <th>Dinero</th>
-                        <th>Estado</th>
-                        <th>Comentario</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $sql_vacaciones = "SELECT * FROM solicitudes ORDER BY fecha_diligenciamiento DESC";
-                    $res_vacaciones = mysqli_query($conexion, $sql_vacaciones);
-                    while ($row = mysqli_fetch_assoc($res_vacaciones)) {
-                        echo "<tr>
-        <td>{$row['radicado']}</td>
-        <td>{$row['nombre_completo']}</td>
-        <td>{$row['fecha_diligenciamiento']}</td>
-        <td>{$row['periodo']}</td>
-        <td>{$row['fecha_inicio']}</td>
-        <td>{$row['fecha_reintegro']}</td>
-        <td>{$row['dias']}</td>
-        <td>{$row['dinero']}</td>
-        <td>";
-
-                        $estado = $row['estado'];
-                        if ($estado === 'Solicitadas') {
-                            echo "<span class='badge bg-secondary'>{$estado}</span>";
-                        } elseif ($estado === 'Aprobadas') {
-                            echo "<span class='badge bg-success'>{$estado}</span>";
-                        } elseif ($estado === 'Rechazadas') {
-                            echo "<span class='badge bg-danger'>{$estado}</span>";
-                        } else {
-                            echo "<span class='badge bg-light text-dark'>{$estado}</span>";
-                        }
-
-                        echo "</td>
-        <td>{$row['comentarios']}</td>
-        <td>";
-
-                        if ($row['estado'] === 'Solicitadas') {
-                            echo "
-        <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=aprobar' 
-           class='btn btn-success btn-sm mb-1'
-           onclick=\"return confirm('¿Estás seguro de aprobar esta solicitud?')\">
-            <i class='fas fa-check'></i> Aprobar
-        </a><br>
-        <a href='editar_sol_vacaciones.php?id={$row['radicado']}&accion=rechazar' 
-           class='btn btn-danger btn-sm'
-           onclick=\"return confirm('¿Estás seguro de rechazar esta solicitud?')\">
-            <i class='fas fa-times'></i> Rechazar
-        </a>";
-                        } else {
-                            echo "<span class='text-muted'>Finalizada</span>";
-                        }
-
-                        echo "</td></tr>";
-                    }
-                    ?>
-                </tbody>
-            </table>
         </div>
 
         <?php if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'ok'): ?>
