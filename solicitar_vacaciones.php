@@ -270,7 +270,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                                     const dia = fInicio.getDay();
                                     const formatoFecha = fInicio.toISOString().split("T")[0];
 
-                                    if (dia !== 0 && dia !== 6 && !festivos.includes(formatoFecha)) {
+                                    if (dia !== 5 && dia !== 6 && !festivos.includes(formatoFecha)) {
                                         contador++;
                                     }
 
@@ -411,7 +411,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
                     const diaSemana = fecha.getDay(); // 0 = domingo, 6 = sábado
                     const yyyyMMdd = fecha.toISOString().split("T")[0];
 
-                    if (diaSemana === 6 || diaSemana === 5 || festivos.includes(yyyyMMdd)) {
+                    if (diaSemana === 5 || diaSemana === 6 || festivos.includes(yyyyMMdd)) {
                         alert("⚠️ La fecha seleccionada no es un día hábil. Seleccione un día entre lunes y viernes que no sea festivo.");
                         this.value = "";
                     }
