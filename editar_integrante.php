@@ -141,13 +141,13 @@ if ($permiso == '1') {
             <h3>Correo</h3>
             <input type="text" name="correo" class="form-control" value="<?php echo $correo ?>"><br>
 
-            <h3>Fecha Ingreso</h3>
+            <h3>Fecha de ingreso</h3>
             <input type="date" name="fecha_ingreso" class="form-control" value="<?php echo $fecha_ingreso ?>"><br>
 
             <h3>Dirección</h3>
             <input type="text" name="direccion" class="form-control" value="<?php echo $direccion ?>"><br>
 
-            <h3>Ciudad Residencia</h3>
+            <h3>Ciudad de residencia</h3>
             <input type="text" name="ciudad_residencia" class="form-control"
                 value="<?php echo $ciudad_residencia ?>"><br>
 
@@ -157,13 +157,13 @@ if ($permiso == '1') {
             <h3>Área</h3>
             <input type="text" name="area" class="form-control" value="<?php echo $area ?>"><br>
 
-            <h3>Tipo Contrato</h3>
+            <h3>Tipo de Contrato</h3>
             <input type="text" name="tipo_contrato" class="form-control" value="<?php echo $tipo_contrato ?>"><br>
 
-            <h3>Lider Inmediato</h3>
+            <h3>Líder Inmediato</h3>
             <input type="text" name="lider_inmediato" class="form-control" value="<?php echo $lider_inmediato ?>"><br>
 
-            <h3>Caja</h3>
+            <h3>Caja de compensación</h3>
             <input type="text" name="caja" class="form-control" value="<?php echo $caja ?>"><br>
 
             <h3>EPS</h3>
@@ -175,7 +175,7 @@ if ($permiso == '1') {
             <h3>Pensiones</h3>
             <input type="text" name="pensiones" class="form-control" value="<?php echo $pensiones ?>"><br>
 
-            <h3>Cesantias</h3>
+            <h3>Cesantías</h3>
             <input type="text" name="cesantias" class="form-control" value="<?php echo $cesantias ?>"><br>
 
             <h3>Imagen</h3>
@@ -184,7 +184,7 @@ if ($permiso == '1') {
             <h3>Estado</h3>
             <input type="text" name="estado" class="form-control" value="<?php echo $estado ?>" disabled><br>
 
-            <h3>Fecha Retiro</h3>
+            <h3>Fecha de retiro</h3>
             <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>"
                 disabled><br>
 

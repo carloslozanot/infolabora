@@ -54,7 +54,7 @@
             <h3>Id</h3>
             <input type="text" name="id" class="form-control"><br>
 
-            <h3>Descripcion</h3>
+            <h3>Descripción</h3>
             <input type="text" name="descripcion" class="form-control"><br>
 
             <div class="botones-agregar-permiso">

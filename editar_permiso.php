@@ -69,7 +69,7 @@ include("php/conexion.php");
             <h3>Id</h3>
             <input type="text" name="id" class="form-control" readonly value="<?php echo $id ?>"><br>
 
-            <h3>Descripcion</h3>
+            <h3>Descripción</h3>
             <input type="text" name="descripcion" class="form-control" value="<?php echo $descripcion ?>"><br>
 
             <input type="hidden" name="id" value="<?php echo $id ?>">

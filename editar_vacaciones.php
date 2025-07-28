@@ -74,10 +74,10 @@ $result = $conn->query($sql);
             <h3>Cédula</h3>
             <input type="text" name="id" class="form-control" readonly value="<?php echo $cedula ?>"><br>
 
-            <h3>Dias Totales</h3>
+            <h3>Días Totales</h3>
             <input type="text" name="dias_totales" class="form-control" value="<?php echo $dias_totales ?>"><br>
 
-            <h3>Dias Disfrutados</h3>
+            <h3>Días Disfrutados</h3>
             <input type="text" name="dias_disfrutados" class="form-control" value="<?php echo $dias_disfrutados ?>"><br>
 
             <input type="hidden" name="id" value="<?php echo $id ?>">

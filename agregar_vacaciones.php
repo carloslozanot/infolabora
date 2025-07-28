@@ -55,10 +55,10 @@
             <h3>Cédula</h3>
             <input type="text" name="id" class="form-control"><br>
 
-            <h3>Dias Totales</h3>
+            <h3>Días Totales</h3>
             <input type="text" name="dias_totales" class="form-control"><br>
 
-            <h3>Dias Disfrutados</h3>
+            <h3>Días Disfrutados</h3>
             <input type="text" name="dias_disfrutados" class="form-control"><br>
 
             <div class="botones-agregar-vacaciones">

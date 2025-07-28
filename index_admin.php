@@ -110,7 +110,7 @@ if (!isset($_SESSION['usuario'])) {
             <a href="#">
                 <div class="option" data-pagina="cerrar-sesion">
                     <i class="bi bi-box-arrow-right" title="cerrar-sesion"></i>
-                    <h4>Cerrar Sesion</h4>
+                    <h4>Cerrar Sesión</h4>
                 </div>
             </a>
 
@@ -213,11 +213,11 @@ if (!isset($_SESSION['usuario'])) {
                 <thead>
                     <tr>
                         <th>Estado</th>
-                        <th>Cedula</th>
+                        <th>Cédula</th>
                         <th>Correo</th>
                         <th>Celular</th>
                         <th>Edad</th>
-                        <th>Fecha Ingreso</th>
+                        <th>Fecha de ingreso</th>
                         <th>Cargo</th>
                         <th>Área</th>
                         <th>Acciones</th>
@@ -300,9 +300,9 @@ if (!isset($_SESSION['usuario'])) {
             <table class="table table-striped table-bordered table-hover" id="tabla_vacaciones">
                 <thead>
                     <tr>
-                        <th>Cedula</th>
-                        <th>Dias totales</th>
-                        <th>Dias disfrutados</th>
+                        <th>Cédula</th>
+                        <th>Días totales</th>
+                        <th>Días disfrutados</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -360,7 +360,7 @@ if (!isset($_SESSION['usuario'])) {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Descripcion</th>
+                        <th>Descripción</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -410,9 +410,9 @@ if (!isset($_SESSION['usuario'])) {
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <br>
             <label style="display: block; text-align: center;font-weight: 700; font-size: 40px">¿Esta seguro de cerrar
-                sesion?</label><br>
+                sesión?</label><br>
             <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
-                SESION</a>
+                SESIÓN</a>
         </div>
     </main>
 

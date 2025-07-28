@@ -65,8 +65,8 @@ $resultado = mysqli_query($conexion, $sql);
                                     <th>Radicado</th>
                                     <th>Fecha Diligenciamiento</th>
                                     <th>Periodo</th>
-                                    <th>Fecha Inicio</th>
-                                    <th>Fecha Reintegro</th>
+                                    <th>Fecha de inicio</th>
+                                    <th>Fecha de reintegro</th>
                                     <th>Días</th>
                                     <th>Dinero</th>
                                     <th>Estado</th>

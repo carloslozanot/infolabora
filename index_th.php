@@ -468,10 +468,10 @@ $result = mysqli_query($conexion, $sql);
                 <br>
                 <label style="display: block; text-align: center;font-weight: 700; font-size: 40px">¿Esta seguro de
                     cerrar
-                    sesion?</label><br>
+                    sesión?</label><br>
                 <a href="php/cerrar_sesion.php" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i>
                     CERRAR
-                    SESION</a>
+                    SESIÓN</a>
             </div>
         </div>
     </main>

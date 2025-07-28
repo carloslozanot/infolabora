@@ -104,13 +104,13 @@
             <h3>Correo</h3>
             <input type="text" name="correo" class="form-control"><br>
 
-            <h3>Fecha Ingreso</h3>
+            <h3>Fecha de ingreso</h3>
             <input type="date" name="fecha_ingreso" class="form-control"><br>
 
-            <h3>Direccion</h3>
+            <h3>Dirección</h3>
             <input type="text" name="direccion" class="form-control"><br>
 
-            <h3>Ciudad Residencia</h3>
+            <h3>Ciudad de residencia</h3>
             <input type="text" name="ciudad_residencia" class="form-control"><br>
 
             <h3>Cargo</h3>
@@ -119,13 +119,13 @@
             <h3>Área</h3>
             <input type="text" name="area" class="form-control"><br>
 
-            <h3>Tipo Contrato</h3>
+            <h3>Tipo de contrato</h3>
             <input type="text" name="tipo_contrato" class="form-control"><br>
 
-            <h3>Lider Inmediato</h3>
+            <h3>Líder Inmediato</h3>
             <input type="text" name="lider_inmediato" class="form-control"><br>
 
-            <h3>Caja</h3>
+            <h3>Caja de compensación</h3>
             <input type="text" name="caja" class="form-control"><br>
 
             <h3>EPS</h3>
@@ -146,7 +146,7 @@
             <h3>Estado</h3>
             <input type="text" name="estado" class="form-control"><br>
 
-            <h3>Fecha Retiro</h3>
+            <h3>Fecha de retiro</h3>
             <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>" disabled><br>
             
             <div class="botones-agregar-integrante">
