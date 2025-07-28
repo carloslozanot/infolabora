@@ -172,6 +172,7 @@ $result = mysqli_query($conexion, $sql);
         </div>
 
         <div id="contenido-bitacora" class="contenido" style="display: none;">
+            <div class="row align-items-center seccion-bitacora"></div>
             <h2 style="text-align: center;font-size: 40px; font-weight: 800;">BITÁCORA</h2><br>
 
             <?php
@@ -367,7 +368,7 @@ $result = mysqli_query($conexion, $sql);
                     </div>
                 </div>
             </div>
-
+        </div>
         </div>
 
         <div id="contenido-th-vacaciones" class="contenido" style="display: none;">
