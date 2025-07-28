@@ -97,14 +97,14 @@ if (!isset($_SESSION['usuario'])) {
         </div>
         <div id="contenido-datos" class="contenido" style="display: none;">
             <div class="seccion-superior-boceto">
-                <div class="integrantes-foto-boceto">
+                <div class="integrante-foto-boceto">
                     <img src="<?php echo $_SESSION['imagen'] ?? 'placeholder.png'; ?>" alt="Foto del integrante">
                 </div>
-                <div class="integrantes-nombre-cargo">
-                    <p class="nombre-integrantes-boceto"><?php echo $_SESSION['nombreUsuario'] ?? ''; ?>
+                <div class="integrante-nombre-cargo">
+                    <p class="nombre-integrante-boceto"><?php echo $_SESSION['nombreUsuario'] ?? ''; ?>
                         <?php echo $_SESSION['apellidoUsuario'] ?? ''; ?>
                     </p>
-                    <p class="cargo-integrantes-boceto"><?php echo $_SESSION['cargo'] ?? 'Cargo no definido'; ?>
+                    <p class="cargo-integrante-boceto"><?php echo $_SESSION['cargo'] ?? 'Cargo no definido'; ?>
                     </p>
                 </div>
             </div>
