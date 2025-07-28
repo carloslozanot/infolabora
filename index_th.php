@@ -180,7 +180,7 @@ $result = mysqli_query($conexion, $sql);
         <div id="contenido-bitacora" class="contenido" style="display: none;">
             <div class="tarjeta-certificados">
                 <div class="texto-certificados">
-                    <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">CERTIFICADOS</h2>
+                    <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">BITÁCORA</h2>
                 </div>
                 <?php
                 include("php/conexion.php");
