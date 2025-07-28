@@ -374,6 +374,9 @@ $result = mysqli_query($conexion, $sql);
                             </div>
                         </div>
                     </div>
+                    <a class="btn btn-info" href="exportar_excel.php" target="_blank">
+                        <i class="fa-solid fa-file-excel"></i> Exportar a excel
+                    </a>
                 </div>
             </div>
         </div>
@@ -469,9 +472,6 @@ $result = mysqli_query($conexion, $sql);
                     SESION</a>
             </div>
         </div>
-        <a class="btn btn-info" href="exportar_excel.php" target="_blank">
-            <i class="fa-solid fa-file-excel"></i> Exportar a excel
-        </a>
     </main>
 
     <script>
