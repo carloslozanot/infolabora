@@ -151,9 +151,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                 }
             }
 
+            function calcularDiasHabiles(fechaInicio, fechaReintegro, festivos = []) {
+                let contador = 0;
+                const fInicio = new Date(fechaInicio);
+                const fReintegro = new Date(fechaReintegro);
+                fReintegro.setDate(fReintegro.getDate() - 1); // No cuenta el día de reintegro
+
+                while (fInicio <= fReintegro) {
+                    const dia = fInicio.getDay(); // 0 = domingo, 6 = sábado
+                    const yyyyMMdd = fInicio.toISOString().split("T")[0];
+
+                    if (dia !== 0 && dia !== 6 && !festivos.includes(yyyyMMdd)) {
+                        contador++;
+                    }
+
+                    fInicio.setDate(fInicio.getDate() + 1);
+                }
+
+                return contador;
+            }
+
             function calcularDias() {
                 const fechaInicio = new Date(inputInicio.value);
                 const fechaReintegro = new Date(inputReintegro.value);
+                const festivos = ["2025-01-01", "2025-03-24", "2025-05-01", "2025-06-09", "2025-07-20", "2025-08-07", "2025-12-08", "2025-12-25"]; // personaliza
 
                 if (!isNaN(fechaInicio) && !isNaN(fechaReintegro)) {
                     if (fechaInicio >= fechaReintegro) {
@@ -164,16 +185,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                         return;
                     }
 
-                    const diffTime = fechaReintegro - fechaInicio;
-                    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+                    const diffHabiles = calcularDiasHabiles(inputInicio.value, inputReintegro.value, festivos);
 
-                    if (diffDays > diasFaltantes) {
-                        alert("⚠️ La diferencia entre la fecha de reintegro y la de inicio no puede ser mayor a los días disponibles (" + diasFaltantes + ").");
+                    if (diffHabiles > diasFaltantes) {
+                        alert("⚠️ La diferencia entre fechas no puede superar los días disponibles (" + diasFaltantes + ").");
                         inputReintegro.value = '';
                         inputDisfrutar.value = '';
                         btn.disabled = true;
                     } else {
-                        inputDisfrutar.value = diffDays >= 0 ? diffDays : 0;
+                        inputDisfrutar.value = diffHabiles >= 0 ? diffHabiles : 0;
                         validarTotal();
                     }
                 }
