@@ -326,9 +326,6 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </div>
 
-
-
-
         <div id="contenido-cerrar-sesion" class="contenido" style="display: none;">
             <div class="row align-items-center seccion-cerrar-sesion">
                 <br>
