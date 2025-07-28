@@ -380,7 +380,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const festivos = ["2025-01-01", "2025-05-01", "2025-07-20"]; // Agrega más si es necesario
+            const festivos = ["2025-01-01", "2025-05-01", "2025-07-20", "2025-08-07"]; // Agrega más si es necesario
 
             const fechaInicio = document.getElementById("fecha_inicio");
             const fechaReintegro = document.getElementById("fecha_reintegro");
