@@ -84,14 +84,15 @@ $result = mysqli_query($conexion, $sql);
                 <p style="font-size: 32px; font-weight:1000;">¡Bienvenido,
                     <?php echo $_SESSION['nombreUsuario'] . ' ' . $_SESSION['apellidoUsuario'] . '!'; ?><br><br>
                 </p>
-                <p style="font-size: 20px;">Este es el <strong>portal corporativo</strong>, a través del cual podrás
-                    realizar las siguientes acciones:<br><br></p>
-                <p style="font-size: 16px;">📌 Consultar tus datos personales relacionados con la compañía</p>
-                <p style="font-size: 16px;">📥 Descargar documentos corporativos</p>
-                <p style="font-size: 16px;">🌴 Consultar y validar los días de vacaciones pendientes por tomar.</p>
+                <p style="font-size: 20px; font-weight:800;">Este es el portal de Talento Humano en el cual podrá
+                    realizar
+                    las siguientes acciones:<br><br></p>
+                <p style="font-size: 16px;">🔍 Consultar los datos de los integrantes de la compañia</p>
+                <p style="font-size: 16px;">📋 Consultar bitacora</p>
+                <p style="font-size: 16px;">📎 Descargar referencias laborales</p>
             </div>
         </div>
-
+        
         <div id="contenido-integrantes" class="contenido" style="display: none;">
             <h2>Lista de Integrantes</h2><br>
             <table class="table table-striped table-bordered table-hover" id="tabla_integrantes">
