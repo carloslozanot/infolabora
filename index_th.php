@@ -275,6 +275,9 @@ $result = mysqli_query($conexion, $sql);
                                         </tbody>
                                     </table>
                                 </div>
+                                <a class="btn btn-info" href="exportar_excel.php" target="_blank">
+                                    <i class="fa-solid fa-file-excel"></i> Exportar a excel
+                                </a>
                             </div>
                         </div>
                     </div>
