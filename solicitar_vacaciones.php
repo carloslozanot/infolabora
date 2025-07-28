@@ -410,23 +410,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
         </div>
     </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
-    if (!form) return;
+    const inicioInput = document.getElementById("fecha_inicio");
+    const reintegroInput = document.getElementById("fecha_reintegro");
+    const disfrutarInput = document.getElementById("disfrutar");
+    const remuneradoInput = document.getElementById("remunerado");
+    const faltantesInput = document.getElementById("dias_faltantes");
 
-    form.addEventListener("submit", function(e) {
-        const inicio = new Date(document.getElementById("fecha_inicio").value);
-        const fin = new Date(document.getElementById("fecha_reintegro").value);
+    form.addEventListener("submit", function (e) {
+        const inicio = new Date(inicioInput.value);
+        const reintegro = new Date(reintegroInput.value);
 
-        if (isNaN(inicio) || isNaN(fin)) return; // Si no hay fechas válidas, salir
+        if (isNaN(inicio) || isNaN(reintegro)) {
+            alert("Debe ingresar fechas válidas.");
+            e.preventDefault();
+            return;
+        }
+
+        if (inicio >= reintegro) {
+            alert("⚠️ La fecha de inicio debe ser menor que la de reintegro.");
+            e.preventDefault();
+            return;
+        }
 
         let contieneHabil = false;
         let dia = new Date(inicio);
 
-        while (dia <= fin) {
-            const day = dia.getDay(); // 0=domingo, 6=sábado
-            if (day !== 0 && day !== 6) {
+        while (dia <= reintegro) {
+            const day = dia.getDay();
+            if (day >= 1 && day <= 5) {
                 contieneHabil = true;
                 break;
             }
@@ -434,8 +448,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         if (!contieneHabil) {
-            e.preventDefault();
             alert("Debe seleccionar al menos un día hábil entre las fechas.");
+            e.preventDefault();
+            return;
+        }
+
+        const disfrutar = parseFloat(disfrutarInput.value) || 0;
+        const remunerado = parseFloat(remuneradoInput.value) || 0;
+        const faltantes = parseFloat(faltantesInput.value) || 0;
+
+        if ((disfrutar + remunerado) > faltantes) {
+            alert(`⚠️ La suma de días a disfrutar y en dinero (${disfrutar + remunerado}) excede los días disponibles (${faltantes}).`);
+            e.preventDefault();
+            return;
         }
     });
 });
