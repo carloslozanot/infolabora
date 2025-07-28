@@ -174,8 +174,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
             function calcularDias() {
                 const fechaInicio = new Date(inputInicio.value);
                 const fechaReintegro = new Date(inputReintegro.value);
+                const festivos = ["2025-01-01", "2025-05-01", "2025-07-20", "2025-08-07"];
 
                 if (!isNaN(fechaInicio) && !isNaN(fechaReintegro)) {
+                    // Validar que ambas fechas sean hábiles
+                    const inicioDia = fechaInicio.getDay(); // 0 domingo, 6 sábado
+                    const reintegroDia = fechaReintegro.getDay();
+                    const inicioStr = fechaInicio.toISOString().split("T")[0];
+                    const reintegroStr = fechaReintegro.toISOString().split("T")[0];
+
+                    if (inicioDia === 5 || inicioDia === 6 || festivos.includes(inicioStr)) {
+                        alert("⚠️ La fecha de inicio no es un día hábil. Seleccione un día entre lunes y viernes que no sea festivo.");
+                        inputInicio.value = '';
+                        btn.disabled = true;
+                        return;
+                    }
+
+                    if (reintegroDia === 5 || reintegroDia === 6 || festivos.includes(reintegroStr)) {
+                        alert("⚠️ La fecha de reintegro no es un día hábil. Seleccione un día entre lunes y viernes que no sea festivo.");
+                        inputReintegro.value = '';
+                        btn.disabled = true;
+                        return;
+                    }
+
+                    // Validar que la fecha de inicio sea menor que la de reintegro
                     if (fechaInicio >= fechaReintegro) {
                         alert("⚠️ La fecha de inicio debe ser menor que la fecha de reintegro.");
                         inputReintegro.value = '';
@@ -184,7 +206,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                         return;
                     }
 
-                    const festivos = ["2025-01-01", "2025-05-01", "2025-07-20", "2025-08-07"];
                     const diffDays = calcularDiasHabiles(inputInicio.value, inputReintegro.value, festivos);
                     const disponibles = diasFaltantes;
 
@@ -196,7 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
                     } else {
                         inputDisfrutar.value = diffDays >= 0 ? diffDays : 0;
                         btn.disabled = false;
-                        validarTotal(diffDays);
+                        validarTotal();
                     }
                 }
             }
@@ -208,21 +229,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
 
             calcularDias(); // Llama al cargar por si ya hay valores
 
-            function bloquearDiasNoHabiles(input) {
-                input.addEventListener("input", function () {
-                    const fecha = new Date(this.value);
-                    const diaSemana = fecha.getDay(); // 0 = domingo, 6 = sábado
-                    const yyyyMMdd = fecha.toISOString().split("T")[0];
-
-                    if (diaSemana === 5 || diaSemana === 6 || festivos.includes(yyyyMMdd)) {
-                        alert("⚠️ La fecha seleccionada no es un día hábil. Seleccione un día entre lunes y viernes que no sea festivo.");
-                        this.value = "";
-                    }
-                });
-            }
-
-            bloquearDiasNoHabiles(fechaInicio);
-            bloquearDiasNoHabiles(fechaReintegro);
         });
     </script>
 
