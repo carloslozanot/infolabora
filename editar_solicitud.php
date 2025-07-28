@@ -186,7 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
 
                     const festivos = ["2025-01-01", "2025-05-01", "2025-07-20", "2025-08-07"];
                     const diffDays = calcularDiasHabiles(inputInicio.value, inputReintegro.value, festivos);
-                    const disponibles = diasFaltantes();
+                    const disponibles = diasFaltantes;
 
                     if (diffDays > disponibles) {
                         alert("⚠️ La diferencia entre las fechas no puede ser mayor a los días disponibles (" + disponibles + ").");
