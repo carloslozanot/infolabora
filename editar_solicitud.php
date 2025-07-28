@@ -207,6 +207,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar'])) {
             inputReintegro.addEventListener("change", calcularDias);
 
             calcularDias(); // Llama al cargar por si ya hay valores
+
+            function bloquearDiasNoHabiles(input) {
+                input.addEventListener("input", function () {
+                    const fecha = new Date(this.value);
+                    const diaSemana = fecha.getDay(); // 0 = domingo, 6 = sábado
+                    const yyyyMMdd = fecha.toISOString().split("T")[0];
+
+                    if (diaSemana === 5 || diaSemana === 6 || festivos.includes(yyyyMMdd)) {
+                        alert("⚠️ La fecha seleccionada no es un día hábil. Seleccione un día entre lunes y viernes que no sea festivo.");
+                        this.value = "";
+                    }
+                });
+            }
+
+            bloquearDiasNoHabiles(fechaInicio);
+            bloquearDiasNoHabiles(fechaReintegro);
         });
     </script>
 
