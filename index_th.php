@@ -91,10 +91,10 @@ $result = mysqli_query($conexion, $sql);
                     <p style="font-size: 16px;">🔍 Consultar los datos de los integrantes de la compañia</p>
                     <p style="font-size: 16px;">📋 Consultar bitacora</p>
                     <p style="font-size: 16px;">📎 Descargar referencias laborales</p>
+                    <p style="font-size: 16px;">🌴 Autorizar o rechazar solicitudes de vacaciones</p>
                 </div>
             </div>
         </div>
-
 
         <div id="contenido-integrantes" class="contenido" style="display: none;">
             <h2>Lista de Integrantes</h2><br>
