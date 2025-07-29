@@ -49,6 +49,7 @@
             $ciudad_residencia = $_POST['ciudad_residencia'];
             $tipo_contrato = $_POST['tipo_contrato'];
             $estado = $_POST['estado'];
+            $fecha_retiro = $_POST['fecha_retiro'];
 
             $sql = "INSERT INTO integrantes (
                         id_integrante, cedula, nombres, apellidos, edad, celular, correo,
@@ -129,11 +130,12 @@
             <input type="text" name="caja" class="form-control"><br>
 
             <h3>EPS</h3>
-            <select name="eps" class="form-control">
+            <select name="eps" class="form-control" required>
+                <option value="" disabled selected>Seleccione su EPS</option>
                 <?php
-                include("php/conexion.php");
+                include("conexion.php");
 
-                $consulta = "SELECT valor FROM parametros WHERE tipo = 'EPS'";
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'eps'";
                 $resultado = mysqli_query($conexion, $consulta);
 
                 while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -141,7 +143,6 @@
                 }
                 ?>
             </select><br>
-
 
             <h3>ARL</h3>
             <input type="text" name="arl" class="form-control"><br>
@@ -160,7 +161,6 @@
                 <option value="Activo">Activo</option>
                 <option value="Inactivo">Inactivo</option>
             </select>
-
 
             <h3>Fecha de retiro</h3>
             <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>"
