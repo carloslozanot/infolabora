@@ -206,7 +206,6 @@
 
             <h3>Estado</h3>
             <select name="estado" class="form-control" required>
-                <option value="" disabled selected>Seleccione el estado</option>
                 <?php
                 include("php/conexion.php");
 
