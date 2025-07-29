@@ -58,7 +58,7 @@
                         $nuevo_id, '$cedula', '$nombres', '$apellidos', '$edad', '$celular', '$correo',
                         '$fecha_ingreso', '$cargo', '$area', '$lider_inmediato', '$caja', '$eps', '$arl', 
                         '$pensiones', '$cesantias', '$imagen', '$direccion', '$ciudad_residencia', '$tipo_contrato',
-                        '$estado', '$fecha_retiro'
+                        '$estado', NULL
                     )";
 
             $resultado = mysqli_query($conexion, $sql);
