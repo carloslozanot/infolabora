@@ -173,8 +173,9 @@
             </select>
 
             <h3>Fecha de retiro</h3>
-            <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>"
-                disabled><br>
+            <input type="text" name="fecha_retiro" class="form-control"
+                value="<?php echo isset($fecha_retiro) ? $fecha_retiro : ''; ?>" disabled><br>
+            <br>
 
             <div class="botones-agregar-integrante">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
