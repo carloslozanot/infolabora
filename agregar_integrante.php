@@ -133,7 +133,7 @@
             <select name="eps" class="form-control" required>
                 <option value="" disabled selected>Seleccione su EPS</option>
                 <?php
-                include("conexion.php");
+                include("php/conexion.php");
 
                 $consulta = "SELECT valor FROM parametros WHERE tipo = 'EPS'";
                 $resultado = mysqli_query($conexion, $consulta);
