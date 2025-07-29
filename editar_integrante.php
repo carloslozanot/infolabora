@@ -170,10 +170,32 @@ if ($permiso == '1') {
             <input type="text" name="eps" class="form-control" value="<?php echo $eps ?>"><br>
 
             <h3>ARL</h3>
-            <input type="text" name="arl" class="form-control" value="<?php echo $arl ?>"><br>
+            <select name="arl" class="form-control" required>
+                <?php
+                include("php/conexion.php");
+
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'ARL'";
+                $resultado = mysqli_query($conexion, $consulta);
+
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                }
+                ?>
+            </select><br>
 
             <h3>Pensiones</h3>
-            <input type="text" name="pensiones" class="form-control" value="<?php echo $pensiones ?>"><br>
+            <select name="pensiones" class="form-control" required>
+                <?php
+                include("php/conexion.php");
+
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Pensiones'";
+                $resultado = mysqli_query($conexion, $consulta);
+
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                }
+                ?>
+            </select><br>
 
             <h3>Cesantías</h3>
             <select name="cesantias" class="form-control" required>
