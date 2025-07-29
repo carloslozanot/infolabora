@@ -115,9 +115,9 @@ if ($titulo != 'En blanco') {
 
 /* Encabezado empresa */
 $pdf->SetFont('montserrat', 'B', 11);
-$pdf->Cell(0, 10, 'DATABIZ S.A.S', 0, 1, 'C');
+$pdf->Cell(0, 10, 'EMPRESA', 0, 1, 'C');
 $pdf->SetFont('montserrat', '', 10);
-$pdf->Cell(0, 10, 'NIT 900641482-1', 0, 1, 'C');
+$pdf->Cell(0, 10, 'NIT 123456789-1', 0, 1, 'C');
 $pdf->Ln(6);
 
 /* Subtítulo */
@@ -199,7 +199,7 @@ $pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
 $pdf->Ln(-4);
 $pdf->MultiCell(0, 10, utf8_decode('Líder de Talento Humano'), 0, 'L');
 $pdf->Ln(-4);
-$pdf->MultiCell(0, 10, 'DATABIZ S.A.S', 0, 'L');
+$pdf->MultiCell(0, 10, 'EMPRESA', 0, 'L');
 
 /* Salida */
 ob_end_flush();
