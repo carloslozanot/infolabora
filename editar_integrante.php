@@ -155,7 +155,18 @@ if ($permiso == '1') {
             <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>"><br>
 
             <h3>Área</h3>
-            <input type="text" name="area" class="form-control" value="<?php echo $area ?>"><br>
+            <select name="area" class="form-control" required>
+                <?php
+                include("php/conexion.php");
+
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Area'";
+                $resultado = mysqli_query($conexion, $consulta);
+
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                }
+                ?>
+            </select><br>
 
             <h3>Tipo de Contrato</h3>
             <input type="text" name="tipo_contrato" class="form-control" value="<?php echo $tipo_contrato ?>"><br>

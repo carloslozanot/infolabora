@@ -118,7 +118,19 @@
             <input type="text" name="cargo" class="form-control"><br>
 
             <h3>Área</h3>
-            <input type="text" name="area" class="form-control"><br>
+            <select name="area" class="form-control" required>
+                <option value="" disabled selected>Seleccione su area</option>
+                <?php
+                include("php/conexion.php");
+
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Area'";
+                $resultado = mysqli_query($conexion, $consulta);
+
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                }
+                ?>
+            </select><br>
 
             <h3>Tipo de contrato</h3>
             <input type="text" name="tipo_contrato" class="form-control"><br>
