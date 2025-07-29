@@ -176,7 +176,19 @@ if ($permiso == '1') {
             <input type="text" name="pensiones" class="form-control" value="<?php echo $pensiones ?>"><br>
 
             <h3>Cesantías</h3>
-            <input type="text" name="cesantias" class="form-control" value="<?php echo $cesantias ?>"><br>
+            <select name="arl" class="form-control" required>
+                <option value="" disabled selected>Seleccione su fondo de cesantias</option>
+                <?php
+                include("php/conexion.php");
+
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Cesantias'";
+                $resultado = mysqli_query($conexion, $consulta);
+
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                }
+                ?>
+            </select><br>
 
             <h3>Imagen</h3>
             <input type="text" name="imagen" class="form-control" value="<?php echo $imagen ?>"><br>
