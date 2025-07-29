@@ -49,7 +49,7 @@
             $ciudad_residencia = $_POST['ciudad_residencia'];
             $tipo_contrato = $_POST['tipo_contrato'];
             $estado = $_POST['estado'];
-            $fecha_retiro = $_POST['fecha_retiro'];
+            $fecha_retiro = NULL;
 
             $sql = "INSERT INTO integrantes (
                         id_integrante, cedula, nombres, apellidos, edad, celular, correo,
@@ -59,7 +59,7 @@
                         $nuevo_id, '$cedula', '$nombres', '$apellidos', '$edad', '$celular', '$correo',
                         '$fecha_ingreso', '$cargo', '$area', '$lider_inmediato', '$caja', '$eps', '$arl', 
                         '$pensiones', '$cesantias', '$imagen', '$direccion', '$ciudad_residencia', '$tipo_contrato',
-                        '$estado', NULL
+                        '$estado', $fecha_retiro
                     )";
 
             $resultado = mysqli_query($conexion, $sql);
@@ -133,8 +133,6 @@
             <select name="eps" class="form-control" required>
                 <option value="" disabled selected>Seleccione su EPS</option>
                 <?php
-                include("php/conexion.php");
-
                 $consulta = "SELECT valor FROM parametros WHERE tipo = 'EPS'";
                 $resultado = mysqli_query($conexion, $consulta);
 
@@ -145,7 +143,17 @@
             </select><br>
 
             <h3>ARL</h3>
-            <input type="text" name="arl" class="form-control"><br>
+            <select name="arl" class="form-control" required>
+                <option value="" disabled selected>Seleccione su ARL</option>
+                <?php
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'ARL'";
+                $resultado = mysqli_query($conexion, $consulta);
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                }
+                ?>
+            </select><br>
+
 
             <h3>Pensiones</h3>
             <input type="text" name="pensiones" class="form-control"><br>
