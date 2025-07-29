@@ -129,7 +129,19 @@
             <input type="text" name="caja" class="form-control"><br>
 
             <h3>EPS</h3>
-            <input type="text" name="eps" class="form-control"><br>
+            <select name="eps" class="form-control">
+                <?php
+                include("conexion.php"); 
+                
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'eps'";
+                $resultado = mysqli_query($conexion, $consulta);
+
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                }
+                ?>
+            </select><br>
+
 
             <h3>ARL</h3>
             <input type="text" name="arl" class="form-control"><br>
