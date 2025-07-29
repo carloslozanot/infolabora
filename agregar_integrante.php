@@ -127,7 +127,19 @@
             <input type="text" name="lider_inmediato" class="form-control"><br>
 
             <h3>Caja de compensación</h3>
-            <input type="text" name="caja" class="form-control"><br>
+            <select name="arl" class="form-control" required>
+                <option value="" disabled selected>Seleccione su caja de compensación</option>
+                <?php
+                include("php/conexion.php");
+
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Caja'";
+                $resultado = mysqli_query($conexion, $consulta);
+
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                }
+                ?>
+            </select><br>
 
             <h3>EPS</h3>
             <select name="eps" class="form-control" required>
@@ -160,17 +172,41 @@
             </select><br>
 
             <h3>Pensiones</h3>
-            <input type="text" name="pensiones" class="form-control"><br>
+            <select name="arl" class="form-control" required>
+                <option value="" disabled selected>Seleccione su pensión</option>
+                <?php
+                include("php/conexion.php");
+
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Pensiones'";
+                $resultado = mysqli_query($conexion, $consulta);
+
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                }
+                ?>
+            </select><br>
 
             <h3>Cesantías</h3>
-            <input type="text" name="cesantias" class="form-control"><br>
+            <select name="arl" class="form-control" required>
+                <option value="" disabled selected>Seleccione sus cesantias</option>
+                <?php
+                include("php/conexion.php");
+
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Cesantias'";
+                $resultado = mysqli_query($conexion, $consulta);
+
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                }
+                ?>
+            </select><br>
 
             <h3>Imagen</h3>
             <input type="text" name="imagen" class="form-control"><br>
 
             <h3>Estado</h3>
             <select name="arl" class="form-control" required>
-                <option value="" disabled selected>Seleccione su ARL</option>
+                <option value="" disabled selected>Seleccione el estado</option>
                 <?php
                 include("php/conexion.php");
 
