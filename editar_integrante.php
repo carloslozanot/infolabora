@@ -177,7 +177,6 @@ if ($permiso == '1') {
 
             <h3>Cesantías</h3>
             <select name="cesantias" class="form-control" required>
-                <option value="" disabled selected>Seleccione su fondo de cesantias</option>
                 <?php
                 include("php/conexion.php");
 
