@@ -78,7 +78,7 @@
             <input type="date" name="fecha" class="form-control"><br>
 
             <h3>Permisos</h3>
-            <select name="permisos" class="form-control">
+            <select name="permiso" class="form-control">
                 <option value="">Seleccionar un permiso</option>  
                 <option value="2">Integrante</option>
                 <option value="3">Talento Humano</option>
