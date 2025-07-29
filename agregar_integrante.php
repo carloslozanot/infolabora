@@ -131,7 +131,7 @@
             <h3>EPS</h3>
             <select name="eps" class="form-control">
                 <?php
-                include("conexion.php"); 
+                include("php/conexion.php");
 
                 $consulta = "SELECT valor FROM parametros WHERE tipo = 'EPS'";
                 $resultado = mysqli_query($conexion, $consulta);
