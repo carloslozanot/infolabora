@@ -127,7 +127,7 @@
             <input type="text" name="lider_inmediato" class="form-control"><br>
 
             <h3>Caja de compensación</h3>
-            <select name="arl" class="form-control" required>
+            <select name="caja" class="form-control" required>
                 <option value="" disabled selected>Seleccione su caja de compensación</option>
                 <?php
                 include("php/conexion.php");
@@ -172,7 +172,7 @@
             </select><br>
 
             <h3>Pensiones</h3>
-            <select name="arl" class="form-control" required>
+            <select name="pensiones" class="form-control" required>
                 <option value="" disabled selected>Seleccione su fondo de pensiones</option>
                 <?php
                 include("php/conexion.php");
@@ -187,7 +187,7 @@
             </select><br>
 
             <h3>Cesantías</h3>
-            <select name="arl" class="form-control" required>
+            <select name="cesantias" class="form-control" required>
                 <option value="" disabled selected>Seleccione su fondo de cesantias</option>
                 <?php
                 include("php/conexion.php");
@@ -205,7 +205,7 @@
             <input type="text" name="imagen" class="form-control"><br>
 
             <h3>Estado</h3>
-            <select name="arl" class="form-control" required>
+            <select name="estado" class="form-control" required>
                 <option value="" disabled selected>Seleccione el estado</option>
                 <?php
                 include("php/conexion.php");
