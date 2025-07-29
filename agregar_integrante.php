@@ -173,7 +173,7 @@
 
             <h3>Pensiones</h3>
             <select name="arl" class="form-control" required>
-                <option value="" disabled selected>Seleccione su pensión</option>
+                <option value="" disabled selected>Seleccione su fondo de pensiones</option>
                 <?php
                 include("php/conexion.php");
 
@@ -188,7 +188,7 @@
 
             <h3>Cesantías</h3>
             <select name="arl" class="form-control" required>
-                <option value="" disabled selected>Seleccione sus cesantias</option>
+                <option value="" disabled selected>Seleccione su fondo de cesantias</option>
                 <?php
                 include("php/conexion.php");
 
