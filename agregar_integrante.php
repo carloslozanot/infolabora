@@ -148,14 +148,16 @@
             <select name="arl" class="form-control" required>
                 <option value="" disabled selected>Seleccione su ARL</option>
                 <?php
+                include("php/conexion.php");
+
                 $consulta = "SELECT valor FROM parametros WHERE tipo = 'ARL'";
                 $resultado = mysqli_query($conexion, $consulta);
+
                 while ($fila = mysqli_fetch_assoc($resultado)) {
                     echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
                 }
                 ?>
             </select><br>
-
 
             <h3>Pensiones</h3>
             <input type="text" name="pensiones" class="form-control"><br>
@@ -167,10 +169,19 @@
             <input type="text" name="imagen" class="form-control"><br>
 
             <h3>Estado</h3>
-            <select name="estado" class="form-control">
-                <option value="Activo">Activo</option>
-                <option value="Inactivo">Inactivo</option>
-            </select>
+            <select name="arl" class="form-control" required>
+                <option value="" disabled selected>Seleccione su ARL</option>
+                <?php
+                include("php/conexion.php");
+
+                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Estado'";
+                $resultado = mysqli_query($conexion, $consulta);
+
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                }
+                ?>
+            </select><br>
 
             <h3>Fecha de retiro</h3>
             <input type="text" name="fecha_retiro" class="form-control"
