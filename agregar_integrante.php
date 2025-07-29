@@ -144,11 +144,16 @@
             <input type="text" name="imagen" class="form-control"><br>
 
             <h3>Estado</h3>
-            <input type="text" name="estado" class="form-control"><br>
+            <select name="estado" class="form-control">
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
+
 
             <h3>Fecha de retiro</h3>
-            <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>" disabled><br>
-            
+            <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>"
+                disabled><br>
+
             <div class="botones-agregar-integrante">
                 <button type="submit" class="btn btn-success" name="enviar">Agregar</button>
                 <a href="index_admin.php" class="btn btn-danger">Regresar</a>
