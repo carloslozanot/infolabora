@@ -99,9 +99,15 @@ $result = mysqli_query($conexion, $sql);
         <div id="contenido-integrantes" class="contenido" style="display: none;">
             <h2>Lista de Integrantes</h2><br>
 
+            <div class="mb-3">
+                <button class="btn btn-danger" id="desactivar_seleccionados">Desactivar Seleccionados</button>
+                <button class="btn btn-primary" id="activar_seleccionados">Activar Seleccionados</button>
+            </div>
+
             <table class="table table-striped table-bordered table-hover" id="tabla_integrantes">
                 <thead>
                     <tr>
+                        <th><input type="checkbox" id="check_todos"></th>
                         <th>Estado</th>
                         <th>Cédula</th>
                         <th>Nombre Completo</th>
@@ -118,67 +124,54 @@ $result = mysqli_query($conexion, $sql);
                     $dato = mysqli_query($conexion, $SQL);
                     if ($dato->num_rows > 0) {
                         while ($fila = mysqli_fetch_array($dato)) {
-                    ?>
-                    <tr>
-                        <td>
-                            <?php if ($fila['estado'] === 'Activo') { ?>
-                                <span class="btn btn-success btn-sm disabled">Activo</span>
-                            <?php } else { ?>
-                                <span class="btn btn-danger btn-sm disabled">Inactivo</span>
-                            <?php } ?>
-                        </td>
-                        <td><?php echo $fila['cedula']; ?></td>
-                        <td><?php echo $fila['nombres'] . ' ' . $fila['apellidos']; ?></td>
-                        <td><?php echo $fila['correo']; ?></td>
-                        <td><?php echo $fila['celular']; ?></td>
-                        <td><?php echo $fila['cargo']; ?></td>
-                        <td><?php echo $fila['fecha_ingreso']; ?></td>
-                        <td>
-                            <a class="btn btn-warning me-1 mb-1"
-                                href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
-                                <i class="fa-solid fa-pen-to-square"></i> Editar
-                            </a><br>
+                            ?>
+                            <tr>
+                                <td><input type="checkbox" class="check_fila" value="<?php echo $fila['cedula']; ?>"></td>
+                                <td>
+                                    <?php if ($fila['estado'] === 'Activo') { ?>
+                                        <span class="btn btn-success btn-sm disabled">Activo</span>
+                                    <?php } else { ?>
+                                        <span class="btn btn-danger btn-sm disabled">Inactivo</span>
+                                    <?php } ?>
+                                </td>
+                                <td><?php echo $fila['cedula']; ?></td>
+                                <td><?php echo $fila['nombres'] . ' ' . $fila['apellidos']; ?></td>
+                                <td><?php echo $fila['correo']; ?></td>
+                                <td><?php echo $fila['celular']; ?></td>
+                                <td><?php echo $fila['cargo']; ?></td>
+                                <td><?php echo $fila['fecha_ingreso']; ?></td>
+                                <td>
+                                    <a class="btn btn-warning me-1 mb-1"
+                                        href="editar_integrante.php?id=<?php echo $fila['cedula'] ?>">
+                                        <i class="fa-solid fa-pen-to-square"></i> Editar
+                                    </a><br>
 
-                            <?php if ($fila['estado'] === 'Activo') { ?>
-                                <a class="btn btn-danger mt-1"
-                                    href="desactivar_integrante.php?id=<?php echo $fila['cedula'] ?>"
-                                    onclick='return confirmar()'>
-                                    <i class="fa-solid fa-ban"></i> Desactivar
-                                </a><br>
-                                <label class="mt-1">
-                                    <input type="checkbox" class="check_desactivar" value="<?php echo $fila['cedula']; ?>">
-                                    Seleccionar para desactivar
-                                </label>
-                            <?php } else { ?>
-                                <a class="btn btn-primary mt-1"
-                                    href="activar_integrante.php?id=<?php echo $fila['cedula'] ?>"
-                                    onclick='return confirmar()'>
-                                    <i class="fa-solid fa-check-circle"></i> Activar
-                                </a><br>
+                                    <?php if ($fila['estado'] === 'Activo') { ?>
+                                        <a class="btn btn-danger mt-1"
+                                            href="desactivar_integrante.php?id=<?php echo $fila['cedula'] ?>"
+                                            onclick='return confirmar()'>
+                                            <i class="fa-solid fa-ban"></i> Desactivar
+                                        </a>
+                                    <?php } else { ?>
+                                        <a class="btn btn-primary mt-1"
+                                            href="activar_integrante.php?id=<?php echo $fila['cedula'] ?>"
+                                            onclick='return confirmar()'>
+                                            <i class="fa-solid fa-check-circle"></i> Activar
+                                        </a><br>
 
-                                <a class="btn btn-dark mt-1"
-                                    href="fpdf/referencia.php?cedula=<?php echo $fila['cedula']; ?>" target="_blank">
-                                    <i class="fa-solid fa-file-lines"></i> Generar referencia
-                                </a><br>
-
-                                <label class="mt-1">
-                                    <input type="checkbox" class="check_activar" value="<?php echo $fila['cedula']; ?>">
-                                    Seleccionar para activar
-                                </label>
-                            <?php } ?>
-                        </td>
-                    </tr>
-                    <?php
+                                        <a class="btn btn-dark mt-1"
+                                            href="fpdf/referencia.php?cedula=<?php echo $fila['cedula']; ?>" target="_blank">
+                                            <i class="fa-solid fa-file-lines"></i> Generar referencia
+                                        </a>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            <?php
                         }
                     }
                     ?>
                 </tbody>
             </table>
-
-            <div class="mt-3">
-                <button class="btn btn-danger" id="btn_desactivar_masivo">Desactivar Seleccionados</button>
-                <button class="btn btn-primary" id="btn_activar_masivo">Activar Seleccionados</button>
-            </div>
 
             <br>
             <div class="d-flex justify-content-between mb-3">
@@ -193,8 +186,13 @@ $result = mysqli_query($conexion, $sql);
         </div>
 
         <script>
-            function enviarSeleccionados(accion, claseCheckbox) {
-                const seleccionados = Array.from(document.querySelectorAll('.' + claseCheckbox + ':checked'))
+            document.getElementById('check_todos').addEventListener('change', function () {
+                const checkboxes = document.querySelectorAll('.check_fila');
+                checkboxes.forEach(cb => cb.checked = this.checked);
+            });
+
+            function enviarSeleccionados(accion) {
+                const seleccionados = Array.from(document.querySelectorAll('.check_fila:checked'))
                     .map(cb => cb.value);
 
                 if (seleccionados.length === 0) {
@@ -215,11 +213,11 @@ $result = mysqli_query($conexion, $sql);
                     .then(res => location.reload());
             }
 
-            document.getElementById('btn_desactivar_masivo').addEventListener('click', () => {
-                enviarSeleccionados('desactivar', 'check_desactivar');
+            document.getElementById('desactivar_seleccionados').addEventListener('click', () => {
+                enviarSeleccionados('desactivar');
             });
-            document.getElementById('btn_activar_masivo').addEventListener('click', () => {
-                enviarSeleccionados('activar', 'check_activar');
+            document.getElementById('activar_seleccionados').addEventListener('click', () => {
+                enviarSeleccionados('activar');
             });
         </script>
 
