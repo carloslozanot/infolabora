@@ -146,24 +146,8 @@ $result = mysqli_query($conexion, $sql);
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
 
-                                    <?php if ($fila['estado'] === 'Activo') { ?>
-                                        <a class="btn btn-danger mt-1"
-                                            href="desactivar_integrante.php?id=<?php echo $fila['cedula'] ?>"
-                                            onclick='return confirmar()'>
-                                            <i class="fa-solid fa-ban"></i> Desactivar
-                                        </a>
-                                    <?php } else { ?>
-                                        <a class="btn btn-primary mt-1"
-                                            href="activar_integrante.php?id=<?php echo $fila['cedula'] ?>"
-                                            onclick='return confirmar()'>
-                                            <i class="fa-solid fa-check-circle"></i> Activar
-                                        </a><br>
-
-                                        <a class="btn btn-dark mt-1"
-                                            href="fpdf/referencia.php?cedula=<?php echo $fila['cedula']; ?>" target="_blank">
-                                            <i class="fa-solid fa-file-lines"></i> Generar referencia
-                                        </a>
-                                    <?php } ?>
+                                    <button class="btn btn-danger" id="desactivar_seleccionados">Desactivar</button>
+                                    <button class="btn btn-primary" id="activar_seleccionados">Activar</button>
                                 </td>
                             </tr>
                             <?php
