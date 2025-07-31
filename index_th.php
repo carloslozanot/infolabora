@@ -146,8 +146,23 @@ $result = mysqli_query($conexion, $sql);
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </a><br>
 
-                                    <button class="btn btn-danger" id="desactivar_seleccionados">Desactivar</button>
-                                    <button class="btn btn-primary" id="activar_seleccionados">Activar</button>
+                                    <?php if ($fila['estado'] === 'Activo') { ?>
+                                        <button class="btn btn-danger mt-1 btn-cambiar-estado" data-accion="desactivar"
+                                            data-cedula="<?php echo $fila['cedula']; ?>">
+                                            <i class="fa-solid fa-ban"></i> Desactivar
+                                        </button>
+
+                                    <?php } else { ?>
+                                        <button class="btn btn-primary mt-1 btn-cambiar-estado" data-accion="activar"
+                                            data-cedula="<?php echo $fila['cedula']; ?>">
+                                            <i class="fa-solid fa-ban"></i> Activar
+                                        </button>
+
+                                        <a class="btn btn-dark mt-1"
+                                            href="fpdf/referencia.php?cedula=<?php echo $fila['cedula']; ?>" target="_blank">
+                                            <i class="fa-solid fa-file-lines"></i> Generar referencia
+                                        </a>
+                                    <?php } ?>
                                 </td>
                             </tr>
                             <?php
@@ -170,64 +185,41 @@ $result = mysqli_query($conexion, $sql);
         </div>
 
         <script>
+            // Seleccionar o deseleccionar todos los checkboxes
             document.getElementById('check_todos').addEventListener('change', function () {
                 const checkboxes = document.querySelectorAll('.check_fila');
                 checkboxes.forEach(cb => cb.checked = this.checked);
             });
 
-            function enviarSeleccionados(accion) {
-                const seleccionados = Array.from(document.querySelectorAll('.check_fila:checked'))
-                    .map(cb => cb.value);
+            // Evento para todos los botones de activar/desactivar individuales
+            document.querySelectorAll('.btn-cambiar-estado').forEach(boton => {
+                boton.addEventListener('click', function () {
+                    const accion = this.dataset.accion;
+                    const seleccionados = Array.from(document.querySelectorAll('.check_fila:checked'));
+                    let cedulas = [];
 
-                if (seleccionados.length === 0) {
-                    alert('No hay integrantes seleccionados');
-                    return;
-                }
+                    if (seleccionados.length > 0) {
+                        // Si hay seleccionados, usar solo esos
+                        cedulas = seleccionados.map(cb => cb.value);
+                    } else {
+                        // Si no hay seleccionados, usar solo la fila del botón clickeado
+                        cedulas = [this.dataset.cedula];
+                    }
 
-                if (!confirm(`¿Seguro que deseas ${accion} los integrantes seleccionados?`)) return;
+                    if (!confirm(`¿Seguro que deseas ${accion} ${cedulas.length} integrante(s)?`)) return;
 
-                const formData = new FormData();
-                formData.append('accion', accion);
-                seleccionados.forEach(cedula => formData.append('cedulas[]', cedula));
+                    const formData = new FormData();
+                    formData.append('accion', accion);
+                    cedulas.forEach(c => formData.append('cedulas[]', c));
 
-                fetch('cambiar_estado_masivo.php', {
-                    method: 'POST',
-                    body: formData
-                }).then(res => res.text())
-                    .then(res => location.reload());
-            }
-
-            document.getElementById('desactivar_seleccionados').addEventListener('click', () => {
-                enviarSeleccionados('desactivar');
-            });
-            document.getElementById('activar_seleccionados').addEventListener('click', () => {
-                enviarSeleccionados('activar');
-            });
-
-            function actualizarBotonesAcciones() {
-                const checkboxes = document.querySelectorAll('.check_fila');
-                const seleccionados = document.querySelectorAll('.check_fila:checked');
-
-                checkboxes.forEach(cb => {
-                    const fila = cb.closest('tr');
-                    const botonesAccion = fila.querySelectorAll('a.btn-danger, a.btn-primary');
-                    botonesAccion.forEach(btn => btn.removeAttribute('disabled'));
+                    fetch('cambiar_estado_masivo.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(res => res.text())
+                        .then(() => location.reload());
                 });
-
-                if (seleccionados.length >= 2) {
-                    seleccionados.forEach(cb => {
-                        const fila = cb.closest('tr');
-                        const botonesAccion = fila.querySelectorAll('a.btn-danger, a.btn-primary');
-                        botonesAccion.forEach(btn => btn.setAttribute('disabled', 'disabled'));
-                    });
-                }
-            }
-
-            document.querySelectorAll('.check_fila').forEach(cb => {
-                cb.addEventListener('change', actualizarBotonesAcciones);
             });
-
-            document.getElementById('check_todos').addEventListener('change', actualizarBotonesAcciones);
         </script>
 
         <div id="contenido-th-vacaciones" class="contenido" style="display: none;">
