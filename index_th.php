@@ -98,9 +98,16 @@ $result = mysqli_query($conexion, $sql);
 
         <div id="contenido-integrantes" class="contenido" style="display: none;">
             <h2>Lista de Integrantes</h2><br>
+
+            <div class="mb-3">
+                <button class="btn btn-danger" id="desactivar_seleccionados">Desactivar Seleccionados</button>
+                <button class="btn btn-primary" id="activar_seleccionados">Activar Seleccionados</button>
+            </div>
+
             <table class="table table-striped table-bordered table-hover" id="tabla_integrantes">
                 <thead>
                     <tr>
+                        <th><input type="checkbox" id="check_todos"></th>
                         <th>Estado</th>
                         <th>Cédula</th>
                         <th>Nombre Completo</th>
@@ -119,6 +126,7 @@ $result = mysqli_query($conexion, $sql);
                         while ($fila = mysqli_fetch_array($dato)) {
                             ?>
                             <tr>
+                                <td><input type="checkbox" class="check_fila" value="<?php echo $fila['cedula']; ?>"></td>
                                 <td>
                                     <?php if ($fila['estado'] === 'Activo') { ?>
                                         <span class="btn btn-success btn-sm disabled">Activo</span>
@@ -157,7 +165,6 @@ $result = mysqli_query($conexion, $sql);
                                         </a>
                                     <?php } ?>
                                 </td>
-
                             </tr>
                             <?php
                         }
@@ -165,6 +172,7 @@ $result = mysqli_query($conexion, $sql);
                     ?>
                 </tbody>
             </table>
+
             <br>
             <div class="d-flex justify-content-between mb-3">
                 <a class="btn btn-success" href="agregar_integrante.php">
@@ -176,6 +184,42 @@ $result = mysqli_query($conexion, $sql);
                 </a>
             </div>
         </div>
+
+        <script>
+            document.getElementById('check_todos').addEventListener('change', function () {
+                const checkboxes = document.querySelectorAll('.check_fila');
+                checkboxes.forEach(cb => cb.checked = this.checked);
+            });
+
+            function enviarSeleccionados(accion) {
+                const seleccionados = Array.from(document.querySelectorAll('.check_fila:checked'))
+                    .map(cb => cb.value);
+
+                if (seleccionados.length === 0) {
+                    alert('No hay integrantes seleccionados');
+                    return;
+                }
+
+                if (!confirm(`¿Seguro que deseas ${accion} los integrantes seleccionados?`)) return;
+
+                const formData = new FormData();
+                formData.append('accion', accion);
+                seleccionados.forEach(cedula => formData.append('cedulas[]', cedula));
+
+                fetch('cambiar_estado_masivo.php', {
+                    method: 'POST',
+                    body: formData
+                }).then(res => res.text())
+                    .then(res => location.reload());
+            }
+
+            document.getElementById('desactivar_seleccionados').addEventListener('click', () => {
+                enviarSeleccionados('desactivar');
+            });
+            document.getElementById('activar_seleccionados').addEventListener('click', () => {
+                enviarSeleccionados('activar');
+            });
+        </script>
 
         <div id="contenido-th-vacaciones" class="contenido" style="display: none;">
             <h2 class="text-center mb-4">Historial de Solicitudes de Vacaciones</h2>
