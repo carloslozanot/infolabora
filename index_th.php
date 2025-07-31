@@ -152,6 +152,12 @@ $result = mysqli_query($conexion, $sql);
                                             onclick='return confirmar()'>
                                             <i class="fa-solid fa-ban"></i> Desactivar
                                         </a>
+                                        <br>
+                                        <!-- Checkbox para desactivar -->
+                                        <label class="mt-1">
+                                            <input type="checkbox" class="check_desactivar" value="<?php echo $fila['cedula']; ?>">
+                                            Seleccionar para desactivar
+                                        </label>
                                     <?php } else { ?>
                                         <a class="btn btn-primary mt-1"
                                             href="activar_integrante.php?id=<?php echo $fila['cedula'] ?>"
@@ -162,7 +168,13 @@ $result = mysqli_query($conexion, $sql);
                                         <a class="btn btn-dark mt-1"
                                             href="fpdf/referencia.php?cedula=<?php echo $fila['cedula']; ?>" target="_blank">
                                             <i class="fa-solid fa-file-lines"></i> Generar referencia
-                                        </a>
+                                        </a><br>
+
+                                        <!-- Checkbox para activar -->
+                                        <label class="mt-1">
+                                            <input type="checkbox" class="check_activar" value="<?php echo $fila['cedula']; ?>">
+                                            Seleccionar para activar
+                                        </label>
                                     <?php } ?>
                                 </td>
                             </tr>
@@ -186,13 +198,8 @@ $result = mysqli_query($conexion, $sql);
         </div>
 
         <script>
-            document.getElementById('check_todos').addEventListener('change', function () {
-                const checkboxes = document.querySelectorAll('.check_fila');
-                checkboxes.forEach(cb => cb.checked = this.checked);
-            });
-
-            function enviarSeleccionados(accion) {
-                const seleccionados = Array.from(document.querySelectorAll('.check_fila:checked'))
+            function enviarSeleccionados(accion, claseCheckbox) {
+                const seleccionados = Array.from(document.querySelectorAll('.' + claseCheckbox + ':checked'))
                     .map(cb => cb.value);
 
                 if (seleccionados.length === 0) {
@@ -213,13 +220,14 @@ $result = mysqli_query($conexion, $sql);
                     .then(res => location.reload());
             }
 
-            document.getElementById('desactivar_seleccionados').addEventListener('click', () => {
-                enviarSeleccionados('desactivar');
+            document.getElementById('btn_desactivar_masivo').addEventListener('click', () => {
+                enviarSeleccionados('desactivar', 'check_desactivar');
             });
-            document.getElementById('activar_seleccionados').addEventListener('click', () => {
-                enviarSeleccionados('activar');
+            document.getElementById('btn_activar_masivo').addEventListener('click', () => {
+                enviarSeleccionados('activar', 'check_activar');
             });
         </script>
+
 
         <div id="contenido-th-vacaciones" class="contenido" style="display: none;">
             <h2 class="text-center mb-4">Historial de Solicitudes de Vacaciones</h2>
