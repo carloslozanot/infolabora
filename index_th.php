@@ -153,6 +153,8 @@ $result = mysqli_query($conexion, $sql);
                                             <i class="fa-solid fa-ban"></i> Activar
                                         </button>
 
+                                        <button class="btn btn-dark mt-3" id="generar_referencias">Generar referencias</button>
+
                                         <a class="btn btn-dark mt-1"
                                             href="fpdf/referencia.php?cedula=<?php echo $fila['cedula']; ?>" target="_blank">
                                             <i class="fa-solid fa-file-lines"></i> Generar referencia
@@ -213,6 +215,20 @@ $result = mysqli_query($conexion, $sql);
                     })
                         .then(res => res.text())
                         .then(() => location.reload());
+                });
+            });
+
+            document.getElementById('generar_referencias').addEventListener('click', function () {
+                const seleccionados = Array.from(document.querySelectorAll('.check_fila:checked')).map(cb => cb.value);
+
+                if (seleccionados.length === 0) {
+                    alert("Selecciona al menos un integrante inactivo.");
+                    return;
+                }
+
+                seleccionados.forEach(cedula => {
+                    // Abrir cada referencia en una nueva pestaña
+                    window.open('fpdf/referencia.php?cedula=' + cedula, '_blank');
                 });
             });
         </script>
