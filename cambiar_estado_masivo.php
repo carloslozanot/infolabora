@@ -15,11 +15,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nuevoEstado = $accion === 'activar' ? 'Activo' : 'Inactivo';
 
     // Preparar los valores para SQL
-    $cedulasEscapadas = array_map('intval', $cedulas); // Seguridad básica
+    $cedulasEscapadas = array_map('intval', $cedulas);
     $listaCedulas = implode(',', $cedulasEscapadas);
 
-    // Ejecutar actualización
-    $SQL = "UPDATE integrantes SET estado = '$nuevoEstado' WHERE cedula IN ($listaCedulas)";
+    // Construir SQL dinámico
+    if ($accion === 'desactivar') {
+        // Desactivar y registrar fecha de retiro
+        $SQL = "UPDATE integrantes 
+                SET estado = 'Inactivo', fecha_retiro = NOW()
+                WHERE cedula IN ($listaCedulas)";
+    } else {
+        // Activar y borrar fecha de retiro
+        $SQL = "UPDATE integrantes 
+                SET estado = 'Activo', fecha_retiro = NULL
+                WHERE cedula IN ($listaCedulas)";
+    }
+
     if (mysqli_query($conexion, $SQL)) {
         echo "Estado actualizado correctamente para " . count($cedulas) . " integrante(s).";
     } else {
