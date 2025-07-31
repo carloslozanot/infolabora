@@ -219,6 +219,31 @@ $result = mysqli_query($conexion, $sql);
             document.getElementById('activar_seleccionados').addEventListener('click', () => {
                 enviarSeleccionados('activar');
             });
+
+            function actualizarBotonesAcciones() {
+                const checkboxes = document.querySelectorAll('.check_fila');
+                const seleccionados = document.querySelectorAll('.check_fila:checked');
+
+                checkboxes.forEach(cb => {
+                    const fila = cb.closest('tr');
+                    const botonesAccion = fila.querySelectorAll('a.btn-danger, a.btn-primary');
+                    botonesAccion.forEach(btn => btn.removeAttribute('disabled'));
+                });
+
+                if (seleccionados.length >= 2) {
+                    seleccionados.forEach(cb => {
+                        const fila = cb.closest('tr');
+                        const botonesAccion = fila.querySelectorAll('a.btn-danger, a.btn-primary');
+                        botonesAccion.forEach(btn => btn.setAttribute('disabled', 'disabled'));
+                    });
+                }
+            }
+
+            document.querySelectorAll('.check_fila').forEach(cb => {
+                cb.addEventListener('change', actualizarBotonesAcciones);
+            });
+
+            document.getElementById('check_todos').addEventListener('change', actualizarBotonesAcciones);
         </script>
 
         <div id="contenido-th-vacaciones" class="contenido" style="display: none;">
