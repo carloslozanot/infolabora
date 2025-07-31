@@ -153,8 +153,6 @@ $result = mysqli_query($conexion, $sql);
                                             <i class="fa-solid fa-ban"></i> Activar
                                         </button>
 
-                                        <button class="btn btn-dark mt-3" id="generar_referencias">Generar referencias</button>
-
                                         <a class="btn btn-dark mt-1"
                                             href="fpdf/referencia.php?cedula=<?php echo $fila['cedula']; ?>" target="_blank">
                                             <i class="fa-solid fa-file-lines"></i> Generar referencia
@@ -244,6 +242,26 @@ $result = mysqli_query($conexion, $sql);
             // Asociar la función al cambio de todos los checkboxes
             document.querySelectorAll('.check_fila, #check_todos').forEach(cb => {
                 cb.addEventListener('change', actualizarBotonReferencias);
+            });
+
+            document.getElementById('generar_referencias').addEventListener('click', function () {
+                const seleccionados = Array.from(document.querySelectorAll('.check_fila:checked'));
+                const inactivos = seleccionados.filter(cb => {
+                    const fila = cb.closest('tr');
+                    const estado = fila.querySelector('td:nth-child(2) span').textContent.trim();
+                    return estado === 'Inactivo';
+                });
+
+                if (inactivos.length === 0) {
+                    alert("Selecciona al menos un integrante inactivo para generar referencia.");
+                    return;
+                }
+
+                // Abrir una pestaña por cada cédula inactiva seleccionada
+                inactivos.forEach(cb => {
+                    const cedula = cb.value;
+                    window.open('fpdf/referencia.php?cedula=' + cedula, '_blank');
+                });
             });
 
         </script>
