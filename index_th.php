@@ -175,6 +175,10 @@ $result = mysqli_query($conexion, $sql);
                     <i class="fa-solid fa-plus"></i> Agregar Integrante
                 </a>
 
+                <button class="btn btn-dark mt-3" id="generar_referencias" style="display: none;">
+                    <i class="fa-solid fa-file-lines"></i> Generar referencias seleccionadas
+                </button>
+
                 <a class="btn btn-info" href="exportar_excel.php" target="_blank">
                     <i class="fa-solid fa-file-excel"></i> Exportar a excel
                 </a>
@@ -218,19 +222,30 @@ $result = mysqli_query($conexion, $sql);
                 });
             });
 
-            document.getElementById('generar_referencias').addEventListener('click', function () {
-                const seleccionados = Array.from(document.querySelectorAll('.check_fila:checked')).map(cb => cb.value);
+            function actualizarBotonReferencias() {
+                const seleccionados = Array.from(document.querySelectorAll('.check_fila:checked'));
 
-                if (seleccionados.length === 0) {
-                    alert("Selecciona al menos un integrante inactivo.");
-                    return;
-                }
+                // Buscar si hay al menos un inactivo seleccionado
+                let hayInactivo = false;
 
-                seleccionados.forEach(cedula => {
-                    // Abrir cada referencia en una nueva pestaña
-                    window.open('fpdf/referencia.php?cedula=' + cedula, '_blank');
+                seleccionados.forEach(cb => {
+                    const fila = cb.closest('tr');
+                    const estado = fila.querySelector('td:nth-child(2) span').textContent.trim();
+                    if (estado === 'Inactivo') {
+                        hayInactivo = true;
+                    }
                 });
+
+                // Mostrar u ocultar el botón según haya al menos un inactivo
+                const btn = document.getElementById('generar_referencias');
+                btn.style.display = hayInactivo ? 'inline-block' : 'none';
+            }
+
+            // Asociar la función al cambio de todos los checkboxes
+            document.querySelectorAll('.check_fila, #check_todos').forEach(cb => {
+                cb.addEventListener('change', actualizarBotonReferencias);
             });
+
         </script>
 
         <div id="contenido-th-vacaciones" class="contenido" style="display: none;">
