@@ -99,11 +99,6 @@ $result = mysqli_query($conexion, $sql);
         <div id="contenido-integrantes" class="contenido" style="display: none;">
             <h2>Lista de Integrantes</h2><br>
 
-            <div class="mb-3">
-                <button class="btn btn-danger" id="desactivar_seleccionados">Desactivar Seleccionados</button>
-                <button class="btn btn-primary" id="activar_seleccionados">Activar Seleccionados</button>
-            </div>
-
             <table class="table table-striped table-bordered table-hover" id="tabla_integrantes">
                 <thead>
                     <tr>
