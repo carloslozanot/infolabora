@@ -245,15 +245,14 @@ $result = mysqli_query($conexion, $sql);
             });
 
             document.getElementById('generar_referencias').addEventListener('click', function () {
-                const seleccionados = Array.from(document.querySelectorAll('.check_fila:checked'));
-                const inactivos = seleccionados.filter(cb => {
+                const seleccionados = Array.from(document.querySelectorAll('.check_fila:checked')).filter(cb => {
                     const fila = cb.closest('tr');
                     const estado = fila.querySelector('td:nth-child(2) span').textContent.trim();
                     return estado === 'Inactivo';
                 });
 
-                if (inactivos.length === 0) {
-                    alert("Selecciona al menos un integrante inactivo para generar referencia.");
+                if (seleccionados.length === 0) {
+                    alert("Selecciona al menos un integrante inactivo para generar la referencia.");
                     return;
                 }
 
@@ -262,8 +261,9 @@ $result = mysqli_query($conexion, $sql);
                 form.action = 'generar_zip_referencias.php';
                 form.style.display = 'none';
 
-                inactivos.forEach(cb => {
+                seleccionados.forEach(cb => {
                     const input = document.createElement('input');
+                    input.type = 'hidden';
                     input.name = 'cedulas[]';
                     input.value = cb.value;
                     form.appendChild(input);
