@@ -84,7 +84,7 @@ $pdf->AddPage('P', 'A4');
 $pdf->SetFont('montserrat', 'B', 11);
 $pdf->Cell(0, 10, 'DATABIZ S.A.S', 0, 1, 'C');
 $pdf->SetFont('montserrat', '', 10);
-$pdf->Cell(0, 10, 'NIT 123456789-1', 0, 1, 'C');
+$pdf->Cell(0, 10, 'NIT 900641482', 0, 1, 'C');
 $pdf->Ln(6);
 
 /* Subtítulo */
