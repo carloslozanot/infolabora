@@ -257,11 +257,20 @@ $result = mysqli_query($conexion, $sql);
                     return;
                 }
 
-                // Abrir una pestaña por cada cédula inactiva seleccionada
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = 'generar_zip_referencias.php';
+                form.style.display = 'none';
+
                 inactivos.forEach(cb => {
-                    const cedula = cb.value;
-                    window.open('fpdf/referencia.php?cedula=' + cedula, '_blank');
+                    const input = document.createElement('input');
+                    input.name = 'cedulas[]';
+                    input.value = cb.value;
+                    form.appendChild(input);
                 });
+
+                document.body.appendChild(form);
+                form.submit();
             });
 
         </script>
