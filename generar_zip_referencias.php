@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cedula = intval($ced);
         $pdfTemp = "temp/certificado_$cedula.pdf";
 
-        include("fpdf/referencia_generar.php"); // genera el PDF
+        include("fpdf/generar_referencia.php"); // genera el PDF
 
         if (file_exists($pdfTemp)) {
             $zip->addFile($pdfTemp, basename($pdfTemp));
