@@ -82,7 +82,7 @@ $pdf = new PDF('membrete.png', 'membrete_2.png');
 $pdf->AddPage('P', 'A4');
 
 $pdf->SetFont('montserrat', 'B', 11);
-$pdf->Cell(0, 10, 'EMPRESA', 0, 1, 'C');
+$pdf->Cell(0, 10, 'DATABIZ S.A.S', 0, 1, 'C');
 $pdf->SetFont('montserrat', '', 10);
 $pdf->Cell(0, 10, 'NIT 123456789-1', 0, 1, 'C');
 $pdf->Ln(6);
@@ -126,7 +126,7 @@ $pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
 $pdf->Ln(-4);
 $pdf->MultiCell(0, 10, utf8_decode('Líder de Talento Humano'), 0, 'L');
 $pdf->Ln(-4);
-$pdf->MultiCell(0, 10, 'EMPRESA', 0, 'L');
+$pdf->MultiCell(0, 10, 'DATABIZ S.A.S', 0, 'L');
 
 /* Salida */
 $pdf->Output($nombre_completo . ' ' . $cedula . '.pdf', 'I');
