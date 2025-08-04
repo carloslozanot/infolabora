@@ -17,12 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    foreach ($cedulas as $ced) {
-        $cedula = intval($ced);
+    foreach ($cedulas as $cedula) {
+        $cedula = intval($cedula);
+
+        // Importante: define $cedula para que referencia_generar.php lo use
+        include("fpdf/referencia_generar.php");
+
         $pdfTemp = "temp/certificado_$cedula.pdf";
-
-        include("fpdf/generar_referencia.php"); // genera el PDF
-
         if (file_exists($pdfTemp)) {
             $zip->addFile($pdfTemp, basename($pdfTemp));
         }
@@ -30,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $zip->close();
 
-    // Forzar descarga del ZIP
+    // Forzar descarga
     header('Content-Type: application/zip');
     header('Content-Disposition: attachment; filename="certificados.zip"');
     header('Content-Length: ' . filesize($zipFile));
