@@ -155,6 +155,8 @@ $cedula = $_SESSION['usuario'];
             }
         }
     </script>
+
+    <script src="docs/js/script.js"></script>
 </body>
 
 </html>
