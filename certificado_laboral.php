@@ -33,6 +33,45 @@ $cedula = $_SESSION['usuario'];
 </head>
 
 <body>
+    <header class="index">
+        <div class="icon_menu">
+            <i class="bi bi-code" id="btn_open"></i>
+        </div>
+    </header>
+
+    <div class="menu_side" id="menu_side">
+        <div class="name_page">
+            <i class="bi bi-building"></i>
+            <h4>Talento Humano</h4>
+        </div>
+        <div class="options_menu">
+            <a href="#">
+                <div class="option" data-pagina="inicio"><i class="bi bi-house-door"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+            <a href="#">
+                <div class="option" data-pagina="integrantes"><i class="bi bi-people-fill"></i>
+                    <h4>Integrantes</h4>
+                </div>
+            </a>
+            <a href="#">
+                <div class="option" data-pagina="th-vacaciones"><i class="bi bi-umbrella"></i>
+                    <h4>Vacaciones</h4>
+                </div>
+            </a>
+            <a href="#">
+                <div class="option" data-pagina="bitacora"><i class="bi bi-journal-text"></i>
+                    <h4>Bitácora</h4>
+                </div>
+            </a>
+            <a href="#">
+                <div class="option" data-pagina="cerrar-sesion"><i class="bi bi-box-arrow-right"></i>
+                    <h4>Cerrar Sesión</h4>
+                </div>
+            </a>
+        </div>
+    </div>
     <div id="contenido-certificados-lab">
         <div class="card shadow-lg p-4 seccion-certificados text-center">
             <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO LABORAL</h2>
