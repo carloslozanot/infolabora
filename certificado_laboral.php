@@ -83,7 +83,7 @@ $cedula = $_SESSION['usuario'];
                     <input type="hidden" name="id" value="<?php echo $cedula; ?>">
 
                     <br>
-                    <button type="submit" class="btn boton-certificados">
+                    <button type="submit" class="btn boton-certificados" target="_blank">
                         <i class="fa-solid fa-file"></i> GENERAR CERTIFICADO
                     </button>
                     </div>
