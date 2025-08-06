@@ -41,7 +41,7 @@ if (!isset($_SESSION['usuario'])) {
             <i class="bi bi-code" id="btn_open"></i>
         </div>
         <div class="col-md-6 text-right">
-            <img src="docs/images/logo.jpg" alt="Ilustración logo" class="logo-img">
+            <img src="docs/images/logo.png" alt="Ilustración logo" class="logo-img">
         </div>
     </header>
 
