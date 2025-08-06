@@ -91,7 +91,7 @@ $cedula = $_SESSION['usuario'];
                 </div>
             </form>
             <div class="container my-4">
-                <div class="botones-vacaciones d-flex justify-content-center">
+                <div class="boton-certificado-lab d-flex justify-content-center">
                     <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
                 </div>
             </div>

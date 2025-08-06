@@ -1227,6 +1227,12 @@ a.selected {
     border-radius: 8px;
 }
 
+.boton-certificado-lab a.btn-danger {
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 8px;
+}
+
 @media (max-width: 768px) {
     .body_index_login {
         background-size: cover;
