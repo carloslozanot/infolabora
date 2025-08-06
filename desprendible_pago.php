@@ -38,10 +38,10 @@ $cedula = $_SESSION['usuario'];
 <body>
     <div class="contenido-desprendible container mt-5">
         <div class="card shadow-lg p-4 seccion-certificados text-center">
-        <h2 style="font-size: 35px; font-weight: 700;">DESPRENDIBLE DE PAGO</h2>
+            <h2 style="font-size: 35px; font-weight: 700;">DESPRENDIBLE DE PAGO</h2>
             <p class="subtitulo-desprendible">Seleccione el periodo que desea generar</p>
 
-            <form method="post" action="fpdf/desprendible.php" class="mt-4">
+            <form method="post" action="fpdf/desprendible.php" class="mt-4" target="_blank">
                 <div class="form-group">
                     <select name="periodo" class="form-control custom-select-desprendible" required>
                         <option selected disabled>SELECCIONE EL PERIODO</option>
@@ -81,7 +81,7 @@ $cedula = $_SESSION['usuario'];
 
                 <input type="hidden" name="id" value="<?php echo $cedula; ?>">
 
-                <button type="submit" class="btn boton-certificados mt-3" target="_blank">
+                <button type="submit" class="btn boton-certificados mt-3">
                     <i class="fa-solid fa-file"></i> GENERAR DESPRENDIBLE
                 </button>
             </form>
