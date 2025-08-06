@@ -1233,6 +1233,18 @@ a.selected {
     border-radius: 8px;
 }
 
+.logo-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 320px;
+    transition: transform 0.4s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+
 @media (max-width: 768px) {
     .body_index_login {
         background-size: cover;

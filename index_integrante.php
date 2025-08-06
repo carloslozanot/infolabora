@@ -40,6 +40,9 @@ if (!isset($_SESSION['usuario'])) {
         <div class="icon_menu">
             <i class="bi bi-code" id="btn_open"></i>
         </div>
+        <div class="col-md-6 text-center">
+            <img src="docs/images/logo.jpg" alt="Ilustración logo" class="logo-img">
+        </div>
     </header>
 
     <div class="menu_side" id="menu_side">
@@ -279,7 +282,9 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="texto-certificados">
                     <h2 class="font-weight-bold" style="font-size: 36px; color:#150940;">CERTIFICADOS</h2>
                     <p class="descripcion-certificados">
-                    En esta pestaña podrás descargar certificados laborales, con o sin información salarial, con o sin destinatario, según lo requieras. Además, tienes la opción de generar desprendibles de pago del mes que desees.
+                        En esta pestaña podrás descargar certificados laborales, con o sin información salarial, con o
+                        sin destinatario, según lo requieras. Además, tienes la opción de generar desprendibles de pago
+                        del mes que desees.
                     </p>
                     <div class="d-flex flex-column gap-3">
                         <a href="certificado_laboral.php" class="btn boton-certificados">
@@ -287,6 +292,9 @@ if (!isset($_SESSION['usuario'])) {
                         </a>
                         <a href="desprendible_pago.php" class="btn boton-certificados">
                             <i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO
+                        </a>
+                        <a href="" class="btn boton-certificados">
+                            <i class="fa-solid fa-file-invoice-dollar"></i> CERTIFICADO DE INGRESOS Y RETENCIONES
                         </a>
                     </div>
                 </div>
