@@ -85,6 +85,11 @@ $cedula = $_SESSION['usuario'];
                     <i class="fa-solid fa-file"></i> GENERAR DESPRENDIBLE
                 </button>
             </form>
+            <div class="container my-2">
+                <div class="boton-certificado-lab d-flex justify-content-center">
+                    <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+                </div>
+            </div>
         </div>
     </div>
 
