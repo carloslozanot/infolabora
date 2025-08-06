@@ -79,8 +79,8 @@ function normalizar_num($valor)
 $pdf = new PDF();
 $pdf->AddPage();
 
-$pdf->Titulo('EMPRESA');
-$pdf->LineaTexto('Nombre:', 'Empresa');
+$pdf->Titulo('DATABIZ S.A.S');
+$pdf->LineaTexto('Nombre:', 'Databiz s.a.s');
 $pdf->LineaTexto('NIT:', '123.456.789');
 
 $pdf->Ln(2);
