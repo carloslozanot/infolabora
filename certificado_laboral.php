@@ -32,7 +32,7 @@ $cedula = $_SESSION['usuario'];
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body id="body">
     <header class="index">
         <div class="icon_menu">
             <i class="bi bi-code" id="btn_open"></i>
