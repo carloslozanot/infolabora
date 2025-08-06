@@ -42,6 +42,9 @@ $result = mysqli_query($conexion, $sql);
         <div class="icon_menu">
             <i class="bi bi-code" id="btn_open"></i>
         </div>
+        <div class="col-md-6 text-right">
+            <img src="docs/images/logo.png" alt="Ilustración logo" class="logo-img">
+        </div>
     </header>
 
     <div class="menu_side" id="menu_side">

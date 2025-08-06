@@ -1236,7 +1236,7 @@ a.selected {
 .logo-img {
     max-width: 100%;
     height: auto;
-    max-height: 320px;
+    max-height: 150px;
     transition: transform 0.4s ease;
 }
 
