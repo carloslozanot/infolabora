@@ -42,33 +42,39 @@ $cedula = $_SESSION['usuario'];
     </header>
 
     <div class="menu_side" id="menu_side">
+
         <div class="name_page">
-            <i class="bi bi-building"></i>
-            <h4>Talento Humano</h4>
+            <i class="bi bi-person"></i>
+            <h4>Integrante</h4>
         </div>
         <div class="options_menu">
             <a href="#">
-                <div class="option" data-pagina="inicio"><i class="bi bi-house-door"></i>
+                <div class="option" data-pagina="inicio">
+                    <i class="bi bi-house-door" title="Inicio"></i>
                     <h4>Inicio</h4>
                 </div>
             </a>
             <a href="#">
-                <div class="option" data-pagina="integrantes"><i class="bi bi-people-fill"></i>
-                    <h4>Integrantes</h4>
+                <div class="option" data-pagina="datos">
+                    <i class="bi bi-person" title="Datos"></i>
+                    <h4>Perfil</h4>
                 </div>
             </a>
             <a href="#">
-                <div class="option" data-pagina="th-vacaciones"><i class="bi bi-umbrella"></i>
+                <div class="option" data-pagina="certificados">
+                    <i class="bi bi-download" title="Certificados"></i>
+                    <h4>Certificados</h4>
+                </div>
+            </a>
+            <a href="#">
+                <div class="option" data-pagina="vacaciones">
+                    <i class="bi bi-umbrella" title="Vacaciones"></i>
                     <h4>Vacaciones</h4>
                 </div>
             </a>
             <a href="#">
-                <div class="option" data-pagina="bitacora"><i class="bi bi-journal-text"></i>
-                    <h4>Bitácora</h4>
-                </div>
-            </a>
-            <a href="#">
-                <div class="option" data-pagina="cerrar-sesion"><i class="bi bi-box-arrow-right"></i>
+                <div class="option" data-pagina="cerrar-sesion">
+                    <i class="bi bi-box-arrow-right" title="cerrar-sesion"></i>
                     <h4>Cerrar Sesión</h4>
                 </div>
             </a>
