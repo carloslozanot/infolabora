@@ -72,9 +72,27 @@ if ($result->num_rows > 0) {
         $result->free();
         $stmt->close();
 
-        $sql_bitacora = "INSERT INTO bitacora (cedula_integrante, fecha_generacion, tipo, observaciones) VALUES (?, ?, ?, ?)";
+        $sql_bitacora = "INSERT INTO bitacora (cedula_integrante, fecha_generacion, tipo, observaciones, cargo, contrato, salario, auxilio, total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $cargo = null;
+        $contrato = null;
+        $salario = null;
+        $auxilio = null;
+        $total = null;
+
         $stmt_bitacora = $conexion->prepare($sql_bitacora);
-        $stmt_bitacora->bind_param("ssss", $row['cedula'], $fecha_generacion, $tipo, $observaciones);
+        $stmt_bitacora->bind_param(
+            "sssssssss",
+            $row['cedula'],
+            $fecha_generacion,
+            $tipo,
+            $observaciones,
+            $cargo,
+            $contrato,
+            $salario,
+            $auxilio,
+            $total
+        );
+
         $stmt_bitacora->execute();
         $stmt_bitacora->close();
 
