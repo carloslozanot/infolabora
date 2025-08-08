@@ -88,11 +88,13 @@ if ($result->num_rows > 0) {
             $fecha_generacion,
             $tipo,
             $observaciones,
+            $destinatario,
             $cargo,
             $contrato,
             $salario,
             $auxilio,
-            $total
+            $total,
+            $fecha_retiro
         );
 
         $stmt_bitacora->execute();
