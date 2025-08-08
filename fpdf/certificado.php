@@ -163,7 +163,7 @@ if ($salario_sn === 'SI') {
         $pdf->Write(10, utf8_decode($salario_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($salario, 0, ',', '.') . ') '));
         $pdf->SetFont('montserrat', '', 10);
-        $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
+        $pdf->Write(10, utf8_decode(', más todas las prestaciones.'));
         $pdf->Ln(15);
         $pdf->SetFont('montserrat', '', 10);
         $pdf->Write(10, utf8_decode('Un auxilio mensual no salarial de '));
@@ -183,7 +183,7 @@ if ($salario_sn === 'SI') {
         $pdf->Write(10, utf8_decode($neto_letras . ' PESOS M/CTE. '));
         $pdf->Write(10, utf8_decode('($' . number_format($neto_pagar, 0, ',', '.') . ') '));
         $pdf->SetFont('montserrat', '', 10);
-        $pdf->Write(10, utf8_decode(', más todas las prestaciones de ley.'));
+        $pdf->Write(10, utf8_decode(', más todas las prestaciones.'));
     }
 }
 $pdf->Ln(15);
