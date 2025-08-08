@@ -69,9 +69,10 @@ if ($consulta_info->num_rows > 0) {
     $tipo = 'Certificado Laboral';
     $observaciones = 'Dirigido a: ' . $titulo . ' ' . $destinatario;
 
-    $sql_bitacora = "INSERT INTO bitacora (cedula_integrante, fecha_generacion, tipo, observaciones, cargo, contrato, salario, auxilio, total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql_bitacora = "INSERT INTO bitacora (cedula_integrante, fecha_generacion, tipo, observaciones, destinatario, cargo, contrato, salario, auxilio, total, fecha_retiro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $fecha_retiro =  null;
     $stmt = $conexion->prepare($sql_bitacora);
-    $stmt->bind_param("sssssssss", $cedula, $fecha_generacion, $tipo, $observaciones, $cargo, $tipo_contrato, $salario, $auxilio, $neto_pagar);
+    $stmt->bind_param("sssssssssss", $cedula, $fecha_generacion, $tipo, $observaciones, $destinatario, $cargo, $tipo_contrato, $salario, $auxilio, $neto_pagar, $fecha_retiro);
     $stmt->execute();
     $stmt->close();
 
