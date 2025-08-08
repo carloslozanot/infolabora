@@ -4,7 +4,8 @@ error_reporting(0);
 ini_set('display_errors', 0);
 
 /* ───── FUNCIÓN: número a letras ───── */
-function numero_a_letras($numero) {
+function numero_a_letras($numero)
+{
     if (class_exists('NumberFormatter')) {
         $fmt = new NumberFormatter('es', NumberFormatter::SPELLOUT);
         return $fmt->format($numero);
@@ -37,9 +38,18 @@ $fecha_retiro = $d->fecha_retiro ?? 'A la fecha';
 $integral = $d->integral ?? '';
 
 $meses = [
-    '01' => 'enero', '02' => 'febrero', '03' => 'marzo', '04' => 'abril',
-    '05' => 'mayo', '06' => 'junio', '07' => 'julio', '08' => 'agosto',
-    '09' => 'septiembre', '10' => 'octubre', '11' => 'noviembre', '12' => 'diciembre'
+    '01' => 'enero',
+    '02' => 'febrero',
+    '03' => 'marzo',
+    '04' => 'abril',
+    '05' => 'mayo',
+    '06' => 'junio',
+    '07' => 'julio',
+    '08' => 'agosto',
+    '09' => 'septiembre',
+    '10' => 'octubre',
+    '11' => 'noviembre',
+    '12' => 'diciembre'
 ];
 
 $fecha_actual = date('d') . ' de ' . $meses[date('m')] . ' del ' . date('Y');
@@ -51,27 +61,33 @@ $fecha_generacion = date("Y-m-d H:i:s");
 $tipo = "Referencia Laboral";
 $observaciones = "Generada desde el sistema";
 
-$sql_bitacora = "INSERT INTO bitacora (cedula_integrante, fecha_generacion, tipo, observaciones)
-                 VALUES (?, ?, ?, ?)";
+$sql_bitacora = "INSERT INTO bitacora (cedula_integrante, fecha_generacion, tipo, observaciones, destinatario, cargo, contrato, salario, auxilio, total, fecha_retiro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$salario =  null;
+$auxilio =  null;
+$neto_pagar =  null;
 $stmt = $conexion->prepare($sql_bitacora);
-$stmt->bind_param("ssss", $cedula, $fecha_generacion, $tipo, $observaciones);
+$stmt->bind_param("sssssssssss", $cedula, $fecha_generacion, $tipo, $observaciones, $destinatario, $cargo, $tipo_contrato, $salario, $auxilio, $neto_pagar, $fecha_retiro);
 $stmt->execute();
 $stmt->close();
 
 /* CLASE PDF */
-class PDF extends FPDF {
-    function __construct($header_img, $footer_img) {
+class PDF extends FPDF
+{
+    function __construct($header_img, $footer_img)
+    {
         parent::__construct();
         $this->header_img = $header_img;
         $this->footer_img = $footer_img;
         $this->AddFont('montserrat', '', 'Montserrat-Regular.php');
         $this->AddFont('montserrat', 'B', 'Montserrat-Bold.php');
     }
-    function Header() {
+    function Header()
+    {
         $this->Image($this->header_img, 0, 0, 210);
         $this->SetY(45);
     }
-    function Footer() {
+    function Footer()
+    {
         $this->Image($this->footer_img, 0, $this->GetPageHeight() - 19, 210);
         $this->SetY(-15);
         $this->SetFont('montserrat', '', 8);
@@ -119,8 +135,8 @@ $pdf->SetFont('montserrat', '', 10);
 $pdf->MultiCell(0, 10, utf8_decode('Esta certificación se expide el día ' . $fecha_actual . '.'), 0, 'L');
 $pdf->Ln(5);
 $pdf->MultiCell(0, 10, 'Sin otro particular,', 0, 'L');
-$pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 40); 
-$pdf->Ln(30); 
+$pdf->Image('firma_lorena.jpg', $pdf->GetX(), $pdf->GetY(), 40);
+$pdf->Ln(30);
 $pdf->SetFont('montserrat', 'B', 10);
 $pdf->Cell(0, 10, 'Lorena Acosta', 0, 'L');
 $pdf->Ln(-4);
