@@ -33,9 +33,72 @@ if ($permiso == '1') {
 
 
 <div id="contenido-carga">
-    <div class="card shadow-lg p-4 seccion-carga text-center">
+    <div class="container py-5">
+        <div class="row g-4 justify-content-center">
 
+            <!-- Cuadro 1 -->
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="certificado_laboral.php" class="text-decoration-none">
+                    <div class="card text-center shadow h-100">
+                        <div class="card-body">
+                            <i class="fa-solid fa-file-circle-check fa-3x mb-3"></i>
+                            <h6 class="card-title">Certificado Laboral</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Cuadro 2 -->
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="desprendible_pago.php" class="text-decoration-none">
+                    <div class="card text-center shadow h-100">
+                        <div class="card-body">
+                            <i class="fa-solid fa-file-invoice-dollar fa-3x mb-3"></i>
+                            <h6 class="card-title">Desprendible de Pago</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Cuadro 3 -->
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="certificado_ingresos.php" class="text-decoration-none">
+                    <div class="card text-center shadow h-100">
+                        <div class="card-body">
+                            <i class="fa-solid fa-file-invoice fa-3x mb-3"></i>
+                            <h6 class="card-title">Certificado de Ingresos</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Cuadro 4 -->
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="vacaciones.php" class="text-decoration-none">
+                    <div class="card text-center shadow h-100">
+                        <div class="card-body">
+                            <i class="fa-solid fa-umbrella-beach fa-3x mb-3"></i>
+                            <h6 class="card-title">Vacaciones</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Cuadro 5 -->
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="beneficios.php" class="text-decoration-none">
+                    <div class="card text-center shadow h-100">
+                        <div class="card-body">
+                            <i class="fa-solid fa-gift fa-3x mb-3"></i>
+                            <h6 class="card-title">Beneficios</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
     </div>
 </div>
+
 
 </html>
