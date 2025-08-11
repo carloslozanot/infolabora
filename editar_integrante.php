@@ -2,7 +2,7 @@
     <div class="container py-5">
         <div class="row g-4 justify-content-center">
 
-            <!-- Tarjeta 1 -->
+            <!-- Tarjetas fila 1 -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                     <div class="tarjeta-body">
@@ -12,7 +12,6 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 2 -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                     <div class="tarjeta-body">
@@ -22,7 +21,6 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 3 -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                     <div class="tarjeta-body">
@@ -32,10 +30,11 @@
                 </div>
             </div>
 
+            <!-- Salto de línea para iniciar segunda fila -->
             <div class="w-100 d-none d-lg-block"></div>
 
-            <!-- Tarjeta 4 -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <!-- Tarjetas fila 2 (centradas) -->
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                     <div class="tarjeta-body">
                         <i class="fa-solid fa-file-invoice fa-3x mb-3"></i>
@@ -44,7 +43,6 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 5 -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                     <div class="tarjeta-body">
