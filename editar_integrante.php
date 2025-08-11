@@ -34,7 +34,7 @@ if ($permiso == '1') {
 
 <div id="contenido-carga">
     <div class="container py-5">
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4 justify-content-center mb-3">
 
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
@@ -62,7 +62,9 @@ if ($permiso == '1') {
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div class="row g-4 justify-content-center">
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                     <div class="tarjeta-body">
@@ -80,9 +82,9 @@ if ($permiso == '1') {
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+</div>
 </div>
 
 
