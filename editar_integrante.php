@@ -46,6 +46,8 @@ if (isset($_GET['id'])) {
 
             <div class="row g-4 justify-content-center mb-3">
 
+                <input type="hidden" name="id" value="<?php echo $cedula; ?>">
+
                 <a href="editar_datos.php?cedula=<?php echo $cedula; ?>" class="text-decoration-none text-dark">
                     <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                         <div class="tarjeta-body">

@@ -10,6 +10,13 @@ if ($permiso == '1') {
 } else {
     $destino = 'index_th.php';
 }
+
+if (isset($_GET['cedula'])) {
+    $cedula = intval($_GET['cedula']);
+} else {
+    die("No se recibió la cédula");
+}
+
 ?>
 
 
