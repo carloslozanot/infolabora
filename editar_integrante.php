@@ -39,9 +39,7 @@ if ($permiso == '1') {
             <div class="col-md-5 mb-4">
                 <div class="card card-hover shadow-lg border-0 text-center">
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                        <div class="mb-2">
-                            <i class="bi bi-person-check-fill icono-card"></i>
-                        </div>
+                        <i class="fa-solid fa-file-circle-check fa-3x mb-3"></i>
                         <h5 class="card-title mb-1">Ingresos al sistema</h5>
                     </div>
                 </div>
