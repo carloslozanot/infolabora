@@ -67,6 +67,15 @@ if ($permiso == '1') {
                 <div class="card card-hover shadow-lg border-0 text-center">
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
                         <i class="fa-solid fa-file-invoice fa-3x mb-3"></i>
+                        <h5 class="card-title mb-1">Desprendibles de Pago</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="card card-hover shadow-lg border-0 text-center">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <i class="fa-solid fa-file-invoice fa-3x mb-3"></i>
                         <h5 class="card-title mb-1">Certificado de Ingresos y Retenciones</h5>
                     </div>
                 </div>
