@@ -34,7 +34,7 @@ $cedula = $_SESSION['usuario'];
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 </head>
 
-<body id="body">
+<body id="body"> 
     <div id="contenido-certificados-lab">
         <div class="card shadow-lg p-4 seccion-certificados text-center">
             <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO LABORAL</h2>

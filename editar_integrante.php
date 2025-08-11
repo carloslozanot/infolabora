@@ -36,7 +36,17 @@ if ($permiso == '1') {
     <div class="container py-5">
         <div class="row g-4 justify-content-center">
 
-            <!-- Cuadro 1 -->
+            <div class="col-md-5 mb-4">
+                <div class="card card-hover shadow-lg border-0 text-center">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <div class="mb-2">
+                            <i class="bi bi-person-check-fill icono-card"></i>
+                        </div>
+                        <h5 class="card-title mb-1">Ingresos al sistema</h5>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-6 col-md-4 col-lg-2">
                 <a href="certificado_laboral.php" class="text-decoration-none">
                     <div class="card text-center shadow h-100">
@@ -48,7 +58,6 @@ if ($permiso == '1') {
                 </a>
             </div>
 
-            <!-- Cuadro 2 -->
             <div class="col-6 col-md-4 col-lg-2">
                 <a href="desprendible_pago.php" class="text-decoration-none">
                     <div class="card text-center shadow h-100">
@@ -60,7 +69,6 @@ if ($permiso == '1') {
                 </a>
             </div>
 
-            <!-- Cuadro 3 -->
             <div class="col-6 col-md-4 col-lg-2">
                 <a href="certificado_ingresos.php" class="text-decoration-none">
                     <div class="card text-center shadow h-100">
@@ -72,7 +80,6 @@ if ($permiso == '1') {
                 </a>
             </div>
 
-            <!-- Cuadro 4 -->
             <div class="col-6 col-md-4 col-lg-2">
                 <a href="vacaciones.php" class="text-decoration-none">
                     <div class="card text-center shadow h-100">
@@ -84,7 +91,6 @@ if ($permiso == '1') {
                 </a>
             </div>
 
-            <!-- Cuadro 5 -->
             <div class="col-6 col-md-4 col-lg-2">
                 <a href="beneficios.php" class="text-decoration-none">
                     <div class="card text-center shadow h-100">
