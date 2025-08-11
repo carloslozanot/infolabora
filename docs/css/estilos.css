@@ -6,7 +6,8 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-html, body {
+html,
+body {
     font-family: 'Montserrat', sans-serif !important;
 }
 
@@ -214,7 +215,7 @@ header {
     box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 60%;
     overflow: auto;
-} 
+}
 
 #contenido-certificados-lab {
     background-color: #f0f0f0;
@@ -225,7 +226,7 @@ header {
     box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 40%;
     overflow: auto;
-} 
+}
 
 #contenido-carga {
     background-color: #f0f0f0;
@@ -236,7 +237,7 @@ header {
     box-shadow: 0 0 10px rgba(24, 46, 89);
     width: 80%;
     overflow: auto;
-} 
+}
 
 
 #contenido-bitacora {
@@ -340,35 +341,35 @@ header {
     background-color: #fdfdfd;
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .seccion-bitacora {
     background-color: #fdfdfd;
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .seccion-certificados {
     background-color: #fdfdfd;
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .seccion-vacaciones {
     background-color: #fdfdfd;
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .seccion-carga {
     background-color: #fdfdfd;
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 #contenido-th-vacaciones {
@@ -386,7 +387,7 @@ header {
     background-color: #fdfdfd;
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 #contenido-cerrar-sesion {
@@ -535,8 +536,7 @@ header {
 #tabla_vacaciones th,
 #tabla_vacaciones td,
 #tabla_permisos th,
-#tabla_permisos td
-{
+#tabla_permisos td {
     padding: 10px;
     text-align: center;
 }
@@ -1045,8 +1045,10 @@ a.selected {
 
 .datos-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-    gap: 25px 60px; /* fila - columna */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columnas */
+    gap: 25px 60px;
+    /* fila - columna */
 }
 
 .grupo-dato {
@@ -1107,7 +1109,7 @@ a.selected {
 
 .card-hover:hover {
     background-color: #ffffff;
-    transform: scale(1.02);    
+    transform: scale(1.02);
     box-shadow: 0 0 10px rgba(24, 46, 89);
 }
 
@@ -1117,18 +1119,17 @@ a.selected {
     color: #150940;
 }
 
-.tarjeta{
+.tarjeta {
     display: flex;
-    flex-direction: column;    
-    justify-content: center;   
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     border-radius: 15px;
     background-color: #f8f9fa;
     padding: 20px;
     transition: transform 0.2s ease;
-    margin-bottom: 20px;
     height: 100%;
-  }
+}
 
 .tarjeta-hover {
     background-color: #150940;
@@ -1145,7 +1146,7 @@ a.selected {
 
 .tarjeta-hover:hover {
     background-color: #ffffff;
-    transform: scale(1.02);    
+    transform: scale(1.02);
     box-shadow: 0 0 10px rgba(24, 46, 89);
 }
 
@@ -1181,19 +1182,23 @@ a.selected {
     margin-bottom: 20px;
 }
 
-.carda:hover, .carde:hover, .cardi:hover {
+.carda:hover,
+.carde:hover,
+.cardi:hover {
     transform: translateY(-5px);
 }
 
-.carda-body, .cardi-body {
+.carda-body,
+.cardi-body {
     padding: 10px;
 }
 
-.carde-body{
+.carde-body {
     padding: 15px;
 }
 
-.icono-carda, .icono-carde {
+.icono-carda,
+.icono-carde {
     color: #150940;
 }
 
@@ -1215,14 +1220,15 @@ a.selected {
     color: #333;
 }
 
-.cardi-title{
+.cardi-title {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 5px;
     color: #f0f0f0;
 }
 
-.cantidad-carda, .cantidad-carde {
+.cantidad-carda,
+.cantidad-carde {
     font-size: 28px;
     font-weight: 700;
     color: #150940;
@@ -1249,7 +1255,7 @@ a.selected {
     color: #150940;
 }
 
-.table-bordered td{
+.table-bordered td {
     border-color: #150940;
 }
 
