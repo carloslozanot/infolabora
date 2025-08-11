@@ -40,7 +40,7 @@ if (!isset($_SESSION['usuario'])) {
         <div class="icon_menu">
             <i class="bi bi-list" id="btn_open"></i>
         </div>
-        <div class="col-md-6 text-right">
+        <div class="col-md-10 text-right">
             <img src="docs/images/logo.png" alt="Ilustración logo" class="logo-img">
         </div>
     </header>
