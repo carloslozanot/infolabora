@@ -762,7 +762,8 @@ ul li {
 }
 
 .icon_menu i {
-    font-size: 20px;
+    font-size: 35px;
+    font-weight: bold;
     cursor: pointer;
     position: absolute;
     padding-top: 15px;
