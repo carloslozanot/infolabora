@@ -31,14 +31,11 @@ if ($permiso == '1') {
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
 
-    <div id="contenido-carga">
-        <div class="card shadow-lg p-4 seccion-carga text-center">
+<div id="contenido-carga">
+    <div class="card shadow-lg p-4 seccion-carga text-center">
 
-        </div>
     </div>
-
-</body>
+</div>
 
 </html>
