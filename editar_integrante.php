@@ -33,8 +33,8 @@ if ($permiso == '1') {
 
 <body>
 
-    <div id="contenido-certificados-lab">
-        <div class="card shadow-lg p-4 seccion-certificados text-center">
+    <div id="contenido-carga">
+        <div class="card shadow-lg p-4 seccion-carga text-center">
 
         </div>
     </div>

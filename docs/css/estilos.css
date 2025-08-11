@@ -227,6 +227,18 @@ header {
     overflow: auto;
 } 
 
+#contenido-carga {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(24, 46, 89);
+    width: 40%;
+    overflow: auto;
+} 
+
+
 #contenido-bitacora {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
@@ -346,6 +358,13 @@ header {
 }
 
 .seccion-vacaciones {
+    background-color: #fdfdfd;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.seccion-carga {
     background-color: #fdfdfd;
     border-radius: 20px;
     padding: 30px;
