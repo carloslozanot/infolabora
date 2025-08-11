@@ -10,6 +10,13 @@ if ($permiso == '1') {
 } else {
     $destino = 'index_th.php';
 }
+
+$cedula = $_GET['cedula'] ?? null;
+
+if (!$cedula) {
+    die("Error: No se recibió la cédula.");
+}
+
 ?>
 
 
@@ -39,17 +46,15 @@ if ($permiso == '1') {
 
             <div class="row g-4 justify-content-center mb-3">
 
-                <div class="col-12 col-md-6 col-lg-4">
-                    <a href="editar_datos.php?id=<?php echo $_SESSION['cedula']; ?>"
-                        class="text-decoration-none text-dark">
-                        <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
-                            <div class="tarjeta-body">
-                                <i class="fa-solid fa-user fa-3x mb-3"></i>
-                                <h5 class="tarjeta-title mb-1">Datos Personales</h5>
-                            </div>
+                <a href="editar_datos.php?cedula=<?php echo $_SESSION['cedula']; ?>"
+                    class="text-decoration-none text-dark">
+                    <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                        <div class="tarjeta-body">
+                            <i class="fa-solid fa-user fa-3x mb-3"></i>
+                            <h5 class="tarjeta-title mb-1">Datos Personales</h5>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
