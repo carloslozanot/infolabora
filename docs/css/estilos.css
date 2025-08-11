@@ -1124,6 +1124,7 @@ a.selected {
     transition: transform 0.2s ease;
     margin-bottom: 20px;
     height: 100%;
+    align-items: center;
 }
 
 .tarjeta-hover {
