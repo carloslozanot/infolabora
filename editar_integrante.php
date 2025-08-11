@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 
 include("php/conexion.php");
 
@@ -32,7 +32,13 @@ if ($permiso == '1') {
 </head>
 
 <body>
-    
+
+    <div id="contenido-certificados-lab">
+        <div class="card shadow-lg p-4 seccion-certificados text-center">
+
+        </div>
+    </div>
+
 </body>
 
 </html>
