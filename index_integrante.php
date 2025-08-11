@@ -38,7 +38,7 @@ if (!isset($_SESSION['usuario'])) {
 <body id="body">
     <header class="index">
         <div class="icon_menu">
-            <i class="bi bi-list-ul" id="btn_open"></i>
+            <i class="bi bi-list" id="btn_open"></i>
         </div>
         <div class="col-md-6 text-right">
             <img src="docs/images/logo.png" alt="Ilustración logo" class="logo-img">
