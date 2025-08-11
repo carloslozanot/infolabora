@@ -40,7 +40,7 @@ if ($permiso == '1') {
             <div class="row g-4 justify-content-center mb-3">
 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <a href="editar_datos.php?id=<?php echo $_SESSION['cedula']; ?>"
+                    <a href="editar_datos.php?id=<?php echo $_SESSION['usuario']; ?>"
                         class="text-decoration-none text-dark">
                         <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                             <div class="tarjeta-body">
