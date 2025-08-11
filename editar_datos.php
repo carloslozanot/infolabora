@@ -89,7 +89,7 @@ if (isset($_GET['cedula'])) {
             mysqli_close($conexion);
 
         } else {
-            $cedula = $_GET['id'];
+            $cedula = $_GET['cedula'];
             $sql = "SELECT * 
             FROM usuarios u, integrantes e
             WHERE u.cedula = e.cedula 
