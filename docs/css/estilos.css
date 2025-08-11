@@ -1117,15 +1117,18 @@ a.selected {
     color: #150940;
 }
 
-.tarjeta {
+.tarjeta{
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;   
+    align-items: center;
     border-radius: 15px;
     background-color: #f8f9fa;
     padding: 20px;
     transition: transform 0.2s ease;
     margin-bottom: 20px;
     height: 100%;
-    align-items: center;
-}
+  }
 
 .tarjeta-hover {
     background-color: #150940;
