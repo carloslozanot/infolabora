@@ -34,7 +34,7 @@ if ($permiso == '1') {
 
 <div id="contenido-carga">
     <div class="card shadow-lg p-4 seccion-certificados text-center">
-        <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO LABORAL</h2>
+        <h2 style="font-size: 35px; font-weight: 700;">EDITAR INTEGRANTE</h2>
         <div class="container py-5">
 
             <div class="row g-4 justify-content-center mb-3">
@@ -42,7 +42,7 @@ if ($permiso == '1') {
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                         <div class="tarjeta-body">
-                            <i class="fa-solid fa-file-circle-check fa-3x mb-3"></i>
+                            <i class="fa-solid fa-id-card fa-3x mb-3"></i>
                             <h5 class="tarjeta-title mb-1">Datos Personales</h5>
                         </div>
                     </div>
@@ -71,7 +71,7 @@ if ($permiso == '1') {
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                         <div class="tarjeta-body">
-                            <i class="fa-solid fa-file-invoice fa-3x mb-3"></i>
+                            <i class="fa-solid fa-money-check-dollar fa-3x mb-3"></i>
                             <h5 class="tarjeta-title mb-1">Desprendibles de Pago</h5>
                         </div>
                     </div>
@@ -89,4 +89,5 @@ if ($permiso == '1') {
         </div>
     </div>
 </div>
+
 </html>
