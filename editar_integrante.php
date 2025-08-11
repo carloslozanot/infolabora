@@ -40,12 +40,14 @@ if ($permiso == '1') {
             <div class="row g-4 justify-content-center mb-3">
 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
-                        <div class="tarjeta-body">
-                            <i class="fa-solid fa-id-card fa-3x mb-3"></i>
-                            <h5 class="tarjeta-title mb-1">Datos Personales</h5>
+                    <a href="editar_datos.php" class="text-decoration-none text-dark">
+                        <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                            <div class="tarjeta-body">
+                                <i class="fa-solid fa-user fa-3x mb-3"></i>
+                                <h5 class="tarjeta-title mb-1">Datos Personales</h5>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-4">
