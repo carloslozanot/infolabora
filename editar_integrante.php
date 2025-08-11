@@ -36,7 +36,7 @@ if ($permiso == '1') {
     <div class="container py-5">
         <div class="row g-4 justify-content-center">
 
-            <div class="col-md-5 mb-4">
+            <div class="col-6 col-md-4 col-lg-2">
                 <div class="card card-hover shadow-lg border-0 text-center">
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
                         <i class="fa-solid fa-file-circle-check fa-3x mb-3"></i>
@@ -44,18 +44,7 @@ if ($permiso == '1') {
                     </div>
                 </div>
             </div>
-
-            <div class="col-6 col-md-4 col-lg-2">
-                <a href="certificado_laboral.php" class="text-decoration-none">
-                    <div class="card text-center shadow h-100">
-                        <div class="card-body">
-                            <i class="fa-solid fa-file-circle-check fa-3x mb-3"></i>
-                            <h6 class="card-title">Certificado Laboral</h6>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
+            
             <div class="col-6 col-md-4 col-lg-2">
                 <a href="desprendible_pago.php" class="text-decoration-none">
                     <div class="card text-center shadow h-100">
