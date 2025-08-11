@@ -33,60 +33,60 @@ if ($permiso == '1') {
 
 
 <div id="contenido-carga">
-    <div class="container py-5">
-        <div class="row g-4 justify-content-center mb-3">
+    <div class="card shadow-lg p-4 seccion-certificados text-center">
+        <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO LABORAL</h2>
+        <div class="container py-5">
 
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
-                    <div class="tarjeta-body">
-                        <i class="fa-solid fa-file-circle-check fa-3x mb-3"></i>
-                        <h5 class="tarjeta-title mb-1">Datos Personales</h5>
+            <div class="row g-4 justify-content-center mb-3">
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                        <div class="tarjeta-body">
+                            <i class="fa-solid fa-file-circle-check fa-3x mb-3"></i>
+                            <h5 class="tarjeta-title mb-1">Datos Personales</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                        <div class="tarjeta-body">
+                            <i class="fa-solid fa-umbrella-beach fa-3x mb-3"></i>
+                            <h5 class="tarjeta-title mb-1">Vacaciones</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                        <div class="tarjeta-body">
+                            <i class="fa-solid fa-file-invoice-dollar fa-3x mb-3"></i>
+                            <h5 class="tarjeta-title mb-1">Salario</h5>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
-                    <div class="tarjeta-body">
-                        <i class="fa-solid fa-umbrella-beach fa-3x mb-3"></i>
-                        <h5 class="tarjeta-title mb-1">Vacaciones</h5>
+            <div class="row g-4 justify-content-center">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                        <div class="tarjeta-body">
+                            <i class="fa-solid fa-file-invoice fa-3x mb-3"></i>
+                            <h5 class="tarjeta-title mb-1">Desprendibles de Pago</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
-                    <div class="tarjeta-body">
-                        <i class="fa-solid fa-file-invoice-dollar fa-3x mb-3"></i>
-                        <h5 class="tarjeta-title mb-1">Salario</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row g-4 justify-content-center">
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
-                    <div class="tarjeta-body">
-                        <i class="fa-solid fa-file-invoice fa-3x mb-3"></i>
-                        <h5 class="tarjeta-title mb-1">Desprendibles de Pago</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
-                    <div class="tarjeta-body">
-                        <i class="fa-solid fa-file-invoice fa-3x mb-3"></i>
-                        <h5 class="tarjeta-title mb-1">Certificado de Ingresos y Retenciones</h5>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                        <div class="tarjeta-body">
+                            <i class="fa-solid fa-file-invoice fa-3x mb-3"></i>
+                            <h5 class="tarjeta-title mb-1">Certificado de Ingresos y Retenciones</h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
-
-
-
 </html>
