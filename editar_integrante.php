@@ -37,46 +37,46 @@ if ($permiso == '1') {
         <div class="row g-4 justify-content-center">
 
             <div class="col-6 col-md-4 col-lg-2">
-                <div class="card card-hover shadow-lg border-0 text-center">
-                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                    <div class="tarjeta-body d-flex flex-column align-items-center justify-content-center">
                         <i class="fa-solid fa-file-circle-check fa-3x mb-3"></i>
-                        <h5 class="card-title mb-1">Datos Personales</h5>
+                        <h5 class="tarjeta-title mb-1">Datos Personales</h5>
                     </div>
                 </div>
             </div>
 
             <div class="col-6 col-md-4 col-lg-2">
-                <div class="card card-hover shadow-lg border-0 text-center">
-                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                    <div class="tarjeta-body d-flex flex-column align-items-center justify-content-center">
                         <i class="fa-solid fa-umbrella-beach fa-3x mb-3"></i>
-                        <h5 class="card-title mb-1">Vacaciones</h5>
+                        <h5 class="tarjeta-title mb-1">Vacaciones</h5>
                     </div>
                 </div>
             </div>
 
             <div class="col-6 col-md-4 col-lg-2">
-                <div class="card card-hover shadow-lg border-0 text-center">
-                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                    <div class="tarjeta-body d-flex flex-column align-items-center justify-content-center">
                         <i class="fa-solid fa-file-invoice-dollar fa-3x mb-3"></i>
-                        <h5 class="card-title mb-1">Salario</h5>
+                        <h5 class="tarjeta-title mb-1">Salario</h5>
                     </div>
                 </div>
             </div>
 
             <div class="col-6 col-md-4 col-lg-2">
-                <div class="card card-hover shadow-lg border-0 text-center">
-                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                    <div class="tarjeta-body d-flex flex-column align-items-center justify-content-center">
                         <i class="fa-solid fa-file-invoice fa-3x mb-3"></i>
-                        <h5 class="card-title mb-1">Desprendibles de Pago</h5>
+                        <h5 class="tarjeta-title mb-1">Desprendibles de Pago</h5>
                     </div>
                 </div>
             </div>
 
             <div class="col-6 col-md-4 col-lg-2">
-                <div class="card card-hover shadow-lg border-0 text-center">
-                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                    <div class="tarjeta-body d-flex flex-column align-items-center justify-content-center">
                         <i class="fa-solid fa-file-invoice fa-3x mb-3"></i>
-                        <h5 class="card-title mb-1">Certificado de Ingresos y Retenciones</h5>
+                        <h5 class="tarjeta-title mb-1">Certificado de Ingresos y Retenciones</h5>
                     </div>
                 </div>
             </div>

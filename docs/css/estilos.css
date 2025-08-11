@@ -1117,6 +1117,40 @@ a.selected {
     color: #150940;
 }
 
+.tarjeta {
+    border-radius: 15px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    transition: transform 0.2s ease;
+    margin-bottom: 20px;
+    height: 100%;
+}
+
+.tarjeta-hover {
+    background-color: #150940;
+    border-radius: 15px;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.tarjeta-hover h5,
+.tarjeta-hover h3,
+.tarjeta-hover i {
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.tarjeta-hover:hover {
+    background-color: #ffffff;
+    transform: scale(1.02);    
+    box-shadow: 0 0 10px rgba(24, 46, 89);
+}
+
+.tarjeta-hover:hover h5,
+.tarjeta-hover:hover h3,
+.tarjeta-hover:hover i {
+    color: #150940;
+}
+
 .carda {
     border-radius: 15px;
     background-color: #f8f9fa;
