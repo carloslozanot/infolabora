@@ -17,6 +17,7 @@ if (isset($_GET['cedula'])) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,47 +31,52 @@ if (isset($_GET['cedula'])) {
     <link rel="stylesheet" href="docs/css/estilos.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class="contenido-desprendible container mt-5">
-        <div class="card shadow-lg p-4 seccion-certificados text-center">
-            <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO DE INGRESOS Y RETENCIONES</h2>
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <h2 class="text-center">CERTIFICADO DE INGRESOS Y RETENCIONES</h2>
+            <h4 class="mt-4">Mis Certificados</h4>
 
-            <div id="contenido-integrantes" class="contenido">
-                <h2>Mis Certificados</h2><br>
+            <table class="table table-striped table-bordered table-hover mt-3">
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $SQL = "SELECT * FROM certificados WHERE cedula = '$cedula'";
+                    $dato = mysqli_query($conexion, $SQL);
 
-                <table class="table table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Cédula</th>
-                            <th>Tipo</th>
-                            <th>Valor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $SQL = "SELECT * FROM certificados WHERE cedula = '$cedula'";
-                        $dato = mysqli_query($conexion, $SQL);
+                    if ($dato && $dato->num_rows > 0) {
+                        while ($fila = mysqli_fetch_assoc($dato)) {
+                            echo "<tr>";
+                            echo "<td>{$fila['cedula']}</td>";
+                            echo "<td>{$fila['tipo']}</td>";
 
-                        if ($dato && $dato->num_rows > 0) {
-                            while ($fila = mysqli_fetch_assoc($dato)) {
-                                echo "<tr>";
-                                echo "<td>{$fila['cedula']}</td>";
-                                echo "<td>{$fila['tipo']}</td>";
+                            if (!empty($fila['valor'])) {
                                 echo "<td><a href='{$fila['valor']}' target='_blank'>Ver documento</a></td>";
-                                echo "</tr>";
+                                echo "<td><a href='{$fila['valor']}' target='_blank' class='btn btn-primary btn-sm'>Ver</a></td>";
+                            } else {
+                                echo "<td>Sin documento</td>";
+                                echo "<td><a href='cargar_certificado.php?id={$fila['id']}' class='btn btn-warning btn-sm'>Cargar</a></td>";
                             }
-                        } else {
-                            echo "<tr><td colspan='3'>No hay certificados disponibles</td></tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
 
-            <div class="container my-3">
-                <div class="boton-certificado-lab d-flex justify-content-center">
-                    <a href="index_th.php" class="btn btn-danger">Regresar</a>
-                </div>
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='4'>No hay certificados disponibles</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+            <div class="text-center">
+                <a href="index_th.php" class="btn btn-danger">Regresar</a>
             </div>
         </div>
     </div>
