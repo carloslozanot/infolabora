@@ -41,7 +41,7 @@ $cedula = $_SESSION['usuario'];
             <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO DE INGRESOS Y RETENCIONES</h2>
             <p class="subtitulo-desprendible">Seleccione el año que desea generar</p>
 
-            <form method="post" action="fpdf/desprendible.php" class="mt-4" target="_blank">
+            <form method="post" action="descargar_certificado.php" class="mt-4" target="_blank">
                 <div class="form-group">
                     <select name="ano" class="form-control custom-select-desprendible" required>
                         <option selected disabled>SELECCIONE EL AÑO</option>
