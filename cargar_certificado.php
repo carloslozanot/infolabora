@@ -16,7 +16,7 @@ $id = intval($_GET['id']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === UPLOAD_ERR_OK) {
         $nombreArchivo = basename($_FILES['archivo']['name']);
-        $rutaDestino = "uploads/certificados/" . $nombreArchivo;
+        $rutaDestino = "docs/documents/certificado_ing_ret/" . $nombreArchivo;
 
         // Crear carpeta si no existe
         if (!is_dir("uploads/certificados")) {
