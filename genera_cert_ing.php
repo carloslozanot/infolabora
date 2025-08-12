@@ -41,7 +41,7 @@ $cedula = $_SESSION['usuario'];
             <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO DE INGRESOS Y RETENCIONES</h2>
 
             <div id="contenido-integrantes" class="contenido" style="display: none;">
-                <h2>Lista de Integrantes</h2><br>
+                <h2>Lista</h2><br>
 
                 <table class="table table-striped table-bordered table-hover" id="tabla_integrantes">
                     <thead>
