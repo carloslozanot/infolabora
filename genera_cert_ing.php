@@ -3,18 +3,34 @@ session_start();
 include("php/conexion.php");
 
 if (!isset($_SESSION['usuario'])) {
-    echo '
-        <script>
-            alert("Debe iniciar sesión");
-            window.location = "index.php";
-        </script>
-    ';
+    echo '<p>Debe iniciar sesión.</p>';
     exit;
 }
 
-// Cédula del usuario en sesión
-$cedula = $_SESSION['usuario'];
+$cedula = trim($_SESSION['usuario']); // Elimina espacios
+$cedula = preg_replace('/\D/', '', $cedula); // Solo números por si acaso
+
+// Consulta usando CAST para evitar problemas de tipo
+$SQL = "SELECT * 
+        FROM certificados 
+        WHERE CAST(cedula AS CHAR) = '$cedula'";
+
+$dato = mysqli_query($conexion, $SQL);
+
+if (!$dato) {
+    echo "Error en la consulta: " . mysqli_error($conexion);
+    exit;
+}
+
+if ($dato->num_rows > 0) {
+    while ($row = mysqli_fetch_assoc($dato)) {
+        echo "<p>Certificado ID: {$row['id']} - Cedula: {$row['cedula']}</p>";
+    }
+} else {
+    echo "<p>No hay certificados disponibles para la cédula $cedula</p>";
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
