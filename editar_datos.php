@@ -132,7 +132,7 @@ if (isset($_GET['cedula'])) {
                 </h3>
             </div>
             <div class="card-body">
-                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+                <form action="<?= $_SERVER['PHP_SELF'] . '?cedula=' . urlencode($cedula) ?>" method="post">
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label class="form-label">CÉDULA</label>
@@ -293,7 +293,7 @@ if (isset($_GET['cedula'])) {
                                 value="<?php echo $fecha_retiro ?>" disabled><br>
                         </div>
 
-                        <input type="hidden" name="cedula" value="<?php echo $cedula ?>">
+                        <input type="hidden" name="cedula_original" value="<?= htmlspecialchars($cedula) ?>">
 
                     </div>
                     <div class="text-center mt-4">
