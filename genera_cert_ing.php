@@ -36,7 +36,7 @@ if (isset($_GET['cedula'])) {
     <div class="container mt-5">
         <div class="card shadow-lg p-4">
             <h2 class="text-center">CERTIFICADO DE INGRESOS Y RETENCIONES</h2>
-            <h4 class="mt-4">Mis Certificados</h4>
+            <h4 class="mt-4">Certificados</h4>
 
             <table class="table table-striped table-bordered table-hover mt-3">
                 <thead>
