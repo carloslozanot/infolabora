@@ -283,21 +283,25 @@ if (isset($_GET['cedula'])) {
                             <input type="text" name="imagen" class="form-control" value="<?php echo $imagen ?>"><br>
                         </div>
                         <div class="col-md-4 mb-3">
-                        <label class="form-label">ESTADO</label>
+                            <label class="form-label">ESTADO</label>
                             <input type="text" name="estado" class="form-control" value="<?php echo $estado ?>"
                                 disabled><br>
                         </div>
                         <div class="col-md-4 mb-3">
-                        <label class="form-label">FECHA DE RETIRO</label>
+                            <label class="form-label">FECHA DE RETIRO</label>
                             <input type="text" name="fecha_retiro" class="form-control"
                                 value="<?php echo $fecha_retiro ?>" disabled><br>
                         </div>
 
                         <input type="hidden" name="cedula" value="<?php echo $cedula ?>">
 
-                        <div class="botones-editar-integrante">
-                            <button type="submit" class="btn btn-success" name="enviar">Editar</button>
-                            <a href="<?php echo $destino; ?>" class="btn btn-danger">Regresar</a>
+                        <div class="text-center mt-4">
+                            <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-lg me-2">
+                                <i class="fas fa-check-circle"></i> Editar
+                            </button>
+                            <a href="index_integrante.php" class="btn btn-danger btn-lg">
+                                <i class="fas fa-arrow-left"></i> Regresar
+                            </a>
                         </div>
                     </div>
                 </form>
