@@ -293,7 +293,7 @@ if (!isset($_SESSION['usuario'])) {
                         <a href="desprendible_pago.php" class="btn boton-certificados">
                             <i class="fa-solid fa-file-invoice-dollar"></i> DESPRENDIBLE DE PAGO
                         </a>
-                        <a href="" class="btn boton-certificados">
+                        <a href="certificado_ing_ret.php" class="btn boton-certificados">
                             <i class="fa-solid fa-file-invoice"></i> CERTIFICADO DE INGRESOS Y RETENCIONES
                         </a>
                     </div>
