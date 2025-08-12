@@ -39,7 +39,7 @@ if (isset($_GET['cedula'])) {
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="bg-light">
     <div id="editar-integrante">
         <?php
         include("php/conexion.php");
