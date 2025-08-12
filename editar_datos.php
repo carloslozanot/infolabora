@@ -128,7 +128,7 @@ if (isset($_GET['cedula'])) {
         <div class="card shadow">
             <div class="card-header text-white" style="background-color: #150940">
                 <h3 class="mb-0 titulo-banner">
-                    <i class="fas fa-plane-departure"></i> EDITAR DATOS PERSONALES
+                    <i class="fas fa-users"></i> EDITAR DATOS PERSONALES
                 </h3>
             </div>
             <div class="card-body">
@@ -147,13 +147,15 @@ if (isset($_GET['cedula'])) {
                             <input type="text" name="apellidos" class="form-control"
                                 value="<?php echo $apellidos ?>"><br>
                         </div>
+                        <div class="col-md-6 mb-3">
+                        <label class="form-label">EDAD</label>
+                            <input type="text" name="edad" class="form-control" value="<?php echo $edad ?>"><br>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                        <label class="form-label">CELULAR</label>
+                            <input type="text" name="celular" class="form-control" value="<?php echo $celular ?>"><br>
+                        </div>
                     </div>
-                    <h3>Edad</h3>
-                    <input type="text" name="edad" class="form-control" value="<?php echo $edad ?>"><br>
-
-                    <h3>Celular</h3>
-                    <input type="text" name="celular" class="form-control" value="<?php echo $celular ?>"><br>
-
                     <h3>Correo</h3>
                     <input type="text" name="correo" class="form-control" value="<?php echo $correo ?>"><br>
 
