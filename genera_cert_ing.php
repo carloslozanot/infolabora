@@ -40,6 +40,37 @@ $cedula = $_SESSION['usuario'];
         <div class="card shadow-lg p-4 seccion-certificados text-center">
             <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO DE INGRESOS Y RETENCIONES</h2>
 
+            <div id="contenido-integrantes" class="contenido" style="display: none;">
+                <h2>Lista de Integrantes</h2><br>
+
+                <table class="table table-striped table-bordered table-hover" id="tabla_integrantes">
+                    <thead>
+                        <tr>
+                            <th>Cédula</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $SQL = "SELECT * FROM certificados";
+                        $dato = mysqli_query($conexion, $SQL);
+                        if ($dato->num_rows > 0) {
+                            while ($fila = mysqli_fetch_array($dato)) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $fila['cedula']; ?></td>
+                                    <td><?php echo $fila['tipo']; ?></td>
+                                    <td><?php echo $fila['valor']; ?></td>
+                                </tr>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="container my-3">
                 <div class="boton-certificado-lab d-flex justify-content-center">
                     <a href="index_th.php" class="btn btn-danger">Regresar</a>
