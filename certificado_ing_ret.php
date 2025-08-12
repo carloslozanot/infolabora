@@ -48,18 +48,6 @@ $cedula = $_SESSION['usuario'];
                         <?php
                         $query = "SELECT año FROM certificados WHERE cedula = '$cedula' AND tipo = 'Ingresos y Retenciones' ORDER BY año DESC";
                         $resultado = mysqli_query($conexion, $query);
-
-                        if ($resultado && mysqli_num_rows($resultado) > 0) {
-                            while ($row = mysqli_fetch_assoc($resultado)) {
-                                $ano_mes = $row['año'];
-                                $anio = substr($ano_mes, 0, 4);
-                                $mes = substr($ano_mes, 4, 2);
-                                $mesNombre = $meses[$mes] ?? 'Mes inválido';
-                                echo "<option value='$ano_mes'>$mesNombre - $anio</option>";
-                            }
-                        } else {
-                            echo "<option disabled>No hay años disponibles</option>";
-                        }
                         ?>
                     </select>
                 </div>

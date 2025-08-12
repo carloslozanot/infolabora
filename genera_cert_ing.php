@@ -42,7 +42,7 @@ $cedula = $_SESSION['usuario'];
 
             <div class="container my-3">
                 <div class="boton-certificado-lab d-flex justify-content-center">
-                    <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
+                    <a href="index_th.php" class="btn btn-danger">Regresar</a>
                 </div>
             </div>
         </div>
