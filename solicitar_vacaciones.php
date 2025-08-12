@@ -107,8 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar'])) {
     });
 </script>
 
-
-
 <body class="bg-light">
     <div id="agregar-solicitud">
         <?php

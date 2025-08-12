@@ -298,7 +298,7 @@ if (isset($_GET['cedula'])) {
                     </div>
                     <div class="text-center mt-4">
                         <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-lg me-2">
-                            <i class="fas fa-check-circle"></i> Editar
+                            <i class="fas fa-save"></i> Guardar
                         </button>
                         <a href="index_integrante.php" class="btn btn-danger btn-lg">
                             <i class="fas fa-arrow-left"></i> Regresar
