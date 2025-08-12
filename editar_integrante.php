@@ -91,7 +91,7 @@ if (isset($_GET['id'])) {
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                         <div class="tarjeta-body">
-                            <i class="fa-solid fa-receipt fa-3x mb-3"></i>
+                            <i class="fa-solid fa-receipt fa-3x mb-4"></i>
                             <h5 class="tarjeta-title mb-1">Certificado de Ingresos y Retenciones</h5>
                         </div>
                     </div>
