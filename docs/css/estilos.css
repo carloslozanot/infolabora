@@ -661,7 +661,6 @@ header {
     width: 80%;
     margin-top: 3%;
     overflow: auto;
-    /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
 
 #editar-integrante .titulo-editar-integrante {
