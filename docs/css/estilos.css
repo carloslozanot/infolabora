@@ -658,7 +658,7 @@ header {
     border-radius: 10px;
     margin: 0 auto;
     box-shadow: 0 0 10px rgba(24, 46, 89);
-    width: 590px;
+    width: 90%;
     overflow: auto;
     /* Agregamos desplazamiento vertical si el contenido es demasiado largo */
 }
