@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 
 include("php/conexion.php");
 
@@ -129,16 +129,20 @@ if (isset($_GET['cedula'])) {
             <p style="font-size: 36px; font-weight:700;">EDITAR INTEGRANTE<br></p>
         </div>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-
-            <h3>Cédula</h3>
-            <input type="text" name="cedula" class="form-control" value="<?php echo $cedula ?>"><br>
-
-            <h3>Nombres</h3>
-            <input type="text" name="nombres" class="form-control" value="<?php echo $nombres ?>"><br>
-
-            <h3>Apellidos</h3>
-            <input type="text" name="apellidos" class="form-control" value="<?php echo $apellidos ?>"><br>
-
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                <label class="form-label">CÉDULA</label>
+                    <input type="text" name="cedula" class="form-control" value="<?php echo $cedula ?>"><br>
+                </div>
+                <div class="col-md-6 mb-3">
+                <label class="form-label">NOMBRES</label>
+                    <input type="text" name="nombres" class="form-control" value="<?php echo $nombres ?>"><br>
+                </div>
+                <div class="col-md-6 mb-3">
+                <label class="form-label">APELLIDOS</label>
+                    <input type="text" name="apellidos" class="form-control" value="<?php echo $apellidos ?>"><br>
+                </div>
+            </div>
             <h3>Edad</h3>
             <input type="text" name="edad" class="form-control" value="<?php echo $edad ?>"><br>
 
