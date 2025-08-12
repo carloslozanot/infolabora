@@ -156,136 +156,149 @@ if (isset($_GET['cedula'])) {
                             <input type="text" name="celular" class="form-control" value="<?php echo $celular ?>"><br>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <h3>Correo</h3>
+                            <label class="form-label">CORREO</label>
                             <input type="text" name="correo" class="form-control" value="<?php echo $correo ?>"><br>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <h3>Fecha de ingreso</h3>
+                            <label class="form-label">FECHA DE INGRESO</label>
                             <input type="date" name="fecha_ingreso" class="form-control"
                                 value="<?php echo $fecha_ingreso ?>"><br>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <h3>Dirección</h3>
+                            <label class="form-label">DIRECCIÓN</label>
                             <input type="text" name="direccion" class="form-control"
                                 value="<?php echo $direccion ?>"><br>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <h3>Ciudad de residencia</h3>
+                            <label class="form-label">CIUDAD DE RESIDENCIA</label>
                             <input type="text" name="ciudad_residencia" class="form-control"
                                 value="<?php echo $ciudad_residencia ?>"><br>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <h3>Cargo</h3>
+                            <label class="form-label">CARGO</label>
                             <input type="text" name="cargo" class="form-control" value="<?php echo $cargo ?>"><br>
                         </div>
-                    </div>
-                    <h3>Área</h3>
-                    <select name="area" class="form-control" required>
-                        <?php
-                        include("php/conexion.php");
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">ÁREA</label>
+                            <select name="area" class="form-control" required>
+                                <?php
+                                include("php/conexion.php");
 
-                        $consulta = "SELECT valor FROM parametros WHERE tipo = 'Area'";
-                        $resultado = mysqli_query($conexion, $consulta);
+                                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Area'";
+                                $resultado = mysqli_query($conexion, $consulta);
 
-                        while ($fila = mysqli_fetch_assoc($resultado)) {
-                            echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
-                        }
-                        ?>
-                    </select><br>
+                                while ($fila = mysqli_fetch_assoc($resultado)) {
+                                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                                }
+                                ?>
+                            </select><br>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">TIPO DE CONTRATO</label>
+                            <input type="text" name="tipo_contrato" class="form-control"
+                                value="<?php echo $tipo_contrato ?>"><br>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">LÍDER INMEDIATO</label>
+                            <input type="text" name="lider_inmediato" class="form-control"
+                                value="<?php echo $lider_inmediato ?>"><br>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">CAJA DE COMPENSACIÓN</label>
+                            <select name="caja" class="form-control" required>
+                                <?php
+                                include("php/conexion.php");
 
-                    <h3>Tipo de Contrato</h3>
-                    <input type="text" name="tipo_contrato" class="form-control"
-                        value="<?php echo $tipo_contrato ?>"><br>
+                                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Caja'";
+                                $resultado = mysqli_query($conexion, $consulta);
 
-                    <h3>Líder Inmediato</h3>
-                    <input type="text" name="lider_inmediato" class="form-control"
-                        value="<?php echo $lider_inmediato ?>"><br>
+                                while ($fila = mysqli_fetch_assoc($resultado)) {
+                                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                                }
+                                ?>
+                            </select><br>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">EPS</label>
+                            <select name="eps" class="form-control" required>
+                                <?php
+                                include("php/conexion.php");
 
-                    <h3>Caja de compensación</h3>
-                    <select name="caja" class="form-control" required>
-                        <?php
-                        include("php/conexion.php");
+                                $consulta = "SELECT valor FROM parametros WHERE tipo = 'EPS'";
+                                $resultado = mysqli_query($conexion, $consulta);
 
-                        $consulta = "SELECT valor FROM parametros WHERE tipo = 'Caja'";
-                        $resultado = mysqli_query($conexion, $consulta);
+                                while ($fila = mysqli_fetch_assoc($resultado)) {
+                                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                                }
+                                ?>
+                            </select><br>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">ARL</label>
+                            <select name="arl" class="form-control" required>
+                                <?php
+                                include("php/conexion.php");
 
-                        while ($fila = mysqli_fetch_assoc($resultado)) {
-                            echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
-                        }
-                        ?>
-                    </select><br>
+                                $consulta = "SELECT valor FROM parametros WHERE tipo = 'ARL'";
+                                $resultado = mysqli_query($conexion, $consulta);
 
-                    <h3>EPS</h3>
-                    <select name="eps" class="form-control" required>
-                        <?php
-                        include("php/conexion.php");
+                                while ($fila = mysqli_fetch_assoc($resultado)) {
+                                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                                }
+                                ?>
+                            </select><br>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">PENSIONES</label>
+                            <select name="pensiones" class="form-control" required>
+                                <?php
+                                include("php/conexion.php");
 
-                        $consulta = "SELECT valor FROM parametros WHERE tipo = 'EPS'";
-                        $resultado = mysqli_query($conexion, $consulta);
+                                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Pensiones'";
+                                $resultado = mysqli_query($conexion, $consulta);
 
-                        while ($fila = mysqli_fetch_assoc($resultado)) {
-                            echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
-                        }
-                        ?>
-                    </select><br>
+                                while ($fila = mysqli_fetch_assoc($resultado)) {
+                                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                                }
+                                ?>
+                            </select><br>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">CESANTÍAS</label>
+                            <select name="cesantias" class="form-control" required>
+                                <?php
+                                include("php/conexion.php");
 
-                    <h3>ARL</h3>
-                    <select name="arl" class="form-control" required>
-                        <?php
-                        include("php/conexion.php");
+                                $consulta = "SELECT valor FROM parametros WHERE tipo = 'Cesantias'";
+                                $resultado = mysqli_query($conexion, $consulta);
 
-                        $consulta = "SELECT valor FROM parametros WHERE tipo = 'ARL'";
-                        $resultado = mysqli_query($conexion, $consulta);
+                                while ($fila = mysqli_fetch_assoc($resultado)) {
+                                    echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
+                                }
+                                ?>
+                            </select><br>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">IMAGEN</label>
+                            <input type="text" name="imagen" class="form-control" value="<?php echo $imagen ?>"><br>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <label class="form-label">ESTADO</label>
+                            <input type="text" name="estado" class="form-control" value="<?php echo $estado ?>"
+                                disabled><br>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <label class="form-label">FECHA DE RETIRO</label>
+                            <input type="text" name="fecha_retiro" class="form-control"
+                                value="<?php echo $fecha_retiro ?>" disabled><br>
+                        </div>
 
-                        while ($fila = mysqli_fetch_assoc($resultado)) {
-                            echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
-                        }
-                        ?>
-                    </select><br>
+                        <input type="hidden" name="cedula" value="<?php echo $cedula ?>">
 
-                    <h3>Pensiones</h3>
-                    <select name="pensiones" class="form-control" required>
-                        <?php
-                        include("php/conexion.php");
-
-                        $consulta = "SELECT valor FROM parametros WHERE tipo = 'Pensiones'";
-                        $resultado = mysqli_query($conexion, $consulta);
-
-                        while ($fila = mysqli_fetch_assoc($resultado)) {
-                            echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
-                        }
-                        ?>
-                    </select><br>
-
-                    <h3>Cesantías</h3>
-                    <select name="cesantias" class="form-control" required>
-                        <?php
-                        include("php/conexion.php");
-
-                        $consulta = "SELECT valor FROM parametros WHERE tipo = 'Cesantias'";
-                        $resultado = mysqli_query($conexion, $consulta);
-
-                        while ($fila = mysqli_fetch_assoc($resultado)) {
-                            echo '<option value="' . $fila['valor'] . '">' . $fila['valor'] . '</option>';
-                        }
-                        ?>
-                    </select><br>
-
-                    <h3>Imagen</h3>
-                    <input type="text" name="imagen" class="form-control" value="<?php echo $imagen ?>"><br>
-
-                    <h3>Estado</h3>
-                    <input type="text" name="estado" class="form-control" value="<?php echo $estado ?>" disabled><br>
-
-                    <h3>Fecha de retiro</h3>
-                    <input type="text" name="fecha_retiro" class="form-control" value="<?php echo $fecha_retiro ?>"
-                        disabled><br>
-
-                    <input type="hidden" name="cedula" value="<?php echo $cedula ?>">
-
-                    <div class="botones-editar-integrante">
-                        <button type="submit" class="btn btn-success" name="enviar">Editar</button>
-                        <a href="<?php echo $destino; ?>" class="btn btn-danger">Regresar</a>
+                        <div class="botones-editar-integrante">
+                            <button type="submit" class="btn btn-success" name="enviar">Editar</button>
+                            <a href="<?php echo $destino; ?>" class="btn btn-danger">Regresar</a>
+                        </div>
                     </div>
                 </form>
             </div>
