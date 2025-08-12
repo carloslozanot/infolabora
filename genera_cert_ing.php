@@ -13,7 +13,7 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 // Cédula del usuario en sesión
-$cedula = $_SESSION['cedula'];
+$cedula = $_SESSION['usuario'];
 ?>
 
 <!DOCTYPE html>
