@@ -41,14 +41,14 @@ $cedula = $_SESSION['usuario'];
             <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO DE INGRESOS Y RETENCIONES</h2>
             <p class="subtitulo-desprendible">Seleccione el año que desea generar</p>
 
-            <form method="post" action="descargar_certificado.php" target="_blank" class="mt-4">
+            <form method="get" action="descargar_certificado.php" target="_blank" class="mt-4">
                 <div class="form-group">
                     <select name="ano" class="form-control custom-select-desprendible" required>
                         <option selected disabled>SELECCIONE EL AÑO</option>
                         <?php
+                        // Ejemplo para llenar opciones
                         $query = "SELECT año FROM certificados WHERE cedula = '$cedula' AND tipo = 'Ingresos y Retenciones' ORDER BY año DESC";
                         $resultado = mysqli_query($conexion, $query);
-
                         if ($resultado && mysqli_num_rows($resultado) > 0) {
                             while ($row = mysqli_fetch_assoc($resultado)) {
                                 $anio = $row['año'];
@@ -67,6 +67,7 @@ $cedula = $_SESSION['usuario'];
                     <i class="fa-solid fa-file"></i> GENERAR CERTIFICADO
                 </button>
             </form>
+
             <div class="container my-3">
                 <div class="boton-certificado-lab d-flex justify-content-center">
                     <a href="index_integrante.php" class="btn btn-danger">Regresar</a>
