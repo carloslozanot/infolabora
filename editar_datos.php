@@ -295,14 +295,14 @@ if (isset($_GET['cedula'])) {
 
                         <input type="hidden" name="cedula" value="<?php echo $cedula ?>">
 
-                        <div class="text-center mt-4">
-                            <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-lg me-2">
-                                <i class="fas fa-check-circle"></i> Editar
-                            </button>
-                            <a href="index_integrante.php" class="btn btn-danger btn-lg">
-                                <i class="fas fa-arrow-left"></i> Regresar
-                            </a>
-                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-lg me-2">
+                            <i class="fas fa-check-circle"></i> Editar
+                        </button>
+                        <a href="index_integrante.php" class="btn btn-danger btn-lg">
+                            <i class="fas fa-arrow-left"></i> Regresar
+                        </a>
                     </div>
                 </form>
             </div>
