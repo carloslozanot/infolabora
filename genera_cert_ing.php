@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 include("php/conexion.php");
 
 if (!isset($_SESSION['usuario'])) {
@@ -14,13 +12,12 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-// Obtener el ID del usuario desde la sesión
+// Cédula del usuario en sesión
 $cedula = $_SESSION['usuario'];
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,16 +31,15 @@ $cedula = $_SESSION['usuario'];
     <link rel="stylesheet" href="docs/css/estilos.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
     <div class="contenido-desprendible container mt-5">
         <div class="card shadow-lg p-4 seccion-certificados text-center">
             <h2 style="font-size: 35px; font-weight: 700;">CERTIFICADO DE INGRESOS Y RETENCIONES</h2>
 
-            <div id="contenido-integrantes" class="contenido" style="display: none;">
-                <h2>Lista</h2><br>
+            <div id="contenido-integrantes" class="contenido">
+                <h2>Mis Certificados</h2><br>
 
-                <table class="table table-striped table-bordered table-hover" id="tabla_integrantes">
+                <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>Cédula</th>
@@ -53,18 +49,19 @@ $cedula = $_SESSION['usuario'];
                     </thead>
                     <tbody>
                         <?php
-                        $SQL = "SELECT * FROM certificados";
+                        $SQL = "SELECT * FROM certificados WHERE cedula = '$cedula'";
                         $dato = mysqli_query($conexion, $SQL);
-                        if ($dato->num_rows > 0) {
-                            while ($fila = mysqli_fetch_array($dato)) {
-                                ?>
-                                <tr>
-                                    <td><?php echo $fila['cedula']; ?></td>
-                                    <td><?php echo $fila['tipo']; ?></td>
-                                    <td><?php echo $fila['valor']; ?></td>
-                                </tr>
-                                <?php
+
+                        if ($dato && $dato->num_rows > 0) {
+                            while ($fila = mysqli_fetch_assoc($dato)) {
+                                echo "<tr>";
+                                echo "<td>{$fila['cedula']}</td>";
+                                echo "<td>{$fila['tipo']}</td>";
+                                echo "<td><a href='{$fila['valor']}' target='_blank'>Ver documento</a></td>";
+                                echo "</tr>";
                             }
+                        } else {
+                            echo "<tr><td colspan='3'>No hay certificados disponibles</td></tr>";
                         }
                         ?>
                     </tbody>
@@ -78,7 +75,5 @@ $cedula = $_SESSION['usuario'];
             </div>
         </div>
     </div>
-
 </body>
-
 </html>
