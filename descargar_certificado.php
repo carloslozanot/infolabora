@@ -23,7 +23,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         // Forzar descarga
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="' . basename($rutaArchivo) . '"');
+        header('Content-Disposition: inline; filename="' . basename($rutaArchivo) . '"');
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
