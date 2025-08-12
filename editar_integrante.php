@@ -88,7 +88,7 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-4">
                     <a href="genera_cert_ing.php?cedula=<?php echo $cedula; ?>" class="text-decoration-none text-dark">
                         <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                             <div class="tarjeta-body">
