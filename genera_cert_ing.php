@@ -7,27 +7,10 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-$cedula = trim($_SESSION['usuario']); // Elimina espacios
-$cedula = preg_replace('/\D/', '', $cedula); // Solo números por si acaso
-
-// Consulta usando CAST para evitar problemas de tipo
-$SQL = "SELECT * 
-        FROM certificados 
-        WHERE CAST(cedula AS CHAR) = '$cedula'";
-
-$dato = mysqli_query($conexion, $SQL);
-
-if (!$dato) {
-    echo "Error en la consulta: " . mysqli_error($conexion);
-    exit;
-}
-
-if ($dato->num_rows > 0) {
-    while ($row = mysqli_fetch_assoc($dato)) {
-        echo "<p>Certificado ID: {$row['id']} - Cedula: {$row['cedula']}</p>";
-    }
+if (isset($_GET['cedula'])) {
+    $cedula = intval($_GET['cedula']);
 } else {
-    echo "<p>No hay certificados disponibles para la cédula $cedula</p>";
+    die("No se recibió la cédula");
 }
 ?>
 
