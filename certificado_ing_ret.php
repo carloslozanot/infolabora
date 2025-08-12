@@ -61,7 +61,7 @@ $cedula = $_SESSION['usuario'];
                     </select>
                 </div>
 
-                <input type="hidden" name="id" value="<?php echo $cedula; ?>">
+                <input type="hidden" name="cedula" value="<?php echo $cedula; ?>">
 
                 <button type="submit" class="btn boton-certificados mt-3">
                     <i class="fa-solid fa-file"></i> GENERAR CERTIFICADO
