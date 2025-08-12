@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bind_param("si", $rutaDestino, $id);
             $stmt->execute();
 
-            echo "<script>alert('Archivo cargado correctamente'); window.location='tupagina_certificados.php?cedula=".$_SESSION['usuario']."';</script>";
+            echo "<script>alert('Archivo cargado correctamente'); window.location='index_th.php?cedula=".$_SESSION['usuario']."';</script>";
         } else {
             echo "<script>alert('Error al subir el archivo');</script>";
         }
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="file" name="archivo" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-success">Subir</button>
-        <a href="tupagina_certificados.php?cedula=<?= $_SESSION['usuario'] ?>" class="btn btn-secondary">Cancelar</a>
+        <a href="index_th.php?cedula=<?= $_SESSION['usuario'] ?>" class="btn btn-secondary">Cancelar</a>
     </form>
 </body>
 </html>
