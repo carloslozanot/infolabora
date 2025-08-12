@@ -41,7 +41,7 @@ $cedula = $_SESSION['usuario'];
             <h2 style="font-size: 35px; font-weight: 700;">DESPRENDIBLE DE PAGO</h2>
             <p class="subtitulo-desprendible">Seleccione el periodo que desea generar</p>
 
-            <form method="post" action="fpdf/desprendible.php" class="mt-4" target="_blank">
+            <form method="get" action="descargar_certificado.php" target="_blank" class="mt-4">
                 <div class="form-group">
                     <select name="periodo" class="form-control custom-select-desprendible" required>
                         <option selected disabled>SELECCIONE EL PERIODO</option>
