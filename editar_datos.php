@@ -296,11 +296,11 @@ if (isset($_GET['cedula'])) {
                         <input type="hidden" name="cedula_original" value="<?= htmlspecialchars($cedula) ?>">
 
                     </div>
-                    <div class="text-center mt-4">
+                    <div class="text-center mt-1">
                         <button type="submit" name="enviar" id="btn-enviar" class="btn btn-success btn-lg me-2">
                             <i class="fas fa-save"></i> Guardar
                         </button>
-                        <a href="index_integrante.php" class="btn btn-danger btn-lg">
+                        <a href="index_th.php" class="btn btn-danger btn-lg">
                             <i class="fas fa-arrow-left"></i> Regresar
                         </a>
                     </div>
