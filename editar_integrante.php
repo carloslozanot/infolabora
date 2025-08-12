@@ -41,25 +41,25 @@ if (isset($_GET['id'])) {
 
 <div id="contenido-carga">
     <div class="card shadow-lg p-4 seccion-certificados text-center">
-        <h2 style="font-size: 35px; font-weight: 700;">EDITAR INTEGRANTE</h2>
+        <label class="form-label">EDITAR INTEGRANTES</label>
         <div class="container py-5">
 
             <div class="row g-4 justify-content-center mb-3">
 
                 <input type="hidden" name="id" value="<?php echo $cedula; ?>">
 
-                <div class="col-12 col-md-6 col-lg-4">
-                    <a href="editar_datos.php?cedula=<?php echo $cedula; ?>" class="text-decoration-none text-dark">
-                        <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
-                            <div class="tarjeta-body">
-                                <i class="fa-solid fa-user fa-3x mb-3"></i>
-                                <h5 class="tarjeta-title mb-1">Datos Personales</h5>
-                            </div>
+                <div class="col-12 col-md-6 col-lg-3>
+                    <a href=" editar_datos.php?cedula=<?php echo $cedula; ?>" class="text-decoration-none text-dark">
+                    <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
+                        <div class="tarjeta-body">
+                            <i class="fa-solid fa-user fa-3x mb-3"></i>
+                            <h5 class="tarjeta-title mb-1">Datos Personales</h5>
                         </div>
+                    </div>
                     </a>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                         <div class="tarjeta-body">
                             <i class="fa-solid fa-umbrella-beach fa-3x mb-3"></i>
@@ -68,7 +68,7 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                         <div class="tarjeta-body">
                             <i class="fa-solid fa-file-invoice-dollar fa-3x mb-3"></i>
@@ -79,7 +79,7 @@ if (isset($_GET['id'])) {
             </div>
 
             <div class="row g-4 justify-content-center">
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                         <div class="tarjeta-body">
                             <i class="fa-solid fa-money-check-dollar fa-3x mb-3"></i>
@@ -88,7 +88,7 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="tarjeta tarjeta-hover shadow-lg border-0 text-center">
                         <div class="tarjeta-body">
                             <i class="fa-solid fa-receipt fa-3x mb-3"></i>
